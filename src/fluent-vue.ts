@@ -1,6 +1,5 @@
-// Import here Polyfills if needed. Recommended core-js (npm i -D core-js)
-  // import "core-js/fn/array.find"
-  // ...
-export default class DummyClass {
+import { FluentBundle, ftl } from 'fluent';
 
-}
+// import "core-js"
+
+export const bundle = new FluentBundle('en-US');
