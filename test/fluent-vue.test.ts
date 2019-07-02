@@ -1,23 +1,46 @@
-import { bundle } from "../src/fluent-vue"
+import { bundle, ftl } from '../src/fluent-vue'
 
-import * as messages from "./translations.ftl"
-
-console.log(messages)
-
-/**
- * Dummy test
- */
-describe("Dummy test", () => {
-  it("fluent works", () => {
+describe('fluent', () => {
+  it('simple case works', () => {
     // Arange
-    const errors = bundle.addMessages(messages);
+    const errors = bundle.addMessages(ftl`
+      -brand-name = Foo 3000
+      welcome = Welcome, { $name }, to { -brand-name }!
+    `)
+    const helloUser = bundle.getMessage('welcome')
 
     // Act
-    const helloUser = bundle.getMessage('hello-user');
-    const message = bundle.format(helloUser, { userName: 'John' });
+    const message = bundle.format(helloUser, { name: 'John' })
 
     // Assert
-    expect(errors.length).toEqual(0);
-    expect(message).toEqual("Hello, John!")
+    expect(errors).toEqual([])
+    expect(message).toEqual('Welcome, John, to Foo 3000!')
+  })
+
+  it('complex case works', () => {
+    // Arange
+    const errors = bundle.addMessages(ftl`
+      shared-photos =
+        { $userName } { $photoCount ->
+            [one] added a new photo
+          *[other] added { $photoCount } new photos
+        } to { $userGender ->
+            [male] his stream
+            [female] her stream
+          *[other] their stream
+        }.
+    `)
+    const sharedPhotos = bundle.getMessage('shared-photos')
+
+    // Act
+    const message = bundle.format(sharedPhotos, {
+      userName: 'John',
+      photoCount: 1,
+      userGender: 'male'
+    })
+
+    // Assert
+    expect(errors).toEqual([])
+    expect(message).toEqual('John added a new photo to his stream.')
   })
 })

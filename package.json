@@ -47,7 +47,6 @@
   },
   "jest": {
     "transform": {
-      ".ftl": "jest-raw-loader",
       ".(ts|tsx)": "ts-jest"
     },
     "testEnvironment": "node",
@@ -96,7 +95,6 @@
     "husky": "^1.0.1",
     "jest": "^23.6.0",
     "jest-config": "^23.6.0",
-    "jest-raw-loader": "^1.0.1",
     "lint-staged": "^8.0.0",
     "lodash.camelcase": "^4.3.0",
     "prettier": "^1.14.3",
