@@ -33,6 +33,6 @@ describe('vue integration', () => {
     } as any)
 
     // Assert
-    console.log(mounted)
+    expect(mounted.element).toMatchSnapshot()
   })
 })
