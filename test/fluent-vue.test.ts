@@ -2,7 +2,7 @@ import { bundle, ftl } from '../src/fluent-vue'
 
 describe('fluent', () => {
   it('simple case works', () => {
-    // Arange
+    // Arrange
     const errors = bundle.addMessages(ftl`
       -brand-name = Foo 3000
       welcome = Welcome, { $name }, to { -brand-name }!
@@ -18,7 +18,7 @@ describe('fluent', () => {
   })
 
   it('complex case works', () => {
-    // Arange
+    // Arrange
     const errors = bundle.addMessages(ftl`
       shared-photos =
         { $userName } { $photoCount ->
