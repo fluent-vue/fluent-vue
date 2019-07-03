@@ -1,9 +1,13 @@
-import { FluentBundle, ftl as tag } from 'fluent'
+import { Vue } from 'vue/types/vue'
 
-// import "core-js"
+interface FluentVueOptions {}
 
-export const bundle = new FluentBundle('en-US', {
-  useIsolating: false
-})
+export default class FluentVue {
+  private options: FluentVueOptions
 
-export const ftl = tag
+  constructor(options: FluentVueOptions) {
+    this.options = options
+  }
+
+  static install(vue: typeof Vue) {}
+}

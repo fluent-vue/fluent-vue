@@ -1,6 +1,10 @@
-import { bundle, ftl } from '../src/fluent-vue'
+import { FluentBundle, ftl } from 'fluent'
 
 describe('fluent', () => {
+  const bundle = new FluentBundle('en-US', {
+    useIsolating: false
+  })
+
   it('simple case works', () => {
     // Arrange
     const errors = bundle.addMessages(ftl`
