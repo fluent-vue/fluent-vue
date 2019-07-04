@@ -1,8 +1,5 @@
-import { Vue } from 'vue/types/vue'
 import { FluentBundle } from 'fluent'
-
-import extend from './extend'
-import mixin from './mixin'
+import { Vue, VueConstructor } from 'vue/types/vue'
 
 interface FluentVueOptions {
   bundle: FluentBundle
@@ -10,14 +7,10 @@ interface FluentVueOptions {
 
 export default class FluentVue {
   private options: FluentVueOptions
+  static install: (vue: VueConstructor<Vue>) => void
 
   constructor(options: FluentVueOptions) {
     this.options = options
-  }
-
-  static install(vue: typeof Vue) {
-    extend(vue)
-    vue.mixin(mixin)
   }
 
   format(key: string, value?: object) {
