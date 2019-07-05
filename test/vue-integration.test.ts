@@ -3,6 +3,8 @@ import { createLocalVue, shallowMount, mount } from '@vue/test-utils'
 import { FluentBundle, ftl } from 'fluent'
 
 // @ts-ignore
+import NotInited from './components/NotInited.vue'
+// @ts-ignore
 import App from './components/App.vue'
 
 import FluentVue from '../src'
@@ -60,6 +62,23 @@ describe('vue integration', () => {
 
     // Assert
     expect(mounted.vm.$fluent).not.toBeUndefined()
+
+    localVue.nextTick(() => {
+      expect(mounted.vm.$fluent).toBeUndefined()
+    })
+  })
+
+  it('does not try to clear if not initialized', () => {
+    // Arrange
+    const mounted = shallowMount(NotInited, {
+      localVue
+    })
+
+    // Act
+    mounted.destroy()
+
+    // Assert
+    expect(mounted.vm.$fluent).toBeUndefined()
 
     localVue.nextTick(() => {
       expect(mounted.vm.$fluent).toBeUndefined()
