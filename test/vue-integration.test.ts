@@ -5,7 +5,10 @@ import { FluentBundle, ftl } from 'fluent'
 // @ts-ignore
 import App from './components/App.vue'
 
-import FluentVue from '../src/fluent-vue'
+import FluentVue from '../src'
+
+const localVue = createLocalVue()
+localVue.use(FluentVue)
 
 const bundle = new FluentBundle('en-US', {
   useIsolating: false
@@ -21,11 +24,8 @@ const fluent = new FluentVue({
   bundle
 })
 
-const localVue = createLocalVue()
-localVue.use(FluentVue)
-
 describe('vue integration', () => {
-  it('works', () => {
+  it('translates messages', () => {
     // Act
     const mounted = shallowMount(App, {
       localVue,
@@ -34,5 +34,23 @@ describe('vue integration', () => {
 
     // Assert
     expect(mounted.element).toMatchSnapshot()
+  })
+
+  it('clears instance on component destroy', () => {
+    // Arrange
+    const mounted = shallowMount(App, {
+      localVue,
+      fluent
+    } as any)
+
+    // Act
+    mounted.destroy()
+
+    // Assert
+    expect(mounted.vm.$fluent).not.toBeUndefined()
+
+    localVue.nextTick(() => {
+      expect(mounted.vm.$fluent).toBeUndefined()
+    })
   })
 })
