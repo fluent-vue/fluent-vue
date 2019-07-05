@@ -1,4 +1,4 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils'
+import { createLocalVue, shallowMount, mount } from '@vue/test-utils'
 
 import { FluentBundle, ftl } from 'fluent'
 
@@ -16,6 +16,7 @@ const bundle = new FluentBundle('en-US', {
 
 bundle.addMessages(ftl`
   message = Hello, { $name }!
+  sub-message = Hi, { $name }
 `)
 
 const fluent = new FluentVue({
@@ -25,7 +26,7 @@ const fluent = new FluentVue({
 })
 
 describe('vue integration', () => {
-  it('translates messages', () => {
+  it('translates messages in a component', () => {
     // Act
     const mounted = shallowMount(App, {
       localVue,
@@ -33,7 +34,18 @@ describe('vue integration', () => {
     } as any)
 
     // Assert
-    expect(mounted.element).toMatchSnapshot()
+    expect(mounted).toMatchSnapshot()
+  })
+
+  it('translates messages in sub-component', () => {
+    // Act
+    const mounted = mount(App, {
+      localVue,
+      fluent
+    } as any)
+
+    // Assert
+    expect(mounted).toMatchSnapshot()
   })
 
   it('clears instance on component destroy', () => {
