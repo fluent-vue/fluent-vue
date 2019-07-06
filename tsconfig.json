@@ -6,17 +6,15 @@
     "lib": ["es2015", "es2016", "es2017", "dom"],
     "strict": true,
     "sourceMap": true,
-    "declaration": true,
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "declarationDir": "dist/types",
-    "outDir": "dist/lib",
+    "esModuleInterop": true,
+    "outDir": "dist",
     "typeRoots": [
       "node_modules/@types"
     ]
   },
+  "baseUrl": "./",
   "include": [
-    "src"
+    "src",
+    "types"
   ]
 }

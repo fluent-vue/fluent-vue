@@ -7,7 +7,8 @@
   "module": "dist/fluent-vue.es5.js",
   "typings": "dist/types/fluent-vue.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "types"
   ],
   "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
   "repository": {
@@ -19,7 +20,7 @@
     "node": ">=6.0.0"
   },
   "scripts": {
-    "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+    "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts' 'types/**/*.ts'",
     "prebuild": "rimraf dist",
     "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
     "start": "rollup -c rollup.config.ts -w",
@@ -35,7 +36,7 @@
     "travis-deploy-once": "travis-deploy-once"
   },
   "lint-staged": {
-    "{src,test}/**/*.ts": [
+    "{src,test, types}/**/*.ts": [
       "prettier --write",
       "git add"
     ]
