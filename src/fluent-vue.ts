@@ -22,7 +22,7 @@ export default class FluentVue {
     const result = this.options.bundle.formatPattern(message.value, value, errors)
 
     for (const error of errors) {
-      warn(false, `Fluent error ${error}`)
+      warn(false, `Fluent error for key [${key}]: ${error}`)
     }
 
     return result
