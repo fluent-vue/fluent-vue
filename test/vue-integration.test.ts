@@ -1,6 +1,7 @@
 import { createLocalVue, mount } from '@vue/test-utils'
 
-import { FluentBundle, ftl } from 'fluent'
+import { FluentBundle, FluentResource } from '@fluent/bundle'
+import ftl from '@fluent/dedent'
 
 import FluentVue from '../src'
 
@@ -12,10 +13,12 @@ describe('vue integration', () => {
     useIsolating: false
   })
 
-  bundle.addMessages(ftl`
+  bundle.addResource(
+    new FluentResource(ftl`
     message = Hello, { $name }!
     sub-message = Hi, { $name }
-  `)
+    `)
+  )
 
   const fluent = new FluentVue({
     bundle
@@ -28,9 +31,11 @@ describe('vue integration', () => {
 
   it('translates messages in a component', () => {
     // Arrange
-    bundle.addMessages(ftl`
+    bundle.addResource(
+      new FluentResource(ftl`
       message = Hello, { $name }!
-    `)
+      `)
+    )
 
     const component = {
       data: () => ({

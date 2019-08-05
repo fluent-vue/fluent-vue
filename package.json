@@ -36,7 +36,7 @@
     "travis-deploy-once": "travis-deploy-once"
   },
   "lint-staged": {
-    "{src,test, types}/**/*.ts": [
+    "{src,test,types}/**/*.ts": [
       "prettier --write",
       "git add"
     ]
@@ -89,7 +89,6 @@
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
-    "@types/fluent": "^0.11.3",
     "@types/jest": "^24.0.16",
     "@types/node": "^12.6.9",
     "@vue/test-utils": "^1.0.0-beta.29",

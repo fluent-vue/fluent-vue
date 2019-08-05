@@ -1,4 +1,5 @@
-import { FluentBundle, ftl } from 'fluent'
+import { FluentBundle, FluentResource } from '@fluent/bundle'
+import ftl from '@fluent/dedent'
 
 describe('fluent', () => {
   const bundle = new FluentBundle('en-US', {
@@ -7,14 +8,16 @@ describe('fluent', () => {
 
   it('simple case works', () => {
     // Arrange
-    const errors = bundle.addMessages(ftl`
+    const errors = bundle.addResource(
+      new FluentResource(ftl`
       -brand-name = Foo 3000
       welcome = Welcome, { $name }, to { -brand-name }!
-    `)
+      `)
+    )
     const helloUser = bundle.getMessage('welcome')
 
     // Act
-    const message = bundle.format(helloUser, { name: 'John' })
+    const message = bundle.formatPattern(helloUser.value, { name: 'John' })
 
     // Assert
     expect(errors).toEqual([])
@@ -23,7 +26,8 @@ describe('fluent', () => {
 
   it('complex case works', () => {
     // Arrange
-    const errors = bundle.addMessages(ftl`
+    const errors = bundle.addResource(
+      new FluentResource(ftl`
       shared-photos =
         { $userName } { $photoCount ->
             [one] added a new photo
@@ -33,11 +37,12 @@ describe('fluent', () => {
             [female] her stream
           *[other] their stream
         }.
-    `)
+      `)
+    )
     const sharedPhotos = bundle.getMessage('shared-photos')
 
     // Act
-    const message = bundle.format(sharedPhotos, {
+    const message = bundle.formatPattern(sharedPhotos.value, {
       userName: 'John',
       photoCount: 1,
       userGender: 'male'

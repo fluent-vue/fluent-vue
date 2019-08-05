@@ -1,17 +1,16 @@
 import { Vue } from 'vue/types/vue'
-import { FluentBundle } from 'fluent';
+import { FluentBundle } from '@fluent/bundle'
 
-export interface FluentVueObject {
-}
+export interface FluentVueObject {}
 
 export interface FluentVueOptions {
-  bundle: FluentBundle;
+  bundle: FluentBundle
 }
 
 declare module 'vue/types/vue' {
   interface Vue {
     $fluent: FluentVueObject
-    $t(key: string, values: any): string 
+    $t(key: string, values: any): string
   }
 }
 
