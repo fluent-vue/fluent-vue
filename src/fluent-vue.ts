@@ -18,6 +18,13 @@ export default class FluentVue {
       return key
     }
 
-    return this.options.bundle.formatPattern(message.value, value)
+    const errors: string[] = []
+    const result = this.options.bundle.formatPattern(message.value, value, errors)
+
+    for (const error of errors) {
+      warn(false, `Fluent error ${error}`)
+    }
+
+    return result
   }
 }

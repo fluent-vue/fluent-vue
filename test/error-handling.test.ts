@@ -35,10 +35,37 @@ describe('vue integration', () => {
       template: "<div>{{ $t('message-not-found') }}</div>"
     }
 
+    const warn = jest.fn()
+    console.warn = warn
+
     // Act
     const mounted = mount(component, options)
 
     // Assert
     expect(mounted).toMatchSnapshot()
+    expect(warn).toHaveBeenCalledTimes(1)
+  })
+
+  it('warns about fluent errors', () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      message = { NUMBER($arg) }
+      `)
+    )
+
+    const component = {
+      template: "<div>{{ $t('message') }}</div>"
+    }
+
+    const warn = jest.fn()
+    console.warn = warn
+
+    // Act
+    const mounted = mount(component, options)
+
+    // Assert
+    expect(mounted).toMatchSnapshot()
+    expect(warn).toHaveBeenCalledTimes(1)
   })
 })
