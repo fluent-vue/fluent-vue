@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`vue integration warns about missing translation 1`] = `<div>message-not-found</div>`;

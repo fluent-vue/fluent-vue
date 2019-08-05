@@ -1,5 +1,6 @@
 import { FluentVueOptions } from '../types'
 import { Vue, VueConstructor } from 'vue/types/vue'
+import { warn } from './util/warn'
 
 export default class FluentVue {
   private options: FluentVueOptions
@@ -12,6 +13,11 @@ export default class FluentVue {
   format(key: string, value?: object): string {
     const message = this.options.bundle.getMessage(key)
 
-    return this.options.bundle.format(message, value)
+    if (message == null || message.value == null) {
+      warn(false, `Could not find translation for key [${key}]`)
+      return key
+    }
+
+    return this.options.bundle.formatPattern(message.value, value)
   }
 }
