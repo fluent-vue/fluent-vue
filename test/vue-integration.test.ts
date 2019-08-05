@@ -1,50 +1,81 @@
-import { createLocalVue, shallowMount, mount } from '@vue/test-utils'
+import { createLocalVue, mount } from '@vue/test-utils'
 
 import { FluentBundle, ftl } from 'fluent'
 
-// @ts-ignore
-import NotInited from './components/NotInited.vue'
-// @ts-ignore
-import App from './components/App.vue'
-
 import FluentVue from '../src'
 
-const localVue = createLocalVue()
-localVue.use(FluentVue)
-
-const bundle = new FluentBundle('en-US', {
-  useIsolating: false
-})
-
-bundle.addMessages(ftl`
-  message = Hello, { $name }!
-  sub-message = Hi, { $name }
-`)
-
-const fluent = new FluentVue({
-  // locale: mainLocale,
-  // fallbackLocale: getFallbackLocale(mainLocale),
-  bundle
-})
-
 describe('vue integration', () => {
+  const localVue = createLocalVue()
+  localVue.use(FluentVue)
+
+  const bundle = new FluentBundle('en-US', {
+    useIsolating: false
+  })
+
+  bundle.addMessages(ftl`
+    message = Hello, { $name }!
+    sub-message = Hi, { $name }
+  `)
+
+  const fluent = new FluentVue({
+    bundle
+  })
+
+  const options = {
+    fluent,
+    localVue
+  }
+
   it('translates messages in a component', () => {
+    // Arrange
+    bundle.addMessages(ftl`
+      message = Hello, { $name }!
+    `)
+
+    const component = {
+      data: () => ({
+        name: 'John'
+      }),
+      template: "<div>{{ $t('message', { name }) }}</div>"
+    }
+
     // Act
-    const mounted = shallowMount(App, {
-      localVue,
-      fluent
-    } as any)
+    const mounted = mount(component, options)
 
     // Assert
     expect(mounted).toMatchSnapshot()
   })
 
   it('translates messages in sub-component', () => {
+    // Arrange
+    bundle.addMessages(ftl`
+      message = Hello, { $name }!
+    `)
+
+    const child = {
+      data: () => ({
+        name: 'Alice'
+      }),
+      template: "<div>{{ $t('sub-message', { name }) }}</div>"
+    }
+
+    const component = {
+      components: {
+        child
+      },
+      data: () => ({
+        name: 'John'
+      }),
+      template: `
+        <div>
+          {{ $t('message', { name }) }}
+          <child />
+        </div>
+      `
+    }
+
     // Act
-    const mounted = mount(App, {
-      localVue,
-      fluent
-    } as any)
+    const mounted = mount(component, options)
 
     // Assert
     expect(mounted).toMatchSnapshot()
@@ -52,10 +83,14 @@ describe('vue integration', () => {
 
   it('clears instance on component destroy', () => {
     // Arrange
-    const mounted = shallowMount(App, {
-      localVue,
-      fluent
-    } as any)
+    const component = {
+      data: () => ({
+        name: 'john'
+      }),
+      template: "<div>{{ $t('message', { name }) }}</div>"
+    }
+
+    const mounted = mount(component, options)
 
     // Act
     mounted.destroy()
@@ -70,7 +105,11 @@ describe('vue integration', () => {
 
   it('does not try to clear if not initialized', () => {
     // Arrange
-    const mounted = shallowMount(NotInited, {
+    const component = {
+      template: '<div>Just text</div>'
+    }
+
+    const mounted = mount(component, {
       localVue
     })
 
