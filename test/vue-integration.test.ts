@@ -48,10 +48,6 @@ describe('vue integration', () => {
 
   it('translates messages in sub-component', () => {
     // Arrange
-    bundle.addMessages(ftl`
-      message = Hello, { $name }!
-    `)
-
     const child = {
       data: () => ({
         name: 'Alice'
