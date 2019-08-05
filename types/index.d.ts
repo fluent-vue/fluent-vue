@@ -1,7 +1,7 @@
 import { Vue } from 'vue/types/vue'
 import { FluentBundle } from 'fluent';
 
-export interface FluentVueObject extends Vue {
+export interface FluentVueObject {
 }
 
 export interface FluentVueOptions {

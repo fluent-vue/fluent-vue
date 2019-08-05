@@ -3,7 +3,7 @@ import FluentVue from './fluent-vue'
 
 export default {
   beforeCreate(this: Vue): void {
-    const options: any = this.$options
+    const options = this.$options
 
     if (options.fluent && options.fluent instanceof FluentVue) {
       this._fluent = options.fluent
