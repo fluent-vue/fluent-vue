@@ -15,10 +15,6 @@ export default {
 
     const directiveData = binding.value as FluentDirectiveBinding
 
-    const message = vnode.context.$t(directiveData.key, directiveData.arg)
-
-    if (message != null) {
-      el.textContent = message
-    }
+    el.textContent = vnode.context.$t(directiveData.key, directiveData.arg)
   }
 }
