@@ -28,7 +28,7 @@ declare module '@fluent/bundle' {
   class Pattern {}
 
   class MessageInfo {
-    value: Pattern | null
+    value: Pattern
     attributes: Record<string, Pattern>
   }
 
@@ -36,8 +36,8 @@ declare module '@fluent/bundle' {
     constructor(locales: string | string[], options?: FluentBundleContructorOptions)
     locales: string[]
     hasMessage(id: string): boolean
-    getMessage(id: string): MessageInfo
-    formatPattern(message: Pattern | null, args?: object, errors?: Array<string | Error>): string
+    getMessage(id: string): MessageInfo | undefined
+    formatPattern(message: Pattern, args?: object, errors?: Array<string | Error>): string
     addResource(res: FluentResource): string[]
   }
 }

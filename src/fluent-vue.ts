@@ -13,7 +13,7 @@ export default class FluentVue {
   format(key: string, value?: object): string {
     const message = this.options.bundle.getMessage(key)
 
-    if (message == null || message.value == null) {
+    if (message === undefined) {
       warn(false, `Could not find translation for key [${key}]`)
       return key
     }
