@@ -7,8 +7,6 @@ export default {
 
     if (options.fluent && options.fluent instanceof FluentVue) {
       this._fluent = options.fluent
-    } else if (this.$root && this.$root.$fluent && this.$root.$fluent instanceof FluentVue) {
-      this._fluent = this.$root.$fluent
     } else if (
       options.parent &&
       options.parent.$fluent &&

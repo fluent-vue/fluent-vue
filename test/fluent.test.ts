@@ -14,7 +14,7 @@ describe('fluent', () => {
       welcome = Welcome, { $name }, to { -brand-name }!
       `)
     )
-    const helloUser = bundle.getMessage('welcome')
+    const helloUser = bundle.getMessage('welcome') as any
 
     // Act
     const message = bundle.formatPattern(helloUser.value, { name: 'John' })
@@ -39,7 +39,7 @@ describe('fluent', () => {
         }.
       `)
     )
-    const sharedPhotos = bundle.getMessage('shared-photos')
+    const sharedPhotos = bundle.getMessage('shared-photos') as any
 
     // Act
     const message = bundle.formatPattern(sharedPhotos.value, {
