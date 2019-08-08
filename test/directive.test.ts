@@ -87,4 +87,27 @@ describe('directive', () => {
     // Assert
     expect(mounted).toMatchSnapshot()
   })
+
+  it('can translate DOM attributes', () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      link = Hello {$name}
+        .aria-label = Localized aria
+      `)
+    )
+
+    const component = {
+      data: () => ({
+        name: 'John'
+      }),
+      template: `<a v-t:link.aria-label="{ name }" href="/foo" aria-label="Fallback aria">Fallback text</a>`
+    }
+
+    // Act
+    const mounted = mount(component, options)
+
+    // Assert
+    expect(mounted).toMatchSnapshot()
+  })
 })

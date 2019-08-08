@@ -1,8 +1,9 @@
-import { FluentVueOptions } from '../types'
+import { FluentVueObject, FluentVueOptions } from '../types'
 import { Vue, VueConstructor } from 'vue/types/vue'
 import { warn } from './util/warn'
+import { Pattern } from '@fluent/bundle'
 
-export default class FluentVue {
+export default class FluentVue implements FluentVueObject {
   private options: FluentVueOptions
   static install: (vue: VueConstructor<Vue>) => void
 
@@ -10,17 +11,30 @@ export default class FluentVue {
     this.options = options
   }
 
-  format(key: string, value?: object): string {
+  getMessage(key: string) {
     const message = this.options.bundle.getMessage(key)
 
     if (message === undefined) {
       warn(false, `Could not find translation for key [${key}]`)
+      return undefined
+    }
+
+    return message
+  }
+
+  formatPattern(message: Pattern, value?: object, errors?: string[]): string {
+    return this.options.bundle.formatPattern(message, value, errors)
+  }
+
+  format(key: string, value?: object): string {
+    const message = this.getMessage(key)
+
+    if (message === undefined) {
       return key
     }
 
     const errors: string[] = []
-    const result = this.options.bundle.formatPattern(message.value, value, errors)
-
+    const result = this.formatPattern(message.value, value, errors)
     for (const error of errors) {
       warn(false, `Fluent error for key [${key}]: ${error}`)
     }

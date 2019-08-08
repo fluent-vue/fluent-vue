@@ -1,7 +1,11 @@
 import { Vue } from 'vue/types/vue'
-import { FluentBundle } from '@fluent/bundle'
+import { FluentBundle, MessageInfo, Pattern } from '@fluent/bundle'
 
-export interface FluentVueObject {}
+export interface FluentVueObject {
+  getMessage(key: string): MessageInfo | undefined
+  formatPattern(message: Pattern, value?: object, errors?: string[]): string
+  format(key: string, value?: object): string
+}
 
 export interface FluentVueOptions {
   bundle: FluentBundle
