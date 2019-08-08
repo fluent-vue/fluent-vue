@@ -110,4 +110,27 @@ describe('directive', () => {
     // Assert
     expect(mounted).toMatchSnapshot()
   })
+
+  it('works without fallbacks', () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      link = Hello {$name}
+        .aria-label = Localized aria
+      `)
+    )
+
+    const component = {
+      data: () => ({
+        name: 'John'
+      }),
+      template: `<a v-t:link.aria-label="{ name }"></a>`
+    }
+
+    // Act
+    const mounted = mount(component, options)
+
+    // Assert
+    expect(mounted).toMatchSnapshot()
+  })
 })

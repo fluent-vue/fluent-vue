@@ -20,9 +20,6 @@ export default {
     }
 
     el.textContent = vnode.context.$fluent.formatPattern(msg.value, binding.value)
-    if (vnode.data === undefined || vnode.data.attrs === undefined) {
-      return
-    }
 
     for (const [attr] of Object.entries(binding.modifiers)) {
       el.setAttribute(
