@@ -2,12 +2,6 @@ import { DirectiveBinding } from 'vue/types/options'
 import { VNode } from 'vue/types/vnode'
 import { warn } from './util/warn'
 
-interface FluentDirectiveBinding {
-  key: string
-  arg: Object
-  attrs?: [string]
-}
-
 export default {
   bind(el: HTMLElement, binding: DirectiveBinding, vnode: VNode) {
     if (vnode.context === undefined) {
@@ -19,8 +13,6 @@ export default {
       return
     }
 
-    const directiveData = (binding.value as FluentDirectiveBinding) || {}
-
-    el.textContent = vnode.context.$t(binding.arg, directiveData.arg)
+    el.textContent = vnode.context.$t(binding.arg, binding.value)
   }
 }

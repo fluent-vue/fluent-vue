@@ -78,7 +78,7 @@ describe('directive', () => {
       data: () => ({
         name: 'John'
       }),
-      template: `<a v-t:link="{ arg: { name: 'John' } }" href="/foo">Fallback text</a>`
+      template: `<a v-t:link="{ name }" href="/foo">Fallback text</a>`
     }
 
     // Act
