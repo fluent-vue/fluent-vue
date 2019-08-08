@@ -1,5 +1,6 @@
 import { DirectiveBinding } from 'vue/types/options'
 import { VNode } from 'vue/types/vnode'
+import { warn } from './util/warn'
 
 interface FluentDirectiveBinding {
   key: string
@@ -13,8 +14,13 @@ export default {
       return
     }
 
-    const directiveData = binding.value as FluentDirectiveBinding
+    if (binding.arg === undefined) {
+      warn(false, 'v-t directive is missing arg with translation key')
+      return
+    }
 
-    el.textContent = vnode.context.$t(directiveData.key, directiveData.arg)
+    const directiveData = (binding.value as FluentDirectiveBinding) || {}
+
+    el.textContent = vnode.context.$t(binding.arg, directiveData.arg)
   }
 }

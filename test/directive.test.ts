@@ -39,7 +39,7 @@ describe('directive', () => {
       data: () => ({
         name: 'John'
       }),
-      template: `<a v-t="{ key: 'link' }" href="/foo">Fallback text</a>`
+      template: `<a v-t:link href="/foo">Fallback text</a>`
     }
 
     // Act
@@ -47,6 +47,23 @@ describe('directive', () => {
 
     // Assert
     expect(mounted).toMatchSnapshot()
+  })
+
+  it('warns about missing key arg', () => {
+    // Arrange
+    const component = {
+      template: `<a v-t href="/foo">Fallback text</a>`
+    }
+
+    const warn = jest.fn()
+    console.warn = warn
+
+    // Act
+    const mounted = mount(component, options)
+
+    // Assert
+    expect(mounted).toMatchSnapshot()
+    expect(warn).toHaveBeenCalledTimes(1)
   })
 
   it('can use parameters', () => {
@@ -61,7 +78,7 @@ describe('directive', () => {
       data: () => ({
         name: 'John'
       }),
-      template: `<a v-t="{ key: 'link', arg: { name: 'John' } }" href="/foo">Fallback text</a>`
+      template: `<a v-t:link="{ arg: { name: 'John' } }" href="/foo">Fallback text</a>`
     }
 
     // Act

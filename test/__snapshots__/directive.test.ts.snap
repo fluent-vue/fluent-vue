@@ -3,3 +3,5 @@
 exports[`directive can use parameters 1`] = `<a href="/foo">Hello John</a>`;
 
 exports[`directive translates text content 1`] = `<a href="/foo">Link text</a>`;
+
+exports[`directive warns about missing key arg 1`] = `<a href="/foo">Fallback text</a>`;
