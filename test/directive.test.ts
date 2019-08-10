@@ -133,4 +133,31 @@ describe('directive', () => {
     // Assert
     expect(mounted).toMatchSnapshot()
   })
+
+  it('updates translations on component update', () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      link = Hello {$name}
+        .aria-label = Localized aria
+      `)
+    )
+
+    const component = {
+      data: () => ({
+        name: 'John'
+      }),
+      template: `<a v-t:link.aria-label="{ name }"></a>`
+    }
+
+    const mounted = mount(component, options)
+
+    expect(mounted).toMatchSnapshot()
+
+    // Act
+    mounted.setData({ name: 'Anna' })
+
+    // Assert
+    expect(mounted).toMatchSnapshot()
+  })
 })
