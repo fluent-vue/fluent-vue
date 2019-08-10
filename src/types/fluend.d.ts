@@ -28,7 +28,7 @@ declare module '@fluent/bundle' {
   class Pattern {}
 
   class MessageInfo {
-    value: Pattern
+    value: Pattern | null
     attributes: Record<string, Pattern>
   }
 

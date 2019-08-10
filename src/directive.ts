@@ -15,7 +15,7 @@ function translate(el: HTMLElement, fluent: FluentVueObject, binding: DirectiveB
     return
   }
 
-  if (msg.value != null) {
+  if (msg.value !== null) {
     el.textContent = fluent.formatPattern(msg.value, binding.value)
   }
 
