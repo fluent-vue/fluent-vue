@@ -7,7 +7,7 @@ import FluentVue from '../src'
 
 describe('directive', () => {
   let options: any
-  let bundle: any
+  let bundle: FluentBundle
 
   beforeEach(() => {
     const localVue = createLocalVue()
@@ -184,6 +184,30 @@ describe('directive', () => {
 
     // Act
     mounted.setData({ otherName: 'Test' })
+
+    // Assert
+    expect(mounted).toMatchSnapshot()
+  })
+
+  it('works with multiple attributes', () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      link = Text
+        .aria-label = Hello {$name}
+        .placeholder = Placeholder
+      `)
+    )
+
+    const component = {
+      data: () => ({
+        name: 'John'
+      }),
+      template: `<a v-t:link.aria-label.placeholder="{ name }">Fallback</a>`
+    }
+
+    // Act
+    const mounted = mount(component, options)
 
     // Assert
     expect(mounted).toMatchSnapshot()

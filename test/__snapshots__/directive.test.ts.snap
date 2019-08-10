@@ -16,4 +16,6 @@ exports[`directive updates translations on component update 2`] = `<a aria-label
 
 exports[`directive warns about missing key arg 1`] = `<a href="/foo">Fallback text</a>`;
 
+exports[`directive works with multiple attributes 1`] = `<a aria-label="Hello John" placeholder="Placeholder">Text</a>`;
+
 exports[`directive works without fallbacks 1`] = `<a aria-label="Localized aria">Hello John</a>`;
