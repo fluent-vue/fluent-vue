@@ -160,4 +160,32 @@ describe('directive', () => {
     // Assert
     expect(mounted).toMatchSnapshot()
   })
+
+  it('preserves translations on component update', () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      link =
+        .aria-label = Hello {$name}
+      `)
+    )
+
+    const component = {
+      data: () => ({
+        name: 'John',
+        otherName: 'Anna'
+      }),
+      template: `<a v-t:link.aria-label="{ name }">{{ otherName }}</a>`
+    }
+
+    const mounted = mount(component, options)
+
+    expect(mounted).toMatchSnapshot()
+
+    // Act
+    mounted.setData({ otherName: 'Test' })
+
+    // Assert
+    expect(mounted).toMatchSnapshot()
+  })
 })

@@ -4,6 +4,10 @@ exports[`directive can translate DOM attributes 1`] = `<a href="/foo" aria-label
 
 exports[`directive can use parameters 1`] = `<a href="/foo">Hello John</a>`;
 
+exports[`directive preserves translations on component update 1`] = `<a aria-label="Hello John">Anna</a>`;
+
+exports[`directive preserves translations on component update 2`] = `<a aria-label="Hello John">Test</a>`;
+
 exports[`directive translates text content 1`] = `<a href="/foo">Link text</a>`;
 
 exports[`directive updates translations on component update 1`] = `<a aria-label="Localized aria">Hello John</a>`;
