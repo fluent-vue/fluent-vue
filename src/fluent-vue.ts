@@ -29,7 +29,7 @@ export default class FluentVue implements FluentVueObject {
   format(key: string, value?: object): string {
     const message = this.getMessage(key)
 
-    if (message === undefined) {
+    if (message === undefined || message.value === null) {
       return key
     }
 

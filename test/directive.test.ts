@@ -7,7 +7,7 @@ import FluentVue from '../src'
 
 describe('directive', () => {
   let options: any
-  let bundle: any
+  let bundle: FluentBundle
 
   beforeEach(() => {
     const localVue = createLocalVue()
@@ -125,6 +125,85 @@ describe('directive', () => {
         name: 'John'
       }),
       template: `<a v-t:link.aria-label="{ name }"></a>`
+    }
+
+    // Act
+    const mounted = mount(component, options)
+
+    // Assert
+    expect(mounted).toMatchSnapshot()
+  })
+
+  it('updates translations on component update', () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      link = Hello {$name}
+        .aria-label = Localized aria
+      `)
+    )
+
+    const component = {
+      data: () => ({
+        name: 'John'
+      }),
+      template: `<a v-t:link.aria-label="{ name }"></a>`
+    }
+
+    const mounted = mount(component, options)
+
+    expect(mounted).toMatchSnapshot()
+
+    // Act
+    mounted.setData({ name: 'Anna' })
+
+    // Assert
+    expect(mounted).toMatchSnapshot()
+  })
+
+  it('preserves translations on component update', () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      link =
+        .aria-label = Hello {$name}
+      `)
+    )
+
+    const component = {
+      data: () => ({
+        name: 'John',
+        otherName: 'Anna'
+      }),
+      template: `<a v-t:link.aria-label="{ name }">{{ otherName }}</a>`
+    }
+
+    const mounted = mount(component, options)
+
+    expect(mounted).toMatchSnapshot()
+
+    // Act
+    mounted.setData({ otherName: 'Test' })
+
+    // Assert
+    expect(mounted).toMatchSnapshot()
+  })
+
+  it('works with multiple attributes', () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      link = Text
+        .aria-label = Hello {$name}
+        .placeholder = Placeholder
+      `)
+    )
+
+    const component = {
+      data: () => ({
+        name: 'John'
+      }),
+      template: `<a v-t:link.aria-label.placeholder="{ name }">Fallback</a>`
     }
 
     // Act
