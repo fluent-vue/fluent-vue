@@ -1,40 +1,54 @@
 import { FluentVueObject, FluentVueOptions } from '../types'
 import { Vue, VueConstructor } from 'vue/types/vue'
 import { warn } from './util/warn'
-import { Pattern } from '@fluent/bundle'
+import { Pattern, FluentBundle } from '@fluent/bundle'
+
+import { CachedSyncIterable } from 'cached-iterable'
+import { mapBundleSync } from '@fluent/sequence'
 
 export default class FluentVue implements FluentVueObject {
-  private options: FluentVueOptions
+  bundles: CachedSyncIterable
+
   static install: (vue: VueConstructor<Vue>) => void
 
   constructor(options: FluentVueOptions) {
-    this.options = options
+    this.bundles = CachedSyncIterable.from(options.bundles)
   }
 
-  getMessage(key: string) {
-    const message = this.options.bundle.getMessage(key)
+  getBundle(key: string): FluentBundle {
+    return mapBundleSync(this.bundles, key)
+  }
+
+  getMessage(bundle: FluentBundle | null, key: string) {
+    if (bundle === null) {
+      warn(false, `Could not find translation for key [${key}]`)
+      return null
+    }
+
+    const message = bundle.getMessage(key)
 
     if (message === undefined) {
       warn(false, `Could not find translation for key [${key}]`)
-      return undefined
+      return null
     }
 
     return message
   }
 
-  formatPattern(message: Pattern, value?: object, errors?: string[]): string {
-    return this.options.bundle.formatPattern(message, value, errors)
+  formatPattern(bundle: FluentBundle, message: Pattern, value?: object, errors?: string[]): string {
+    return bundle.formatPattern(message, value, errors)
   }
 
   format(key: string, value?: object): string {
-    const message = this.getMessage(key)
+    const context = this.getBundle(key)
+    const message = this.getMessage(context, key)
 
-    if (message === undefined || message.value === null) {
+    if (message === null || message.value === null) {
       return key
     }
 
     const errors: string[] = []
-    const result = this.formatPattern(message.value, value, errors)
+    const result = this.formatPattern(context, message.value, value, errors)
     for (const error of errors) {
       warn(false, `Fluent error for key [${key}]: ${error}`)
     }

@@ -4,23 +4,26 @@ import { warn } from './util/warn'
 import { FluentVueObject } from '../types'
 
 function translate(el: HTMLElement, fluent: FluentVueObject, binding: DirectiveBinding) {
-  if (binding.arg === undefined) {
+  const key = binding.arg
+
+  if (key === undefined) {
     warn(false, 'v-t directive is missing arg with translation key')
     return
   }
 
-  const msg = fluent.getMessage(binding.arg)
+  const bundle = fluent.getBundle(key)
+  const msg = fluent.getMessage(bundle, key)
 
-  if (msg === undefined) {
+  if (bundle === null || msg === null) {
     return
   }
 
   if (msg.value !== null) {
-    el.textContent = fluent.formatPattern(msg.value, binding.value)
+    el.textContent = fluent.formatPattern(bundle, msg.value, binding.value)
   }
 
   for (const [attr] of Object.entries(binding.modifiers)) {
-    el.setAttribute(attr, fluent.formatPattern(msg.attributes[attr], binding.value))
+    el.setAttribute(attr, fluent.formatPattern(bundle, msg.attributes[attr], binding.value))
   }
 }
 

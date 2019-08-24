@@ -21,7 +21,7 @@ describe('vue integration', () => {
   )
 
   const fluent = new FluentVue({
-    bundle
+    bundles: [bundle]
   })
 
   const options = {

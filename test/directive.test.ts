@@ -18,7 +18,7 @@ describe('directive', () => {
     })
 
     const fluent = new FluentVue({
-      bundle
+      bundles: [bundle]
     })
 
     options = {
