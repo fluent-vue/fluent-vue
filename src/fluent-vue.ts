@@ -1,10 +1,10 @@
-import { FluentVueObject, FluentVueOptions } from '../types'
-import { Vue, VueConstructor } from 'vue/types/vue'
-import { warn } from './util/warn'
-import { Pattern, FluentBundle } from '@fluent/bundle'
-
 import { CachedSyncIterable } from 'cached-iterable'
 import { mapBundleSync } from '@fluent/sequence'
+import { warn } from './util/warn'
+
+import { FluentVueObject, FluentVueOptions } from '../types'
+import { Vue, VueConstructor } from 'vue/types/vue'
+import { Pattern, FluentBundle } from '@fluent/bundle'
 
 export default class FluentVue implements FluentVueObject {
   bundles: CachedSyncIterable
@@ -21,14 +21,14 @@ export default class FluentVue implements FluentVueObject {
 
   getMessage(bundle: FluentBundle | null, key: string) {
     if (bundle === null) {
-      warn(false, `Could not find translation for key [${key}]`)
+      warn(`Could not find translation for key [${key}]`)
       return null
     }
 
     const message = bundle.getMessage(key)
 
     if (message === undefined) {
-      warn(false, `Could not find translation for key [${key}]`)
+      warn(`Could not find translation for key [${key}]`)
       return null
     }
 
@@ -50,7 +50,7 @@ export default class FluentVue implements FluentVueObject {
     const errors: string[] = []
     const result = this.formatPattern(context, message.value, value, errors)
     for (const error of errors) {
-      warn(false, `Fluent error for key [${key}]: ${error}`)
+      warn(`Fluent error for key [${key}]: ${error}`)
     }
 
     return result

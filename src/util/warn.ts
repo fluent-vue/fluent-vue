@@ -4,8 +4,8 @@ export function assert(condition: any, message: string) {
   }
 }
 
-export function warn(condition: any, message: string) {
-  if (process.env.NODE_ENV !== 'production' && !condition) {
+export function warn(message: string) {
+  if (process.env.NODE_ENV !== 'production') {
     console.warn(`[fluent-vue] ${message}`)
   }
 }

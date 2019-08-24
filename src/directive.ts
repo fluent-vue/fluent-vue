@@ -7,7 +7,7 @@ function translate(el: HTMLElement, fluent: FluentVueObject, binding: DirectiveB
   const key = binding.arg
 
   if (key === undefined) {
-    warn(false, 'v-t directive is missing arg with translation key')
+    warn('v-t directive is missing arg with translation key')
     return
   }
 
