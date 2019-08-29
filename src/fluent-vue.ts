@@ -1,22 +1,47 @@
+import Vue from 'vue'
 import { CachedSyncIterable } from 'cached-iterable'
 import { mapBundleSync } from '@fluent/sequence'
 import { warn } from './util/warn'
 
-import { FluentVueObject, FluentVueOptions } from '../types'
-import { Vue, VueConstructor } from 'vue/types/vue'
+import { FluentVueObject, FluentVueOptions } from './types'
+import { VueConstructor } from 'vue/types/vue'
 import { Pattern, FluentBundle } from '@fluent/bundle'
 
 export default class FluentVue implements FluentVueObject {
-  bundles: CachedSyncIterable
+  private subscribers: Map<Vue, boolean>
+  private bundlesIterable: CachedSyncIterable
+  private _bundles: FluentBundle[]
+
+  subscribe(vue: Vue): void {
+    this.subscribers.set(vue, true)
+  }
+  unsubscribe(vue: Vue): void {
+    this.subscribers.delete(vue)
+  }
+
+  get bundles(): FluentBundle[] {
+    return this._bundles
+  }
+
+  set bundles(bundles: FluentBundle[]) {
+    this._bundles = bundles
+    this.bundlesIterable = CachedSyncIterable.from(this.bundles)
+
+    for (const subscriber of this.subscribers.keys()) {
+      subscriber.$forceUpdate()
+    }
+  }
 
   static install: (vue: VueConstructor<Vue>) => void
 
   constructor(options: FluentVueOptions) {
-    this.bundles = CachedSyncIterable.from(options.bundles)
+    this.subscribers = new Map<Vue, boolean>()
+    this._bundles = options.bundles
+    this.bundlesIterable = CachedSyncIterable.from(this.bundles)
   }
 
   getBundle(key: string): FluentBundle {
-    return mapBundleSync(this.bundles, key)
+    return mapBundleSync(this.bundlesIterable, key)
   }
 
   getMessage(bundle: FluentBundle | null, key: string) {

@@ -14,12 +14,20 @@ export default {
     ) {
       this._fluent = options.parent.$fluent
     }
+
+    if (!this._fluent) {
+      return
+    }
+
+    this._fluent.subscribe(this)
   },
 
   beforeDestroy(this: Vue): void {
     if (!this._fluent) {
       return
     }
+
+    this._fluent.unsubscribe(this)
 
     this.$nextTick(() => {
       this._fluent = undefined

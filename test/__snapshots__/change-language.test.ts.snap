@@ -3,3 +3,7 @@
 exports[`language change can work with multiple bundles 1`] = `<a href="/foo">текст посилання</a>`;
 
 exports[`language change falls back to previous bundle 1`] = `<a href="/foo">link text</a>`;
+
+exports[`language change updates when updating bundles array 1`] = `<a href="/foo">текст посилання</a>`;
+
+exports[`language change updates when updating bundles array 2`] = `<a href="/foo">link text</a>`;

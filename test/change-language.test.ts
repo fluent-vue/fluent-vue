@@ -75,4 +75,51 @@ describe('language change', () => {
     // Assert
     expect(mounted).toMatchSnapshot()
   })
+
+  it('updates when updating bundles array', () => {
+    // Arrange
+    const localVue = createLocalVue()
+    localVue.use(FluentVue)
+
+    bundleEn = new FluentBundle('en-US', {
+      useIsolating: false
+    })
+
+    bundleUk = new FluentBundle('uk-UA', {
+      useIsolating: false
+    })
+
+    const fluent = new FluentVue({
+      bundles: [bundleUk, bundleEn]
+    })
+
+    bundleEn.addResource(
+      new FluentResource(ftl`
+      link = link text
+      `)
+    )
+
+    bundleUk.addResource(
+      new FluentResource(ftl`
+      link = текст посилання
+      `)
+    )
+
+    const component = {
+      template: `<a v-t:link href="/foo">Fallback text</a>`
+    }
+
+    // Act
+    const mounted = mount(component, {
+      fluent,
+      localVue
+    })
+
+    expect(mounted).toMatchSnapshot()
+
+    fluent.bundles = [bundleEn, bundleUk]
+
+    // Assert
+    expect(mounted).toMatchSnapshot()
+  })
 })
