@@ -2,6 +2,19 @@ declare module '@fluent/dedent' {
   export default function ftl(strings: TemplateStringsArray): string
 }
 
+declare module 'cached-iterable' {
+  export class CachedSyncIterable {
+    static from(array: any[]): CachedSyncIterable
+  }
+}
+
+declare module '@fluent/sequence' {
+  import { CachedSyncIterable } from 'cached-iterable'
+  import { FluentBundle } from '@fluent/bundle'
+
+  export function mapBundleSync(iterable: CachedSyncIterable, key: string): FluentBundle
+}
+
 declare module '@fluent/bundle' {
   export interface FluentBundleContructorOptions {
     functions?: object

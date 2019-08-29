@@ -61,9 +61,9 @@
     "coverageThreshold": {
       "global": {
         "branches": 85,
-        "functions": 95,
-        "lines": 95,
-        "statements": 95
+        "functions": 85,
+        "lines": 85,
+        "statements": 85
       }
     },
     "collectCoverageFrom": [
@@ -127,7 +127,9 @@
   },
   "dependencies": {
     "@fluent/bundle": "^0.14.0",
-    "@fluent/dedent": "^0.1.0"
+    "@fluent/dedent": "^0.1.0",
+    "@fluent/sequence": "^0.4.0",
+    "cached-iterable": "^0.3.0"
   },
   "husky": {
     "hooks": {
