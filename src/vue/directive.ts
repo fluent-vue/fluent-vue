@@ -1,7 +1,7 @@
 import { DirectiveBinding } from 'vue/types/options'
 import { VNode } from 'vue/types/vnode'
-import { warn } from './util/warn'
-import { FluentVueObject } from './types'
+import { warn } from '../util/warn'
+import { FluentVueObject } from '../types'
 
 function translate(el: HTMLElement, fluent: FluentVueObject, binding: DirectiveBinding) {
   const key = binding.arg
