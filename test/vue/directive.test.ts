@@ -13,9 +13,7 @@ describe('directive', () => {
     const localVue = createLocalVue()
     localVue.use(FluentVue)
 
-    bundle = new FluentBundle('en-US', {
-      useIsolating: false
-    })
+    bundle = new FluentBundle('en-US')
 
     const fluent = new FluentVue({
       bundles: [bundle]

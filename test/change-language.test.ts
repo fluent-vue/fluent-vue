@@ -14,13 +14,8 @@ describe('language change', () => {
     const localVue = createLocalVue()
     localVue.use(FluentVue)
 
-    bundleEn = new FluentBundle('en-US', {
-      useIsolating: false
-    })
-
-    bundleUk = new FluentBundle('uk-UA', {
-      useIsolating: false
-    })
+    bundleEn = new FluentBundle('en-US')
+    bundleUk = new FluentBundle('uk-UA')
 
     const fluent = new FluentVue({
       bundles: [bundleUk, bundleEn]
@@ -81,13 +76,8 @@ describe('language change', () => {
     const localVue = createLocalVue()
     localVue.use(FluentVue)
 
-    bundleEn = new FluentBundle('en-US', {
-      useIsolating: false
-    })
-
-    bundleUk = new FluentBundle('uk-UA', {
-      useIsolating: false
-    })
+    bundleEn = new FluentBundle('en-US')
+    bundleUk = new FluentBundle('uk-UA')
 
     const fluent = new FluentVue({
       bundles: [bundleUk, bundleEn]
