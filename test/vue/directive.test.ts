@@ -3,7 +3,7 @@ import { createLocalVue, mount } from '@vue/test-utils'
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
-import FluentVue from '../src'
+import FluentVue from '../../src'
 
 describe('directive', () => {
   let options: any
