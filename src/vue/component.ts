@@ -6,14 +6,26 @@ export default {
   props: {
     path: { type: String, required: true },
     tag: { type: String, default: 'span' },
-    data: { type: Object, default: () => ({}) }
+    values: { type: Object, default: () => ({}) }
   },
-  render(h, { parent, props, data }) {
+  render(h, { parent, props, data, slots }) {
     const key = props.path
     const fluent = parent.$fluent
 
-    const translation = fluent.format(key)
+    const childSlots = slots()
 
-    return h(props.tag, data, translation)
+    const params = Object.assign(
+      {},
+      props.values,
+      ...Object.entries(childSlots).map(([key, v]) => ({ [key]: `\uFFFF\uFFFE${key}\uFFFF` }))
+    )
+
+    const translation = fluent.format(key, params)
+
+    const parts = translation
+      .split('\uFFFF')
+      .map(text => (text.startsWith('\uFFFE') ? childSlots[text.replace('\uFFFE', '')] : text))
+
+    return h(props.tag, data, parts)
   }
 } as Component

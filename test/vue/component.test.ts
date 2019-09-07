@@ -13,9 +13,7 @@ describe('component', () => {
     const localVue = createLocalVue()
     localVue.use(FluentVue)
 
-    bundle = new FluentBundle('en-US', {
-      useIsolating: false
-    })
+    bundle = new FluentBundle('en-US')
 
     const fluent = new FluentVue({
       bundles: [bundle]
@@ -37,6 +35,30 @@ describe('component', () => {
 
     const component = {
       template: '<i18n path="key"></i18n>'
+    }
+
+    // Act
+    const mounted = mount(component, options)
+
+    // Assert
+    expect(mounted).toMatchSnapshot()
+  })
+
+  it('interpolates components', () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      key = Inner data {$child} test
+      `)
+    )
+
+    const component = {
+      template: `
+        <i18n path="key">
+          <template #child>
+            <b>Inner text</b>
+          </template>
+        </i18n>`
     }
 
     // Act
