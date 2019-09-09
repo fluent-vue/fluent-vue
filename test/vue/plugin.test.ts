@@ -3,15 +3,13 @@ import { createLocalVue, mount } from '@vue/test-utils'
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
-import FluentVue from '../src'
+import FluentVue from '../../src'
 
 describe('vue integration', () => {
   const localVue = createLocalVue()
   localVue.use(FluentVue)
 
-  const bundle = new FluentBundle('en-US', {
-    useIsolating: false
-  })
+  const bundle = new FluentBundle('en-US')
 
   bundle.addResource(
     new FluentResource(ftl`

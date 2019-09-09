@@ -9,9 +9,7 @@ describe('vue integration', () => {
   const localVue = createLocalVue()
   localVue.use(FluentVue)
 
-  const bundle = new FluentBundle('en-US', {
-    useIsolating: false
-  })
+  const bundle = new FluentBundle('en-US')
 
   bundle.addResource(
     new FluentResource(ftl`

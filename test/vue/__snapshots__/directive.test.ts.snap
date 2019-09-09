@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`directive can translate DOM attributes 1`] = `<a href="/foo" aria-label="Localized aria">Hello ⁨John⁩</a>`;
+
+exports[`directive can use parameters 1`] = `<a href="/foo">Hello ⁨John⁩</a>`;
+
+exports[`directive preserves translations on component update 1`] = `<a aria-label="Hello ⁨John⁩">Anna</a>`;
+
+exports[`directive preserves translations on component update 2`] = `<a aria-label="Hello ⁨John⁩">Test</a>`;
+
+exports[`directive translates text content 1`] = `<a href="/foo">Link text</a>`;
+
+exports[`directive updates translations on component update 1`] = `<a aria-label="Localized aria">Hello ⁨John⁩</a>`;
+
+exports[`directive updates translations on component update 2`] = `<a aria-label="Localized aria">Hello ⁨Anna⁩</a>`;
+
+exports[`directive warns about missing key arg 1`] = `<a href="/foo">Fallback text</a>`;
+
+exports[`directive works with multiple attributes 1`] = `<a aria-label="Hello ⁨John⁩" placeholder="Placeholder">Text</a>`;
+
+exports[`directive works without fallbacks 1`] = `<a aria-label="Localized aria">Hello ⁨John⁩</a>`;
