@@ -67,4 +67,33 @@ describe('component', () => {
     // Assert
     expect(mounted).toMatchSnapshot()
   })
+
+  it('can accept parameters', () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      key = Hello {$name} {$child} test
+      `)
+    )
+
+    const component = {
+      data() {
+        return {
+          name: 'John'
+        }
+      },
+      template: `
+        <i18n path="key" :data="{ name }">
+          <template #child>
+            <b>Inner text</b>
+          </template>
+        </i18n>`
+    }
+
+    // Act
+    const mounted = mount(component, options)
+
+    // Assert
+    expect(mounted).toMatchSnapshot()
+  })
 })
