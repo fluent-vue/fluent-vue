@@ -8,9 +8,13 @@
 
 Vue.js integration for Project Fluent.
 
-### Instalation
+## Features
 
-#### Add `fluent-vue` and `@fluent/bundle` to your project:
+TODO
+
+## Instalation
+
+**Add `fluent-vue` and `@fluent/bundle` to your project:**
 For `npm` users:
 ```
 npm install fluent-vue @fluent/bundle
@@ -21,7 +25,7 @@ For `yarn` users:
 yarn add fluent-vue @fluent/bundle
 ```
 
-#### Install Vue plugin
+**Install Vue plugin**
 
 ```js
 import Vue from 'vue';
@@ -30,7 +34,7 @@ import FluentVue from 'fluent-vue';
 Vue.use(FluentVue)
 ```
 
-#### Configure `fluent-vue`
+**Configure `fluent-vue`**
 ```js
 import { FluentBundle, FluentResource } from '@fluent/bundle';
 
@@ -56,10 +60,6 @@ new Vue({
 })
 ```
 
-### Usage
-
-TODO
-
-### Features
+## Usage
 
 TODO
