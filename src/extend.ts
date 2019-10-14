@@ -19,4 +19,13 @@ export default function extend(Vue: VueConstructor<Vue>): void {
   Vue.prototype.$t = function(key: string, values: any): string {
     return this.$fluent.format(key, values)
   }
+
+  /**
+   * Format message attributes
+   * @param key Translation key
+   * @param values Message parameters
+   */
+  Vue.prototype.$ta = function(key: string, values: any): string {
+    return this.$fluent.formatAttrs(key, values)
+  }
 }

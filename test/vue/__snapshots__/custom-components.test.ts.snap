@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`method works with vue components 1`] = `<div attr="Attr value">Inner data</div>`;

@@ -74,6 +74,29 @@ export default class FluentVue implements FluentVueObject {
 
     const errors: string[] = []
     const result = this.formatPattern(context, message.value, value, errors)
+
+    for (const error of errors) {
+      warn(`Fluent error for key [${key}]: ${error}`)
+    }
+
+    return result
+  }
+
+  formatAttrs(key: string, value?: object): object {
+    const context = this.getBundle(key)
+    const message = this.getMessage(context, key)
+
+    if (message === null || message.value === null) {
+      return {}
+    }
+
+    const errors: string[] = []
+    const result = {}
+
+    for (const [attrName, attrValue] of Object.entries(message.attributes)) {
+      ;(result as any)[attrName] = this.formatPattern(context, attrValue, value, errors)
+    }
+
     for (const error of errors) {
       warn(`Fluent error for key [${key}]: ${error}`)
     }
