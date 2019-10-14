@@ -15,6 +15,7 @@ TODO
 ## Instalation
 
 **Add `fluent-vue` and `@fluent/bundle` to your project:**
+
 For `npm` users:
 ```
 npm install fluent-vue @fluent/bundle
