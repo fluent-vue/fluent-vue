@@ -60,8 +60,15 @@ export default class FluentVue implements FluentVueObject {
     return message
   }
 
-  formatPattern(bundle: FluentBundle, message: Pattern, value?: object, errors?: string[]): string {
-    return bundle.formatPattern(message, value, errors)
+  formatPattern(bundle: FluentBundle, message: Pattern, value?: object): string {
+    const errors: string[] = []
+    const formatted = bundle.formatPattern(message, value, errors)
+
+    for (const error of errors) {
+      warn(`Error when formatting: ${error}`)
+    }
+
+    return formatted
   }
 
   format(key: string, value?: object): string {
@@ -72,10 +79,20 @@ export default class FluentVue implements FluentVueObject {
       return key
     }
 
-    const errors: string[] = []
-    const result = this.formatPattern(context, message.value, value, errors)
-    for (const error of errors) {
-      warn(`Fluent error for key [${key}]: ${error}`)
+    return this.formatPattern(context, message.value, value)
+  }
+
+  formatAttrs(key: string, value?: object): object {
+    const context = this.getBundle(key)
+    const message = this.getMessage(context, key)
+
+    if (message === null || message.value === null) {
+      return {}
+    }
+
+    const result = {}
+    for (const [attrName, attrValue] of Object.entries(message.attributes)) {
+      ;(result as any)[attrName] = this.formatPattern(context, attrValue, value)
     }
 
     return result
