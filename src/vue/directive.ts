@@ -3,6 +3,98 @@ import { VNode } from 'vue/types/vnode'
 import { warn } from '../util/warn'
 import { FluentVueObject } from '../types'
 
+// This part is from fluent-dom library
+const LOCALIZABLE_ATTRIBUTES = {
+  'http://www.w3.org/1999/xhtml': {
+    global: ['title', 'aria-label', 'aria-valuetext', 'aria-moz-hint'],
+    a: ['download'],
+    area: ['download', 'alt'],
+    // value is special-cased in isAttrNameLocalizable
+    input: ['alt', 'placeholder'],
+    menuitem: ['label'],
+    menu: ['label'],
+    optgroup: ['label'],
+    option: ['label'],
+    track: ['label'],
+    img: ['alt'],
+    textarea: ['placeholder'],
+    th: ['abbr']
+  },
+  'http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul': {
+    global: ['accesskey', 'aria-label', 'aria-valuetext', 'aria-moz-hint', 'label'],
+    key: ['key', 'keycode'],
+    textbox: ['placeholder'],
+    toolbarbutton: ['tooltiptext']
+  }
+} as any
+
+/**
+ * Check if attribute is allowed for the given element.
+ *
+ * This method is used by the sanitizer when the translation markup contains
+ * DOM attributes, or when the translation has traits which map to DOM
+ * attributes.
+ *
+ * `explicitlyAllowed` can be passed as a list of attributes explicitly
+ * allowed on this element.
+ *
+ * @param   {string}         name
+ * @param   {Element}        element
+ * @param   {Array}          explicitlyAllowed
+ * @returns {boolean}
+ * @private
+ */
+function isAttrNameLocalizable(
+  name: string,
+  element: HTMLElement,
+  explicitlyAllowed: Array<string> | null = null
+) {
+  if (explicitlyAllowed && explicitlyAllowed.includes(name)) {
+    return true
+  }
+
+  if (element.namespaceURI === null) {
+    return false
+  }
+
+  const allowed = LOCALIZABLE_ATTRIBUTES[element.namespaceURI]
+  if (!allowed) {
+    return false
+  }
+
+  const attrName = name.toLowerCase()
+  const elemName = element.localName
+
+  // Is it a globally safe attribute?
+  if (allowed.global.includes(attrName)) {
+    return true
+  }
+
+  // Are there no allowed attributes for this element?
+  if (!allowed[elemName]) {
+    return false
+  }
+
+  // Is it allowed on this element?
+  if (allowed[elemName].includes(attrName)) {
+    return true
+  }
+
+  // Special case for value on HTML inputs with type button, reset, submit
+  if (
+    element.namespaceURI === 'http://www.w3.org/1999/xhtml' &&
+    elemName === 'input' &&
+    attrName === 'value'
+  ) {
+    const type = (element as HTMLInputElement).type.toLowerCase()
+    if (type === 'submit' || type === 'button' || type === 'reset') {
+      return true
+    }
+  }
+
+  return false
+}
+
 function translate(el: HTMLElement, fluent: FluentVueObject, binding: DirectiveBinding) {
   const key = binding.arg
 
@@ -22,8 +114,11 @@ function translate(el: HTMLElement, fluent: FluentVueObject, binding: DirectiveB
     el.textContent = fluent.formatPattern(bundle, msg.value, binding.value)
   }
 
-  for (const [attr] of Object.entries(binding.modifiers)) {
-    el.setAttribute(attr, fluent.formatPattern(bundle, msg.attributes[attr], binding.value))
+  const allowedAttrs = Object.keys(binding.modifiers)
+  for (const [attr, attrValue] of Object.entries(msg.attributes)) {
+    if (isAttrNameLocalizable(attr, el, allowedAttrs)) {
+      el.setAttribute(attr, fluent.formatPattern(bundle, attrValue, binding.value))
+    }
   }
 }
 

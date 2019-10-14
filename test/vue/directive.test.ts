@@ -109,6 +109,30 @@ describe('directive', () => {
     expect(mounted).toMatchSnapshot()
   })
 
+  it('automaticaly binds whitelisted attrs', () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      link = Text
+        .aria-label = Hello {$name}
+        .not-allowed = Not allowed attrs value
+      `)
+    )
+
+    const component = {
+      data: () => ({
+        name: 'John'
+      }),
+      template: `<a v-t:link="{ name }">Fallback</a>`
+    }
+
+    // Act
+    const mounted = mount(component, options)
+
+    // Assert
+    expect(mounted).toMatchSnapshot()
+  })
+
   it('works without fallbacks', () => {
     // Arrange
     bundle.addResource(
