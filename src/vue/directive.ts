@@ -5,28 +5,20 @@ import { FluentVueObject } from '../types'
 
 // This part is from fluent-dom library
 const LOCALIZABLE_ATTRIBUTES = {
-  'http://www.w3.org/1999/xhtml': {
-    global: ['title', 'aria-label', 'aria-valuetext', 'aria-moz-hint'],
-    a: ['download'],
-    area: ['download', 'alt'],
-    // value is special-cased in isAttrNameLocalizable
-    input: ['alt', 'placeholder'],
-    menuitem: ['label'],
-    menu: ['label'],
-    optgroup: ['label'],
-    option: ['label'],
-    track: ['label'],
-    img: ['alt'],
-    textarea: ['placeholder'],
-    th: ['abbr']
-  },
-  'http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul': {
-    global: ['accesskey', 'aria-label', 'aria-valuetext', 'aria-moz-hint', 'label'],
-    key: ['key', 'keycode'],
-    textbox: ['placeholder'],
-    toolbarbutton: ['tooltiptext']
-  }
-} as any
+  global: ['title', 'aria-label', 'aria-valuetext', 'aria-moz-hint'],
+  a: ['download'],
+  area: ['download', 'alt'],
+  // value is special-cased in isAttrNameLocalizable
+  input: ['alt', 'placeholder'],
+  menuitem: ['label'],
+  menu: ['label'],
+  optgroup: ['label'],
+  option: ['label'],
+  track: ['label'],
+  img: ['alt'],
+  textarea: ['placeholder'],
+  th: ['abbr']
+} as Record<string, string[]>
 
 /**
  * Check if attribute is allowed for the given element.
@@ -48,7 +40,7 @@ function isAttrNameLocalizable(
   name: string,
   element: HTMLElement,
   explicitlyAllowed: Array<string> | null = null
-) {
+): boolean {
   if (explicitlyAllowed && explicitlyAllowed.includes(name)) {
     return true
   }
@@ -57,26 +49,21 @@ function isAttrNameLocalizable(
     return false
   }
 
-  const allowed = LOCALIZABLE_ATTRIBUTES[element.namespaceURI]
-  if (!allowed) {
-    return false
-  }
-
   const attrName = name.toLowerCase()
   const elemName = element.localName
 
   // Is it a globally safe attribute?
-  if (allowed.global.includes(attrName)) {
+  if (LOCALIZABLE_ATTRIBUTES.global.includes(attrName)) {
     return true
   }
 
   // Are there no allowed attributes for this element?
-  if (!allowed[elemName]) {
+  if (!LOCALIZABLE_ATTRIBUTES[elemName]) {
     return false
   }
 
   // Is it allowed on this element?
-  if (allowed[elemName].includes(attrName)) {
+  if (LOCALIZABLE_ATTRIBUTES[elemName].includes(attrName)) {
     return true
   }
 
