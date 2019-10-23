@@ -2260,10 +2260,10 @@ fill-range@^4.0.0:
     repeat-string "^1.6.1"
     to-regex-range "^2.1.0"
 
-fluent-vue@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/fluent-vue/-/fluent-vue-2.1.0.tgz#d3e851ee032782c0b06ccf009aab839a94721802"
-  integrity sha512-UfK+7yCXVDbHTH3ki3Fl3z7+VmEnjRoFsuIZOby2TpOxfz/yPmLE9SkREhEky90IXGuMElwbQ1c3R52a2IH3Lg==
+fluent-vue@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/fluent-vue/-/fluent-vue-2.3.0.tgz#db5e5bdfb5b28028e4db1e8f1bf645c6409466d7"
+  integrity sha512-5jMC+2IL1sEy11WlXfsjN5jPUhtZn5bpRib1J0P3t8pRl+D5Ar4Ecs/QptHRouunRbRK2ddDJArYMULVgZJ9FQ==
   dependencies:
     "@fluent/bundle" "^0.14.0"
     "@fluent/dedent" "^0.1.0"
