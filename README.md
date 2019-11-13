@@ -115,7 +115,3 @@ new Vue({
   render: h => h(App)
 })
 ```
-
-## Usage
-
-TODO
