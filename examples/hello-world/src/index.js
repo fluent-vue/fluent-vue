@@ -10,8 +10,8 @@ const bundle = new FluentBundle({
   locales: 'en'
 })
 
-bundle.addResource(new FluentResource('key = World'))
-bundle.addResource(new FluentResource('parent = Lets say hello to {$child}'))
+bundle.addResource(new FluentResource('user-name = World'))
+bundle.addResource(new FluentResource('greeting = Hello, {$name}'))
 
 const fluent = new FluentVue({
   bundles: [bundle]
