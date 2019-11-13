@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`directive automaticaly binds whitelisted attrs 1`] = `<a aria-label="Hello ⁨John⁩">Text</a>`;
+exports[`directive automatically binds whitelisted attrs 1`] = `<a aria-label="Hello ⁨John⁩">Text</a>`;
 
 exports[`directive can translate DOM attributes 1`] = `<a href="/foo" aria-label="Localized aria">Hello ⁨John⁩</a>`;
 
