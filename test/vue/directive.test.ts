@@ -109,7 +109,7 @@ describe('directive', () => {
     expect(mounted).toMatchSnapshot()
   })
 
-  it('automaticaly binds whitelisted attrs', () => {
+  it('automatically binds whitelisted attrs', () => {
     // Arrange
     bundle.addResource(
       new FluentResource(ftl`

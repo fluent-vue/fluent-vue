@@ -8,9 +8,96 @@
 
 Vue.js integration for Project Fluent.
 
+**Project is in beta state. I don't recommend using it in production just yet, but would greatly appreciate any feedback.**
+
+<!-- TOC depthfrom:2 -->
+
+- [Features](#features)
+	- [`$t` method - simple way of adding translations](#t-method---simple-way-of-adding-translations)
+	- [`$ta` method - gets all attributes for translation key](#ta-method---gets-all-attributes-for-translation-key)
+	- [`v-t` directive - binds all whitelisted attributes](#v-t-directive---binds-all-whitelisted-attributes)
+	- [`i18n` component - allows using components inside translations](#i18n-component---allows-using-components-inside-translations)
+- [Instalation](#instalation)
+
+<!-- /TOC -->
+
 ## Features
 
-TODO
+### `$t` method - simple way of adding translations
+
+Resources:
+```ftl
+aria-key = Aria value
+greeting = Hello, {$name}
+```
+
+Template:
+```html
+<div :aria-label="$t('aria-key')">{{ $t('greeting', { name: 'World' }) }}</div>
+```
+
+Result:
+```html
+<div aria-label="Aria value">Hello, ⁨World⁩</div>
+```
+
+### `$ta` method - gets all attributes for translation key
+Useful for binding translations to custom components
+
+Resources:
+```ftl
+greeting = Hello, {$name}
+  .aria-label = Label value
+```
+
+Template:
+```html
+<div v-bind="$ta('greeting')">{{ $t('greeting', { name: 'World' }) }}</div>
+```
+
+Result:
+```html
+<div aria-label="Aria value">Hello, ⁨World⁩</div>
+```
+
+### `v-t` directive - binds all whitelisted attributes
+
+Resources:
+```ftl
+greeting = Hello, {$name}
+  .aria-label = Label value
+```
+
+Template:
+```html
+<div v:greeting="{ name: 'World' }"></div>
+```
+
+Result:
+```html
+<div aria-label="Label value">Hello, ⁨World⁩</div>
+```
+
+### `i18n` component - allows using components inside translations
+
+Resources:
+```ftl
+greeting = Hello, {$name}
+```
+
+Template:
+```html
+<i18n path="greeting" tag="div">
+  <template #name>
+    <b>World</b>
+  </template>
+</i18n>
+```
+
+Result:
+```html
+<div>Hello, ⁨<b>World</b>⁩</div>
+```
 
 ## Instalation
 
@@ -60,7 +147,3 @@ new Vue({
   render: h => h(App)
 })
 ```
-
-## Usage
-
-TODO

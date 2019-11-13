@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import { FluentBundle, FluentResource } from '@fluent/bundle';
+import ftl from '@fluent/dedent';
 import FluentVue from 'fluent-vue';
 
 import App from './App';
@@ -10,8 +11,13 @@ const bundle = new FluentBundle({
   locales: 'en'
 })
 
-bundle.addResource(new FluentResource('key = World'))
-bundle.addResource(new FluentResource('parent = Lets say hello to {$child}'))
+bundle.addResource(new FluentResource('user-name = World'))
+bundle.addResource(new FluentResource('aria-key = Aria value'))
+bundle.addResource(new FluentResource(
+  ftl`
+  greeting = Hello, {$name}
+    .aria-label = Label value
+  `))
 
 const fluent = new FluentVue({
   bundles: [bundle]
