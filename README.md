@@ -10,7 +10,62 @@ Vue.js integration for Project Fluent.
 
 ## Features
 
-TODO
+**$t method** - simple way of adding translations
+
+Resources:
+```ftl
+aria-key = Aria value
+greeting = Hello, {$name}
+```
+
+Template:
+```html
+<div :aria-label="$t('aria-key')">{{ $t('key', { name: 'World' }) }}</div>
+```
+
+Result:
+```html
+<div aria-label="Aria value">Hello, ⁨World⁩</div>
+```
+
+**v-t directive** - binds all whitelisted attributes
+
+Resources:
+```ftl
+greeting = Hello, {$name}
+  .aria-label = Label value
+```
+
+Template:
+```html
+<div v:greeting="{ name: 'World' }"></div>
+```
+
+Result:
+```html
+<div aria-label="Label value">Hello, ⁨World⁩</div>
+```
+
+**i18n component** - allows usage of components inside translations
+
+Resources:
+```ftl
+greeting = Hello, {$name}
+```
+
+Template:
+```html
+<i18n path="greeting" tag="div">
+  <template #name>
+    <b>World</b>
+  </template>
+</i18n>
+```
+
+Result:
+```html
+<div>Hello, ⁨<b>World</b>⁩</div>
+```
 
 ## Instalation
 
