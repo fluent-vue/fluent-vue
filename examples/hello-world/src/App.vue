@@ -2,11 +2,16 @@
   <div>
     <h3>Examples</h3>
 
-    <h4>Method</h4>
+    <h4>$t method</h4>
     <div>
       <span>
         {{ $t('greeting', { name: 'World' }) }}
       </span>
+    </div>
+
+    <h4>$ta method</h4>
+    <div>
+     <span v-bind="$ta('greeting')">{{ $t('greeting', { name: 'World' }) }}</span>
     </div>
 
     <h4>Directive</h4>
