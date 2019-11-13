@@ -18,7 +18,7 @@
     <div>
       <i18n path="greeting">
         <template #name>
-          <b v-t:user-name></b>
+          <b>{{ $t('user-name') }}</b>
         </template>
       </i18n>
     </div>
