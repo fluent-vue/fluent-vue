@@ -10,6 +10,17 @@ Vue.js integration for Project Fluent.
 
 **Project is in beta state. I don't recommend using it in production just yet, but would greatly appreciate any feedback.**
 
+<!-- TOC depthfrom:2 -->
+
+- [Features](#features)
+	- [`$t` method - simple way of adding translations](#t-method---simple-way-of-adding-translations)
+	- [`$ta` method - gets all attributes for translation key](#ta-method---gets-all-attributes-for-translation-key)
+	- [`v-t` directive - binds all whitelisted attributes](#v-t-directive---binds-all-whitelisted-attributes)
+	- [`i18n` component - allows using components inside translations](#i18n-component---allows-using-components-inside-translations)
+- [Instalation](#instalation)
+
+<!-- /TOC -->
+
 ## Features
 
 ### `$t` method - simple way of adding translations
