@@ -8,6 +8,8 @@
 
 Vue.js integration for Project Fluent.
 
+**Project is in beta state. I don't recommend using it in production just yet, but would greatly appreciate any feedback.**
+
 ## Features
 
 ### `$t` method - simple way of adding translations
