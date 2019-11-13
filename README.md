@@ -10,7 +10,7 @@ Vue.js integration for Project Fluent.
 
 ## Features
 
-### **$t method** - simple way of adding translations
+### `$t` method - simple way of adding translations
 
 Resources:
 ```ftl
@@ -28,7 +28,7 @@ Result:
 <div aria-label="Aria value">Hello, ⁨World⁩</div>
 ```
 
-### **v-t directive** - binds all whitelisted attributes
+### `v-t` directive - binds all whitelisted attributes
 
 Resources:
 ```ftl
@@ -46,7 +46,7 @@ Result:
 <div aria-label="Label value">Hello, ⁨World⁩</div>
 ```
 
-### **i18n component** - allows usage of components inside translations
+### `i18n` component - allows using components inside translations
 
 Resources:
 ```ftl
