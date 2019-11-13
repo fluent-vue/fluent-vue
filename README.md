@@ -28,7 +28,8 @@ Result:
 <div aria-label="Aria value">Hello, ⁨World⁩</div>
 ```
 
-### `$ta` method - gets all attributes for translation key. Useful for binding translations to custom components
+### `$ta` method - gets all attributes for translation key
+Useful for binding translations to custom components
 
 Resources:
 ```ftl
