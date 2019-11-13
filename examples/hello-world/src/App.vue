@@ -5,18 +5,18 @@
     <h4>Method</h4>
     <div>
       <span>
-        {{ $t('greeting', { name: 'John' }) }}
+        {{ $t('greeting', { name: 'World' }) }}
       </span>
     </div>
 
     <h4>Directive</h4>
     <div>
-      <span v-t:greeting="{ name: 'John' }"></span>
+      <span v-t:greeting="{ name: 'World' }"></span>
     </div>
 
     <h4>Component</h4>
     <div>
-      <i18n path="greeting">
+      <i18n path="greeting" tag="div">
         <template #name>
           <b>{{ $t('user-name') }}</b>
         </template>
