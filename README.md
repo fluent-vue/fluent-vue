@@ -20,7 +20,25 @@ greeting = Hello, {$name}
 
 Template:
 ```html
-<div :aria-label="$t('aria-key')">{{ $t('key', { name: 'World' }) }}</div>
+<div :aria-label="$t('aria-key')">{{ $t('greeting', { name: 'World' }) }}</div>
+```
+
+Result:
+```html
+<div aria-label="Aria value">Hello, ⁨World⁩</div>
+```
+
+### `$ta` method - gets all attributes for translation key. Useful for binding translations to custom components
+
+Resources:
+```ftl
+greeting = Hello, {$name}
+  .aria-label = Label value
+```
+
+Template:
+```html
+<div v-bind="$ta('greeting')">{{ $t('greeting', { name: 'World' }) }}</div>
 ```
 
 Result:
