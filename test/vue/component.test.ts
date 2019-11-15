@@ -83,7 +83,7 @@ describe('component', () => {
         }
       },
       template: `
-        <i18n path="key" :data="{ name }">
+        <i18n path="key" :args="{ name }">
           <template #child>
             <b>Inner text</b>
           </template>

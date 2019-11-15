@@ -6,7 +6,7 @@ export default {
   props: {
     path: { type: String, required: true },
     tag: { type: String, default: 'span' },
-    data: { type: Object, default: () => ({}) }
+    args: { type: Object, default: () => ({}) }
   },
   render(h, { parent, props, data, slots }) {
     const key = props.path
@@ -16,7 +16,7 @@ export default {
 
     const params = Object.assign(
       {},
-      props.data,
+      props.args,
       ...Object.entries(childSlots).map(([key, v]) => ({ [key]: `\uFFFF\uFFFE${key}\uFFFF` }))
     )
 
