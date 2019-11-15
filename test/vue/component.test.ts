@@ -41,7 +41,7 @@ describe('component', () => {
     const mounted = mount(component, options)
 
     // Assert
-    expect(mounted).toMatchSnapshot()
+    expect(mounted.html()).toEqual(`<span>Inner data</span>`)
   })
 
   it('interpolates components', () => {
@@ -65,7 +65,7 @@ describe('component', () => {
     const mounted = mount(component, options)
 
     // Assert
-    expect(mounted).toMatchSnapshot()
+    expect(mounted.html()).toEqual(`<span>Inner data ⁨<b>Inner text</b>⁩ test</span>`)
   })
 
   it('can accept parameters', () => {
@@ -94,6 +94,6 @@ describe('component', () => {
     const mounted = mount(component, options)
 
     // Assert
-    expect(mounted).toMatchSnapshot()
+    expect(mounted.html()).toEqual(`<span>Hello ⁨John⁩ ⁨<b>Inner text</b>⁩ test</span>`)
   })
 })

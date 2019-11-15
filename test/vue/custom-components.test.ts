@@ -53,6 +53,6 @@ describe('method', () => {
     const mounted = mount(component, options)
 
     // Assert
-    expect(mounted).toMatchSnapshot()
+    expect(mounted.html()).toEqual(`<div attr="Attr value">Inner data</div>`)
   })
 })

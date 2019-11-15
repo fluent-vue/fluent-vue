@@ -40,7 +40,7 @@ describe('vue integration', () => {
     const mounted = mount(component, options)
 
     // Assert
-    expect(mounted).toMatchSnapshot()
+    expect(mounted.html()).toEqual(`<div>message-not-found</div>`)
     expect(warn).toHaveBeenCalledTimes(1)
   })
 
@@ -63,7 +63,7 @@ describe('vue integration', () => {
     const mounted = mount(component, options)
 
     // Assert
-    expect(mounted).toMatchSnapshot()
+    expect(mounted.html()).toEqual(`<div>{NUMBER($arg)}</div>`)
     expect(warn).toHaveBeenCalledTimes(1)
   })
 })

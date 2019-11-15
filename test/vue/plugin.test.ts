@@ -46,7 +46,7 @@ describe('vue integration', () => {
     const mounted = mount(component, options)
 
     // Assert
-    expect(mounted).toMatchSnapshot()
+    expect(mounted.html()).toEqual(`<div>Hello, ⁨John⁩!</div>`)
   })
 
   it('translates messages in sub-component', () => {
@@ -77,7 +77,9 @@ describe('vue integration', () => {
     const mounted = mount(component, options)
 
     // Assert
-    expect(mounted).toMatchSnapshot()
+    expect(mounted.html()).toEqual(`<div>
+          Hello, ⁨John⁩!
+          <div>Hi, ⁨Alice⁩</div></div>`)
   })
 
   it('clears instance on component destroy', () => {
