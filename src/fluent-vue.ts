@@ -7,15 +7,19 @@ import { FluentVueObject, FluentVueOptions } from './types'
 import { VueConstructor } from 'vue/types/vue'
 import { Pattern, FluentBundle } from '@fluent/bundle'
 
+interface IUpdatable {
+  $forceUpdate(): void
+}
+
 export default class FluentVue implements FluentVueObject {
-  private subscribers: Map<Vue, boolean>
+  private subscribers: Map<IUpdatable, boolean>
   private bundlesIterable: CachedSyncIterable<FluentBundle>
   private _bundles: FluentBundle[]
 
-  subscribe(vue: Vue): void {
+  subscribe(vue: IUpdatable): void {
     this.subscribers.set(vue, true)
   }
-  unsubscribe(vue: Vue): void {
+  unsubscribe(vue: IUpdatable): void {
     this.subscribers.delete(vue)
   }
 
