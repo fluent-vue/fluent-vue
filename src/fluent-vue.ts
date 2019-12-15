@@ -9,7 +9,7 @@ import { Pattern, FluentBundle } from '@fluent/bundle'
 
 export default class FluentVue implements FluentVueObject {
   private subscribers: Map<Vue, boolean>
-  private bundlesIterable: CachedSyncIterable
+  private bundlesIterable: CachedSyncIterable<FluentBundle>
   private _bundles: FluentBundle[]
 
   subscribe(vue: Vue): void {
@@ -82,7 +82,7 @@ export default class FluentVue implements FluentVueObject {
     return this.formatPattern(context, message.value, value)
   }
 
-  formatAttrs(key: string, value?: object): object {
+  formatAttrs(key: string, value?: object): Record<string, string> {
     const context = this.getBundle(key)
     const message = this.getMessage(context, key)
 
@@ -90,7 +90,7 @@ export default class FluentVue implements FluentVueObject {
       return {}
     }
 
-    const result: { [prop: string]: string } = {}
+    const result: Record<string, string> = {}
     for (const [attrName, attrValue] of Object.entries(message.attributes)) {
       result[attrName] = this.formatPattern(context, attrValue, value)
     }

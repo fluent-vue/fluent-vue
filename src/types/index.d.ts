@@ -18,7 +18,7 @@ export interface FluentVueOptions {
 declare module 'vue/types/vue' {
   interface Vue {
     $fluent: FluentVueObject
-    $t(key: string, values: any): string
+    $t(key: string, values: Record<string, unknown>): string
   }
 }
 

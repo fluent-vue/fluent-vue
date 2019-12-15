@@ -3,8 +3,8 @@ declare module '@fluent/dedent' {
 }
 
 declare module 'cached-iterable' {
-  export class CachedSyncIterable {
-    static from(array: any[]): CachedSyncIterable
+  export class CachedSyncIterable<T> {
+    static from<T>(array: T[]): CachedSyncIterable<T>
   }
 }
 
@@ -12,20 +12,23 @@ declare module '@fluent/sequence' {
   import { CachedSyncIterable } from 'cached-iterable'
   import { FluentBundle } from '@fluent/bundle'
 
-  export function mapBundleSync(iterable: CachedSyncIterable, key: string): FluentBundle
+  export function mapBundleSync(
+    iterable: CachedSyncIterable<FluentBundle>,
+    key: string
+  ): FluentBundle
 }
 
 declare module '@fluent/bundle' {
   export interface FluentBundleContructorOptions {
     functions?: object
     useIsolating?: boolean
-    transform?: (...args: any[]) => any
+    transform?: (...args: unknown[]) => unknown
   }
 
   export class FluentType {
-    constructor(value: any, opts: object)
+    constructor(value: unknown, opts: object)
     toString(bundle: FluentBundle): string
-    valueOf(): any
+    valueOf(): unknown
   }
 
   export class FluentNone extends FluentType {}

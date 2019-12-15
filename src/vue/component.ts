@@ -1,6 +1,6 @@
-import { Component } from 'vue/types'
+import Vue from 'vue'
 
-export default {
+export default Vue.extend({
   name: 'i18n',
   functional: true,
   props: {
@@ -28,4 +28,4 @@ export default {
 
     return h(props.tag, data, parts)
   }
-} as Component
+})
