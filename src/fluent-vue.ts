@@ -90,9 +90,9 @@ export default class FluentVue implements FluentVueObject {
       return {}
     }
 
-    const result = {}
+    const result: { [prop: string]: string } = {}
     for (const [attrName, attrValue] of Object.entries(message.attributes)) {
-      ;(result as any)[attrName] = this.formatPattern(context, attrValue, value)
+      result[attrName] = this.formatPattern(context, attrValue, value)
     }
 
     return result
