@@ -26,7 +26,7 @@ Vue.js integration for Project Fluent.
 ### `$t` method - simple way of adding translations
 
 Resources:
-```ftl
+```
 aria-key = Aria value
 greeting = Hello, {$name}
 ```
@@ -45,7 +45,7 @@ Result:
 Useful for binding translations to custom components
 
 Resources:
-```ftl
+```
 greeting = Hello, {$name}
   .aria-label = Label value
 ```
@@ -63,7 +63,7 @@ Result:
 ### `v-t` directive - binds all whitelisted attributes
 
 Resources:
-```ftl
+```
 greeting = Hello, {$name}
   .aria-label = Label value
 ```
@@ -81,7 +81,7 @@ Result:
 ### `i18n` component - allows using components inside translations
 
 Resources:
-```ftl
+```
 greeting = Hello, {$name}
 ```
 
