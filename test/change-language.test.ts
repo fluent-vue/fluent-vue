@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
@@ -49,7 +50,7 @@ describe('language change', () => {
     const mounted = mount(component, options)
 
     // Assert
-    expect(mounted).toMatchSnapshot()
+    expect(mounted.html()).toEqual(`<a href="/foo">текст посилання</a>`)
   })
 
   it('falls back to previous bundle', () => {
@@ -68,10 +69,10 @@ describe('language change', () => {
     const mounted = mount(component, options)
 
     // Assert
-    expect(mounted).toMatchSnapshot()
+    expect(mounted.html()).toEqual(`<a href="/foo">link text</a>`)
   })
 
-  it('updates when updating bundles array', () => {
+  it('updates when updating bundles array', async () => {
     // Arrange
     const localVue = createLocalVue()
     localVue.use(FluentVue)
@@ -105,11 +106,13 @@ describe('language change', () => {
       localVue
     })
 
-    expect(mounted).toMatchSnapshot()
+    expect(mounted.html()).toEqual(`<a href="/foo">текст посилання</a>`)
 
     fluent.bundles = [bundleEn, bundleUk]
 
+    await Vue.nextTick()
+
     // Assert
-    expect(mounted).toMatchSnapshot()
+    expect(mounted.html()).toEqual(`<a href="/foo">link text</a>`)
   })
 })

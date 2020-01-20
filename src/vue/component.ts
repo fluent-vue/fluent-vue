@@ -1,12 +1,12 @@
-import { Component } from 'vue/types'
+import Vue from 'vue'
 
-export default {
+export default Vue.extend({
   name: 'i18n',
   functional: true,
   props: {
     path: { type: String, required: true },
     tag: { type: String, default: 'span' },
-    data: { type: Object, default: () => ({}) }
+    args: { type: Object, default: () => ({}) }
   },
   render(h, { parent, props, data, slots }) {
     const key = props.path
@@ -16,7 +16,7 @@ export default {
 
     const params = Object.assign(
       {},
-      props.data,
+      props.args,
       ...Object.entries(childSlots).map(([key, v]) => ({ [key]: `\uFFFF\uFFFE${key}\uFFFF` }))
     )
 
@@ -28,4 +28,4 @@ export default {
 
     return h(props.tag, data, parts)
   }
-} as Component
+})

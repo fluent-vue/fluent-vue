@@ -16,7 +16,7 @@ export default function extend(Vue: VueConstructor<Vue>): void {
    * @param key Translation key
    * @param values Message parameters
    */
-  Vue.prototype.$t = function(key: string, values: any): string {
+  Vue.prototype.$t = function(key: string, values: Record<string, unknown>): string {
     return this.$fluent.format(key, values)
   }
 
@@ -25,7 +25,7 @@ export default function extend(Vue: VueConstructor<Vue>): void {
    * @param key Translation key
    * @param values Message parameters
    */
-  Vue.prototype.$ta = function(key: string, values: any): string {
+  Vue.prototype.$ta = function(key: string, values: Record<string, unknown>): string {
     return this.$fluent.formatAttrs(key, values)
   }
 }

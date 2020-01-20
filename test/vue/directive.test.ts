@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
@@ -44,7 +45,7 @@ describe('directive', () => {
     const mounted = mount(component, options)
 
     // Assert
-    expect(mounted).toMatchSnapshot()
+    expect(mounted.html()).toEqual(`<a href="/foo">Link text</a>`)
   })
 
   it('warns about missing key arg', () => {
@@ -60,7 +61,7 @@ describe('directive', () => {
     const mounted = mount(component, options)
 
     // Assert
-    expect(mounted).toMatchSnapshot()
+    expect(mounted.html()).toEqual(`<a href="/foo">Fallback text</a>`)
     expect(warn).toHaveBeenCalledTimes(1)
   })
 
@@ -83,7 +84,7 @@ describe('directive', () => {
     const mounted = mount(component, options)
 
     // Assert
-    expect(mounted).toMatchSnapshot()
+    expect(mounted.html()).toEqual(`<a href="/foo">Hello ⁨John⁩</a>`)
   })
 
   it('can translate DOM attributes', () => {
@@ -106,7 +107,7 @@ describe('directive', () => {
     const mounted = mount(component, options)
 
     // Assert
-    expect(mounted).toMatchSnapshot()
+    expect(mounted.html()).toEqual(`<a href="/foo" aria-label="Localized aria">Hello ⁨John⁩</a>`)
   })
 
   it('automatically binds whitelisted attrs', () => {
@@ -130,7 +131,7 @@ describe('directive', () => {
     const mounted = mount(component, options)
 
     // Assert
-    expect(mounted).toMatchSnapshot()
+    expect(mounted.html()).toEqual(`<a aria-label="Hello ⁨John⁩">Text</a>`)
   })
 
   it('works without fallbacks', () => {
@@ -153,10 +154,10 @@ describe('directive', () => {
     const mounted = mount(component, options)
 
     // Assert
-    expect(mounted).toMatchSnapshot()
+    expect(mounted.html()).toEqual(`<a aria-label="Localized aria">Hello ⁨John⁩</a>`)
   })
 
-  it('updates translations on component update', () => {
+  it('updates translations on component update', async () => {
     // Arrange
     bundle.addResource(
       new FluentResource(ftl`
@@ -174,16 +175,18 @@ describe('directive', () => {
 
     const mounted = mount(component, options)
 
-    expect(mounted).toMatchSnapshot()
+    expect(mounted.html()).toEqual(`<a aria-label="Localized aria">Hello ⁨John⁩</a>`)
 
     // Act
     mounted.setData({ name: 'Anna' })
 
+    await Vue.nextTick()
+
     // Assert
-    expect(mounted).toMatchSnapshot()
+    expect(mounted.html()).toEqual(`<a aria-label="Localized aria">Hello ⁨Anna⁩</a>`)
   })
 
-  it('preserves translations on component update', () => {
+  it('preserves translations on component update', async () => {
     // Arrange
     bundle.addResource(
       new FluentResource(ftl`
@@ -202,13 +205,15 @@ describe('directive', () => {
 
     const mounted = mount(component, options)
 
-    expect(mounted).toMatchSnapshot()
+    expect(mounted.html()).toEqual(`<a aria-label="Hello ⁨John⁩">Anna</a>`)
 
     // Act
     mounted.setData({ otherName: 'Test' })
 
+    await Vue.nextTick()
+
     // Assert
-    expect(mounted).toMatchSnapshot()
+    expect(mounted.html()).toEqual(`<a aria-label="Hello ⁨John⁩">Test</a>`)
   })
 
   it('works with multiple attributes', () => {
@@ -232,6 +237,8 @@ describe('directive', () => {
     const mounted = mount(component, options)
 
     // Assert
-    expect(mounted).toMatchSnapshot()
+    expect(mounted.html()).toEqual(
+      `<a aria-label="Hello ⁨John⁩" placeholder="Placeholder">Text</a>`
+    )
   })
 })

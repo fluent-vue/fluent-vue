@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`component can accept parameters 1`] = `<span>Hello ⁨John⁩ ⁨<b>Inner text</b>⁩ test</span>`;
-
-exports[`component handles simple translations 1`] = `<span>Inner data</span>`;
-
-exports[`component interpolates components 1`] = `<span>Inner data ⁨<b>Inner text</b>⁩ test</span>`;

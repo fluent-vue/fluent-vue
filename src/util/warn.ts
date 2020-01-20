@@ -1,4 +1,4 @@
-export function assert(condition: any, message: string) {
+export function assert(condition: boolean, message: string) {
   if (!condition) {
     throw new Error(`[fluent-vue] ${message}`)
   }

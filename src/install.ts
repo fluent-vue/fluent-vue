@@ -8,5 +8,5 @@ export default function install(vue: typeof Vue) {
   extend(vue)
   vue.mixin(mixin)
   vue.directive('t', directive)
-  vue.component('i18n', component as any)
+  vue.component('i18n', component)
 }

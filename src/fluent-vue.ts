@@ -3,20 +3,39 @@ import { CachedSyncIterable } from 'cached-iterable'
 import { mapBundleSync } from '@fluent/sequence'
 import { warn } from './util/warn'
 
-import { FluentVueObject, FluentVueOptions } from './types'
 import { VueConstructor } from 'vue/types/vue'
 import { Pattern, FluentBundle } from '@fluent/bundle'
 
+/**
+ * Interface for objects that need to be updated when translation change
+ */
+interface IUpdatable {
+  /** Force update after translation change */
+  $forceUpdate(): void
+}
+
+/**
+ * Main class of fluent-vue.
+ * Holds fluent bundles and formats messages.
+ */
 export default class FluentVue implements FluentVueObject {
-  private subscribers: Map<Vue, boolean>
-  private bundlesIterable: CachedSyncIterable
+  private subscribers: Map<IUpdatable, boolean>
+  private bundlesIterable: CachedSyncIterable<FluentBundle>
   private _bundles: FluentBundle[]
 
-  subscribe(vue: Vue): void {
-    this.subscribers.set(vue, true)
+  /**
+   * Add object to list of objects to notify
+   * @param updatable Object to add to list
+   */
+  subscribe(updatable: IUpdatable): void {
+    this.subscribers.set(updatable, true)
   }
-  unsubscribe(vue: Vue): void {
-    this.subscribers.delete(vue)
+  /**
+   * Remove object from list of object to notify
+   * @param updatable Object remove from list
+   */
+  unsubscribe(updatable: IUpdatable): void {
+    this.subscribers.delete(updatable)
   }
 
   get bundles(): FluentBundle[] {
@@ -34,6 +53,10 @@ export default class FluentVue implements FluentVueObject {
 
   static install: (vue: VueConstructor<Vue>) => void
 
+  /**
+   * Constructs new instance of FluentVue class.
+   * @param options Initialization options
+   */
   constructor(options: FluentVueOptions) {
     this.subscribers = new Map<Vue, boolean>()
     this._bundles = options.bundles
@@ -82,7 +105,7 @@ export default class FluentVue implements FluentVueObject {
     return this.formatPattern(context, message.value, value)
   }
 
-  formatAttrs(key: string, value?: object): object {
+  formatAttrs(key: string, value?: object): Record<string, string> {
     const context = this.getBundle(key)
     const message = this.getMessage(context, key)
 
@@ -90,9 +113,9 @@ export default class FluentVue implements FluentVueObject {
       return {}
     }
 
-    const result = {}
+    const result: Record<string, string> = {}
     for (const [attrName, attrValue] of Object.entries(message.attributes)) {
-      ;(result as any)[attrName] = this.formatPattern(context, attrValue, value)
+      result[attrName] = this.formatPattern(context, attrValue, value)
     }
 
     return result
