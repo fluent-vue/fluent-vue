@@ -65,21 +65,14 @@ describe('vue integration', () => {
       data: () => ({
         name: 'John'
       }),
-      template: `
-        <div>
-          {{ $t('message', { name }) }}
-          <child />
-        </div>
-      `
+      template: "<div>{{ $t('message', { name }) }}<child /></div>"
     }
 
     // Act
     const mounted = mount(component, options)
 
     // Assert
-    expect(mounted.html()).toEqual(`<div>
-          Hello, ⁨John⁩!
-          <div>Hi, ⁨Alice⁩</div></div>`)
+    expect(mounted.html()).toEqual('<div>Hello, ⁨John⁩!<div>Hi, ⁨Alice⁩</div>\n</div>')
   })
 
   it('clears instance on component destroy', () => {

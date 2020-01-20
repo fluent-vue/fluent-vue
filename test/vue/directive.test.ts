@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import { createLocalVue, mount } from '@vue/test-utils'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
@@ -156,7 +157,7 @@ describe('directive', () => {
     expect(mounted.html()).toEqual(`<a aria-label="Localized aria">Hello ⁨John⁩</a>`)
   })
 
-  it('updates translations on component update', () => {
+  it('updates translations on component update', async () => {
     // Arrange
     bundle.addResource(
       new FluentResource(ftl`
@@ -179,11 +180,13 @@ describe('directive', () => {
     // Act
     mounted.setData({ name: 'Anna' })
 
+    await Vue.nextTick()
+
     // Assert
     expect(mounted.html()).toEqual(`<a aria-label="Localized aria">Hello ⁨Anna⁩</a>`)
   })
 
-  it('preserves translations on component update', () => {
+  it('preserves translations on component update', async () => {
     // Arrange
     bundle.addResource(
       new FluentResource(ftl`
@@ -206,6 +209,8 @@ describe('directive', () => {
 
     // Act
     mounted.setData({ otherName: 'Test' })
+
+    await Vue.nextTick()
 
     // Assert
     expect(mounted.html()).toEqual(`<a aria-label="Hello ⁨John⁩">Test</a>`)
