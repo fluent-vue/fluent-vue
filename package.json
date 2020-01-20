@@ -68,9 +68,6 @@
     },
     "collectCoverageFrom": [
       "src/*.{js,ts}"
-    ],
-    "snapshotSerializers": [
-      "jest-serializer-vue"
     ]
   },
   "prettier": {
@@ -100,7 +97,6 @@
     "husky": "^4.0.10",
     "jest": "^24.8.0",
     "jest-config": "^24.8.0",
-    "jest-serializer-vue": "^2.0.2",
     "jsdom": "^16.0.1",
     "jsdom-global": "^3.0.2",
     "lint-staged": "^10.0.0",
