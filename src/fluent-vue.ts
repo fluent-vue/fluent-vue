@@ -3,24 +3,39 @@ import { CachedSyncIterable } from 'cached-iterable'
 import { mapBundleSync } from '@fluent/sequence'
 import { warn } from './util/warn'
 
-import { FluentVueObject, FluentVueOptions } from './types'
 import { VueConstructor } from 'vue/types/vue'
 import { Pattern, FluentBundle } from '@fluent/bundle'
 
+/**
+ * Interface for objects that need to be updated when translation change
+ */
 interface IUpdatable {
+  /** Force update after translation change */
   $forceUpdate(): void
 }
 
+/**
+ * Main class of fluent-vue.
+ * Holds fluent bundles and formats messages.
+ */
 export default class FluentVue implements FluentVueObject {
   private subscribers: Map<IUpdatable, boolean>
   private bundlesIterable: CachedSyncIterable<FluentBundle>
   private _bundles: FluentBundle[]
 
-  subscribe(vue: IUpdatable): void {
-    this.subscribers.set(vue, true)
+  /**
+   * Add object to list of objects to notify
+   * @param updatable Object to add to list
+   */
+  subscribe(updatable: IUpdatable): void {
+    this.subscribers.set(updatable, true)
   }
-  unsubscribe(vue: IUpdatable): void {
-    this.subscribers.delete(vue)
+  /**
+   * Remove object from list of object to notify
+   * @param updatable Object remove from list
+   */
+  unsubscribe(updatable: IUpdatable): void {
+    this.subscribers.delete(updatable)
   }
 
   get bundles(): FluentBundle[] {
@@ -38,6 +53,10 @@ export default class FluentVue implements FluentVueObject {
 
   static install: (vue: VueConstructor<Vue>) => void
 
+  /**
+   * Constructs new instance of FluentVue class.
+   * @param options Initialization options
+   */
   constructor(options: FluentVueOptions) {
     this.subscribers = new Map<Vue, boolean>()
     this._bundles = options.bundles
