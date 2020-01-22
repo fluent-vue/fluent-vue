@@ -5,10 +5,10 @@
   "keywords": [],
   "main": "dist/fluent-vue.umd.js",
   "module": "dist/fluent-vue.es5.js",
-  "typings": "dist/types/fluent-vue.d.ts",
+  "typings": "src/types/index.d.ts",
   "files": [
     "dist",
-    "types"
+    "src/types"
   ],
   "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
   "repository": {
