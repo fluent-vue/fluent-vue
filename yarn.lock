@@ -872,10 +872,10 @@
   dependencies:
     find-up "^4.0.0"
 
-"@fluent/bundle@^0.14.1":
-  version "0.14.1"
-  resolved "https://registry.yarnpkg.com/@fluent/bundle/-/bundle-0.14.1.tgz#634d88d0ee8c92bc69acf1f15a649325f6f8f848"
-  integrity sha512-0uguRGajpI897/Uhx0KNkSiz+F+GWhgRAPfvHfuGgWl2Szd3JNEHyxmRmPXgnsfYX51piq2O4Jdu4zgjmUBUhA==
+"@fluent/bundle@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/@fluent/bundle/-/bundle-0.15.0.tgz#c123ea08d066d8b987eae5ceaa6632451609efaf"
+  integrity sha512-pYz+TuFPwCj5yx51mFG1flPxwTaXWkpi6yt6r+rdm22Y9bkWMHWdwbUnjWLJ+9yJKQMhe2uhvMJ7YfhkF87oNg==
 
 "@fluent/dedent@^0.1.0":
   version "0.1.0"
