@@ -754,11 +754,6 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@fluent/bundle@^0.14.1":
-  version "0.14.1"
-  resolved "https://registry.yarnpkg.com/@fluent/bundle/-/bundle-0.14.1.tgz#634d88d0ee8c92bc69acf1f15a649325f6f8f848"
-  integrity sha512-0uguRGajpI897/Uhx0KNkSiz+F+GWhgRAPfvHfuGgWl2Szd3JNEHyxmRmPXgnsfYX51piq2O4Jdu4zgjmUBUhA==
-
 "@fluent/bundle@^0.15.0":
   version "0.15.0"
   resolved "https://registry.yarnpkg.com/@fluent/bundle/-/bundle-0.15.0.tgz#c123ea08d066d8b987eae5ceaa6632451609efaf"
@@ -2272,13 +2267,11 @@ find-up@^3.0.0:
   dependencies:
     locate-path "^3.0.0"
 
-fluent-vue@2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/fluent-vue/-/fluent-vue-2.4.0.tgz#e8e65609e55a35965984a2c7d40695b4f73194c7"
-  integrity sha512-TUxWUtJRNEegjjQfzW1Y6ZPZyUz6qyrBF+qDcrsl+Fq/EM0MBTQN4spuBxjfhmAHc+y9dJ6259NoWrntdWgm/g==
+fluent-vue@2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/fluent-vue/-/fluent-vue-2.4.1.tgz#f27401658f7cacefc3ae8cab54d292889ab132c8"
+  integrity sha512-XUZPZxR2peMAilN00+MjwUYpNNxNvQmghvxBXNqZuby/BYHd+IPJA/mudt+mpHW/R455LKheDi2QSoXK2wTnnQ==
   dependencies:
-    "@fluent/bundle" "^0.14.1"
-    "@fluent/dedent" "^0.1.0"
     "@fluent/sequence" "^0.4.0"
     cached-iterable "^0.3.0"
     tslib "^1.10.0"
