@@ -754,10 +754,15 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@fluent/bundle@^0.14.0":
+"@fluent/bundle@^0.14.1":
   version "0.14.1"
   resolved "https://registry.yarnpkg.com/@fluent/bundle/-/bundle-0.14.1.tgz#634d88d0ee8c92bc69acf1f15a649325f6f8f848"
   integrity sha512-0uguRGajpI897/Uhx0KNkSiz+F+GWhgRAPfvHfuGgWl2Szd3JNEHyxmRmPXgnsfYX51piq2O4Jdu4zgjmUBUhA==
+
+"@fluent/bundle@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/@fluent/bundle/-/bundle-0.15.0.tgz#c123ea08d066d8b987eae5ceaa6632451609efaf"
+  integrity sha512-pYz+TuFPwCj5yx51mFG1flPxwTaXWkpi6yt6r+rdm22Y9bkWMHWdwbUnjWLJ+9yJKQMhe2uhvMJ7YfhkF87oNg==
 
 "@fluent/dedent@^0.1.0":
   version "0.1.0"
@@ -2267,15 +2272,16 @@ find-up@^3.0.0:
   dependencies:
     locate-path "^3.0.0"
 
-fluent-vue@2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/fluent-vue/-/fluent-vue-2.3.0.tgz#db5e5bdfb5b28028e4db1e8f1bf645c6409466d7"
-  integrity sha512-5jMC+2IL1sEy11WlXfsjN5jPUhtZn5bpRib1J0P3t8pRl+D5Ar4Ecs/QptHRouunRbRK2ddDJArYMULVgZJ9FQ==
+fluent-vue@2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/fluent-vue/-/fluent-vue-2.4.0.tgz#e8e65609e55a35965984a2c7d40695b4f73194c7"
+  integrity sha512-TUxWUtJRNEegjjQfzW1Y6ZPZyUz6qyrBF+qDcrsl+Fq/EM0MBTQN4spuBxjfhmAHc+y9dJ6259NoWrntdWgm/g==
   dependencies:
-    "@fluent/bundle" "^0.14.0"
+    "@fluent/bundle" "^0.14.1"
     "@fluent/dedent" "^0.1.0"
     "@fluent/sequence" "^0.4.0"
     cached-iterable "^0.3.0"
+    tslib "^1.10.0"
 
 for-in@^1.0.2:
   version "1.0.2"
@@ -4939,6 +4945,11 @@ tr46@^1.0.1:
   integrity sha1-qLE/1r/SSJUZZ0zN5VujaTtwbQk=
   dependencies:
     punycode "^2.1.0"
+
+tslib@^1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
+  integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 
 tty-browserify@0.0.0:
   version "0.0.0"
