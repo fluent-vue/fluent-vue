@@ -17,9 +17,9 @@
   },
   "license": "MIT",
   "scripts": {
-    "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts' 'types/**/*.ts'",
+    "lint": "tslint --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts' 'types/**/*.ts'",
     "prebuild": "rimraf dist",
-    "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
+    "build": "tsc --declaration --emitDeclarationOnly && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
     "start": "rollup -c rollup.config.ts -w",
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
@@ -85,7 +85,7 @@
     "@rollup/plugin-commonjs": "^11.0.1",
     "@rollup/plugin-json": "^4.0.1",
     "@rollup/plugin-node-resolve": "^7.0.0",
-    "@rollup/plugin-typescript": "^2.1.0",
+    "@rollup/plugin-typescript": "^3.0.0",
     "@types/jest": "^24.9.0",
     "@types/node": "^13.1.8",
     "@vue/test-utils": "^1.0.0-beta.31",
@@ -121,7 +121,7 @@
     "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {
-    "@fluent/bundle": "^0.14.1",
+    "@fluent/bundle": "^0.15.0",
     "@fluent/dedent": "^0.1.0",
     "@fluent/sequence": "^0.4.0",
     "cached-iterable": "^0.3.0",
