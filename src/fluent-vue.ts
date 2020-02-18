@@ -5,14 +5,7 @@ import { warn } from './util/warn'
 
 import { VueConstructor } from 'vue/types/vue'
 import { Pattern, FluentBundle } from '@fluent/bundle'
-
-/**
- * Interface for objects that need to be updated when translation change
- */
-interface IUpdatable {
-  /** Force update after translation change */
-  $forceUpdate(): void
-}
+import { FluentVueObject, IUpdatable, FluentVueOptions } from './interfaces'
 
 /**
  * Main class of fluent-vue.

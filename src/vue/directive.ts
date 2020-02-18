@@ -1,6 +1,7 @@
-import { DirectiveBinding } from 'vue/types/options'
-import { VNode } from 'vue/types/vnode'
+import { DirectiveOptions } from 'vue'
 import { warn } from '../util/warn'
+import { FluentVueObject } from '../interfaces'
+import { DirectiveBinding } from 'vue/types/options'
 
 // This part is from fluent-dom library
 const LOCALIZABLE_ATTRIBUTES = {
@@ -108,8 +109,8 @@ function translate(el: HTMLElement, fluent: FluentVueObject, binding: DirectiveB
   }
 }
 
-export default {
-  bind(el: HTMLElement, binding: DirectiveBinding, vnode: VNode) {
+const directive: DirectiveOptions = {
+  bind(el, binding, vnode) {
     if (vnode.context === undefined) {
       return
     }
@@ -117,7 +118,7 @@ export default {
     translate(el, vnode.context.$fluent, binding)
   },
 
-  update(el: HTMLElement, binding: DirectiveBinding, vnode: VNode) {
+  update(el, binding, vnode) {
     if (vnode.context === undefined) {
       return
     }
@@ -125,3 +126,5 @@ export default {
     translate(el, vnode.context.$fluent, binding)
   }
 }
+
+export default directive

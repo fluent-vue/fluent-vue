@@ -5,10 +5,10 @@
   "keywords": [],
   "main": "dist/fluent-vue.umd.js",
   "module": "dist/fluent-vue.es5.js",
-  "typings": "dist/types/fluent-vue.d.ts",
+  "typings": "src/types/index.d.ts",
   "files": [
     "dist",
-    "types"
+    "src/types"
   ],
   "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
   "repository": {
@@ -17,9 +17,9 @@
   },
   "license": "MIT",
   "scripts": {
-    "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts' 'types/**/*.ts'",
+    "lint": "tslint --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts' 'types/**/*.ts'",
     "prebuild": "rimraf dist",
-    "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
+    "build": "tsc --declaration --emitDeclarationOnly && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
     "start": "rollup -c rollup.config.ts -w",
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
