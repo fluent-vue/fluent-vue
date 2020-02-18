@@ -70,7 +70,7 @@ greeting = Hello, {$name}
 
 Template:
 ```html
-<div v:greeting="{ name: 'World' }"></div>
+<div v-t:greeting="{ name: 'World' }"></div>
 ```
 
 Result:
