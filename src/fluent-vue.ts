@@ -1,9 +1,8 @@
-import Vue from 'vue'
+import Vue, { VueConstructor } from 'vue'
 import { CachedSyncIterable } from 'cached-iterable'
 import { mapBundleSync } from '@fluent/sequence'
 import { warn } from './util/warn'
 
-import { VueConstructor } from 'vue/types/vue'
 import { Pattern, FluentBundle } from '@fluent/bundle'
 import { FluentVueObject, IUpdatable, FluentVueOptions } from './interfaces'
 

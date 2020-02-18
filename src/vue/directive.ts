@@ -1,7 +1,8 @@
 import { DirectiveOptions } from 'vue'
+import { DirectiveBinding } from 'vue/types/options'
+
 import { warn } from '../util/warn'
 import { FluentVueObject } from '../interfaces'
-import { DirectiveBinding } from 'vue/types/options'
 
 // This part is from fluent-dom library
 const LOCALIZABLE_ATTRIBUTES = {

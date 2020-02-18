@@ -1,6 +1,16 @@
-import Vue from 'vue'
+import { FunctionalComponentOptions } from 'vue'
+import { RecordPropsDefinition } from 'vue/types/options'
 
-export default Vue.extend({
+interface ComponentProps {
+  path: string
+  tag?: string
+  args?: Record<string, unknown>
+}
+
+const component: FunctionalComponentOptions<
+  ComponentProps,
+  RecordPropsDefinition<ComponentProps>
+> = {
   name: 'i18n',
   functional: true,
   props: {
@@ -28,4 +38,6 @@ export default Vue.extend({
 
     return h(props.tag, data, parts)
   }
-})
+}
+
+export default component

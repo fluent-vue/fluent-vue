@@ -1,4 +1,4 @@
-import { Vue } from 'vue/types/vue'
+import Vue from 'vue'
 import extend from './extend'
 import mixin from './mixin'
 import directive from './vue/directive'
