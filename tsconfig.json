@@ -16,7 +16,6 @@
   },
   "baseUrl": "./",
   "include": [
-    "src",
-    "types"
+    "src"
   ]
 }
