@@ -31,12 +31,17 @@
 </template>
 
 <script lang="ts">
-export default {
-  name: 'typescript',
-  computed: {
-    t () {
-      return this.$t('user-name')
+  import Vue from 'vue'
+
+  export default Vue.extend({
+    name: 'typescript',
+    computed: {
+      t () {
+        return this.$t('user-name')
+      },
+      ta () {
+        return this.$ta('greeting')
+      }
     }
-  }
-}
+  })
 </script>

@@ -10,6 +10,7 @@ declare module 'vue/types/vue' {
     $fluent: FluentVueObject
 
     $t(key: string, values?: Record<string, unknown>): string
+    $ta(key: string, values?: Record<string, unknown>): Record<string, string>
   }
 }
 

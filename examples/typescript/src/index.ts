@@ -7,9 +7,7 @@ import App from './App.vue';
 
 Vue.use(FluentVue)
 
-const bundle = new FluentBundle({
-  locales: 'en'
-})
+const bundle = new FluentBundle('en')
 
 bundle.addResource(new FluentResource('user-name = World'))
 bundle.addResource(new FluentResource('aria-key = Aria value'))
