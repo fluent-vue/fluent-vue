@@ -759,15 +759,10 @@
   resolved "https://registry.yarnpkg.com/@fluent/bundle/-/bundle-0.15.0.tgz#c123ea08d066d8b987eae5ceaa6632451609efaf"
   integrity sha512-pYz+TuFPwCj5yx51mFG1flPxwTaXWkpi6yt6r+rdm22Y9bkWMHWdwbUnjWLJ+9yJKQMhe2uhvMJ7YfhkF87oNg==
 
-"@fluent/dedent@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@fluent/dedent/-/dedent-0.1.0.tgz#015eeba2610f7d8a26c23ce0aded9bc0f16215ee"
-  integrity sha512-n2AwAoXdU0WJ5LJgj1TFg+g9/LNtRXdYiv+xGbtDaQQsD5DWkb1KtG0SBQpQoq65yYbBYnPQG6ChezwS4UQYyw==
-
-"@fluent/sequence@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@fluent/sequence/-/sequence-0.4.0.tgz#ddba05770fa8a1259dca302ca3530af26c38599a"
-  integrity sha512-ADP/GYbmQZ8DxBHzLGN4I1Vrq0h+ujQuIa9O8E4+Fh5MiSUtPNW0sSH/NzikmAPPQ5cnz5cb53OBv54ANrsvCw==
+"@fluent/dedent@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@fluent/dedent/-/dedent-0.2.0.tgz#e2a08df6e0e0114f9515a14364b5d8ffd13cf9ef"
+  integrity sha512-Hlp2wOdNGMqCwBFphGwX8U9CE5qoeZVegnxap4OVK+YzvZb29fR3Lv8xNA0Kdk3cUWFrd+x/ux71PqxbXX71ng==
 
 "@iarna/toml@^2.2.0":
   version "2.2.3"
@@ -1275,11 +1270,6 @@ cache-base@^1.0.1:
     to-object-path "^0.3.0"
     union-value "^1.0.0"
     unset-value "^1.0.0"
-
-cached-iterable@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/cached-iterable/-/cached-iterable-0.3.0.tgz#2618204549e9c5dd102102a6e7e50af6adb77df8"
-  integrity sha512-MDqM6TpBVebZD4UDtmlFp8EjVtRcsB6xt9aRdWymjk0fWVUUGgmt/V7o0H0gkI2Tkvv8B0ucjidZm4mLosdlWw==
 
 call-me-maybe@^1.0.1:
   version "1.0.1"
@@ -4933,11 +4923,6 @@ tr46@^1.0.1:
   integrity sha1-qLE/1r/SSJUZZ0zN5VujaTtwbQk=
   dependencies:
     punycode "^2.1.0"
-
-tslib@^1.10.0:
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
-  integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 
 tty-browserify@0.0.0:
   version "0.0.0"
