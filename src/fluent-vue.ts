@@ -60,12 +60,7 @@ export default class FluentVue implements FluentVueObject {
   }
 
   getMessage(bundle: FluentBundle | null, key: string) {
-    if (bundle === null) {
-      warn(`Could not find translation for key [${key}]`)
-      return null
-    }
-
-    const message = bundle.getMessage(key)
+    const message = bundle?.getMessage(key)
 
     if (message === undefined) {
       warn(`Could not find translation for key [${key}]`)
