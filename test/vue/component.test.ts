@@ -68,6 +68,34 @@ describe('component', () => {
     expect(mounted.html()).toEqual(`<span>Inner data ⁨<b>Inner text</b>⁩ test</span>`)
   })
 
+  it('warns about missing translation', () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      key = Inner data {$child} test
+      `)
+    )
+
+    const warn = jest.fn()
+    console.warn = warn
+
+    const component = {
+      template: `
+        <i18n path="missing-key">
+          <template #child>
+            <b>Inner text</b>
+          </template>
+        </i18n>`
+    }
+
+    // Act
+    const mounted = mount(component, options)
+
+    // Assert
+    expect(mounted.html()).toEqual(`<span>missing-key</span>`)
+    expect(warn).toHaveBeenCalledTimes(1)
+  })
+
   it('can accept parameters', () => {
     // Arrange
     bundle.addResource(
