@@ -889,10 +889,10 @@
   resolved "https://registry.yarnpkg.com/@fluent/bundle/-/bundle-0.15.0.tgz#c123ea08d066d8b987eae5ceaa6632451609efaf"
   integrity sha512-pYz+TuFPwCj5yx51mFG1flPxwTaXWkpi6yt6r+rdm22Y9bkWMHWdwbUnjWLJ+9yJKQMhe2uhvMJ7YfhkF87oNg==
 
-"@fluent/dedent@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@fluent/dedent/-/dedent-0.1.0.tgz#015eeba2610f7d8a26c23ce0aded9bc0f16215ee"
-  integrity sha512-n2AwAoXdU0WJ5LJgj1TFg+g9/LNtRXdYiv+xGbtDaQQsD5DWkb1KtG0SBQpQoq65yYbBYnPQG6ChezwS4UQYyw==
+"@fluent/dedent@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@fluent/dedent/-/dedent-0.2.0.tgz#e2a08df6e0e0114f9515a14364b5d8ffd13cf9ef"
+  integrity sha512-Hlp2wOdNGMqCwBFphGwX8U9CE5qoeZVegnxap4OVK+YzvZb29fR3Lv8xNA0Kdk3cUWFrd+x/ux71PqxbXX71ng==
 
 "@fluent/sequence@^0.5.0":
   version "0.5.0"
