@@ -55,4 +55,28 @@ describe('method', () => {
     // Assert
     expect(mounted.html()).toEqual(`<div attr="Attr value">Inner data</div>`)
   })
+
+  it('warns about missing translation', () => {
+    // Arange
+    bundle.addResource(
+      new FluentResource(ftl`
+      key =
+        .attr = Attr value
+      `)
+    )
+
+    const warn = jest.fn()
+    console.warn = warn
+
+    const component = {
+      template: `<div v-bind="$ta('missing-key')"></div>`
+    }
+
+    // Act
+    const mounted = mount(component, options)
+
+    // Assert
+    expect(mounted.html()).toEqual(`<div></div>`)
+    expect(warn).toHaveBeenCalledTimes(1)
+  })
 })
