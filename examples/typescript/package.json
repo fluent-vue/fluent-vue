@@ -7,7 +7,7 @@
     "build": "parcel build public/index.html"
   },
   "dependencies": {
-    "@fluent/bundle": "^0.15.0",
+    "@fluent/bundle": "^0.15.1",
     "@fluent/dedent": "^0.2.0",
     "fluent-vue": "link:../..",
     "vue-hot-reload-api": "^2.3.3"
