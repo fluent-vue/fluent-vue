@@ -101,7 +101,7 @@
     "jest-config": "^25.1.0",
     "jsdom": "^16.2.0",
     "jsdom-global": "^3.0.2",
-    "lint-staged": "^10.0.8",
+    "lint-staged": "^10.1.5",
     "lodash.camelcase": "^4.3.0",
     "prettier": "^1.19.1",
     "prompt": "^1.0.0",
