@@ -270,6 +270,11 @@
   resolved "https://registry.yarnpkg.com/@fluent/bundle/-/bundle-0.15.1.tgz#95d3b9f836ac138b6ee8480ef8d0547dd59195b1"
   integrity sha512-uhDGjpEwTMBNxYMSXyjXFBG5LY7dqoNatle6mnghu5lFOrf0JyblY/Y0al2GzDKFuYbtOSbJvUkxzjtYX3odkw==
 
+"@fluent/dedent@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@fluent/dedent/-/dedent-0.2.0.tgz#e2a08df6e0e0114f9515a14364b5d8ffd13cf9ef"
+  integrity sha512-Hlp2wOdNGMqCwBFphGwX8U9CE5qoeZVegnxap4OVK+YzvZb29fR3Lv8xNA0Kdk3cUWFrd+x/ux71PqxbXX71ng==
+
 "@fluent/sequence@^0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@fluent/sequence/-/sequence-0.5.0.tgz#6349b614711df2d8ed256598fa31a757fe032539"
