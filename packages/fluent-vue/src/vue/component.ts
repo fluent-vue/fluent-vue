@@ -16,7 +16,7 @@ const component: FunctionalComponentOptions<
   props: {
     path: { type: String, required: true },
     tag: { type: String, default: 'span' },
-    args: { type: Object, default: () => ({}) }
+    args: { type: Object, default: () => ({}) },
   },
   render(h, { parent, props, data, slots }) {
     const key = props.path
@@ -27,17 +27,19 @@ const component: FunctionalComponentOptions<
     const params = Object.assign(
       {},
       props.args,
-      ...Object.entries(childSlots).map(([key, v]) => ({ [key]: `\uFFFF\uFFFE${key}\uFFFF` }))
+      ...Object.entries(childSlots).map(([key, v]) => ({
+        [key]: `\uFFFF\uFFFE${key}\uFFFF`,
+      }))
     )
 
     const translation = fluent.format(key, params)
 
     const parts = translation
       .split('\uFFFF')
-      .map(text => (text.startsWith('\uFFFE') ? childSlots[text.replace('\uFFFE', '')] : text))
+      .map((text) => (text.startsWith('\uFFFE') ? childSlots[text.replace('\uFFFE', '')] : text))
 
     return h(props.tag, data, parts)
-  }
+  },
 }
 
 export default component

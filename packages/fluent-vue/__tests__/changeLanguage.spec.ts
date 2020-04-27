@@ -19,12 +19,12 @@ describe('language change', () => {
     bundleUk = new FluentBundle('uk-UA')
 
     const fluent = new FluentVue({
-      bundles: [bundleUk, bundleEn]
+      bundles: [bundleUk, bundleEn],
     })
 
     options = {
       fluent,
-      localVue
+      localVue,
     }
   })
 
@@ -43,7 +43,7 @@ describe('language change', () => {
     )
 
     const component = {
-      template: `<a v-t:link href="/foo">Fallback text</a>`
+      template: `<a v-t:link href="/foo">Fallback text</a>`,
     }
 
     // Act
@@ -62,7 +62,7 @@ describe('language change', () => {
     )
 
     const component = {
-      template: `<a v-t:link href="/foo">Fallback text</a>`
+      template: `<a v-t:link href="/foo">Fallback text</a>`,
     }
 
     // Act
@@ -81,7 +81,7 @@ describe('language change', () => {
     bundleUk = new FluentBundle('uk-UA')
 
     const fluent = new FluentVue({
-      bundles: [bundleUk, bundleEn]
+      bundles: [bundleUk, bundleEn],
     })
 
     bundleEn.addResource(
@@ -97,13 +97,13 @@ describe('language change', () => {
     )
 
     const component = {
-      template: `<a v-t:link href="/foo">Fallback text</a>`
+      template: `<a v-t:link href="/foo">Fallback text</a>`,
     }
 
     // Act
     const mounted = mount(component, {
       fluent,
-      localVue
+      localVue,
     })
 
     expect(mounted.html()).toEqual(`<a href="/foo">текст посилання</a>`)

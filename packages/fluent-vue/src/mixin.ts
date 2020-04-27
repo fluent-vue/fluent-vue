@@ -1,5 +1,5 @@
 import { Vue } from 'vue/types/vue'
-import FluentVue from './fluent-vue'
+import FluentVue from './fluentVue'
 
 export default {
   beforeCreate(this: Vue): void {
@@ -32,5 +32,5 @@ export default {
     this.$nextTick(() => {
       this._fluent = undefined
     })
-  }
+  },
 }

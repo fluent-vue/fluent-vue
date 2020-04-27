@@ -17,12 +17,12 @@ describe('directive', () => {
     bundle = new FluentBundle('en-US')
 
     const fluent = new FluentVue({
-      bundles: [bundle]
+      bundles: [bundle],
     })
 
     options = {
       fluent,
-      localVue
+      localVue,
     }
   })
 
@@ -36,9 +36,9 @@ describe('directive', () => {
 
     const component = {
       data: () => ({
-        name: 'John'
+        name: 'John',
       }),
-      template: `<a v-t:link href="/foo">Fallback text</a>`
+      template: `<a v-t:link href="/foo">Fallback text</a>`,
     }
 
     // Act
@@ -51,7 +51,7 @@ describe('directive', () => {
   it('warns about missing key arg', () => {
     // Arrange
     const component = {
-      template: `<a v-t href="/foo">Fallback text</a>`
+      template: `<a v-t href="/foo">Fallback text</a>`,
     }
 
     const warn = jest.fn()
@@ -75,9 +75,9 @@ describe('directive', () => {
 
     const component = {
       data: () => ({
-        name: 'John'
+        name: 'John',
       }),
-      template: `<a v-t:link="{ name }" href="/foo">Fallback text</a>`
+      template: `<a v-t:link="{ name }" href="/foo">Fallback text</a>`,
     }
 
     // Act
@@ -98,9 +98,9 @@ describe('directive', () => {
 
     const component = {
       data: () => ({
-        name: 'John'
+        name: 'John',
       }),
-      template: `<a v-t:link.aria-label="{ name }" href="/foo" aria-label="Fallback aria">Fallback text</a>`
+      template: `<a v-t:link.aria-label="{ name }" href="/foo" aria-label="Fallback aria">Fallback text</a>`,
     }
 
     // Act
@@ -122,9 +122,9 @@ describe('directive', () => {
 
     const component = {
       data: () => ({
-        name: 'John'
+        name: 'John',
       }),
-      template: `<a v-t:link="{ name }">Fallback</a>`
+      template: `<a v-t:link="{ name }">Fallback</a>`,
     }
 
     // Act
@@ -145,9 +145,9 @@ describe('directive', () => {
 
     const component = {
       data: () => ({
-        name: 'John'
+        name: 'John',
       }),
-      template: `<a v-t:link.aria-label="{ name }"></a>`
+      template: `<a v-t:link.aria-label="{ name }"></a>`,
     }
 
     // Act
@@ -168,9 +168,9 @@ describe('directive', () => {
 
     const component = {
       data: () => ({
-        name: 'John'
+        name: 'John',
       }),
-      template: `<a v-t:link.aria-label="{ name }"></a>`
+      template: `<a v-t:link.aria-label="{ name }"></a>`,
     }
 
     const mounted = mount(component, options)
@@ -198,9 +198,9 @@ describe('directive', () => {
     const component = {
       data: () => ({
         name: 'John',
-        otherName: 'Anna'
+        otherName: 'Anna',
       }),
-      template: `<a v-t:link.aria-label="{ name }">{{ otherName }}</a>`
+      template: `<a v-t:link.aria-label="{ name }">{{ otherName }}</a>`,
     }
 
     const mounted = mount(component, options)
@@ -228,9 +228,9 @@ describe('directive', () => {
 
     const component = {
       data: () => ({
-        name: 'John'
+        name: 'John',
       }),
-      template: `<a v-t:link.aria-label.placeholder="{ name }">Fallback</a>`
+      template: `<a v-t:link.aria-label.placeholder="{ name }">Fallback</a>`,
     }
 
     // Act

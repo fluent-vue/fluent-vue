@@ -1,0 +1,38 @@
+{
+  "name": "fluent-vue",
+  "version": "2.4.5",
+  "description": "",
+  "keywords": [],
+  "main": "dist/fluent-vue.umd.js",
+  "module": "dist/fluent-vue.es5.js",
+  "typings": "src/types/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "src/types"
+  ],
+  "buildOptions": {
+    "name": "FluentVue"
+  },
+  "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Demivan/fluent-vue"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@fluent/bundle": "~0.15.1",
+    "@vue/test-utils": "^1.0.0-beta.33",
+    "vue": "~2.6.11",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "dependencies": {
+    "@fluent/sequence": "^0.5.0",
+    "cached-iterable": "^0.3.0",
+    "tslib": "^1.11.1"
+  },
+  "peerDependencies": {
+    "@fluent/bundle": ">=0.14.0 <0.16.0",
+    "vue": "~2.6.11"
+  }
+}

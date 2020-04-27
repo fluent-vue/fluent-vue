@@ -1,140 +1,72 @@
 {
-  "name": "fluent-vue",
-  "version": "0.0.0-development",
-  "description": "",
-  "keywords": [],
-  "main": "dist/fluent-vue.umd.js",
-  "module": "dist/fluent-vue.es5.js",
-  "typings": "src/types/index.d.ts",
-  "files": [
-    "dist",
-    "src/types"
+  "private": true,
+  "version": "2.4.5",
+  "workspaces": [
+    "packages/*"
   ],
-  "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Demivan/fluent-vue"
-  },
-  "license": "MIT",
   "scripts": {
-    "lint": "tslint --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts' 'types/**/*.ts'",
-    "prebuild": "rimraf dist",
-    "build": "rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
-    "start": "rollup -c rollup.config.ts -w",
-    "test": "jest --coverage",
-    "test:watch": "jest --coverage --watch",
-    "test:prod": "npm run lint && npm run test -- --no-cache",
-    "deploy-docs": "ts-node tools/gh-pages-publish",
-    "report-coverage": "cat ./coverage/lcov.info | coveralls",
-    "commit": "git-cz",
-    "semantic-release": "semantic-release",
-    "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
-    "travis-deploy-once": "travis-deploy-once"
+    "dev": "node scripts/dev.js",
+    "build": "node scripts/build.js",
+    "size": "node scripts/build.js fluent-vue -p -f global",
+    "lint": "prettier --write --parser typescript \"packages/**/*.ts?(x)\"",
+    "ls-lint": "ls-lint",
+    "test": "node scripts/build.js fluent-vue -f global -d && jest",
+    "release": "node scripts/release.js",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+  },
+  "types": "test-dts/index.d.ts",
+  "tsd": {
+    "directory": "test-dts"
+  },
+  "gitHooks": {
+    "pre-commit": "ls-lint && lint-staged",
+    "commit-msg": "node scripts/verifyCommit.js"
   },
   "lint-staged": {
-    "{src,test,types}/**/*.ts": [
+    "*.js": [
       "prettier --write",
+      "git add"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write",
       "git add"
     ]
   },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
-    }
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.vue$": "vue-jest",
-      ".(ts|tsx)": "ts-jest"
-    },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "vue"
-    ],
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "/test/"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 85,
-        "functions": 85,
-        "lines": 85,
-        "statements": 85
-      }
-    },
-    "collectCoverageFrom": [
-      "src/*.{js,ts}"
-    ]
-  },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
+  "engines": {
+    "node": ">=10.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
-    "@fluent/bundle": "^0.15.0",
-    "@fluent/dedent": "^0.2.0",
-    "@rollup/plugin-commonjs": "^11.0.1",
-    "@rollup/plugin-json": "^4.0.1",
-    "@rollup/plugin-node-resolve": "^7.0.0",
-    "@rollup/plugin-typescript": "^4.0.0",
+    "@ls-lint/ls-lint": "^1.8.0",
+    "@microsoft/api-extractor": "^7.3.9",
+    "@rollup/plugin-commonjs": "^11.1.0",
+    "@rollup/plugin-json": "^4.0.0",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@rollup/plugin-replace": "^2.2.1",
     "@types/jest": "^25.1.4",
-    "@types/node": "^13.9.0",
-    "@vue/test-utils": "^1.0.0-beta.31",
-    "colors": "^1.3.2",
-    "commitizen": "^4.0.4",
-    "coveralls": "^3.0.9",
-    "cross-env": "^7.0.2",
-    "cz-conventional-changelog": "^3.0.2",
-    "husky": "^4.0.10",
-    "jest": "^25.1.0",
-    "jest-config": "^25.1.0",
-    "jsdom": "^16.2.0",
-    "jsdom-global": "^3.0.2",
-    "lint-staged": "^10.0.8",
-    "lodash.camelcase": "^4.3.0",
-    "prettier": "^1.19.1",
-    "prompt": "^1.0.0",
-    "replace-in-file": "^5.0.2",
-    "rimraf": "^3.0.0",
-    "rollup": "^2.0.2",
-    "semantic-release": "^17.0.4",
-    "shelljs": "^0.8.3",
-    "travis-deploy-once": "^5.0.9",
-    "ts-jest": "^25.3.0",
-    "ts-node": "^8.6.2",
-    "tslint": "^6.0.0",
-    "tslint-config-prettier": "^1.15.0",
-    "tslint-config-standard": "^9.0.0",
-    "typedoc": "^0.16.11",
+    "@types/node": "13.11.1",
+    "@types/puppeteer": "^2.0.0",
+    "brotli": "^1.3.2",
+    "chalk": "^2.4.2",
+    "conventional-changelog-cli": "^2.0.31",
+    "csstype": "^2.6.8",
+    "enquirer": "^2.3.2",
+    "execa": "^2.0.4",
+    "fs-extra": "^8.1.0",
+    "jest": "^25.2.3",
+    "lint-staged": "^9.2.3",
+    "minimist": "^1.2.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.5",
+    "puppeteer": "^2.0.0",
+    "rollup": "^2.2.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-globals": "^1.4.0",
+    "rollup-plugin-terser": "^5.3.0",
+    "rollup-plugin-typescript2": "^0.27.0",
+    "semver": "^6.3.0",
+    "ts-jest": "^25.2.1",
+    "tsd": "^0.11.0",
     "typescript": "^3.8.3",
-    "vue": "^2.6.11",
-    "vue-jest": "^3.0.4",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "dependencies": {
-    "@fluent/sequence": "^0.5.0",
-    "cached-iterable": "^0.3.0",
-    "tslib": "^1.11.1"
-  },
-  "peerDependencies": {
-    "@fluent/bundle": ">=0.14.0 <0.16.0"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged",
-      "pre-push": "npm run test:prod && npm run build"
-    }
+    "yorkie": "^2.0.0"
   }
 }

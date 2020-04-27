@@ -16,12 +16,12 @@ describe('method', () => {
     bundle = new FluentBundle('en-US')
 
     const fluent = new FluentVue({
-      bundles: [bundle]
+      bundles: [bundle],
     })
 
     options = {
       fluent,
-      localVue
+      localVue,
     }
   })
 
@@ -37,16 +37,16 @@ describe('method', () => {
     const child = {
       props: {
         text: { type: String },
-        attrs: { type: Object }
+        attrs: { type: Object },
       },
-      template: `<div :attr="attrs.attr">{{ text }}</div>`
+      template: `<div :attr="attrs.attr">{{ text }}</div>`,
     }
 
     const component = {
       components: {
-        child
+        child,
       },
-      template: `<child :text="$t('key')" :attrs="$ta('key')"></child>`
+      template: `<child :text="$t('key')" :attrs="$ta('key')"></child>`,
     }
 
     // Act
@@ -69,7 +69,7 @@ describe('method', () => {
     console.warn = warn
 
     const component = {
-      template: `<div v-bind="$ta('missing-key')"></div>`
+      template: `<div v-bind="$ta('missing-key')"></div>`,
     }
 
     // Act

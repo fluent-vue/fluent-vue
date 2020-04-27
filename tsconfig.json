@@ -1,20 +1,31 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "dist",
+    "sourceMap": false,
+    "target": "ES2019",
+    "module": "esnext",
     "moduleResolution": "node",
-    "target": "es5",
-    "module":"es2015",
-    "lib": ["es2015", "es2016", "es2017", "dom"],
+    "allowJs": false,
     "strict": true,
-    "sourceMap": true,
+    "noUnusedLocals": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
     "esModuleInterop": true,
-    "downlevelIteration": true,
-    "importHelpers": true,
-    "typeRoots": [
-      "node_modules/@types"
-    ]
+    "removeComments": false,
+    "jsx": "preserve",
+    "lib": ["esnext", "dom"],
+    "types": ["jest", "puppeteer", "node"],
+    "rootDir": ".",
+    "paths": {
+      "@fluent-vue/*": ["packages/*/src"],
+      "fluent-vue": ["packages/fluent-vue/src"]
+    }
   },
-  "baseUrl": "./",
   "include": [
-    "src"
+    "packages/global.d.ts",
+    "packages/*/src",
+    "packages/*/__tests__",
+    "test-dts"
   ]
 }

@@ -1,4 +1,5 @@
-import { FluentBundle, MessageInfo, Pattern } from '@fluent/bundle'
+import { FluentBundle } from '@fluent/bundle'
+import { Message, Pattern } from '@fluent/bundle/esm/ast'
 
 /**
  * Interface for objects that need to be updated when translation change
@@ -10,7 +11,7 @@ export interface IUpdatable {
 
 export interface FluentVueObject {
   getBundle(key: string): FluentBundle | null
-  getMessage(bundle: FluentBundle | null, key: string): MessageInfo | null
+  getMessage(bundle: FluentBundle | null, key: string): Message | null
   formatPattern(bundle: FluentBundle, message: Pattern, value?: object, errors?: string[]): string
   format(key: string, value?: object): string
 

@@ -16,12 +16,12 @@ describe('component', () => {
     bundle = new FluentBundle('en-US')
 
     const fluent = new FluentVue({
-      bundles: [bundle]
+      bundles: [bundle],
     })
 
     options = {
       fluent,
-      localVue
+      localVue,
     }
   })
 
@@ -34,7 +34,7 @@ describe('component', () => {
     )
 
     const component = {
-      template: '<i18n path="key"></i18n>'
+      template: '<i18n path="key"></i18n>',
     }
 
     // Act
@@ -58,7 +58,7 @@ describe('component', () => {
           <template #child>
             <b>Inner text</b>
           </template>
-        </i18n>`
+        </i18n>`,
     }
 
     // Act
@@ -85,7 +85,7 @@ describe('component', () => {
           <template #child>
             <b>Inner text</b>
           </template>
-        </i18n>`
+        </i18n>`,
     }
 
     // Act
@@ -107,7 +107,7 @@ describe('component', () => {
     const component = {
       data() {
         return {
-          name: 'John'
+          name: 'John',
         }
       },
       template: `
@@ -115,7 +115,7 @@ describe('component', () => {
           <template #child>
             <b>Inner text</b>
           </template>
-        </i18n>`
+        </i18n>`,
     }
 
     // Act

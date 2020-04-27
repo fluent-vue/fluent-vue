@@ -19,12 +19,12 @@ describe('vue integration', () => {
   )
 
   const fluent = new FluentVue({
-    bundles: [bundle]
+    bundles: [bundle],
   })
 
   const options = {
     fluent,
-    localVue
+    localVue,
   }
 
   it('translates messages in a component', () => {
@@ -37,9 +37,9 @@ describe('vue integration', () => {
 
     const component = {
       data: () => ({
-        name: 'John'
+        name: 'John',
       }),
-      template: "<div>{{ $t('message', { name }) }}</div>"
+      template: "<div>{{ $t('message', { name }) }}</div>",
     }
 
     // Act
@@ -53,19 +53,19 @@ describe('vue integration', () => {
     // Arrange
     const child = {
       data: () => ({
-        name: 'Alice'
+        name: 'Alice',
       }),
-      template: "<div>{{ $t('sub-message', { name }) }}</div>"
+      template: "<div>{{ $t('sub-message', { name }) }}</div>",
     }
 
     const component = {
       components: {
-        child
+        child,
       },
       data: () => ({
-        name: 'John'
+        name: 'John',
       }),
-      template: "<div>{{ $t('message', { name }) }}<child /></div>"
+      template: "<div>{{ $t('message', { name }) }}<child /></div>",
     }
 
     // Act
@@ -79,9 +79,9 @@ describe('vue integration', () => {
     // Arrange
     const component = {
       data: () => ({
-        name: 'john'
+        name: 'john',
       }),
-      template: "<div>{{ $t('message', { name }) }}</div>"
+      template: "<div>{{ $t('message', { name }) }}</div>",
     }
 
     const mounted = mount(component, options)
@@ -100,11 +100,11 @@ describe('vue integration', () => {
   it('does not try to clear if not initialized', () => {
     // Arrange
     const component = {
-      template: '<div>Just text</div>'
+      template: '<div>Just text</div>',
     }
 
     const mounted = mount(component, {
-      localVue
+      localVue,
     })
 
     // Act

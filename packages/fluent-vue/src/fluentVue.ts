@@ -3,8 +3,9 @@ import { CachedSyncIterable } from 'cached-iterable'
 import { mapBundleSync } from '@fluent/sequence'
 import { warn } from './util/warn'
 
-import { Pattern, FluentBundle } from '@fluent/bundle'
+import { FluentBundle, FluentArgument } from '@fluent/bundle'
 import { FluentVueObject, IUpdatable, FluentVueOptions } from './interfaces'
+import { Pattern } from '@fluent/bundle/esm/ast'
 
 /**
  * Main class of fluent-vue.
@@ -12,7 +13,7 @@ import { FluentVueObject, IUpdatable, FluentVueOptions } from './interfaces'
  */
 export default class FluentVue implements FluentVueObject {
   private subscribers: Map<IUpdatable, boolean>
-  private bundlesIterable: CachedSyncIterable<FluentBundle>
+  private bundlesIterable: Iterable<FluentBundle>
   private _bundles: FluentBundle[]
 
   /**
@@ -55,7 +56,7 @@ export default class FluentVue implements FluentVueObject {
     this.bundlesIterable = CachedSyncIterable.from(this.bundles)
   }
 
-  getBundle(key: string): FluentBundle {
+  getBundle(key: string): FluentBundle | null {
     return mapBundleSync(this.bundlesIterable, key)
   }
 
@@ -70,8 +71,12 @@ export default class FluentVue implements FluentVueObject {
     return message
   }
 
-  formatPattern(bundle: FluentBundle, message: Pattern, value?: object): string {
-    const errors: string[] = []
+  formatPattern(
+    bundle: FluentBundle,
+    message: Pattern,
+    value?: Record<string, FluentArgument>
+  ): string {
+    const errors: Error[] = []
     const formatted = bundle.formatPattern(message, value, errors)
 
     for (const error of errors) {
@@ -81,22 +86,22 @@ export default class FluentVue implements FluentVueObject {
     return formatted
   }
 
-  format(key: string, value?: object): string {
+  format(key: string, value?: Record<string, FluentArgument>): string {
     const context = this.getBundle(key)
     const message = this.getMessage(context, key)
 
-    if (message === null || message.value === null) {
+    if (context === null || message === null || message.value === null) {
       return key
     }
 
     return this.formatPattern(context, message.value, value)
   }
 
-  formatAttrs(key: string, value?: object): Record<string, string> {
+  formatAttrs(key: string, value?: Record<string, FluentArgument>): Record<string, string> {
     const context = this.getBundle(key)
     const message = this.getMessage(context, key)
 
-    if (message === null || message.value === null) {
+    if (context === null || message === null || message.value === null) {
       return {}
     }
 

@@ -18,7 +18,7 @@ const LOCALIZABLE_ATTRIBUTES = {
   track: ['label'],
   img: ['alt'],
   textarea: ['placeholder'],
-  th: ['abbr']
+  th: ['abbr'],
 } as Record<string, string[]>
 
 /**
@@ -125,7 +125,7 @@ const directive: DirectiveOptions = {
     }
 
     translate(el, vnode.context.$fluent, binding)
-  }
+  },
 }
 
 export default directive

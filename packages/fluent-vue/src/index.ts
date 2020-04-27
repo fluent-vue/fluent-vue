@@ -1,4 +1,4 @@
-import FluentVue from './fluent-vue'
+import FluentVue from './fluentVue'
 import install from './install'
 
 FluentVue.install = install

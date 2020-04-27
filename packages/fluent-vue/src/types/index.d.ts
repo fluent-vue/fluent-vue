@@ -1,6 +1,5 @@
 import Vue, { PluginFunction } from 'vue'
-import { FluentBundle, MessageInfo, Pattern } from '@fluent/bundle'
-import { FluentVueObject, FluentVueOptions, IUpdatable } from '../interfaces'
+import { FluentVueObject, FluentVueOptions } from '../interfaces'
 
 declare module 'vue/types/vue' {
   interface Vue {

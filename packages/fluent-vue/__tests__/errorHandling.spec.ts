@@ -19,18 +19,18 @@ describe('vue integration', () => {
   )
 
   const fluent = new FluentVue({
-    bundles: [bundle]
+    bundles: [bundle],
   })
 
   const options = {
     fluent,
-    localVue
+    localVue,
   }
 
   it('warns about missing translation', () => {
     // Arrange
     const component = {
-      template: "<div>{{ $t('message-not-found') }}</div>"
+      template: "<div>{{ $t('message-not-found') }}</div>",
     }
 
     const warn = jest.fn()
@@ -53,7 +53,7 @@ describe('vue integration', () => {
     )
 
     const component = {
-      template: "<div>{{ $t('message') }}</div>"
+      template: "<div>{{ $t('message') }}</div>",
     }
 
     const warn = jest.fn()
