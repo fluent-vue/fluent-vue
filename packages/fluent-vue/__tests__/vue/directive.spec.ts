@@ -17,6 +17,7 @@ describe('directive', () => {
     bundle = new FluentBundle('en-US')
 
     const fluent = new FluentVue({
+      locale: 'en-US',
       bundles: [bundle],
     })
 

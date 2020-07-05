@@ -20,5 +20,8 @@ export interface FluentVueObject {
 }
 
 export interface FluentVueOptions {
+  /** Currently selected locale */
+  locale: string|string[],
+  /** List of bundles used in application */
   bundles: FluentBundle[]
 }

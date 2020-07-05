@@ -19,6 +19,7 @@ describe('vue integration', () => {
   )
 
   const fluent = new FluentVue({
+    locale: 'en-US',
     bundles: [bundle],
   })
 

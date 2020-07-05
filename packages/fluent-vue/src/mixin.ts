@@ -29,7 +29,7 @@ export default {
     // If we override messages in a component
     // create new FluentVue instance with new bundles
     if (this.$options.__fluent) {
-      const bundles = fluent.bundles
+      const bundles = fluent.allBundles
         .map(bundle => {
           // Copy options to new bundle
           const newBundle = new FluentBundle(bundle.locales, {
@@ -46,10 +46,10 @@ export default {
         })
 
       // Add new messages to bundles
-      for (const [lang, resources] of Object.entries(this.$options.__fluent)) {
-        const bundle = bundles.find(bundle => bundle.locales.join(' ') === lang)
+      for (const [locale, resources] of Object.entries(this.$options.__fluent)) {
+        const bundle = bundles.find(bundle => bundle.locales.includes(locale))
         if (!bundle) {
-          warn(`Component ${this.$options.name} overides translations for locale "${lang}" that is not in your bundles`)
+          warn(`Component ${this.$options.name} overides translations for locale "${locale}" that is not in your bundles`)
           continue
         }
 
@@ -57,6 +57,7 @@ export default {
       }
 
       this._fluent = new FluentVue({
+        locale: fluent.locale,
         bundles
       })
 

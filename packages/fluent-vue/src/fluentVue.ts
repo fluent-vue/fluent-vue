@@ -1,6 +1,7 @@
 import Vue, { VueConstructor } from 'vue'
 import { CachedSyncIterable } from 'cached-iterable'
 import { mapBundleSync } from '@fluent/sequence'
+import { negotiateLanguages } from '@fluent/langneg'
 import { warn } from './util/warn'
 
 import { FluentBundle, FluentArgument } from '@fluent/bundle'
@@ -14,7 +15,9 @@ import { Pattern } from '@fluent/bundle/esm/ast'
 export default class FluentVue implements FluentVueObject {
   private subscribers: Map<IUpdatable, boolean>
   private bundlesIterable: Iterable<FluentBundle>
-  private _bundles: FluentBundle[]
+  private _locale: string|string[]
+
+  allBundles: FluentBundle[]
 
   /**
    * Add object to list of objects to notify
@@ -31,13 +34,14 @@ export default class FluentVue implements FluentVueObject {
     this.subscribers.delete(updatable)
   }
 
-  get bundles(): FluentBundle[] {
-    return this._bundles
+  get locale(): string|string[] {
+    return this._locale
   }
 
-  set bundles(bundles: FluentBundle[]) {
-    this._bundles = bundles
-    this.bundlesIterable = CachedSyncIterable.from(this.bundles)
+  set locale (value: string|string[]) {
+    this._locale = value
+    const orderedBundles = this.getOrderedBundles(value, this.allBundles)
+    this.bundlesIterable = CachedSyncIterable.from(orderedBundles)
 
     for (const subscriber of this.subscribers.keys()) {
       subscriber.$forceUpdate()
@@ -52,8 +56,32 @@ export default class FluentVue implements FluentVueObject {
    */
   constructor(options: FluentVueOptions) {
     this.subscribers = new Map<Vue, boolean>()
-    this._bundles = options.bundles
-    this.bundlesIterable = CachedSyncIterable.from(this.bundles)
+    this.allBundles = options.bundles
+    this._locale = options.locale
+    const orderedBundles = this.getOrderedBundles(options.locale, this.allBundles)
+    this.bundlesIterable = CachedSyncIterable.from(orderedBundles)
+  }
+
+  private getOrderedBundles (requestedLocale: string|string[], bundles: FluentBundle[]): FluentBundle[] {
+    if (!Array.isArray(requestedLocale)) {
+      requestedLocale = [requestedLocale]
+    }
+
+    const avaliableLocales = bundles.flatMap(bundle => bundle.locales)
+    const negotiatedLocales = negotiateLanguages(
+      requestedLocale,
+      avaliableLocales, {
+        strategy: 'filtering'
+      })
+
+    const newBundles = negotiatedLocales
+      .map(locale => bundles.find(bundle => bundle.locales.includes(locale)))
+
+    const dedupeBundles = newBundles
+      .filter((bundle, i) => newBundles.indexOf(bundle) === i)
+      .filter(bundle => bundle != null) as FluentBundle[]
+
+    return dedupeBundles
   }
 
   getBundle(key: string): FluentBundle | null {

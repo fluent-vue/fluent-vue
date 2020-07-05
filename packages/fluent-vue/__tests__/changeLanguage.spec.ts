@@ -19,6 +19,7 @@ describe('language change', () => {
     bundleUk = new FluentBundle('uk-UA')
 
     const fluent = new FluentVue({
+      locale: ['uk-UA', 'en-US'],
       bundles: [bundleUk, bundleEn],
     })
 
@@ -72,7 +73,7 @@ describe('language change', () => {
     expect(mounted.html()).toEqual(`<a href="/foo">link text</a>`)
   })
 
-  it('updates when updating bundles array', async () => {
+  it('updates when changing current locale', async () => {
     // Arrange
     const localVue = createLocalVue()
     localVue.use(FluentVue)
@@ -81,6 +82,7 @@ describe('language change', () => {
     bundleUk = new FluentBundle('uk-UA')
 
     const fluent = new FluentVue({
+      locale: 'uk-UA',
       bundles: [bundleUk, bundleEn],
     })
 
@@ -108,7 +110,7 @@ describe('language change', () => {
 
     expect(mounted.html()).toEqual(`<a href="/foo">текст посилання</a>`)
 
-    fluent.bundles = [bundleEn, bundleUk]
+    fluent.locale = 'en'
 
     await Vue.nextTick()
 

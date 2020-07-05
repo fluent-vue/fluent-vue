@@ -275,6 +275,11 @@
   resolved "https://registry.yarnpkg.com/@fluent/dedent/-/dedent-0.2.0.tgz#e2a08df6e0e0114f9515a14364b5d8ffd13cf9ef"
   integrity sha512-Hlp2wOdNGMqCwBFphGwX8U9CE5qoeZVegnxap4OVK+YzvZb29fR3Lv8xNA0Kdk3cUWFrd+x/ux71PqxbXX71ng==
 
+"@fluent/langneg@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@fluent/langneg/-/langneg-0.5.0.tgz#de448070efa16c8fb6cc4af1629663f01e10689b"
+  integrity sha512-jv0g3YO5byz29HXEE6DBzAog60q726mwV2nIoekEX590JVh+mbd6/ZXT5/l4mN2BMlrelzyscCTffKI4XScVtg==
+
 "@fluent/sequence@^0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@fluent/sequence/-/sequence-0.5.0.tgz#6349b614711df2d8ed256598fa31a757fe032539"
