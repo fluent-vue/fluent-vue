@@ -75,6 +75,37 @@ describe('vue integration', () => {
     expect(mounted.html()).toEqual('<div>Hello, ⁨John⁩!<div>Hi, ⁨Alice⁩</div>\n</div>')
   })
 
+  it('allows to override messages in sub-component', () => {
+    // Arrange
+    const child = {
+      data: () => ({
+        name: 'Alice',
+      }),
+      __fluent: {
+        'en-US': new FluentResource(ftl`
+        sub-message = Hello from child component, { $name }
+        `)
+      },
+      template: "<div>{{ $t('sub-message', { name }) }}</div>",
+    }
+
+    const component = {
+      components: {
+        child,
+      },
+      data: () => ({
+        name: 'John',
+      }),
+      template: "<div>{{ $t('message', { name }) }}<child /></div>",
+    }
+
+    // Act
+    const mounted = mount(component, options)
+
+    // Assert
+    expect(mounted.html()).toEqual('<div>Hello, ⁨John⁩!<div>Hello from child component, ⁨Alice⁩</div>\n</div>')
+  })
+
   it('clears instance on component destroy', () => {
     // Arrange
     const component = {

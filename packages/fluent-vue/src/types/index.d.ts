@@ -1,4 +1,5 @@
 import Vue, { PluginFunction } from 'vue'
+import { FluentResource }  from '@fluent/bundle'
 import { FluentVueObject, FluentVueOptions } from '../interfaces'
 
 declare module 'vue/types/vue' {
@@ -16,6 +17,8 @@ declare module 'vue/types/vue' {
 declare module 'vue/types/options' {
   interface ComponentOptions<V extends Vue> {
     fluent?: FluentVue
+
+    __fluent?: Record<string, FluentResource>
   }
 }
 

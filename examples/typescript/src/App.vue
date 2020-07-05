@@ -4,14 +4,12 @@
 
     <h4>$t method</h4>
     <div>
-      <span>
-        {{ $t('greeting', { name: 'World' }) }}
-      </span>
+      <span>{{ $t('greeting', { name: 'World' }) }}</span>
     </div>
 
     <h4>$ta method</h4>
     <div>
-     <span v-bind="$ta('greeting')">{{ $t('greeting', { name: 'World' }) }}</span>
+      <span v-bind="$ta('greeting')">{{ $t('greeting', { name: 'World' }) }}</span>
     </div>
 
     <h4>Directive</h4>
@@ -31,17 +29,23 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue'
+import Vue from 'vue'
 
-  export default Vue.extend({
-    name: 'typescript',
-    computed: {
-      t () {
-        return this.$t('user-name')
-      },
-      ta () {
-        return this.$ta('greeting')
-      }
-    }
-  })
+export default Vue.extend({
+  name: 'typescript',
+  computed: {
+    username() {
+      return this.$t('user-name')
+    },
+    greeting() {
+      return this.$ta('greeting')
+    },
+  },
+})
 </script>
+
+<style lang="scss">
+.test {
+  display: block;
+}
+</style>
