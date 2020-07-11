@@ -15,7 +15,7 @@ import { Pattern } from '@fluent/bundle/esm/ast'
 export default class FluentVue implements FluentVueObject {
   private subscribers: Map<IUpdatable, boolean>
   private bundlesIterable: Iterable<FluentBundle>
-  private _locale: string|string[]
+  private _locale: string | string[]
 
   allBundles: FluentBundle[]
 
@@ -34,11 +34,11 @@ export default class FluentVue implements FluentVueObject {
     this.subscribers.delete(updatable)
   }
 
-  get locale(): string|string[] {
+  get locale(): string | string[] {
     return this._locale
   }
 
-  set locale (value: string|string[]) {
+  set locale(value: string | string[]) {
     this._locale = value
     const orderedBundles = this.getOrderedBundles(value, this.allBundles)
     this.bundlesIterable = CachedSyncIterable.from(orderedBundles)
@@ -62,24 +62,26 @@ export default class FluentVue implements FluentVueObject {
     this.bundlesIterable = CachedSyncIterable.from(orderedBundles)
   }
 
-  private getOrderedBundles (requestedLocale: string|string[], bundles: FluentBundle[]): FluentBundle[] {
+  private getOrderedBundles(
+    requestedLocale: string | string[],
+    bundles: FluentBundle[]
+  ): FluentBundle[] {
     if (!Array.isArray(requestedLocale)) {
       requestedLocale = [requestedLocale]
     }
 
-    const avaliableLocales = bundles.flatMap(bundle => bundle.locales)
-    const negotiatedLocales = negotiateLanguages(
-      requestedLocale,
-      avaliableLocales, {
-        strategy: 'filtering'
-      })
+    const avaliableLocales = bundles.flatMap((bundle) => bundle.locales)
+    const negotiatedLocales = negotiateLanguages(requestedLocale, avaliableLocales, {
+      strategy: 'filtering',
+    })
 
-    const newBundles = negotiatedLocales
-      .map(locale => bundles.find(bundle => bundle.locales.includes(locale)))
+    const newBundles = negotiatedLocales.map((locale) =>
+      bundles.find((bundle) => bundle.locales.includes(locale))
+    )
 
     const dedupeBundles = newBundles
       .filter((bundle, i) => newBundles.indexOf(bundle) === i)
-      .filter(bundle => bundle != null) as FluentBundle[]
+      .filter((bundle) => bundle != null) as FluentBundle[]
 
     return dedupeBundles
   }

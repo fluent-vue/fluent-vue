@@ -10,9 +10,10 @@ function getParentFluent(component: Vue): FluentVue | undefined {
   if (options.fluent && options.fluent instanceof FluentVue) {
     return options.fluent
   } else if (
-      options.parent &&
-      options.parent.$fluent &&
-      options.parent.$fluent instanceof FluentVue) {
+    options.parent &&
+    options.parent.$fluent &&
+    options.parent.$fluent instanceof FluentVue
+  ) {
     return options.parent.$fluent
   } else {
     return undefined
@@ -30,20 +31,22 @@ export default {
     // If we override messages in a component
     // create new FluentVue instance with new bundles
     if (this.$options.__fluent) {
-      const allLocales = fluent.allBundles.flatMap(bundle => bundle.locales)
+      const allLocales = fluent.allBundles.flatMap((bundle) => bundle.locales)
 
       const overriddenBundles = Object.entries(this.$options.__fluent)
         .map(([locale, resources]) => {
           const locales = locale.split(/[\s+,]/)
-          const parentLocale = negotiateLanguages(
-            locales,
-            allLocales, {
-              strategy: 'lookup',
-              defaultLocale: locales[0]
-            })[0]
-          const parentBundle = fluent.allBundles.find(bundle => bundle.locales.includes(parentLocale))
+          const parentLocale = negotiateLanguages(locales, allLocales, {
+            strategy: 'lookup',
+            defaultLocale: locales[0],
+          })[0]
+          const parentBundle = fluent.allBundles.find((bundle) =>
+            bundle.locales.includes(parentLocale)
+          )
           if (!parentBundle) {
-            warn(`Component ${this.$options.name} overides translations for locale "${locale}" that is not in your bundles`)
+            warn(
+              `Component ${this.$options.name} overides translations for locale "${locale}" that is not in your bundles`
+            )
             return null
           }
 
@@ -51,7 +54,7 @@ export default {
           const bundle = new FluentBundle(locales, {
             useIsolating: parentBundle._useIsolating,
             functions: parentBundle._functions,
-            transform: parentBundle._transform
+            transform: parentBundle._transform,
           })
 
           // Copy messages from parent bundle
@@ -62,11 +65,11 @@ export default {
           bundle.addResource(resources, { allowOverrides: true })
           return bundle
         })
-        .filter(bundle => bundle != null) as FluentBundle[]
+        .filter((bundle) => bundle != null) as FluentBundle[]
 
       this._fluent = new FluentVue({
         locale: fluent.locale,
-        bundles: overriddenBundles.concat(fluent.allBundles)
+        bundles: overriddenBundles.concat(fluent.allBundles),
       })
 
       // TODO: Subscribe to parent bundle

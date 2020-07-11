@@ -45,10 +45,10 @@ describe('message override', () => {
     const component = {
       template: `<a v-t:link href="/foo">Fallback text</a>`,
       __fluent: {
-        'uk': new FluentResource(ftl`
+        uk: new FluentResource(ftl`
         link = текст посилання 2
-        `)
-      }
+        `),
+      },
     }
 
     // Act

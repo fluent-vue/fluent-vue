@@ -20,7 +20,7 @@ describe('vue integration', () => {
 
   const fluent = new FluentVue({
     locale: 'en-US',
-    bundles: [bundle]
+    bundles: [bundle],
   })
 
   const options = {
@@ -85,7 +85,7 @@ describe('vue integration', () => {
       __fluent: {
         'en-US': new FluentResource(ftl`
         sub-message = Hello from child component, { $name }
-        `)
+        `),
       },
       template: "<div>{{ $t('sub-message', { name }) }}</div>",
     }
@@ -104,7 +104,9 @@ describe('vue integration', () => {
     const mounted = mount(component, options)
 
     // Assert
-    expect(mounted.html()).toEqual('<div>Hello, ⁨John⁩!<div>Hello from child component, ⁨Alice⁩</div>\n</div>')
+    expect(mounted.html()).toEqual(
+      '<div>Hello, ⁨John⁩!<div>Hello from child component, ⁨Alice⁩</div>\n</div>'
+    )
   })
 
   it('clears instance on component destroy', () => {
