@@ -4,13 +4,16 @@
   "private": true,
   "scripts": {
     "start": "parcel serve public/index.html",
-    "build": "parcel build public/index.html"
+    "build": "parcel build public/index.html",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "dependencies": {
     "@fluent/bundle": "^0.15.0",
     "@fluent/dedent": "^0.2.0",
     "fluent-vue": "link:../..",
-    "vue-hot-reload-api": "^2.3.3"
+    "vue-hot-reload-api": "^2.3.3",
+    "snyk": "^1.361.3"
   },
   "devDependencies": {
     "@vue/component-compiler-utils": "^3.0.0",
@@ -18,5 +21,6 @@
   },
   "browserslist": [
     "last 1 Chrome versions"
-  ]
+  ],
+  "snyk": true
 }
