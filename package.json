@@ -56,8 +56,6 @@
     "prettier": "^2.0.5",
     "puppeteer": "^5.0.0",
     "rollup": "^2.21.0",
-    "rollup-plugin-node-builtins": "^2.1.2",
-    "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-terser": "^6.1.0",
     "rollup-plugin-typescript2": "^0.27.1",
     "semver": "^7.3.2",
