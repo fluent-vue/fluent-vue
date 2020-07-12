@@ -1,3 +1,35 @@
+# [3.0.0-alpha.0](https://github.com/Demivan/fluent-vue/compare/v2.4.5...v3.0.0-alpha.0) (2020-07-12)
+
+
+### Code Refactoring
+
+* add 'locale' option for selecting locale ([56a1aac](https://github.com/Demivan/fluent-vue/commit/56a1aac24326050ef8713b078477f13df63c2c9f))
+* change how plugin is initialized ([da7728f](https://github.com/Demivan/fluent-vue/commit/da7728fc8249f8ddd039960c354685542cb06076))
+
+
+### Features
+
+* **loader:** add webpack fluent-vue-loader ([69e5423](https://github.com/Demivan/fluent-vue/commit/69e54230125d2e92b897d9f8d99d881e6a20210e))
+
+
+### BREAKING CHANGES
+
+* plugin initialization code changed:
+```js
+import { createFluentVue } from 'fluent-vue'
+
+const fluent = createFluentVue({
+  locale: 'en',
+  bundles: bundles
+})
+
+Vue.use(fluent)
+```
+* instead of using order of bundles for selecting locale
+'locale' property on fluent object should be used
+
+
+
 ## [2.4.5](https://github.com/Demivan/fluent-vue/compare/v2.4.4...v2.4.5) (2020-04-13)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "fluent-vue-loader",
-  "version": "2.4.5",
+  "version": "3.0.0-alpha.0",
   "license": "MIT",
   "main": "dist/fluent-vue-loader.cjs.prod.js",
   "module": "dist/fluent-vue-loader.esm.js",
