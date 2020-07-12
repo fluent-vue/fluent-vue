@@ -1,5 +1,5 @@
-import Vue from 'vue/types/umd'
-import { FluentBundle, FluentArgument } from '@fluent/bundle'
+import Vue, { VueConstructor } from 'vue/types/umd'
+import { FluentBundle, FluentVariable } from '@fluent/bundle'
 import { Message, Pattern } from '@fluent/bundle/esm/ast'
 import { TranslationContext } from './fluentVue'
 
@@ -14,18 +14,18 @@ export interface IUpdatable {
 export interface FluentVue {
   locale: string | string[]
 
-  install(vue: typeof Vue): void
+  install(vue: VueConstructor<Vue>): void
 
   getBundle(key: string): FluentBundle | null
   getMessage(bundle: FluentBundle | null, key: string): Message | null
   formatPattern(
     bundle: FluentBundle,
     message: Pattern,
-    value?: Record<string, FluentArgument>,
+    value?: Record<string, FluentVariable>,
     errors?: string[]
   ): string
-  format(key: string, value?: Record<string, FluentArgument>): string
-  formatAttrs(key: string, value?: Record<string, FluentArgument>): Record<string, string>
+  format(key: string, value?: Record<string, FluentVariable>): string
+  formatAttrs(key: string, value?: Record<string, FluentVariable>): Record<string, string>
 
   subscribe(vue: IUpdatable): void
   unsubscribe(vue: IUpdatable): void

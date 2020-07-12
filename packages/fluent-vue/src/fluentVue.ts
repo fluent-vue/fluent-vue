@@ -4,7 +4,7 @@ import { mapBundleSync } from '@fluent/sequence'
 import { negotiateLanguages } from '@fluent/langneg'
 import { warn } from './util/warn'
 
-import { FluentBundle, FluentArgument } from '@fluent/bundle'
+import { FluentBundle, FluentVariable } from '@fluent/bundle'
 import { FluentVueOptions, FluentVue, IUpdatable } from './interfaces'
 import { Pattern } from '@fluent/bundle/esm/ast'
 import install from './install'
@@ -78,7 +78,7 @@ export class TranslationContext {
   formatPattern(
     bundle: FluentBundle,
     message: Pattern,
-    value?: Record<string, FluentArgument>
+    value?: Record<string, FluentVariable>
   ): string {
     const errors: Error[] = []
     const formatted = bundle.formatPattern(message, value, errors)
@@ -90,7 +90,7 @@ export class TranslationContext {
     return formatted
   }
 
-  format(key: string, value?: Record<string, FluentArgument>): string {
+  format(key: string, value?: Record<string, FluentVariable>): string {
     const context = this.getBundle(key)
     const message = this.getMessage(context, key)
 
@@ -101,7 +101,7 @@ export class TranslationContext {
     return this.formatPattern(context, message.value, value)
   }
 
-  formatAttrs(key: string, value?: Record<string, FluentArgument>): Record<string, string> {
+  formatAttrs(key: string, value?: Record<string, FluentVariable>): Record<string, string> {
     const context = this.getBundle(key)
     const message = this.getMessage(context, key)
 

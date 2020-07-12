@@ -7,14 +7,15 @@
     "build": "parcel build public/index.html"
   },
   "dependencies": {
-    "@fluent/bundle": "^0.15.1",
-    "@fluent/dedent": "^0.2.0",
+    "@fluent/bundle": "^0.16.0",
+    "@fluent/dedent": "^0.3.0",
     "fluent-vue": "link:../../packages/fluent-vue",
     "vue-hot-reload-api": "^2.3.3"
   },
   "devDependencies": {
     "@vue/component-compiler-utils": "^3.0.0",
-    "parcel-bundler": "^1.12.3"
+    "parcel-bundler": "^1.12.3",
+    "sass": "^1.26.10"
   },
   "browserslist": [
     "last 1 Chrome versions"

@@ -3,6 +3,8 @@ import ts from 'rollup-plugin-typescript2'
 import replace from '@rollup/plugin-replace'
 import json from '@rollup/plugin-json'
 
+import nodeResolvePlugin from '@rollup/plugin-node-resolve'
+
 if (!process.env.TARGET) {
   throw new Error('TARGET package must be specified via --environment flag.')
 }
@@ -103,15 +105,10 @@ function createConfig(format, output, plugins = []) {
   const nodePlugins =
     format !== 'cjs'
       ? [
-          require('@rollup/plugin-node-resolve')({
+          nodeResolvePlugin({
             preferBuiltins: true,
           }),
-          require('@rollup/plugin-commonjs')({
-            sourceMap: false,
-            namedExports: {
-              'cached-iterable': ['CachedSyncIterable'],
-            },
-          }),
+          require('@rollup/plugin-commonjs')(),
           require('rollup-plugin-node-builtins')(),
           require('rollup-plugin-node-globals')(),
         ]

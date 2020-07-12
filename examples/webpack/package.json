@@ -7,17 +7,17 @@
     "build": "webpack"
   },
   "dependencies": {
-    "@fluent/bundle": "^0.15.0",
-    "@fluent/dedent": "^0.2.0",
+    "@fluent/bundle": "^0.16.0",
+    "@fluent/dedent": "^0.3.0",
     "fluent-vue": "link:../../packages/fluent-vue"
   },
   "devDependencies": {
+    "fluent-vue-loader": "link:../../packages/fluent-vue-loader",
     "html-webpack-plugin": "^4.3.0",
     "vue-loader": "^15.9.3",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0",
-    "fluent-vue-loader": "link:../../packages/fluent-vue-loader"
+    "webpack-dev-server": "^3.11.0"
   },
   "browserslist": [
     "last 1 Chrome versions"

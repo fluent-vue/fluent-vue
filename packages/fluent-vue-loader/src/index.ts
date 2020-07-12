@@ -1,5 +1,5 @@
 import { loader } from 'webpack'
-import { parseQuery } from 'loader-utils'
+import { parseQuery, OptionObject } from 'loader-utils'
 import { RawSourceMap } from 'source-map'
 
 const loader: loader.Loader = function (
@@ -21,7 +21,7 @@ const loader: loader.Loader = function (
   }
 }
 
-function generateCode(source: string | Buffer, query: Record<string, string>): string {
+function generateCode(source: string | Buffer, query: OptionObject): string {
   const data = convert(source)
 
   return `
