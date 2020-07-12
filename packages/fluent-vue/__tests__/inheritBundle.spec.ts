@@ -1,7 +1,8 @@
-import { inheritBundle } from '../../src/fluent-bundle/inherit'
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 import { Pattern } from '@fluent/bundle/esm/ast'
+
+import { inheritBundle } from '../src/inheritBundle'
 
 describe('inheritBundle', () => {
   it('gets options from parent', () => {

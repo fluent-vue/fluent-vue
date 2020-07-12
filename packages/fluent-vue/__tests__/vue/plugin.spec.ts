@@ -3,11 +3,10 @@ import { createLocalVue, mount } from '@vue/test-utils'
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
-import FluentVue from '../../src'
+import { createFluentVue } from '../../src'
 
 describe('vue integration', () => {
   const localVue = createLocalVue()
-  localVue.use(FluentVue)
 
   const bundle = new FluentBundle('en-US')
 
@@ -18,13 +17,13 @@ describe('vue integration', () => {
     `)
   )
 
-  const fluent = new FluentVue({
+  const fluent = createFluentVue({
     locale: 'en-US',
     bundles: [bundle],
   })
+  localVue.use(fluent)
 
   const options = {
-    fluent,
     localVue,
   }
 
@@ -125,27 +124,6 @@ describe('vue integration', () => {
 
     // Assert
     expect(mounted.vm.$fluent).not.toBeUndefined()
-
-    localVue.nextTick(() => {
-      expect(mounted.vm.$fluent).toBeUndefined()
-    })
-  })
-
-  it('does not try to clear if not initialized', () => {
-    // Arrange
-    const component = {
-      template: '<div>Just text</div>',
-    }
-
-    const mounted = mount(component, {
-      localVue,
-    })
-
-    // Act
-    mounted.destroy()
-
-    // Assert
-    expect(mounted.vm.$fluent).toBeUndefined()
 
     localVue.nextTick(() => {
       expect(mounted.vm.$fluent).toBeUndefined()

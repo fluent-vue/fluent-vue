@@ -1,89 +1,63 @@
-import Vue, { VueConstructor } from 'vue'
+import Vue from 'vue'
 import { CachedSyncIterable } from 'cached-iterable'
 import { mapBundleSync } from '@fluent/sequence'
 import { negotiateLanguages } from '@fluent/langneg'
 import { warn } from './util/warn'
 
 import { FluentBundle, FluentArgument } from '@fluent/bundle'
-import { FluentVueObject, IUpdatable, FluentVueOptions } from './interfaces'
+import { FluentVueOptions, FluentVue, IUpdatable } from './interfaces'
 import { Pattern } from '@fluent/bundle/esm/ast'
+import install from './install'
 
-/**
- * Main class of fluent-vue.
- * Holds fluent bundles and formats messages.
- */
-export default class FluentVue implements FluentVueObject {
-  private subscribers: Map<IUpdatable, boolean>
+function getOrderedBundles(
+  requestedLocale: string | string[],
+  bundles: FluentBundle[]
+): FluentBundle[] {
+  if (!Array.isArray(requestedLocale)) {
+    requestedLocale = [requestedLocale]
+  }
+
+  const avaliableLocales = bundles.flatMap((bundle) => bundle.locales)
+  const negotiatedLocales = negotiateLanguages(requestedLocale, avaliableLocales, {
+    strategy: 'filtering',
+  })
+
+  const newBundles = negotiatedLocales.map((locale) =>
+    bundles.find((bundle) => bundle.locales.includes(locale))
+  )
+
+  const dedupeBundles = newBundles
+    .filter((bundle, i) => newBundles.indexOf(bundle) === i)
+    .filter((bundle) => bundle != null) as FluentBundle[]
+
+  return dedupeBundles
+}
+
+export class TranslationContext {
+  private fluentVue: FluentVue
+  private subscribers: Map<TranslationContext, boolean>
   private bundlesIterable: Iterable<FluentBundle>
-  private _locale: string | string[]
+  bundles: FluentBundle[]
 
-  allBundles: FluentBundle[]
+  constructor(fluentVue: FluentVue, bundles: FluentBundle[]) {
+    this.fluentVue = fluentVue
+    this.subscribers = new Map()
+
+    this.bundles = bundles
+    const orderedBundles = getOrderedBundles(fluentVue.locale, bundles)
+    this.bundlesIterable = CachedSyncIterable.from(orderedBundles)
+  }
 
   /**
-   * Add object to list of objects to notify
-   * @param updatable Object to add to list
+   * Refreshes context and depended contexts when locale changes
    */
-  subscribe(updatable: IUpdatable): void {
-    this.subscribers.set(updatable, true)
-  }
-  /**
-   * Remove object from list of object to notify
-   * @param updatable Object remove from list
-   */
-  unsubscribe(updatable: IUpdatable): void {
-    this.subscribers.delete(updatable)
-  }
-
-  get locale(): string | string[] {
-    return this._locale
-  }
-
-  set locale(value: string | string[]) {
-    this._locale = value
-    const orderedBundles = this.getOrderedBundles(value, this.allBundles)
+  refresh() {
+    const orderedBundles = getOrderedBundles(this.fluentVue.locale, this.bundles)
     this.bundlesIterable = CachedSyncIterable.from(orderedBundles)
 
     for (const subscriber of this.subscribers.keys()) {
-      subscriber.$forceUpdate()
+      subscriber.refresh()
     }
-  }
-
-  static install: (vue: VueConstructor<Vue>) => void
-
-  /**
-   * Constructs new instance of FluentVue class.
-   * @param options Initialization options
-   */
-  constructor(options: FluentVueOptions) {
-    this.subscribers = new Map<Vue, boolean>()
-    this.allBundles = options.bundles
-    this._locale = options.locale
-    const orderedBundles = this.getOrderedBundles(options.locale, this.allBundles)
-    this.bundlesIterable = CachedSyncIterable.from(orderedBundles)
-  }
-
-  private getOrderedBundles(
-    requestedLocale: string | string[],
-    bundles: FluentBundle[]
-  ): FluentBundle[] {
-    if (!Array.isArray(requestedLocale)) {
-      requestedLocale = [requestedLocale]
-    }
-
-    const avaliableLocales = bundles.flatMap((bundle) => bundle.locales)
-    const negotiatedLocales = negotiateLanguages(requestedLocale, avaliableLocales, {
-      strategy: 'filtering',
-    })
-
-    const newBundles = negotiatedLocales.map((locale) =>
-      bundles.find((bundle) => bundle.locales.includes(locale))
-    )
-
-    const dedupeBundles = newBundles
-      .filter((bundle, i) => newBundles.indexOf(bundle) === i)
-      .filter((bundle) => bundle != null) as FluentBundle[]
-
-    return dedupeBundles
   }
 
   getBundle(key: string): FluentBundle | null {
@@ -142,4 +116,64 @@ export default class FluentVue implements FluentVueObject {
 
     return result
   }
+}
+
+/**
+ * Creates FluentVue instance that can bu used on a Vue app.
+ *
+ * @param options - {@link FluentVueOptions}
+ */
+export function createFluentVue(options: FluentVueOptions): FluentVue {
+  const subscribers: Map<IUpdatable, boolean> = new Map()
+  const contexts: Map<TranslationContext, boolean> = new Map()
+  let locale = options.locale
+
+  const fluentVue: FluentVue = {
+    getBundle: (key) => rootContext.getBundle(key),
+    getMessage: (bundle, key) => rootContext.getMessage(bundle, key),
+    formatPattern: (bundle, message, value) => rootContext.formatPattern(bundle, message, value),
+    format: (key, value) => rootContext.format(key, value),
+    formatAttrs: (key, value) => rootContext.formatAttrs(key, value),
+
+    get locale() {
+      return locale
+    },
+
+    set locale(value: string | string[]) {
+      locale = value
+
+      for (const context of contexts.keys()) {
+        context.refresh()
+      }
+
+      for (const subscriber of subscribers.keys()) {
+        subscriber.$forceUpdate()
+      }
+    },
+
+    install(vue: typeof Vue) {
+      return install(vue, this, rootContext)
+    },
+
+    subscribe(vue: IUpdatable) {
+      subscribers.set(vue, true)
+    },
+
+    unsubscribe(vue: IUpdatable) {
+      subscribers.delete(vue)
+    },
+
+    addContext(context: TranslationContext) {
+      contexts.set(context, true)
+    },
+
+    removeContext(context: TranslationContext) {
+      contexts.delete(context)
+    },
+  }
+
+  const rootContext = new TranslationContext(fluentVue, options.bundles)
+  contexts.set(rootContext, true)
+
+  return fluentVue
 }

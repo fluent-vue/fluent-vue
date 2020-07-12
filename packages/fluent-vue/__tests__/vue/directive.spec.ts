@@ -4,7 +4,7 @@ import { createLocalVue, mount } from '@vue/test-utils'
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
-import FluentVue from '../../src'
+import { createFluentVue } from '../../src'
 
 describe('directive', () => {
   let options: any
@@ -12,17 +12,16 @@ describe('directive', () => {
 
   beforeEach(() => {
     const localVue = createLocalVue()
-    localVue.use(FluentVue)
 
     bundle = new FluentBundle('en-US')
 
-    const fluent = new FluentVue({
+    const fluent = createFluentVue({
       locale: 'en-US',
       bundles: [bundle],
     })
+    localVue.use(fluent)
 
     options = {
-      fluent,
       localVue,
     }
   })

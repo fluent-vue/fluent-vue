@@ -2,7 +2,7 @@ import { DirectiveOptions } from 'vue'
 import { DirectiveBinding } from 'vue/types/options'
 
 import { warn } from '../util/warn'
-import { FluentVueObject } from '../interfaces'
+import { TranslationContext } from '../fluentVue'
 
 // This part is from fluent-dom library
 const LOCALIZABLE_ATTRIBUTES = {
@@ -83,7 +83,7 @@ function isAttrNameLocalizable(
   return false
 }
 
-function translate(el: HTMLElement, fluent: FluentVueObject, binding: DirectiveBinding) {
+function translate(el: HTMLElement, fluent: TranslationContext, binding: DirectiveBinding) {
   const key = binding.arg
 
   if (key === undefined) {

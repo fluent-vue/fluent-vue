@@ -3,27 +3,28 @@ import { createLocalVue, mount } from '@vue/test-utils'
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
-import FluentVue from '../../src'
+import { createFluentVue } from '../../src'
+import { FluentVue } from '../../src/interfaces'
 
 describe('message override', () => {
   let options: any
+  let fluent: FluentVue
   let bundleEn: FluentBundle
   let bundleUk: FluentBundle
 
   beforeEach(() => {
     const localVue = createLocalVue()
-    localVue.use(FluentVue)
 
     bundleEn = new FluentBundle(['en', 'en-US'])
     bundleUk = new FluentBundle(['uk', 'uk-UA'])
 
-    const fluent = new FluentVue({
+    fluent = createFluentVue({
       locale: ['uk-UA', 'en'],
       bundles: [bundleUk, bundleEn],
     })
+    localVue.use(fluent)
 
     options = {
-      fluent,
       localVue,
     }
   })
@@ -55,7 +56,7 @@ describe('message override', () => {
     const mounted = mount(component, options)
     expect(mounted.html()).toEqual(`<a href="/foo">текст посилання</a>`)
 
-    options.fluent.locale = 'uk'
+    fluent.locale = 'uk'
 
     // Assert
     expect(mounted.html()).toEqual(`<a href="/foo">текст посилання</a>`)

@@ -4,7 +4,7 @@ import { createLocalVue, mount } from '@vue/test-utils'
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
-import FluentVue from '../src'
+import { createFluentVue } from '../src'
 
 describe('language change', () => {
   let options: any
@@ -13,18 +13,18 @@ describe('language change', () => {
 
   beforeEach(() => {
     const localVue = createLocalVue()
-    localVue.use(FluentVue)
 
     bundleEn = new FluentBundle('en-US')
     bundleUk = new FluentBundle('uk-UA')
 
-    const fluent = new FluentVue({
+    const fluent = createFluentVue({
       locale: ['uk-UA', 'en-US'],
       bundles: [bundleUk, bundleEn],
     })
 
+    localVue.use(fluent)
+
     options = {
-      fluent,
       localVue,
     }
   })
@@ -76,15 +76,15 @@ describe('language change', () => {
   it('updates when changing current locale', async () => {
     // Arrange
     const localVue = createLocalVue()
-    localVue.use(FluentVue)
 
     bundleEn = new FluentBundle('en-US')
     bundleUk = new FluentBundle('uk-UA')
 
-    const fluent = new FluentVue({
+    const fluent = createFluentVue({
       locale: 'uk-UA',
       bundles: [bundleUk, bundleEn],
     })
+    localVue.use(fluent)
 
     bundleEn.addResource(
       new FluentResource(ftl`
@@ -103,10 +103,7 @@ describe('language change', () => {
     }
 
     // Act
-    const mounted = mount(component, {
-      fluent,
-      localVue,
-    })
+    const mounted = mount(component, { localVue })
 
     expect(mounted.html()).toEqual(`<a href="/foo">текст посилання</a>`)
 
@@ -116,5 +113,66 @@ describe('language change', () => {
 
     // Assert
     expect(mounted.html()).toEqual(`<a href="/foo">link text</a>`)
+  })
+
+  it('updates child components with overrides', async () => {
+    // Arrange
+    const localVue = createLocalVue()
+
+    bundleEn = new FluentBundle('en-US')
+    bundleUk = new FluentBundle('uk-UA')
+
+    const fluent = createFluentVue({
+      locale: 'uk-UA',
+      bundles: [bundleUk, bundleEn],
+    })
+    localVue.use(fluent)
+
+    bundleEn.addResource(
+      new FluentResource(ftl`
+      link = link text
+      `)
+    )
+
+    bundleUk.addResource(
+      new FluentResource(ftl`
+      link = текст посилання
+      `)
+    )
+
+    const child = {
+      template: `<span>{{ $t('child') }}</span>`,
+      __fluent: {
+        'uk-UA': new FluentResource(ftl`
+        child = Повідомлення
+        `),
+        'en-US': new FluentResource(ftl`
+        child = Child message
+        `),
+      },
+    }
+    const component = {
+      components: {
+        child,
+      },
+      template: `<div><span>{{ $t('link') }}</span><child /></div>`,
+    }
+
+    // Act
+    const mounted = mount(component, {
+      fluent,
+      localVue,
+    })
+
+    expect(mounted.html()).toEqual(
+      `<div><span>текст посилання</span><span>Повідомлення</span></div>`
+    )
+
+    fluent.locale = 'en'
+
+    await Vue.nextTick()
+
+    // Assert
+    expect(mounted.html()).toEqual(`<div><span>link text</span><span>Child message</span></div>`)
   })
 })
