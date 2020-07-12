@@ -119,7 +119,7 @@
     "tslint-config-prettier": "^1.15.0",
     "tslint-config-standard": "^9.0.0",
     "typedoc": "^0.17.4",
-    "typescript": "^3.8.3",
+    "typescript": "^3.9.6",
     "vue": "^2.6.11",
     "vue-jest": "^3.0.4",
     "vue-template-compiler": "^2.6.11"
