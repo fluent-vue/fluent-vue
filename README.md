@@ -113,37 +113,27 @@ For `yarn` users:
 yarn add fluent-vue @fluent/bundle
 ```
 
-**Install Vue plugin**
+**Install Vue and configure plugin**
 
 ```js
 import Vue from 'vue';
-import FluentVue from 'fluent-vue';
-
-Vue.use(FluentVue)
-```
-
-**Configure `fluent-vue`**
-```js
 import { FluentBundle, FluentResource } from '@fluent/bundle';
 
+import { createFluentVue } from 'fluent-vue' 
+ 
 // Create bundle
-const bundle = new FluentBundle({
-  locales: 'en'
-})
+const bundle = new FluentBundle('en')
 
 // Add resources to the bundle 
 bundle.addResource(new FluentResource('key = World'))
 bundle.addResource(new FluentResource('another-key = Hello, {$name}'))
 
-// Create `FluentVue` instance with options
-const fluent = new FluentVue({
+// Create fluent istance
+const fluent = createFluentVue({
+  locale: 'en',
   bundles: [bundle]
 })
 
-// Add `fluent` option to your Vue instance
-new Vue({
-  el: "#root",
-  fluent,
-  render: h => h(App)
-})
+// Add Vue plugin
+Vue.use(fluent)
 ```

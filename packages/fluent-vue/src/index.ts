@@ -1,0 +1,1 @@
+export { createFluentVue } from './fluentVue'
