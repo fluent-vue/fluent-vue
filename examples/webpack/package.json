@@ -1,0 +1,25 @@
+{
+  "name": "webpack-example",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "@fluent/bundle": "^0.15.0",
+    "@fluent/dedent": "^0.2.0",
+    "fluent-vue": "link:../../packages/fluent-vue"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^4.3.0",
+    "vue-loader": "^15.9.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "fluent-vue-loader": "link:../../packages/fluent-vue-loader"
+  },
+  "browserslist": [
+    "last 1 Chrome versions"
+  ]
+}
