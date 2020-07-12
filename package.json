@@ -7,16 +7,12 @@
   "scripts": {
     "dev": "node scripts/dev.js",
     "build": "node scripts/build.js",
-    "size": "node scripts/build.js fluent-vue -p -f global",
+    "size": "node scripts/build.js -p -f global",
     "lint": "prettier --write --parser typescript \"packages/**/*.ts?(x)\"",
     "ls-lint": "ls-lint",
-    "test": "node scripts/build.js fluent-vue -f global -d && jest",
+    "test": "node scripts/build.js -f global -d && jest",
     "release": "node scripts/release.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
-  },
-  "types": "test-dts/index.d.ts",
-  "tsd": {
-    "directory": "test-dts"
   },
   "gitHooks": {
     "pre-commit": "ls-lint && lint-staged",
@@ -67,7 +63,6 @@
     "rollup-plugin-typescript2": "^0.27.1",
     "semver": "^7.3.2",
     "ts-jest": "^26.1.1",
-    "tsd": "^0.13.1",
     "typescript": "^3.9.6",
     "yorkie": "^2.0.0"
   }

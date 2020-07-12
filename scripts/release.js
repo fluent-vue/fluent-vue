@@ -11,7 +11,7 @@ const preId =
   args.preid || semver.prerelease(currentVersion) !== null
     ? semver.prerelease(currentVersion)[0]
     : null || 'alpha'
-const isDryRun = args.dry || 'false'
+const isDryRun = args.dry || false
 const skipTests = args.skipTests
 const skipBuild = args.skipBuild
 const packages = fs
@@ -96,9 +96,6 @@ async function main() {
   step('\nBuilding all packages...')
   if (!skipBuild && !isDryRun) {
     await run('yarn', ['build', '--release'])
-    // test generated dts files
-    step('\nVerifying type declarations...')
-    await run(bin('tsd'))
   } else {
     console.log(`(skipped)`)
   }

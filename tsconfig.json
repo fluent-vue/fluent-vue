@@ -25,7 +25,6 @@
   "include": [
     "packages/global.d.ts",
     "packages/*/src",
-    "packages/*/__tests__",
-    "test-dts"
+    "packages/*/__tests__"
   ]
 }
