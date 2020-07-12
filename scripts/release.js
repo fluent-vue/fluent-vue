@@ -11,7 +11,7 @@ const preId =
   args.preid || semver.prerelease(currentVersion) !== null
     ? semver.prerelease(currentVersion)[0]
     : null || 'alpha'
-const isDryRun = true || args.dry || 'true'
+const isDryRun = args.dry || 'false'
 const skipTests = args.skipTests
 const skipBuild = args.skipBuild
 const packages = fs
