@@ -160,7 +160,6 @@ describe('language change', () => {
 
     // Act
     const mounted = mount(component, {
-      fluent,
       localVue,
     })
 
