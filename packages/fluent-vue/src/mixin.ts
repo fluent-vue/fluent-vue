@@ -3,6 +3,7 @@ import FluentVue from './fluentVue'
 import { FluentBundle } from '@fluent/bundle'
 import { warn } from './util/warn'
 import { negotiateLanguages } from '@fluent/langneg'
+import { inheritBundle } from './fluent-bundle/inherit'
 
 function getParentFluent(component: Vue): FluentVue | undefined {
   const options = component.$options
@@ -50,18 +51,7 @@ export default {
             return null
           }
 
-          // Copy options from parent bundle
-          const bundle = new FluentBundle(locales, {
-            useIsolating: parentBundle._useIsolating,
-            functions: parentBundle._functions,
-            transform: parentBundle._transform,
-          })
-
-          // Copy messages from parent bundle
-          bundle._messages = new Map(parentBundle._messages)
-          bundle._terms = new Map(parentBundle._terms)
-
-          // Add overrides
+          const bundle = inheritBundle(locales, parentBundle)
           bundle.addResource(resources, { allowOverrides: true })
           return bundle
         })

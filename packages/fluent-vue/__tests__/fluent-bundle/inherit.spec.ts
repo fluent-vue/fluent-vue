@@ -1,9 +1,9 @@
-import { ExtendedFluentBundle } from '../src/extendedFluentBundle'
+import { inheritBundle } from '../../src/fluent-bundle/inherit'
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 import { Pattern } from '@fluent/bundle/esm/ast'
 
-describe('ExtendedFluentBundle', () => {
+describe('inheritBundle', () => {
   it('gets options from parent', () => {
     // Arrange
     const functions = {
@@ -18,7 +18,7 @@ describe('ExtendedFluentBundle', () => {
     })
 
     // Act
-    const bundle = new ExtendedFluentBundle(parent, 'en')
+    const bundle = inheritBundle('en', parent)
 
     // Assert
     expect(bundle._useIsolating).toEqual(false)
@@ -29,7 +29,7 @@ describe('ExtendedFluentBundle', () => {
   it('can access own messages', () => {
     // Arrange
     const parent = new FluentBundle('en')
-    const bundle = new ExtendedFluentBundle(parent, 'en')
+    const bundle = inheritBundle('en', parent)
     const resource = new FluentResource(ftl`
     message = Localized
     `)
@@ -50,7 +50,7 @@ describe('ExtendedFluentBundle', () => {
     message = Localized
     `)
     parent.addResource(resource)
-    const bundle = new ExtendedFluentBundle(parent, 'en')
+    const bundle = inheritBundle('en', parent)
 
     // Assert
     const message = bundle.getMessage('message')
@@ -62,16 +62,18 @@ describe('ExtendedFluentBundle', () => {
 
   it('can override parent messages', () => {
     // Arrange
-    const parent = new FluentBundle('en')
+    const parent = new FluentBundle('en', {
+      useIsolating: false, // For simpler testing
+    })
     const parentResource = new FluentResource(ftl`
     message = Localized parent
     `)
     parent.addResource(parentResource)
-    const bundle = new ExtendedFluentBundle(parent, 'en')
+    const bundle = inheritBundle('en', parent)
     const resource = new FluentResource(ftl`
     message = Localized child
     `)
-    bundle.addResource(resource)
+    bundle.addResource(resource, { allowOverrides: true })
 
     // Assert
     const message = bundle.getMessage('message')
@@ -83,12 +85,14 @@ describe('ExtendedFluentBundle', () => {
 
   it('can reference parent terms', () => {
     // Arrange
-    const parent = new FluentBundle('en')
+    const parent = new FluentBundle('en', {
+      useIsolating: false, // For simpler testing
+    })
     const parentResource = new FluentResource(ftl`
     -parent-term = Parent term
     `)
     parent.addResource(parentResource)
-    const bundle = new ExtendedFluentBundle(parent, 'en')
+    const bundle = inheritBundle('en', parent)
     const resource = new FluentResource(ftl`
     message = Localized { -parent-term }
     `)
