@@ -32,7 +32,7 @@
     "node": ">=12.0.0"
   },
   "devDependencies": {
-    "@ls-lint/ls-lint": "^1.9.0",
+    "@ls-lint/ls-lint": "^1.9.2",
     "@rollup/plugin-commonjs": "^14.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^8.4.0",
