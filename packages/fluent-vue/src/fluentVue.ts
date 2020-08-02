@@ -157,7 +157,6 @@ export function createFluentVue(options: FluentVueOptions): FluentVue {
 
     set bundles(value: FluentBundle[]) {
       rootContext.bundles = value
-      rootContext.refresh()
 
       for (const context of contexts.keys()) {
         context.refresh()

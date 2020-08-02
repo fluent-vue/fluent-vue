@@ -57,7 +57,10 @@ export function createMixin(fluent: FluentVue, rootContext: TranslationContext) 
         return
       }
 
-      fluent.removeContext(this._fluent)
+      if (this._fluent !== rootContext) {
+        fluent.removeContext(this._fluent)
+      }
+
       fluent.unsubscribe(this)
 
       this.$nextTick(() => {
