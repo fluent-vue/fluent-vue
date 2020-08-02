@@ -1,3 +1,12 @@
+# [3.0.0-alpha.3](https://github.com/Demivan/fluent-vue/compare/v3.0.0-alpha.2...v3.0.0-alpha.3) (2020-08-02)
+
+
+### Bug Fixes
+
+* do not remove root context ([de1042f](https://github.com/Demivan/fluent-vue/commit/de1042f430a24e771364197913d99436d71c55e0))
+
+
+
 # [3.0.0-alpha.2](https://github.com/Demivan/fluent-vue/compare/v3.0.0-alpha.1...v3.0.0-alpha.2) (2020-08-02)
 
 
