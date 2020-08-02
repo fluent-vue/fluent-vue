@@ -1,9 +1,10 @@
 # fluent-vue
 
-[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-[![Travis](https://img.shields.io/travis/Demivan/fluent-vue.svg)](https://travis-ci.org/Demivan/fluent-vue)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/demivan/fluent-vue/Test)](https://github.com/Demivan/fluent-vue/actions)
 [![Coveralls](https://img.shields.io/coveralls/Demivan/fluent-vue.svg)](https://coveralls.io/github/Demivan/fluent-vue)
-[![Dev Dependencies](https://david-dm.org/Demivan/fluent-vue/dev-status.svg)](https://david-dm.org/Demivan/fluent-vue?type=dev)
+[![npm bundle size](https://img.shields.io/bundlephobia/min/fluent-vue)](https://bundlephobia.com/result?p=fluent-vue)
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![GitHub license](https://img.shields.io/github/license/demivan/fluent-vue)](https://github.com/Demivan/fluent-vue/blob/develop/LICENSE)
 
 `fluent-vue` is Vue.js integration for [Project Fluent](https://projectfluent.org).
 
