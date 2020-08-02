@@ -1,3 +1,12 @@
+# [3.0.0-alpha.2](https://github.com/Demivan/fluent-vue/compare/v3.0.0-alpha.1...v3.0.0-alpha.2) (2020-08-02)
+
+
+### Bug Fixes
+
+* bring back ability to dynamically add bundles ([e1360d3](https://github.com/Demivan/fluent-vue/commit/e1360d3af87faa2f6f3317dce10bda4ab1c8c04a))
+
+
+
 # [3.0.0-alpha.1](https://github.com/Demivan/fluent-vue/compare/v3.0.0-alpha.0...v3.0.0-alpha.1) (2020-08-02)
 
 
