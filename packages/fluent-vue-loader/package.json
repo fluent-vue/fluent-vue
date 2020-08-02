@@ -1,9 +1,33 @@
 {
   "name": "fluent-vue-loader",
   "version": "3.0.0-alpha.0",
-  "license": "MIT",
+  "description": "Webpack loader with custom block support for fluent-vue",
+  "keywords": [
+    "localization",
+    "l10n",
+    "internationalization",
+    "i18n",
+    "ftl",
+    "locale",
+    "language",
+    "formatting",
+    "translate",
+    "translation",
+    "format",
+    "vue",
+    "vuejs",
+    "vue.js",
+    "webpack",
+    "loader"
+  ],
   "main": "dist/fluent-vue-loader.cjs.prod.js",
   "module": "dist/fluent-vue-loader.esm.js",
+  "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Demivan/fluent-vue"
+  },
+  "license": "MIT",
   "devDependencies": {
     "@types/loader-utils": "^2.0.1",
     "@types/webpack": "^4.41.21",

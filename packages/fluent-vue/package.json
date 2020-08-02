@@ -1,15 +1,31 @@
 {
   "name": "fluent-vue",
   "version": "3.0.0-alpha.0",
-  "description": "",
-  "keywords": [],
+  "description": "Fluent bindings for Vue.js",
+  "keywords": [
+    "localization",
+    "l10n",
+    "internationalization",
+    "i18n",
+    "ftl",
+    "locale",
+    "language",
+    "formatting",
+    "translate",
+    "translation",
+    "format",
+    "vue",
+    "vuejs",
+    "vue.js"
+  ],
   "main": "dist/fluent-vue.cjs.prod.js",
   "module": "dist/fluent-vue.esm.js",
   "types": "src/types/index.d.ts",
   "sideEffects": false,
   "files": [
     "dist",
-    "src/types"
+    "src/types",
+    "README.md"
   ],
   "buildOptions": {
     "name": "FluentVue"
