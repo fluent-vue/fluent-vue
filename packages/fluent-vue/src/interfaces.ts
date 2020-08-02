@@ -13,6 +13,7 @@ export interface IUpdatable {
 
 export interface FluentVue {
   locale: string | string[]
+  bundles: FluentBundle[]
 
   install(vue: VueConstructor<Vue>): void
 

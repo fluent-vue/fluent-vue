@@ -151,6 +151,23 @@ export function createFluentVue(options: FluentVueOptions): FluentVue {
       }
     },
 
+    get bundles() {
+      return rootContext.bundles
+    },
+
+    set bundles(value: FluentBundle[]) {
+      rootContext.bundles = value
+      rootContext.refresh()
+
+      for (const context of contexts.keys()) {
+        context.refresh()
+      }
+
+      for (const subscriber of subscribers.keys()) {
+        subscriber.$forceUpdate()
+      }
+    },
+
     install(vue: typeof Vue) {
       return install(vue, this, rootContext)
     },
