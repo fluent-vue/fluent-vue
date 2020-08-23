@@ -1,8 +1,8 @@
-import { loader } from 'webpack'
 import { parseQuery, OptionObject } from 'loader-utils'
 import { RawSourceMap } from 'source-map'
 
-const loader: loader.Loader = function (
+const loader = function (
+  this: any,
   source: string | Buffer,
   sourceMap: RawSourceMap | undefined
 ): void {

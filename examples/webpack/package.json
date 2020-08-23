@@ -15,7 +15,7 @@
     "fluent-vue-loader": "link:../../packages/fluent-vue-loader",
     "html-webpack-plugin": "^4.3.0",
     "vue-loader": "^15.9.3",
-    "webpack": "^4.43.0",
+    "webpack": "^5.0.0-beta.28",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   },
