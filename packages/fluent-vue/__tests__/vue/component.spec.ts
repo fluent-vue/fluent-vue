@@ -1,9 +1,13 @@
+import Vue from 'vue'
 import { createLocalVue, mount } from '@vue/test-utils'
+import VueCompositionApi from '@vue/composition-api'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
 import { createFluentVue } from '../../src'
+
+Vue.use(VueCompositionApi)
 
 describe('component', () => {
   let options: any

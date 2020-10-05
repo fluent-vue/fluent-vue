@@ -1,4 +1,4 @@
-# fluent-vue
+# ![fluent-vue logo | height=100](./docs/assets/logo.svg)
 
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/demivan/fluent-vue/Test)](https://github.com/Demivan/fluent-vue/actions)
 [![Coveralls](https://img.shields.io/coveralls/Demivan/fluent-vue.svg)](https://coveralls.io/github/Demivan/fluent-vue)

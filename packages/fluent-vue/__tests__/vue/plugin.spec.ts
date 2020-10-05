@@ -1,9 +1,13 @@
+import Vue from 'vue'
 import { createLocalVue, mount } from '@vue/test-utils'
+import VueCompositionApi from '@vue/composition-api'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
 import { createFluentVue } from '../../src'
+
+Vue.use(VueCompositionApi)
 
 describe('vue integration', () => {
   const localVue = createLocalVue()
@@ -81,7 +85,7 @@ describe('vue integration', () => {
       data: () => ({
         name: 'Alice',
       }),
-      __fluent: {
+      fluent: {
         'en-US': new FluentResource(ftl`
         sub-message = Hello from child component, { $name }
         `),
@@ -106,27 +110,5 @@ describe('vue integration', () => {
     expect(mounted.html()).toEqual(
       '<div>Hello, ⁨John⁩!<div>Hello from child component, ⁨Alice⁩</div>\n</div>'
     )
-  })
-
-  it('clears instance on component destroy', () => {
-    // Arrange
-    const component = {
-      data: () => ({
-        name: 'john',
-      }),
-      template: "<div>{{ $t('message', { name }) }}</div>",
-    }
-
-    const mounted = mount(component, options)
-
-    // Act
-    mounted.destroy()
-
-    // Assert
-    expect(mounted.vm.$fluent).not.toBeUndefined()
-
-    localVue.nextTick(() => {
-      expect(mounted.vm.$fluent).toBeUndefined()
-    })
   })
 })

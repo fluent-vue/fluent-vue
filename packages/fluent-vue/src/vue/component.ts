@@ -1,45 +1,46 @@
-import { FunctionalComponentOptions } from 'vue'
-import { RecordPropsDefinition } from 'vue/types/options'
+import { defineComponent, h, getCurrentInstance, Vue, inject, computed } from 'vue-demi'
+import { getContext } from '../composition'
+import { RootContextSymbol } from '../symbols'
 
-interface ComponentProps {
-  path: string
-  tag?: string
-  args?: Record<string, unknown>
+function getParent(instance: Vue | null): Vue {
+  return instance?.$parent ?? (instance as any)?.parent.proxy
 }
 
-const component: FunctionalComponentOptions<
-  ComponentProps,
-  RecordPropsDefinition<ComponentProps>
-> = {
+export default defineComponent({
   name: 'i18n',
-  functional: true,
   props: {
     path: { type: String, required: true },
     tag: { type: String, default: 'span' },
     args: { type: Object, default: () => ({}) },
   },
-  render(h, { parent, props, data, slots }) {
-    const key = props.path
-    const fluent = parent.$fluent
-
-    const childSlots = slots()
+  setup(props, context) {
+    const childSlots = context.slots
 
     const params = Object.assign(
       {},
       props.args,
-      ...Object.entries(childSlots).map(([key, v]) => ({
+      ...Object.keys(childSlots).map((key) => ({
         [key]: `\uFFFF\uFFFE${key}\uFFFF`,
       }))
     )
 
-    const translation = fluent.format(key, params)
+    const translation = computed(() => {
+      const rootContext = inject(RootContextSymbol)!
+      const instance = getCurrentInstance()
+      const parent = getParent(instance)
+      const fluent = getContext(rootContext, parent)
+      return fluent.format(props.path, params)
+    })
 
-    const parts = translation
-      .split('\uFFFF')
-      .map((text) => (text.startsWith('\uFFFE') ? childSlots[text.replace('\uFFFE', '')] : text))
-
-    return h(props.tag, data, parts)
+    return () =>
+      h(
+        props.tag,
+        context,
+        translation.value
+          .split('\uFFFF')
+          .map((text) =>
+            text.startsWith('\uFFFE') ? childSlots[text.replace('\uFFFE', '')]?.() : text
+          ) as any
+      )
   },
-}
-
-export default component
+})

@@ -1,10 +1,13 @@
 import Vue from 'vue'
 import { createLocalVue, mount } from '@vue/test-utils'
+import VueCompositionApi from '@vue/composition-api'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
 import { createFluentVue } from '../src'
+
+Vue.use(VueCompositionApi)
 
 describe('language change', () => {
   let options: any
@@ -184,7 +187,7 @@ describe('language change', () => {
 
     const child = {
       template: `<span>{{ $t('child') }}</span>`,
-      __fluent: {
+      fluent: {
         'uk-UA': new FluentResource(ftl`
         child = Повідомлення
         `),

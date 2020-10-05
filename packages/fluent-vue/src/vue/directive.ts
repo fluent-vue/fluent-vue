@@ -1,8 +1,5 @@
-import { DirectiveOptions } from 'vue'
-import { DirectiveBinding } from 'vue/types/options'
-
 import { warn } from '../util/warn'
-import { TranslationContext } from '../fluentVue'
+import { TranslationContext } from '../TranslationContext'
 
 // This part is from fluent-dom library
 const LOCALIZABLE_ATTRIBUTES = {
@@ -83,6 +80,12 @@ function isAttrNameLocalizable(
   return false
 }
 
+interface DirectiveBinding {
+  arg: string | undefined
+  modifiers: Record<string, unknown>
+  value: Record<string, any>
+}
+
 function translate(el: HTMLElement, fluent: TranslationContext, binding: DirectiveBinding) {
   const key = binding.arg
 
@@ -110,22 +113,36 @@ function translate(el: HTMLElement, fluent: TranslationContext, binding: Directi
   }
 }
 
-const directive: DirectiveOptions = {
-  bind(el, binding, vnode) {
-    if (vnode.context === undefined) {
+export default {
+  beforeMount(el: any, binding: any, vnode: any) {
+    if (binding.instance == null) {
+      return
+    }
+
+    translate(el, binding.instance.$options._fluent, binding)
+  },
+
+  updated(el: any, binding: any, vnode: any) {
+    if (binding.instance == null) {
+      return
+    }
+
+    translate(el, binding.instance.$options._fluent, binding)
+  },
+
+  bind(el: any, binding: any, vnode: any) {
+    if (vnode.context == null) {
       return
     }
 
     translate(el, vnode.context.$fluent, binding)
   },
 
-  update(el, binding, vnode) {
-    if (vnode.context === undefined) {
+  update(el: any, binding: any, vnode: any) {
+    if (vnode.context == null) {
       return
     }
 
     translate(el, vnode.context.$fluent, binding)
   },
 }
-
-export default directive

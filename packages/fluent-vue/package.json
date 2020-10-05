@@ -39,18 +39,23 @@
   "devDependencies": {
     "@fluent/bundle": "~0.16.0",
     "@fluent/dedent": "~0.3.0",
+    "@vue/composition-api": "^1.0.0-beta.14",
     "@vue/test-utils": "~1.1.0",
-    "vue": "~2.6.12",
+    "vue": "^2.6.12",
     "vue-template-compiler": "~2.6.12"
   },
   "dependencies": {
     "@fluent/langneg": "^0.5.0",
     "@fluent/sequence": "^0.6.0",
     "cached-iterable": "^0.3.0",
-    "tslib": "^2.0.1"
+    "tslib": "^2.0.1",
+    "vue-demi": "^0.4.0"
   },
   "peerDependencies": {
     "@fluent/bundle": ">=0.14.0",
-    "vue": "~2.6.12"
+    "vue": "^2.6.12 || 3.0.0"
+  },
+  "optionalPeerDependencies": {
+    "@vue/composition-api": "^1.0.0-beta.1"
   }
 }

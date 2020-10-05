@@ -1,6 +1,5 @@
-import Vue from 'vue'
 import { FluentResource } from '@fluent/bundle'
-import { TranslationContext } from '../fluentVue'
+import { TranslationContext } from '../TranslationContext'
 export { createFluentVue } from '../fluentVue'
 
 declare module 'vue/types/vue' {
@@ -16,13 +15,13 @@ declare module 'vue/types/vue' {
 }
 
 declare module 'vue/types/options' {
-  interface ComponentOptions<V extends Vue> {
+  interface ComponentOptions {
     /**
      * Message override for Vue component from fluent-loader
      *
      * @private
      */
-    __fluent?: Record<string, FluentResource>
+    fluent?: Record<string, FluentResource>
   }
 }
 
