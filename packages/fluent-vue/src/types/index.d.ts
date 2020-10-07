@@ -16,7 +16,7 @@ declare module 'vue/types/vue' {
 declare module 'vue/types/options' {
   interface ComponentOptions<V extends Vue> {
     /**
-     * Message override for Vue component from fluent-loader
+     * Message override for Vue component
      */
     fluent?: Record<string, FluentResource>
   }

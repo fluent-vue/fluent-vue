@@ -1,5 +1,6 @@
 import { warn } from '../util/warn'
 import { TranslationContext } from '../TranslationContext'
+import { getContext } from '../composition'
 
 // This part is from fluent-dom library
 const LOCALIZABLE_ATTRIBUTES = {
@@ -113,36 +114,46 @@ function translate(el: HTMLElement, fluent: TranslationContext, binding: Directi
   }
 }
 
-export default {
-  beforeMount(el: any, binding: any, vnode: any) {
-    if (binding.instance == null) {
-      return
-    }
+export function createVue3Directive(rootContext: TranslationContext) {
+  return {
+    beforeMount(el: any, binding: any, vnode: any) {
+      if (binding.instance == null) {
+        return
+      }
 
-    translate(el, binding.instance.$options._fluent, binding)
-  },
+      const context = getContext(rootContext, binding.instance)
+      translate(el, context, binding)
+    },
 
-  updated(el: any, binding: any, vnode: any) {
-    if (binding.instance == null) {
-      return
-    }
+    updated(el: any, binding: any, vnode: any) {
+      if (binding.instance == null) {
+        return
+      }
 
-    translate(el, binding.instance.$options._fluent, binding)
-  },
+      const context = getContext(rootContext, binding.instance)
+      translate(el, context, binding)
+    },
+  }
+}
 
-  bind(el: any, binding: any, vnode: any) {
-    if (vnode.context == null) {
-      return
-    }
+export function createVue2Directive(rootContext: TranslationContext) {
+  return {
+    bind(el: any, binding: any, vnode: any) {
+      if (vnode.context == null) {
+        return
+      }
 
-    translate(el, vnode.context.$fluent, binding)
-  },
+      const context = getContext(rootContext, vnode.context)
+      translate(el, context, binding)
+    },
 
-  update(el: any, binding: any, vnode: any) {
-    if (vnode.context == null) {
-      return
-    }
+    update(el: any, binding: any, vnode: any) {
+      if (vnode.context == null) {
+        return
+      }
 
-    translate(el, vnode.context.$fluent, binding)
-  },
+      const context = getContext(rootContext, vnode.context)
+      translate(el, context, binding)
+    },
+  }
 }
