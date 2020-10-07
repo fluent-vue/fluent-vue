@@ -1,7 +1,7 @@
 {
   "name": "fluent-vue",
   "version": "3.0.0-beta.0",
-  "description": "Fluent bindings for Vue.js",
+  "description": "Project Fluent bindings for Vue.js",
   "keywords": [
     "localization",
     "l10n",
@@ -16,11 +16,13 @@
     "format",
     "vue",
     "vuejs",
-    "vue.js"
+    "vue.js",
+    "ProjectFluent",
+    "Project Fluent"
   ],
   "main": "dist/fluent-vue.cjs.prod.js",
   "module": "dist/fluent-vue.esm.js",
-  "types": "src/types/index.d.ts",
+  "types": "dist/fluent-vue.d.ts",
   "sideEffects": false,
   "files": [
     "dist",

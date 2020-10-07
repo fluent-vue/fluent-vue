@@ -5,8 +5,7 @@ import VueCompositionApi from '@vue/composition-api'
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
-import { createFluentVue } from '../../src'
-import { FluentVue } from '../../src/interfaces'
+import { createFluentVue, FluentVue } from '../../src'
 
 Vue.use(VueCompositionApi)
 
