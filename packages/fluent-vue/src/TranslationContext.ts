@@ -2,7 +2,7 @@ import { CachedSyncIterable } from 'cached-iterable'
 import { mapBundleSync } from '@fluent/sequence'
 import { warn } from './util/warn'
 import { FluentBundle, FluentVariable } from '@fluent/bundle'
-import { Pattern } from '@fluent/bundle/esm/ast'
+import { Message, Pattern } from '@fluent/bundle/esm/ast'
 import { computed, ComputedRef, Ref } from 'vue-demi'
 import { getOrderedBundles } from './getOrderedBundles'
 
@@ -23,7 +23,7 @@ export class TranslationContext {
     return mapBundleSync(this.bundlesIterable.value, key)
   }
 
-  getMessage(bundle: FluentBundle | null, key: string) {
+  getMessage(bundle: FluentBundle | null, key: string): Message | null {
     const message = bundle?.getMessage(key)
 
     if (message === undefined) {

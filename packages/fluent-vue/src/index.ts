@@ -1,13 +1,19 @@
-import { isVue3, ref, provide } from 'vue-demi'
-import { FluentVueOptions } from './interfaces'
+import { isVue3, ref, provide, Ref } from 'vue-demi'
 import { TranslationContext } from './TranslationContext'
 import { createVue2Directive, createVue3Directive } from './vue/directive'
 import component from './vue/component'
 import { getContext } from './composition'
 import { RootContextSymbol } from './symbols'
-import { FluentVariable } from '@fluent/bundle'
+import { FluentBundle, FluentVariable } from '@fluent/bundle'
 
 export { useFluent } from './composition'
+
+export interface FluentVueOptions {
+  /** Currently selected locale */
+  locale: string | string[]
+  /** List of bundles used in application */
+  bundles: FluentBundle[]
+}
 
 /**
  * Creates FluentVue instance that can bu used on a Vue app.
@@ -16,7 +22,7 @@ export { useFluent } from './composition'
  */
 export function createFluentVue(options: FluentVueOptions) {
   const locale = ref(options.locale)
-  const bundles = ref(options.bundles)
+  const bundles: Ref<FluentBundle[]> = ref(options.bundles)
 
   const rootContext = new TranslationContext(locale, bundles)
 
