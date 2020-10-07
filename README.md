@@ -6,7 +6,7 @@
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![GitHub license](https://img.shields.io/github/license/demivan/fluent-vue)](https://github.com/Demivan/fluent-vue/blob/develop/LICENSE)
 
-`fluent-vue` is Vue.js integration for [Project Fluent](https://projectfluent.org).
+`fluent-vue` is Vue.js integration for [Project Fluent](https://projectfluent.org).  
 `fluent-vue` is compatible both with Vue 2 and Vue 3
 
 ## Packages
