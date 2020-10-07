@@ -28,8 +28,9 @@ function generateCode(source: string | Buffer, query: OptionObject): string {
 import { FluentResource } from '@fluent/bundle'
 
 export default function (Component) {
-  Component.options.__fluent = Component.options.__fluent || {}
-  Component.options.__fluent['${query.locale}'] = new FluentResource(\`${data}\`)
+  const target = Component.options || Component
+  target.fluent = target.fluent || {}
+  target.fluent['${query.locale}'] = new FluentResource(\`${data}\`)
 }\n`
 }
 

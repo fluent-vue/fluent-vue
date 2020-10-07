@@ -1,8 +1,6 @@
-import { DirectiveOptions } from 'vue'
-import { DirectiveBinding } from 'vue/types/options'
-
 import { warn } from '../util/warn'
-import { TranslationContext } from '../fluentVue'
+import { TranslationContext } from '../TranslationContext'
+import { getContext } from '../composition'
 
 // This part is from fluent-dom library
 const LOCALIZABLE_ATTRIBUTES = {
@@ -83,6 +81,12 @@ function isAttrNameLocalizable(
   return false
 }
 
+interface DirectiveBinding {
+  arg: string | undefined
+  modifiers: Record<string, unknown>
+  value: Record<string, any>
+}
+
 function translate(el: HTMLElement, fluent: TranslationContext, binding: DirectiveBinding) {
   const key = binding.arg
 
@@ -110,22 +114,46 @@ function translate(el: HTMLElement, fluent: TranslationContext, binding: Directi
   }
 }
 
-const directive: DirectiveOptions = {
-  bind(el, binding, vnode) {
-    if (vnode.context === undefined) {
-      return
-    }
+export function createVue3Directive(rootContext: TranslationContext) {
+  return {
+    beforeMount(el: any, binding: any, vnode: any) {
+      if (binding.instance == null) {
+        return
+      }
 
-    translate(el, vnode.context.$fluent, binding)
-  },
+      const context = getContext(rootContext, binding.instance)
+      translate(el, context, binding)
+    },
 
-  update(el, binding, vnode) {
-    if (vnode.context === undefined) {
-      return
-    }
+    updated(el: any, binding: any, vnode: any) {
+      if (binding.instance == null) {
+        return
+      }
 
-    translate(el, vnode.context.$fluent, binding)
-  },
+      const context = getContext(rootContext, binding.instance)
+      translate(el, context, binding)
+    },
+  }
 }
 
-export default directive
+export function createVue2Directive(rootContext: TranslationContext) {
+  return {
+    bind(el: any, binding: any, vnode: any) {
+      if (vnode.context == null) {
+        return
+      }
+
+      const context = getContext(rootContext, vnode.context)
+      translate(el, context, binding)
+    },
+
+    update(el: any, binding: any, vnode: any) {
+      if (vnode.context == null) {
+        return
+      }
+
+      const context = getContext(rootContext, vnode.context)
+      translate(el, context, binding)
+    },
+  }
+}

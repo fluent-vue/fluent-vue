@@ -28,6 +28,13 @@ For `yarn` users:
 yarn add fluent-vue @fluent/bundle
 ```
 
+#### Note:
+If you are using `vue` version 2 you need to install `@vue/composition-api` too
+
+```
+yarn add @vue/composition-api
+```
+
 **Install and configure plugin**
 
 ```js

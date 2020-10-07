@@ -1,10 +1,14 @@
+import Vue from 'vue'
 import { createLocalVue, mount } from '@vue/test-utils'
+import VueCompositionApi from '@vue/composition-api'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
 import { createFluentVue } from '../../src'
 import { FluentVue } from '../../src/interfaces'
+
+Vue.use(VueCompositionApi)
 
 describe('message override', () => {
   let options: any
@@ -45,7 +49,7 @@ describe('message override', () => {
 
     const component = {
       template: `<a v-t:link href="/foo">Fallback text</a>`,
-      __fluent: {
+      fluent: {
         uk: new FluentResource(ftl`
         link = текст посилання 2
         `),
