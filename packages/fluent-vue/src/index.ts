@@ -15,12 +15,25 @@ export interface FluentVueOptions {
   bundles: FluentBundle[]
 }
 
+export interface FluentVue {
+  /** Currently selected locale */
+  locale: string | string[]
+  /** List of bundles used in application */
+  bundles: FluentBundle[]
+
+  format(key: string, value?: Record<string, FluentVariable>): string
+
+  formatAttrs(key: string, value?: Record<string, FluentVariable>): Record<string, string>
+
+  install(vue: any): void
+}
+
 /**
  * Creates FluentVue instance that can bu used on a Vue app.
  *
  * @param options - {@link FluentVueOptions}
  */
-export function createFluentVue(options: FluentVueOptions) {
+export function createFluentVue(options: FluentVueOptions): FluentVue {
   const locale = ref(options.locale)
   const bundles: Ref<FluentBundle[]> = ref(options.bundles)
 
