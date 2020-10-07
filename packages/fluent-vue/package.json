@@ -52,10 +52,13 @@
     "vue-demi": "^0.4.0"
   },
   "peerDependencies": {
+    "@vue/composition-api": ">=1.0.0-beta.7",
     "@fluent/bundle": ">=0.14.0",
-    "vue": "^2.6.12 || 3.0.0"
+    "vue": ">=2.6.12 || >=3.0.0"
   },
-  "optionalPeerDependencies": {
-    "@vue/composition-api": "^1.0.0-beta.1"
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
   }
 }
