@@ -6,8 +6,6 @@ declare module 'vue/types/vue' {
     /** @private */
     _fluent?: TranslationContext
 
-    $fluent: TranslationContext
-
     $t(key: string, values?: Record<string, unknown>): string
     $ta(key: string, values?: Record<string, unknown>): Record<string, string>
   }
