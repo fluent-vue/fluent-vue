@@ -98,7 +98,8 @@ function createConfig(format, output, plugins = []) {
   const entryFile = `src/index.ts`
 
   const external = isGlobalBuild
-    ? []
+    ? // Global build. Externalize peer dependencies
+      [...Object.keys(pkg.peerDependencies || {})]
     : // Node / esm builds. Externalize everything.
       [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})]
 
