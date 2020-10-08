@@ -1,3 +1,7 @@
+# [3.0.0-beta.2](https://github.com/Demivan/fluent-vue/compare/v3.0.0-beta.1...v3.0.0-beta.2) (2020-10-08)
+
+
+
 # [3.0.0-beta.1](https://github.com/Demivan/fluent-vue/compare/v3.0.0-beta.0...v3.0.0-beta.1) (2020-10-08)
 
 
