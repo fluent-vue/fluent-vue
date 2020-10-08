@@ -5254,10 +5254,10 @@ rollup-plugin-typescript2@^0.27.2:
     resolve "1.17.0"
     tslib "2.0.1"
 
-rollup@^2.26.5:
-  version "2.26.5"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.26.5.tgz#5562ec36fcba3eed65cfd630bd78e037ad0e0307"
-  integrity sha512-rCyFG3ZtQdnn9YwfuAVH0l/Om34BdO5lwCA0W6Hq+bNB21dVEBbCRxhaHOmu1G7OBFDWytbzAC104u7rxHwGjA==
+rollup@^2.29.0:
+  version "2.29.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.29.0.tgz#0c5c5968530b21ca0e32f8b94b7cd9346cfb0eec"
+  integrity sha512-gtU0sjxMpsVlpuAf4QXienPmUAhd6Kc7owQ4f5lypoxBW18fw2UNYZ4NssLGsri6WhUZkE/Ts3EMRebN+gNLiQ==
   optionalDependencies:
     fsevents "~2.1.2"
 
