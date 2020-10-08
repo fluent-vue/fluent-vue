@@ -1,3 +1,17 @@
+# [3.0.0-beta.1](https://github.com/Demivan/fluent-vue/compare/v3.0.0-beta.0...v3.0.0-beta.1) (2020-10-08)
+
+
+### Bug Fixes
+
+* **types:** fix typescript definitions ([#160](https://github.com/Demivan/fluent-vue/issues/160)) ([b1985b7](https://github.com/Demivan/fluent-vue/commit/b1985b7f516719da9a72acfaca0dc2116f6d87f3))
+
+
+### Features
+
+* add support for Vue 3 ([#158](https://github.com/Demivan/fluent-vue/issues/158)) ([aa06933](https://github.com/Demivan/fluent-vue/commit/aa06933dbaa3f363e0e0e02bc27c290c04582a9b))
+
+
+
 # [3.0.0-beta.0](https://github.com/Demivan/fluent-vue/compare/v3.0.0-alpha.3...v3.0.0-beta.0) (2020-08-02)
 
 
