@@ -60,6 +60,26 @@ describe('method', () => {
     expect(mounted.html()).toEqual(`<div attr="Attr value">Inner data</div>`)
   })
 
+  it('works without message text', () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      key =
+        .attr = Attr value
+      `)
+    )
+
+    const component = {
+      template: `<div v-bind="$ta('key')"></div>`,
+    }
+
+    // Act
+    const mounted = mount(component, options)
+
+    // Assert
+    expect(mounted.html()).toEqual(`<div attr="Attr value"></div>`)
+  })
+
   it('warns about missing translation', () => {
     // Arange
     bundle.addResource(

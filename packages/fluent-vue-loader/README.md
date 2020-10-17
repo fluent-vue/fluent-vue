@@ -35,7 +35,6 @@ module.exports = {
         resourceQuery: /blockType=i18n/,
         loader: 'fluent-vue-loader',
       },
-      },
       // ...
     ]
   }

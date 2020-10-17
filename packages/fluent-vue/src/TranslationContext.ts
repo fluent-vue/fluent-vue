@@ -64,7 +64,7 @@ export class TranslationContext {
     const context = this.getBundle(key)
     const message = this.getMessage(context, key)
 
-    if (context === null || message === null || message.value === null) {
+    if (context === null || message === null) {
       return {}
     }
 
