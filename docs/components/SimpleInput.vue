@@ -24,7 +24,6 @@
 </template>
 
 <script>
-  import { ref } from 'vue-demi'
   import Simple from './Simple.vue'
 
   export default {
@@ -32,15 +31,11 @@
     components: {
       Simple
     },
-    setup () {
-      const userName = ref('Jonh Doe')
-      const userGender = ref('male')
-      const photoCount = ref(1)
-
+    data () {
       return {
-        userName,
-        userGender,
-        photoCount
+        userName: 'John Doe',
+        userGender: 'male',
+        photoCount: 1
       }
     }
   }
