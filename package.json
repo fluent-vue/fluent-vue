@@ -59,7 +59,7 @@
     "rollup-plugin-typescript2": "^0.27.2",
     "semver": "^7.3.2",
     "ts-jest": "^26.4.1",
-    "typescript": "^3.9.7",
+    "typescript": "^4.0.3",
     "yorkie": "^2.0.0"
   }
 }
