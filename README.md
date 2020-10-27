@@ -15,3 +15,7 @@ This monorepo contains multiple packages:
 
 * [fluent-vue](https://github.com/Demivan/fluent-vue/tree/develop/packages/fluent-vue) - Vue.js plugin
 * [fluent-vue-loader](https://github.com/Demivan/fluent-vue/tree/develop/packages/fluent-vue-loader) - Webpack loader that adds support for custom bloks in SFC
+
+## Documentation
+
+Work in progress documentation can be found here: [https://fluent-vue.demivan.me](https://fluent-vue.demivan.me)
