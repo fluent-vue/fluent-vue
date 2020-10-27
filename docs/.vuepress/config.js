@@ -3,6 +3,7 @@ module.exports = {
   themeConfig: {
     repo: 'demivan/fluent-vue',
     docsDir: 'docs',
+    docsBranch: 'develop',
     editLinks: true,
     smoothScroll: true,
     displayAllHeaders: true,
