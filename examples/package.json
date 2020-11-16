@@ -1,9 +1,10 @@
 {
   "name": "examples",
   "version": "1.0.0",
-  "workspaces": [
-    "./*"
-  ],
+  "workspaces": {
+    "packages": ["./*"],
+    "nohoist": ["**/vue"]
+  },
   "description": "fluent-vue examples",
   "main": "index.js",
   "license": "MIT",

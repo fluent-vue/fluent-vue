@@ -11,7 +11,7 @@
     "@fluent/dedent": "^0.3.0",
     "@vue/composition-api": "^v1.0.0-beta.15",
     "fluent-vue": "file:../../packages/fluent-vue",
-    "vue": "^2.6.12"
+    "vue": "~2.6.12"
   },
   "devDependencies": {
     "fluent-vue-loader": "file:../../packages/fluent-vue-loader",
