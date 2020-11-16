@@ -2,7 +2,7 @@
   "name": "examples",
   "version": "1.0.0",
   "workspaces": [
-    "*/"
+    "./*"
   ],
   "description": "fluent-vue examples",
   "main": "index.js",
