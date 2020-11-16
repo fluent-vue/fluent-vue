@@ -5,6 +5,12 @@ module.exports = {
   module: {
     rules: [
       {
+        // https://github.com/projectfluent/fluent.js/issues/517
+        test: /\.js/,
+        include: /@fluent[\\/](bundle|langneg|syntax|sequence)[\\/]/,
+        type: 'javascript/esm',
+      },
+      {
         resourceQuery: /blockType=i18n/,
         loader: 'fluent-vue-loader',
       },

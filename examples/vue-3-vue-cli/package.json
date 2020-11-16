@@ -11,13 +11,13 @@
     "@fluent/dedent": "^0.3.0",
     "core-js": "^3.6.5",
     "vue": "^3.0.0-0",
-    "fluent-vue": "../../packages/fluent-vue"
+    "fluent-vue": "file:../../packages/fluent-vue"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0-0",
-    "fluent-vue-loader": "../../packages/fluent-vue-loader"
+    "fluent-vue-loader": "file:../../packages/fluent-vue-loader"
   },
   "browserslist": [
     "> 1%",

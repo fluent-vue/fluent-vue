@@ -11,6 +11,6 @@ updates:
       interval: "daily"
 
   - package-ecosystem: "npm"
-    directory: "/examples/*"
+    directory: "/examples/"
     schedule:
       interval: "daily"
