@@ -1398,19 +1398,19 @@ findup-sync@^3.0.0:
     micromatch "^3.0.4"
     resolve-dir "^1.0.1"
 
-fluent-vue-loader@../../packages/fluent-vue-loader:
+"fluent-vue-loader@file:../../packages/fluent-vue-loader":
   version "3.0.0-beta.2"
   dependencies:
     loader-utils "^2.0.0"
 
-fluent-vue@../../packages/fluent-vue:
+"fluent-vue@file:../../packages/fluent-vue":
   version "3.0.0-beta.2"
   dependencies:
     "@fluent/langneg" "^0.5.0"
     "@fluent/sequence" "^0.6.0"
     cached-iterable "^0.3.0"
     tslib "^2.0.3"
-    vue-demi "^0.4.0"
+    vue-demi "^0.4.3"
 
 follow-redirects@^1.0.0:
   version "1.13.0"
@@ -3605,10 +3605,10 @@ vary@~1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
-vue-demi@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.4.0.tgz#074e61674b1ec6d3483d54ba9fd7acc1378a66a2"
-  integrity sha512-7xaEKWpcyrbP5fVNFWSgF+gf0bWAfvlhH0Cb08Ec4XeTK6FCplaqXmaRLivzl3ypM0mkNcBAjSgctzMul0hgYg==
+vue-demi@^0.4.3:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.4.3.tgz#6aaa9b52f02c32b4f9d4d11f02a1ae71031453c3"
+  integrity sha512-1DzLcZgHC9ZyFEYR4qZ83TdS1u9DglG8XVesBXqtbbmqFuO7sb8KG36kMfZCszieAweRDwAAVSAzjmEMG0+WwA==
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"

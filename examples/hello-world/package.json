@@ -10,7 +10,7 @@
     "@fluent/bundle": "^0.16.0",
     "@fluent/dedent": "^0.3.0",
     "@vue/composition-api": "^1.0.0-beta.15",
-    "fluent-vue": "../../packages/fluent-vue",
+    "fluent-vue": "file:../../packages/fluent-vue",
     "vue": "^2.6.12",
     "vue-hot-reload-api": "^2.3.3"
   },
