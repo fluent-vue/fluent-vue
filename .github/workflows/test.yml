@@ -1,9 +1,12 @@
 name: Test
 on:
   push:
-    branches-ignore:
-      - gh-pages
+    branches:
+      - develop
+      - master
   pull_request:
+    branches:
+      - develop
 env:
   CI: true
 
