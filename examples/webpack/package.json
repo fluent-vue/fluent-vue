@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack serve",
     "build": "webpack"
   },
   "dependencies": {
@@ -15,11 +15,11 @@
   },
   "devDependencies": {
     "fluent-vue-loader": "file:../../packages/fluent-vue-loader",
-    "html-webpack-plugin": "^4.3.0",
+    "html-webpack-plugin": "^5.0.0-alpha.14",
     "vue-loader": "^15.9.3",
     "vue-template-compiler": "^2.6.12",
     "webpack": "^5.0.0-beta.28",
-    "webpack-cli": "^3.3.12",
+    "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0"
   },
   "browserslist": [
