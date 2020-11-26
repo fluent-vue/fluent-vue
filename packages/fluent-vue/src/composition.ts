@@ -7,6 +7,10 @@ import { inheritBundle } from './inheritBundle'
 import { RootContextSymbol } from './symbols'
 
 export function getContext(rootContext: TranslationContext, instance: any): TranslationContext {
+  if (instance == null) {
+    return rootContext
+  }
+
   const target = instance.$options ?? instance.type
   if (target._fluent != null) {
     return target._fluent

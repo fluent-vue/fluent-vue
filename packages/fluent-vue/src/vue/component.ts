@@ -2,8 +2,15 @@ import { defineComponent, h, getCurrentInstance, Vue, inject, computed } from 'v
 import { getContext } from '../composition'
 import { RootContextSymbol } from '../symbols'
 
-function getParent(instance: Vue | null): Vue {
-  return instance?.$parent ?? (instance as any)?.parent.proxy
+function getParentWithFluent(instance: Vue | null): Vue {
+  const parent = instance?.$parent ?? (instance as any)?.parent?.proxy
+  const target = parent?.$options ?? parent?.type
+
+  if (target != null && target.fluent == null) {
+    return getParentWithFluent(parent)
+  }
+
+  return parent
 }
 
 export default defineComponent({
@@ -27,7 +34,7 @@ export default defineComponent({
     const translation = computed(() => {
       const rootContext = inject(RootContextSymbol)!
       const instance = getCurrentInstance()
-      const parent = getParent(instance)
+      const parent = getParentWithFluent(instance)
       const fluent = getContext(rootContext, parent)
       return fluent.format(props.path, params)
     })
