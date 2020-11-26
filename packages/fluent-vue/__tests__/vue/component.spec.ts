@@ -48,6 +48,57 @@ describe('component', () => {
     expect(mounted.html()).toEqual(`<span>Inner data</span>`)
   })
 
+  it('works with grandparent translations', () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      key = Inner data
+      `)
+    )
+
+    const child = {
+      template: '<b><slot /></b>',
+    }
+
+    const component = {
+      components: {
+        child,
+      },
+      template: '<div><child><i18n path="key"></i18n></child></div>',
+    }
+
+    // Act
+    const mounted = mount(component, options)
+
+    // Assert
+    expect(mounted.html()).toEqual(`<div><b><span>Inner data</span></b></div>`)
+  })
+
+  it('works with local component messages', () => {
+    // Arrange
+    const child = {
+      template: '<b><slot /></b>',
+    }
+
+    const component = {
+      components: {
+        child,
+      },
+      template: '<div><child><i18n path="i18n-key"></i18n></child></div>',
+      fluent: {
+        'en-US': new FluentResource(ftl`
+        i18n-key = Inner data
+        `),
+      },
+    }
+
+    // Act
+    const mounted = mount(component, options)
+
+    // Assert
+    expect(mounted.html()).toEqual(`<div><b><span>Inner data</span></b></div>`)
+  })
+
   it('interpolates components', () => {
     // Arrange
     bundle.addResource(
