@@ -19,14 +19,8 @@
     "commit-msg": "node scripts/verifyCommit.js"
   },
   "lint-staged": {
-    "*.js": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.ts?(x)": [
-      "prettier --parser=typescript --write",
-      "git add"
-    ]
+    "*.js": "prettier --write",
+    "*.ts?(x)": "prettier --parser=typescript --write"
   },
   "engines": {
     "node": ">=12.0.0"
