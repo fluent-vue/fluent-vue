@@ -1,3 +1,13 @@
+# [3.0.0-beta.3](https://github.com/Demivan/fluent-vue/compare/v3.0.0-beta.2...v3.0.0-beta.3) (2020-11-26)
+
+
+### Bug Fixes
+
+* allow $ta method to work without text  ([#170](https://github.com/Demivan/fluent-vue/issues/170)) ([5597392](https://github.com/Demivan/fluent-vue/commit/5597392784c8ab4b6f60c3570f97050e8ae5b973))
+* i18n component not working with message overrides ([#236](https://github.com/Demivan/fluent-vue/issues/236)) ([7b3c170](https://github.com/Demivan/fluent-vue/commit/7b3c170a3a17f43f91e948cae5a5f5061518f564))
+
+
+
 # [3.0.0-beta.2](https://github.com/Demivan/fluent-vue/compare/v3.0.0-beta.1...v3.0.0-beta.2) (2020-10-08)
 
 
