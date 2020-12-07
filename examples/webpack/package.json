@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "fluent-vue-loader": "file:../../packages/fluent-vue-loader",
-    "html-webpack-plugin": "^5.0.0-alpha.14",
+    "html-webpack-plugin": "^5.0.0-alpha.15",
     "vue-loader": "^15.9.3",
     "vue-template-compiler": "^2.6.12",
     "webpack": "^5.10.0",
