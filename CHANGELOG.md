@@ -1,3 +1,12 @@
+# [3.0.0-beta.4](https://github.com/Demivan/fluent-vue/compare/v3.0.0-beta.3...v3.0.0-beta.4) (2020-12-21)
+
+
+### Features
+
+* add hmr to fluent-vue-loader ([4c05f49](https://github.com/Demivan/fluent-vue/commit/4c05f4980ec5d3b9b5071dc2ee5de774d6f79bcc))
+
+
+
 # [3.0.0-beta.3](https://github.com/Demivan/fluent-vue/compare/v3.0.0-beta.2...v3.0.0-beta.3) (2020-11-26)
 
 
