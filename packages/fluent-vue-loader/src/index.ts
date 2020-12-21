@@ -31,6 +31,20 @@ export default function (Component) {
   const target = Component.options || Component
   target.fluent = target.fluent || {}
   target.fluent['${query.locale}'] = new FluentResource(\`${data}\`)
+
+  if (module.hot) {
+    if (typeof __VUE_HMR_RUNTIME__ !== 'undefined' ) {
+      // Vue 3
+      const id = target.__hmrId
+      const api = __VUE_HMR_RUNTIME__
+      api.reload(id, target)
+    } else {
+      // Vue 2
+      // There is no proper api to access HMR for component from custom block
+      // so use this magic
+      delete target._Ctor
+    }
+  }
 }\n`
 }
 
