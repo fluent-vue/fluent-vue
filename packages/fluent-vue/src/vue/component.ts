@@ -2,8 +2,8 @@ import { defineComponent, h, getCurrentInstance, Vue, inject, computed } from 'v
 import { getContext } from '../composition'
 import { RootContextSymbol } from '../symbols'
 
-function getParentWithFluent(instance: Vue | null): Vue {
-  const parent = instance?.$parent ?? (instance as any)?.parent?.proxy
+function getParentWithFluent(instance: any | null): Vue {
+  const parent = instance?.$parent ?? instance?.parent?.proxy
   const target = parent?.$options ?? parent?.type
 
   if (target != null && target.fluent == null) {
