@@ -4393,18 +4393,18 @@ find-up@^5.0.0:
     path-exists "^4.0.0"
 
 "fluent-vue-loader@file:../packages/fluent-vue-loader":
-  version "3.0.0-beta.3"
+  version "3.0.0-beta.4"
   dependencies:
     loader-utils "^2.0.0"
 
 "fluent-vue@file:../packages/fluent-vue":
-  version "3.0.0-beta.3"
+  version "3.0.0-beta.4"
   dependencies:
     "@fluent/langneg" "^0.5.0"
     "@fluent/sequence" "^0.6.0"
     cached-iterable "^0.3.0"
     tslib "^2.0.3"
-    vue-demi "^0.4.5"
+    vue-demi "^0.6.0"
 
 follow-redirects@^1.0.0:
   version "1.13.1"
@@ -5862,10 +5862,10 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
-loader-runner@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/loader-runner/-/loader-runner-4.1.0.tgz#f70bc0c29edbabdf2043e7ee73ccc3fe1c96b42d"
-  integrity sha512-oR4lB4WvwFoC70ocraKhn5nkKSs23t57h9udUgw8o0iH8hMXeEoRuUgfcvgUwAJ1ZpRqBvcou4N2SMvM1DwMrA==
+loader-runner@^4.1.0, loader-runner@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/loader-runner/-/loader-runner-4.2.0.tgz#d7022380d66d14c5fb1d496b89864ebcfd478384"
+  integrity sha512-92+huvxMvYlMzMt0iIOukcwYBFpkYJdpl2xsZ7LrlayO7E8SOv+JJUEK17B/dJIHAOLMfh2dZZ/Y18WgmGtYNw==
 
 loader-utils@2.0.0, loader-utils@^2.0.0:
   version "2.0.0"
@@ -9425,10 +9425,10 @@ vm-browserify@^1.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
-vue-demi@^0.4.5:
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.4.5.tgz#ea422a4468cb6321a746826a368a770607f87791"
-  integrity sha512-51xf1B6hV2PfjnzYHO/yUForFCRQ49KS8ngQb5T6l1HDEmfghTFtsxtRa5tbx4eqQsH76ll/0gIxuf1gei0ubw==
+vue-demi@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.6.0.tgz#e314282f704cb449119b9fd002cbbc0e39f591fe"
+  integrity sha512-8GEJa0mHJpYJeGeq5fD1pJct2kfdl30PHfmL1NaJ97mgKPyKojlIRt/3inGBK4Y0ylCI6T5vOo3chwpqDOq/Hw==
 
 vue-hot-reload-api@^2.3.0, vue-hot-reload-api@^2.3.3:
   version "2.3.4"
@@ -9669,10 +9669,10 @@ webpack-virtual-modules@^0.4.1:
   resolved "https://registry.yarnpkg.com/webpack-virtual-modules/-/webpack-virtual-modules-0.4.1.tgz#cae5a7085d34331d077225f77037bea233dbfdad"
   integrity sha512-BH/RKOHk223WdBDLFqghztx3DF5AqR3CKg3ue1KN9S1SAaXP68Kj/4rF0lsdysxXaanzx7aWl1u0+lnfj7+OtQ==
 
-webpack@^5.10.0, webpack@^5.11.0, webpack@^5.4.0:
-  version "5.11.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.11.0.tgz#1647abc060441d86d01d8835b8f0fc1dae2fe76f"
-  integrity sha512-ubWv7iP54RqAC/VjixgpnLLogCFbAfSOREcSWnnOlZEU8GICC5eKmJSu6YEnph2N2amKqY9rvxSwgyHxVqpaRw==
+webpack@^5.10.0, webpack@^5.12.2, webpack@^5.4.0:
+  version "5.12.2"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.12.2.tgz#f79574cdb7a4ef711c5f47f3d189e045a14217e5"
+  integrity sha512-HiTXBGLFQiRecP5Fwrh21aaxlEUqQdDeUaninKVKX0Dtqaf+WjKCsNcv+UVftfYXrY0bnRQHnouw1x+CPqQKFQ==
   dependencies:
     "@types/eslint-scope" "^3.7.0"
     "@types/estree" "^0.0.45"
@@ -9689,7 +9689,7 @@ webpack@^5.10.0, webpack@^5.11.0, webpack@^5.4.0:
     glob-to-regexp "^0.4.1"
     graceful-fs "^4.2.4"
     json-parse-better-errors "^1.0.2"
-    loader-runner "^4.1.0"
+    loader-runner "^4.2.0"
     mime-types "^2.1.27"
     neo-async "^2.6.2"
     pkg-dir "^5.0.0"
