@@ -1,3 +1,12 @@
+# [3.0.0-beta.5](https://github.com/Demivan/fluent-vue/compare/v3.0.0-beta.4...v3.0.0-beta.5) (2021-01-14)
+
+
+### Bug Fixes
+
+* **component:** fix runtime warning ([80fae89](https://github.com/Demivan/fluent-vue/commit/80fae8913222d47fc1ea85727af739881be02db2))
+
+
+
 # [3.0.0-beta.4](https://github.com/Demivan/fluent-vue/compare/v3.0.0-beta.3...v3.0.0-beta.4) (2020-12-21)
 
 
