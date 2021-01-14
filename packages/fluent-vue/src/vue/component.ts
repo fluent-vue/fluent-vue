@@ -42,7 +42,9 @@ export default defineComponent({
     return () =>
       h(
         props.tag,
-        context,
+        {
+          ...context,
+        },
         translation.value
           .split('\uFFFF')
           .map((text) =>
