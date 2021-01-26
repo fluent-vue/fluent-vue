@@ -1416,10 +1416,10 @@
     lodash.kebabcase "^4.1.1"
     svg-tags "^1.0.0"
 
-"@vue/babel-preset-app@^5.0.0-alpha.0":
-  version "5.0.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/@vue/babel-preset-app/-/babel-preset-app-5.0.0-alpha.0.tgz#4e23b79a16780008970b1047388d4f3f445a76a8"
-  integrity sha512-s3dZs1y8d8XldDneYRDznJ0m/NdSRdCgVk0ObzDdnpi6vYW+dQ4gTVaaJ4Vi3apSYyhdDyLfMhQIAtJ2FB5DoA==
+"@vue/babel-preset-app@^5.0.0-alpha.3":
+  version "5.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@vue/babel-preset-app/-/babel-preset-app-5.0.0-alpha.3.tgz#05f9a2d16b759bc4d9b71f366f4576f5ec6e47fc"
+  integrity sha512-Zz5ysAQTbv8VH1pni/urlbt2htk8MbvUMzXe8TjI1UTmbcZdBl87FCXwFkEITEXn3cfsphyzxLIWTYz0wUfROQ==
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/helper-compilation-targets" "^7.9.6"
@@ -1506,14 +1506,14 @@
   resolved "https://registry.yarnpkg.com/@vue/cli-overlay/-/cli-overlay-5.0.0-alpha.0.tgz#87ed96fc2fafacec747dec11bb7dfb92283dc071"
   integrity sha512-J0s3+jSAdh0Jz8lbwv10lek+4Mij9JteULmoqLhgZCCfJdFW/qY8LU9aH/2YAKSw8bNN9FOKgn5WM0q2k/2Ihg==
 
-"@vue/cli-plugin-babel@~5.0.0-alpha.0":
-  version "5.0.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-babel/-/cli-plugin-babel-5.0.0-alpha.0.tgz#68a2d771463533ac03a7269a07581b8979840eee"
-  integrity sha512-1fEQu4BPmqFNE9sQ3VwOMJaSPniM73bJB9ykPApQTdpHrN5acI4ze8bH/geePyAVppFYJIecKYIE0qV8eLg5LA==
+"@vue/cli-plugin-babel@~5.0.0-alpha.3":
+  version "5.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-babel/-/cli-plugin-babel-5.0.0-alpha.3.tgz#bf443483ade64c67abc5b3aa7c055c2e439ce163"
+  integrity sha512-EiqQgN2awmd5EXVmZeO1jdJFIqz0QUSKq4mNitdIlQItsMvadLdjW04Vu6Jfje6h19KyRD97lTGi4QUx0dWGiw==
   dependencies:
     "@babel/core" "^7.12.10"
-    "@vue/babel-preset-app" "^5.0.0-alpha.0"
-    "@vue/cli-shared-utils" "^5.0.0-alpha.0"
+    "@vue/babel-preset-app" "^5.0.0-alpha.3"
+    "@vue/cli-shared-utils" "^5.0.0-alpha.3"
     babel-loader "^8.2.2"
     thread-loader "^3.0.0"
     webpack "^5.10.0"
@@ -1593,10 +1593,10 @@
     webpack-merge "^5.5.0"
     webpack-virtual-modules "^0.4.1"
 
-"@vue/cli-shared-utils@^5.0.0-alpha.0":
-  version "5.0.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-5.0.0-alpha.0.tgz#56d51e4ae40a4aa9829e32d6f3938d4506a9fd44"
-  integrity sha512-q/yLscmSUch1y4djRA1vFy04JcdL7Rzetw5dCScaY6Ia4nq2/3iVg1ItTmFPaeScSeexeOkfVqEOJTi/3du+WQ==
+"@vue/cli-shared-utils@^5.0.0-alpha.0", "@vue/cli-shared-utils@^5.0.0-alpha.3":
+  version "5.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-5.0.0-alpha.3.tgz#7946f6d80e1decf3ae1d4a83e03ce86a0c85a928"
+  integrity sha512-wSctu838Ul16UioYEs0RTlhGP28vdyZ+rwFW6R5plOYjygLXJkSE7IgqGRrbr5L3Ed+TBkT+qy5M05JoBAzzzw==
   dependencies:
     chalk "^4.1.0"
     execa "^1.0.0"
@@ -4386,12 +4386,12 @@ find-up@^5.0.0:
     path-exists "^4.0.0"
 
 "fluent-vue-loader@file:../packages/fluent-vue-loader":
-  version "3.0.0-beta.4"
+  version "3.0.0-beta.5"
   dependencies:
     loader-utils "^2.0.0"
 
 "fluent-vue@file:../packages/fluent-vue":
-  version "3.0.0-beta.4"
+  version "3.0.0-beta.5"
   dependencies:
     "@fluent/langneg" "^0.5.0"
     "@fluent/sequence" "^0.6.0"
