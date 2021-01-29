@@ -48,7 +48,7 @@
     "minimist": "^1.2.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
-    "rollup": "^2.34.2",
+    "rollup": "^2.38.1",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.29.0",
     "semver": "^7.3.2",
