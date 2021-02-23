@@ -23,16 +23,18 @@
     <div>
       <i18n path="greeting" tag="div">
         <template #name>
-          <b>{{ $t('user-name') }}</b>
+          <b>{{ username }}</b>
         </template>
       </i18n>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-}
+<script setup lang="ts">
+import { useFluent } from 'fluent-vue'
+const fluent = useFluent()
+
+const username = fluent.$t('user-name')
 </script>
 
 <i18n locale="en">

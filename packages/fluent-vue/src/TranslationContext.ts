@@ -75,4 +75,7 @@ export class TranslationContext {
 
     return result
   }
+
+  $t = this.format
+  $ta = this.formatAttrs
 }
