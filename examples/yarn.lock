@@ -1381,7 +1381,7 @@
   resolved "https://registry.yarnpkg.com/@vue/cli-overlay/-/cli-overlay-5.0.0-alpha.4.tgz#bdcd4ab349685f0293c820cd1abf05f159dda86a"
   integrity sha512-ln7m8LCQsip+35w7KQhG94+oO7Tn9LdgGoeQ/+ieZq3tWbADPPmFBA3yyuQaSHo/6fYKHB5ExjVo8/FWQmJYVQ==
 
-"@vue/cli-plugin-babel@~5.0.0-alpha.0":
+"@vue/cli-plugin-babel@~5.0.0-alpha.4":
   version "5.0.0-alpha.4"
   resolved "https://registry.yarnpkg.com/@vue/cli-plugin-babel/-/cli-plugin-babel-5.0.0-alpha.4.tgz#491988fb50295ee41c57bf1be97597099967c6ab"
   integrity sha512-2duYASvD8P2GzzR2LDNXjGY+qqXglNsEixKdQ53XU8mGkXP859LdVuYACHaZuvRRto6muVwit+padHSMO6X8sA==
@@ -1405,7 +1405,7 @@
   resolved "https://registry.yarnpkg.com/@vue/cli-plugin-vuex/-/cli-plugin-vuex-5.0.0-alpha.4.tgz#7e9775e130a323ec6eabfb94a3cea34cb584af5d"
   integrity sha512-KdtrChr3lZbcUvB7xP4OwOTRk+xkvnqvi7v2yBXHOWabPvDXGUisgxE5QrHw2EN10k+v62EXJnpCJlfDMhRq7g==
 
-"@vue/cli-service@~5.0.0-alpha.0":
+"@vue/cli-service@~5.0.0-alpha.4":
   version "5.0.0-alpha.4"
   resolved "https://registry.yarnpkg.com/@vue/cli-service/-/cli-service-5.0.0-alpha.4.tgz#7bfa214c07867fc2c0ac470fdbd9ab128da03ee0"
   integrity sha512-krWxsTwNJLFRI8QsmWcH5A8mbn1AWmMNlHDQ4L3ZQqDwVCW2p4EjSTV2pUP0XWYO6fFIl/SDgpSJoZdtZGbpRA==
@@ -1504,7 +1504,7 @@
     "@vue/compiler-core" "3.0.5"
     "@vue/shared" "3.0.5"
 
-"@vue/compiler-sfc@^3.0.2":
+"@vue/compiler-sfc@^3.0.2", "@vue/compiler-sfc@^3.0.5":
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/@vue/compiler-sfc/-/compiler-sfc-3.0.5.tgz#3ae08e60244a72faf9598361874fb7bdb5b1d37c"
   integrity sha512-uOAC4X0Gx3SQ9YvDC7YMpbDvoCmPvP0afVhJoxRotDdJ+r8VO3q4hFf/2f7U62k4Vkdftp6DVni8QixrfYzs+w==
@@ -8727,7 +8727,7 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue@^3.0.2:
+vue@^3.0.2, vue@^3.0.5:
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.0.5.tgz#de1b82eba24abfe71e0970fc9b8d4b2babdc3fe1"
   integrity sha512-TfaprOmtsAfhQau7WsomXZ8d9op/dkQLNIq8qPV3A0Vxs6GR5E+c1rfJS1SDkXRQj+dFyfnec7+U0Be1huiScg==

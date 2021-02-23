@@ -977,12 +977,12 @@
   optionalDependencies:
     prettier "^1.18.2"
 
-"@vue/composition-api@^1.0.0-beta.15":
-  version "1.0.0-beta.17"
-  resolved "https://registry.yarnpkg.com/@vue/composition-api/-/composition-api-1.0.0-beta.17.tgz#63b65b3ed7cab649c53e4459fb0c5d3d1c545a96"
-  integrity sha512-TXa3162xQXeEoT8ar2aLPdSVGUy4phD8b3bytRORJQMvplQxi++QKXKAgYUTH0lwP0t0Dw2ddWtIyTTrOhta5w==
+"@vue/composition-api@^1.0.0-beta.22":
+  version "1.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/@vue/composition-api/-/composition-api-1.0.0-rc.2.tgz#9d90e507cf71634aad51ab878b141c2a4739d523"
+  integrity sha512-R4XEvT+qXiT/lnsLzqhjkR/L/ALuNeeQPZqredpLduGKwZtmt2l5I3kT1W+c/157hrY732eFlsPUGz/q9vFaYg==
   dependencies:
-    tslib "^2.0.1"
+    tslib "^2.1.0"
 
 abab@^2.0.0:
   version "2.0.5"
@@ -2397,13 +2397,13 @@ fill-range@^4.0.0:
     to-regex-range "^2.1.0"
 
 "fluent-vue@file:../../packages/fluent-vue":
-  version "3.0.0-beta.2"
+  version "3.0.0-beta.5"
   dependencies:
     "@fluent/langneg" "^0.5.0"
     "@fluent/sequence" "^0.6.0"
     cached-iterable "^0.3.0"
     tslib "^2.0.3"
-    vue-demi "^0.4.3"
+    vue-demi "^0.6.0"
 
 for-in@^1.0.2:
   version "1.0.2"
@@ -4980,15 +4980,15 @@ tr46@^1.0.1:
   dependencies:
     punycode "^2.1.0"
 
-tslib@^2.0.1:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.0.2.tgz#462295631185db44b21b1ea3615b63cd1c038242"
-  integrity sha512-wAH28hcEKwna96/UacuWaVspVLkg4x1aDM9JlzqaQTOFczCktkVAb5fmXChgandR1EraDPs2w8P+ozM+oafwxg==
-
 tslib@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.0.3.tgz#8e0741ac45fc0c226e58a17bfc3e64b9bc6ca61c"
   integrity sha512-uZtkfKblCEQtZKBF6EBXVZeQNl82yqtDQdv+eck8u7tdPxjLu2/lp5/uPW+um2tpuxINHWy3GhiccY7QgEaVHQ==
+
+tslib@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
+  integrity sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==
 
 tty-browserify@0.0.0:
   version "0.0.0"
@@ -5191,10 +5191,10 @@ vm-browserify@^1.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
-vue-demi@^0.4.3:
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.4.3.tgz#6aaa9b52f02c32b4f9d4d11f02a1ae71031453c3"
-  integrity sha512-1DzLcZgHC9ZyFEYR4qZ83TdS1u9DglG8XVesBXqtbbmqFuO7sb8KG36kMfZCszieAweRDwAAVSAzjmEMG0+WwA==
+vue-demi@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.6.0.tgz#e314282f704cb449119b9fd002cbbc0e39f591fe"
+  integrity sha512-8GEJa0mHJpYJeGeq5fD1pJct2kfdl30PHfmL1NaJ97mgKPyKojlIRt/3inGBK4Y0ylCI6T5vOo3chwpqDOq/Hw==
 
 vue-hot-reload-api@^2.3.3:
   version "2.3.4"
