@@ -2,8 +2,12 @@
   "name": "examples",
   "version": "1.0.0",
   "workspaces": {
-    "packages": ["./*"],
-    "nohoist": ["**/vue"]
+    "packages": [
+      "./*"
+    ],
+    "nohoist": [
+      "**/vue"
+    ]
   },
   "description": "fluent-vue examples",
   "main": "index.js",
