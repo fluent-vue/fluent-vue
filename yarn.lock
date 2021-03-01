@@ -6011,10 +6011,10 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-vue-demi@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.6.0.tgz#e314282f704cb449119b9fd002cbbc0e39f591fe"
-  integrity sha512-8GEJa0mHJpYJeGeq5fD1pJct2kfdl30PHfmL1NaJ97mgKPyKojlIRt/3inGBK4Y0ylCI6T5vOo3chwpqDOq/Hw==
+vue-demi@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.7.0.tgz#34aff70a9d9a45d983d68f5c33bb70f6d19500e1"
+  integrity sha512-yOQ/BMfvTFbguwxQ1h6USEFkxvOI8ThhyZ1+57vlOl4jBZKC6ThmkzuQv4KOv4ItdxTj/foZBR6Lr5+tcr7nqg==
 
 vue-eslint-parser@^7.5.0:
   version "7.5.0"
