@@ -1,8 +1,8 @@
-import { defineComponent, h, getCurrentInstance, Vue, inject, computed } from 'vue-demi'
+import { defineComponent, h, getCurrentInstance, inject, computed } from 'vue-demi'
 import { getContext } from '../composition'
 import { RootContextSymbol } from '../symbols'
 
-function getParentWithFluent(instance: any | null): Vue {
+function getParentWithFluent(instance: any | null): any {
   const parent = instance?.$parent ?? instance?.parent?.proxy
   const target = parent?.$options ?? parent?.type
 

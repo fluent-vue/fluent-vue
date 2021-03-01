@@ -30,7 +30,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/loader-utils": "^2.0.1",
-    "webpack": "^5.24.0"
+    "webpack": "^5.24.2"
   },
   "dependencies": {
     "loader-utils": "^2.0.0"
