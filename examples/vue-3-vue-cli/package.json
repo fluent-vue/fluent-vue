@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~5.0.0-alpha.5",
-    "@vue/cli-service": "~5.0.0-alpha.4",
+    "@vue/cli-service": "~5.0.0-alpha.5",
     "@vue/compiler-sfc": "^3.0.5",
     "fluent-vue-loader": "file:../../packages/fluent-vue-loader"
   },
