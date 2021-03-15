@@ -22,7 +22,10 @@ const loader = function (
 }
 
 function generateCode(source: string | Buffer, query: OptionObject): string {
-  const data = convert(source)
+  const rawData = convert(source)
+
+  // vue-loader pads SFC file sections with newlines - trim those
+  const data = rawData.replace(/^\n+|\n+$/g, '')
 
   return `
 import { FluentResource } from '@fluent/bundle'
