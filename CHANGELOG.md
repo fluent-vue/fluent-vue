@@ -1,3 +1,17 @@
+# [3.0.0-beta.6](https://github.com/Demivan/fluent-vue/compare/v3.0.0-beta.5...v3.0.0-beta.6) (2021-03-15)
+
+
+### Bug Fixes
+
+* **loader:** trim leading and trailing newlines added by vue-loader ([63d71fc](https://github.com/Demivan/fluent-vue/commit/63d71fc9ae5dfe49e520fcf10948a5df8e5dd201))
+
+
+### Features
+
+* **composition:** Add $t and $ta methods to useFluent() ([2697abe](https://github.com/Demivan/fluent-vue/commit/2697abe55cc96f4fec78dbd42fa77a7eb472b2a7))
+
+
+
 # [3.0.0-beta.5](https://github.com/Demivan/fluent-vue/compare/v3.0.0-beta.4...v3.0.0-beta.5) (2021-01-14)
 
 
