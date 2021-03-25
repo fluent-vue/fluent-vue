@@ -1369,10 +1369,10 @@
     "@vue/babel-plugin-transform-vue-jsx" "^1.2.1"
     camelcase "^5.0.0"
 
-"@vue/cli-overlay@^5.0.0-alpha.7":
-  version "5.0.0-alpha.7"
-  resolved "https://registry.yarnpkg.com/@vue/cli-overlay/-/cli-overlay-5.0.0-alpha.7.tgz#0187edcf330bddf22b755516134edbabc883108a"
-  integrity sha512-e8rBKPzgFl5KwGXZ5gtYcy6g2l8EWXcGauJ2uFsk0CNhWNADeznabtKpHE9FT8/aLMVVqiYlCTOp1JBUVLWagQ==
+"@vue/cli-overlay@^5.0.0-alpha.8":
+  version "5.0.0-alpha.8"
+  resolved "https://registry.yarnpkg.com/@vue/cli-overlay/-/cli-overlay-5.0.0-alpha.8.tgz#225574d6d24374fe9d44f1adf5bd9a10b052c2a8"
+  integrity sha512-lxsfUfm2vN0pCrgvZArAxhH3p2yTBThVzcXXYV7Sm21efHYHV68Hpwa3wPf6eIyVT1FtKsRDVLU8Wn1RXIEo6w==
 
 "@vue/cli-plugin-babel@~5.0.0-alpha.5":
   version "5.0.0-alpha.7"
@@ -1386,33 +1386,32 @@
     thread-loader "^3.0.0"
     webpack "^5.22.0"
 
-"@vue/cli-plugin-router@^5.0.0-alpha.7":
-  version "5.0.0-alpha.7"
-  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-router/-/cli-plugin-router-5.0.0-alpha.7.tgz#70447bf5b0904f8d448a80a58b536c39c03e90f2"
-  integrity sha512-90OdMDoVTZ7j3YcRJvRzPHYF+o5FmKr69qakW2XCw6q8bw7bW5NYtJLJYqazggXJkJ3zlMu2Ot+rETnWUZl3qQ==
+"@vue/cli-plugin-router@^5.0.0-alpha.8":
+  version "5.0.0-alpha.8"
+  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-router/-/cli-plugin-router-5.0.0-alpha.8.tgz#e9c80af91e854af3a9b19835613c72350ba989d2"
+  integrity sha512-GF6FKaUr/eBeIRIVh6xwzO4g3VUCFjY1UlJ+rJdu+RKFXt3R7KXn09RyIkoSC+mNu7jSG3bEzBljL4RvOlm4Lg==
   dependencies:
-    "@vue/cli-shared-utils" "^5.0.0-alpha.7"
+    "@vue/cli-shared-utils" "^5.0.0-alpha.8"
 
-"@vue/cli-plugin-vuex@^5.0.0-alpha.7":
-  version "5.0.0-alpha.7"
-  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-vuex/-/cli-plugin-vuex-5.0.0-alpha.7.tgz#cf06e86942599856bc8ba302452d1e6c16ee5b18"
-  integrity sha512-B0KEqstHcYGjxrfE+5h8N5q41+zHiW7sleIo8es0+3PTOWYWtHtTokDS3uciWJfCuHKHsEv7s+OJvJR49RV4Hg==
+"@vue/cli-plugin-vuex@^5.0.0-alpha.8":
+  version "5.0.0-alpha.8"
+  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-vuex/-/cli-plugin-vuex-5.0.0-alpha.8.tgz#04bfc1220dbe9627d0d060c177a7e22531172aa7"
+  integrity sha512-CIOl6KmHI2C7+JH2QtHkZOpt8FspqeJNGv/pwrgxX+ycqp/dpWUA2997bPzfR4WH5LC27trnOr28MYJbEp811w==
 
-"@vue/cli-service@~5.0.0-alpha.5":
-  version "5.0.0-alpha.7"
-  resolved "https://registry.yarnpkg.com/@vue/cli-service/-/cli-service-5.0.0-alpha.7.tgz#ad83fd0fa5958683536cac4b61430b4584d394b3"
-  integrity sha512-P46NV+yGUCK6XIOeXMLYqau/7c3jUANCNg5mawZHp4iZdIWxw816o9zaHyfP+7vVm3owAJnq0G/+7LjZQBGfLg==
+"@vue/cli-service@~5.0.0-alpha.8":
+  version "5.0.0-alpha.8"
+  resolved "https://registry.yarnpkg.com/@vue/cli-service/-/cli-service-5.0.0-alpha.8.tgz#1cc4cac20022030f92c2816171444ce6dd960068"
+  integrity sha512-A1NFFe1kxLdbfDhqxT5mBZY9buvHf/7gmiXAKwIqhsk2Ej+u5ftFbNI11Jpht5fPqEY7CWs7yxPIMRLbF48a0g==
   dependencies:
     "@soda/friendly-errors-webpack-plugin" "^1.8.0"
     "@soda/get-current-script" "^1.0.2"
     "@types/minimist" "^1.2.0"
     "@types/webpack-dev-server" "^3.11.0"
-    "@vue/cli-overlay" "^5.0.0-alpha.7"
-    "@vue/cli-plugin-router" "^5.0.0-alpha.7"
-    "@vue/cli-plugin-vuex" "^5.0.0-alpha.7"
-    "@vue/cli-shared-utils" "^5.0.0-alpha.7"
+    "@vue/cli-overlay" "^5.0.0-alpha.8"
+    "@vue/cli-plugin-router" "^5.0.0-alpha.8"
+    "@vue/cli-plugin-vuex" "^5.0.0-alpha.8"
+    "@vue/cli-shared-utils" "^5.0.0-alpha.8"
     "@vue/component-compiler-utils" "^3.1.2"
-    "@vue/preload-webpack-plugin" "^1.1.0"
     "@vue/web-component-wrapper" "^1.3.0"
     acorn "^8.0.5"
     acorn-walk "^8.0.2"
@@ -1424,7 +1423,7 @@
     cli-highlight "^2.1.10"
     clipboardy "^2.3.0"
     cliui "^7.0.4"
-    copy-webpack-plugin "^7.0.0"
+    copy-webpack-plugin "^8.0.0"
     css-loader "^5.1.1"
     css-minimizer-webpack-plugin "^1.2.0"
     cssnano "^5.0.0-rc.1"
@@ -1460,10 +1459,10 @@
     webpack-merge "^5.7.3"
     webpack-virtual-modules "^0.4.2"
 
-"@vue/cli-shared-utils@^5.0.0-alpha.7":
-  version "5.0.0-alpha.7"
-  resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-5.0.0-alpha.7.tgz#b65afd2277589974146cfa6a84caa351a9e1f007"
-  integrity sha512-ivCmfvWnHL+0Slz90ZQjGFpCsfr8qk3AWqR9E4IuwY9iRloJGgrj72qgRFi2km1PBu7w/IyMaBp7fdy1oJmRvQ==
+"@vue/cli-shared-utils@^5.0.0-alpha.7", "@vue/cli-shared-utils@^5.0.0-alpha.8":
+  version "5.0.0-alpha.8"
+  resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-5.0.0-alpha.8.tgz#e1565b7912668174977cfa7e3370ae21699554ea"
+  integrity sha512-mM40O+ULK17nM+XEZJDnNd+lBUriANoTsozNWbJ0q5lJ6Uet5RC8L6J9h0vsMMkhQ3oFWFUCLIV/J48XoxCsFQ==
   dependencies:
     chalk "^4.1.0"
     execa "^1.0.0"
@@ -1472,7 +1471,7 @@
     lru-cache "^6.0.0"
     node-fetch "^2.6.1"
     node-ipc "^9.1.1"
-    open "^7.4.2"
+    open "^8.0.2"
     ora "^5.3.0"
     read-pkg "^5.1.1"
     semver "^7.3.4"
@@ -1549,11 +1548,6 @@
   integrity sha512-sFBUDZxwi5YOQqH//VSGenO6WH0JuW94+CWo1eUsGSTRue8POfwD4oeduVqi/c6QcwXg2tJL/m6aOD2t/IR6zg==
   dependencies:
     tslib "^2.1.0"
-
-"@vue/preload-webpack-plugin@^1.1.0":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@vue/preload-webpack-plugin/-/preload-webpack-plugin-1.1.2.tgz#ceb924b4ecb3b9c43871c7a429a02f8423e621ab"
-  integrity sha512-LIZMuJk38pk9U9Ur4YzHjlIyMuxPlACdBIHH9/nGYVTsaGKOSnSuELiE8vS9wa+dJpIYspYUOqk+L1Q4pgHQHQ==
 
 "@vue/reactivity@3.0.7":
   version "3.0.7"
@@ -2946,17 +2940,16 @@ copy-descriptor@^0.1.0:
   resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
   integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
 
-copy-webpack-plugin@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-7.0.0.tgz#3506f867ca6e861ee2769d4deaf8fa0d2563ada9"
-  integrity sha512-SLjQNa5iE3BoCP76ESU9qYo9ZkEWtXoZxDurHoqPchAFRblJ9g96xTeC560UXBMre1Nx6ixIIUfiY3VcjpJw3g==
+copy-webpack-plugin@^8.0.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-8.1.0.tgz#0b53170db798ed301439536a02f2868ff63291a0"
+  integrity sha512-Soiq8kXI2AZkpw3dSp18u6oU2JonC7UKv3UdXsKOmT1A5QT46ku9+6c0Qy29JDbSavQJNN1/eKGpd3QNw+cZWg==
   dependencies:
-    fast-glob "^3.2.4"
+    fast-glob "^3.2.5"
     glob-parent "^5.1.1"
-    globby "^11.0.1"
-    loader-utils "^2.0.0"
+    globby "^11.0.3"
     normalize-path "^3.0.0"
-    p-limit "^3.0.2"
+    p-limit "^3.1.0"
     schema-utils "^3.0.0"
     serialize-javascript "^5.0.1"
 
@@ -3436,6 +3429,11 @@ defaults@^1.0.3:
   integrity sha1-xlYFHpgX2f8I7YgUd/P+QBnz730=
   dependencies:
     clone "^1.0.2"
+
+define-lazy-prop@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/define-lazy-prop/-/define-lazy-prop-2.0.0.tgz#3f7ae421129bcaaac9bc74905c98a0009ec9ee7f"
+  integrity sha512-Ds09qNh8yw3khSjiJjiUInaGX9xlqZDY7JVryGxdxV7NPeuqQfplOpQ66yJFZut3jLa5zOwkXw1g9EI2uKh4Og==
 
 define-properties@^1.1.3:
   version "1.1.3"
@@ -4059,7 +4057,7 @@ fast-glob@^2.2.2:
     merge2 "^1.2.3"
     micromatch "^3.1.10"
 
-fast-glob@^3.1.1, fast-glob@^3.2.4:
+fast-glob@^3.1.1, fast-glob@^3.2.5:
   version "3.2.5"
   resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.2.5.tgz#7939af2a656de79a4f1901903ee8adcaa7cb9661"
   integrity sha512-2DtFcgT68wiTTiwZ2hNdJfcHNke9XOfnwmBRWXhmeKM8rF0TGwmC/Qto3S7RoZKp5cilZbxzO5iTNTQsJ+EeDg==
@@ -4178,12 +4176,12 @@ find-up@^4.0.0:
     path-exists "^4.0.0"
 
 "fluent-vue-loader@file:../packages/fluent-vue-loader":
-  version "3.0.0-beta.6"
+  version "3.0.0-beta.7"
   dependencies:
     loader-utils "^2.0.0"
 
 "fluent-vue@file:../packages/fluent-vue":
-  version "3.0.0-beta.6"
+  version "3.0.0-beta.7"
   dependencies:
     "@fluent/langneg" "^0.5.0"
     "@fluent/sequence" "^0.6.0"
@@ -4379,10 +4377,10 @@ globals@^11.1.0:
   resolved "https://registry.yarnpkg.com/globals/-/globals-11.12.0.tgz#ab8795338868a0babd8525758018c2a7eb95c42e"
   integrity sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==
 
-globby@^11.0.1, globby@^11.0.2:
-  version "11.0.2"
-  resolved "https://registry.yarnpkg.com/globby/-/globby-11.0.2.tgz#1af538b766a3b540ebfb58a32b2e2d5897321d83"
-  integrity sha512-2ZThXDvvV8fYFRVIxnrMQBipZQDr7MxKAmQK1vujaj9/7eF0efG7BPUKJ7jP7G5SLF37xKDXvO4S/KKLj/Z0og==
+globby@^11.0.2, globby@^11.0.3:
+  version "11.0.3"
+  resolved "https://registry.yarnpkg.com/globby/-/globby-11.0.3.tgz#9b1f0cb523e171dd1ad8c7b2a9fb4b644b9593cb"
+  integrity sha512-ffdmosjA807y7+lA1NM0jELARVmYul/715xiILEjo3hBLPTcirgQNnXECn5g3mtR8TOLCVbkfua1Hpen25/Xcg==
   dependencies:
     array-union "^2.1.0"
     dir-glob "^3.0.1"
@@ -5029,7 +5027,7 @@ is-directory@^0.3.1:
   resolved "https://registry.yarnpkg.com/is-directory/-/is-directory-0.3.1.tgz#61339b6f2475fc772fd9c9d83f5c8575dc154ae1"
   integrity sha1-YTObbyR1/Hcv2cnYP1yFddwVSuE=
 
-is-docker@^2.0.0:
+is-docker@^2.0.0, is-docker@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/is-docker/-/is-docker-2.1.1.tgz#4125a88e44e450d384e09047ede71adc2d144156"
   integrity sha512-ZOoqiXfEwtGknTiuDEy8pN2CfE3TxMHprvNer1mXiqwkOT77Rw3YVrUQ52EqAOU3QAWDQ+bQdx7HJzrv7LS2Hw==
@@ -5209,7 +5207,7 @@ is-wsl@^1.1.0:
   resolved "https://registry.yarnpkg.com/is-wsl/-/is-wsl-1.1.0.tgz#1f16e4aa22b04d1336b66188a66af3c600c3a66d"
   integrity sha1-HxbkqiKwTRM2tmGIpmrzxgDDpm0=
 
-is-wsl@^2.1.1:
+is-wsl@^2.1.1, is-wsl@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/is-wsl/-/is-wsl-2.2.0.tgz#74a4c76e77ca9fd3f932f290c17ea326cd157271"
   integrity sha512-fKzAra0rGJUUBwGBgNkHZuToZcn+TtXHpeCgmkMJMMYx1sQDYaCSyjJBSCa2nH1DGm7s3n1oBnohoVTBaN7Lww==
@@ -6205,13 +6203,14 @@ onetime@^5.1.0, onetime@^5.1.2:
   dependencies:
     mimic-fn "^2.1.0"
 
-open@^7.4.2:
-  version "7.4.2"
-  resolved "https://registry.yarnpkg.com/open/-/open-7.4.2.tgz#b8147e26dcf3e426316c730089fd71edd29c2321"
-  integrity sha512-MVHddDVweXZF3awtlAS+6pgKLlm/JgxZ90+/NBurBoQctVOOB/zDdVjcyPzQ+0laDGbsWgrRkflI65sQeOgT9Q==
+open@^8.0.2:
+  version "8.0.4"
+  resolved "https://registry.yarnpkg.com/open/-/open-8.0.4.tgz#2fb90debffcf20f4d7be537502ed3e3ee9e5dcbc"
+  integrity sha512-Txc9FOcvjrr5Kv+Zb3w89uKMKiP7wH8mLdYj1xJa+YnhhntEYhbB6cQHjS4O6P+jFwMEzEQVVcpfnu9WkKNuLQ==
   dependencies:
-    is-docker "^2.0.0"
-    is-wsl "^2.1.1"
+    define-lazy-prop "^2.0.0"
+    is-docker "^2.1.1"
+    is-wsl "^2.2.0"
 
 opencollective-postinstall@^2.0.2:
   version "2.0.3"
