@@ -23,19 +23,20 @@ export default defineComponent({
   setup(props, context) {
     const childSlots = context.slots
 
-    const params = Object.assign(
-      {},
-      props.args,
-      ...Object.keys(childSlots).map((key) => ({
-        [key]: `\uFFFF\uFFFE${key}\uFFFF`,
-      }))
-    )
+    const rootContext = inject(RootContextSymbol)!
+    const instance = getCurrentInstance()
+    const parent = getParentWithFluent(instance)
+    const fluent = getContext(rootContext, parent)
 
     const translation = computed(() => {
-      const rootContext = inject(RootContextSymbol)!
-      const instance = getCurrentInstance()
-      const parent = getParentWithFluent(instance)
-      const fluent = getContext(rootContext, parent)
+      const params = Object.assign(
+        {},
+        props.args,
+        ...Object.keys(childSlots).map((key) => ({
+          [key]: `\uFFFF\uFFFE${key}\uFFFF`,
+        }))
+      )
+
       return fluent.format(props.path, params)
     })
 
