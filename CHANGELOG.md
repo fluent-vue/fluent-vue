@@ -1,3 +1,12 @@
+# [3.0.0-beta.8](https://github.com/Demivan/fluent-vue/compare/v3.0.0-beta.7...v3.0.0-beta.8) (2021-04-01)
+
+
+### Bug Fixes
+
+* **component:** fix i18n component not rerendering on args change ([#459](https://github.com/Demivan/fluent-vue/issues/459)) ([57a2c12](https://github.com/Demivan/fluent-vue/commit/57a2c12e6e4482b2076ca31949cbd002f83b7c87))
+
+
+
 # [3.0.0-beta.7](https://github.com/Demivan/fluent-vue/compare/v3.0.0-beta.6...v3.0.0-beta.7) (2021-03-15)
 
 
