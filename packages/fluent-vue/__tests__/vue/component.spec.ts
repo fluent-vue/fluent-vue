@@ -179,4 +179,38 @@ describe('component', () => {
     // Assert
     expect(mounted.html()).toEqual(`<span>Hello ⁨John⁩ ⁨<b>Inner text</b>⁩ test</span>`)
   })
+
+  it('updates on parameter change', async () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      key = Hello {$name} {$child} test
+      `)
+    )
+
+    const component = {
+      data() {
+        return {
+          name: 'John',
+        }
+      },
+      template: `
+        <i18n path="key" :args="{ name }">
+          <template #child>
+            <b>Inner text</b>
+          </template>
+        </i18n>`,
+    }
+
+    const mounted = mount(component, options)
+    expect(mounted.html()).toEqual(`<span>Hello ⁨John⁩ ⁨<b>Inner text</b>⁩ test</span>`)
+
+    // Act
+    const vm = mounted.vm as any
+    vm.name = 'Alice'
+    await Vue.nextTick()
+
+    // Assert
+    expect(mounted.html()).toEqual(`<span>Hello ⁨Alice⁩ ⁨<b>Inner text</b>⁩ test</span>`)
+  })
 })
