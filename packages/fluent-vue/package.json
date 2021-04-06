@@ -50,7 +50,7 @@
     "@fluent/langneg": "^0.5.0",
     "@fluent/sequence": "^0.6.0",
     "cached-iterable": "^0.3.0",
-    "tslib": "^2.0.3",
+    "tslib": "^2.2.0",
     "vue-demi": "^0.7.4"
   },
   "peerDependencies": {
