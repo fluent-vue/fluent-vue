@@ -19,6 +19,7 @@ export default defineComponent({
     path: { type: String, required: true },
     tag: { type: String, default: 'span' },
     args: { type: Object, default: () => ({}) },
+    useTa: { type: Boolean, default: false },
   },
   setup(props, context) {
     const childSlots = context.slots
@@ -40,6 +41,22 @@ export default defineComponent({
       return fluent.format(props.path, params)
     })
 
+    const translationAttrs = computed(() => {
+      if (!props.useTa) {
+        return null
+      }
+
+      const params = Object.assign(
+        {},
+        props.args,
+        ...Object.keys(childSlots).map((key) => ({
+          [key]: `\uFFFF\uFFFE${key}\uFFFF`,
+        }))
+      )
+
+      return fluent.formatAttrs(props.path, params)
+    })
+
     return () =>
       h(
         props.tag,
@@ -49,7 +66,9 @@ export default defineComponent({
         translation.value
           .split('\uFFFF')
           .map((text) =>
-            text.startsWith('\uFFFE') ? childSlots[text.replace('\uFFFE', '')]?.() : text
+            text.startsWith('\uFFFE')
+              ? childSlots[text.replace('\uFFFE', '')]?.(translationAttrs.value)
+              : text
           ) as any
       )
   },
