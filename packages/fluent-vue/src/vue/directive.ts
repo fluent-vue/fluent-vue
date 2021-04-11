@@ -95,21 +95,16 @@ function translate(el: HTMLElement, fluent: TranslationContext, binding: Directi
     return
   }
 
-  const bundle = fluent.getBundle(key)
-  const msg = fluent.getMessage(bundle, key)
+  const translation = fluent.formatWithAttrs(key, binding.value)
 
-  if (bundle === null || msg === null) {
-    return
-  }
-
-  if (msg.value !== null) {
-    el.textContent = fluent.formatPattern(bundle, msg.value, binding.value)
+  if (translation.matchFound) {
+    el.textContent = translation.value
   }
 
   const allowedAttrs = Object.keys(binding.modifiers)
-  for (const [attr, attrValue] of Object.entries(msg.attributes)) {
+  for (const [attr, attrValue] of Object.entries(translation.attributes)) {
     if (isAttrNameLocalizable(attr, el, allowedAttrs)) {
-      el.setAttribute(attr, fluent.formatPattern(bundle, attrValue, binding.value))
+      el.setAttribute(attr, attrValue)
     }
   }
 }

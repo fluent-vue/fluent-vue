@@ -6,6 +6,12 @@ import { Message, Pattern } from '@fluent/bundle/esm/ast'
 import { computed, ComputedRef, Ref } from 'vue-demi'
 import { getOrderedBundles } from './getOrderedBundles'
 
+export interface TranslationWithAttrs {
+  value: string
+  attributes: Record<string, string>
+  matchFound: boolean
+}
+
 export class TranslationContext {
   locale: Ref<string | string[]>
   bundles: Ref<FluentBundle[]>
@@ -49,21 +55,28 @@ export class TranslationContext {
     return formatted
   }
 
-  format = (key: string, value?: Record<string, FluentVariable>): string => {
-    const context = this.getBundle(key)
-    const message = this.getMessage(context, key)
-
+  _format = (
+    context: FluentBundle | null,
+    message: Message | null,
+    value?: Record<string, FluentVariable>
+  ): string | null => {
     if (context === null || message === null || message.value === null) {
-      return key
+      return null
     }
 
     return this.formatPattern(context, message.value, value)
   }
 
-  formatAttrs = (key: string, value?: Record<string, FluentVariable>): Record<string, string> => {
+  format = (key: string, value?: Record<string, FluentVariable>): string => {
     const context = this.getBundle(key)
-    const message = this.getMessage(context, key)
+    return this._format(context, this.getMessage(context, key), value) ?? key
+  }
 
+  _formatAttrs = (
+    context: FluentBundle | null,
+    message: Message | null,
+    value?: Record<string, FluentVariable>
+  ): Record<string, string> => {
     if (context === null || message === null) {
       return {}
     }
@@ -74,6 +87,23 @@ export class TranslationContext {
     }
 
     return result
+  }
+
+  formatAttrs = (key: string, value?: Record<string, FluentVariable>): Record<string, string> => {
+    const context = this.getBundle(key)
+    return this._formatAttrs(context, this.getMessage(context, key), value)
+  }
+
+  formatWithAttrs = (key: string, value?: Record<string, FluentVariable>): TranslationWithAttrs => {
+    const context = this.getBundle(key)
+    const message = this.getMessage(context, key)
+
+    const formatValue = this._format(context, message, value)
+    return {
+      value: formatValue ?? key,
+      attributes: this._formatAttrs(context, message, value),
+      matchFound: formatValue !== null,
+    }
   }
 
   $t = this.format
