@@ -9,7 +9,7 @@
   "dependencies": {
     "@fluent/bundle": "^0.16.0",
     "@fluent/dedent": "^0.3.0",
-    "core-js": "^3.9.1",
+    "core-js": "^3.10.1",
     "fluent-vue": "file:../../packages/fluent-vue",
     "vue": "^3.0.5"
   },
