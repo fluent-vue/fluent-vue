@@ -29,16 +29,18 @@ export default defineComponent({
     const parent = getParentWithFluent(instance)
     const fluent = getContext(rootContext, parent)
 
-    const translation = computed(() => {
-      const params = Object.assign(
+    const fluentParams = computed(() =>
+      Object.assign(
         {},
         props.args,
         ...Object.keys(childSlots).map((key) => ({
           [key]: `\uFFFF\uFFFE${key}\uFFFF`,
         }))
       )
+    )
 
-      return fluent.format(props.path, params)
+    const translation = computed(() => {
+      return fluent.format(props.path, fluentParams.value)
     })
 
     const translationAttrs = computed(() => {
@@ -46,15 +48,7 @@ export default defineComponent({
         return null
       }
 
-      const params = Object.assign(
-        {},
-        props.args,
-        ...Object.keys(childSlots).map((key) => ({
-          [key]: `\uFFFF\uFFFE${key}\uFFFF`,
-        }))
-      )
-
-      return fluent.formatAttrs(props.path, params)
+      return fluent.formatAttrs(props.path, fluentParams.value)
     })
 
     return () =>
