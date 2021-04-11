@@ -80,6 +80,26 @@ describe('method', () => {
     expect(mounted.html()).toEqual(`<div attr="Attr value"></div>`)
   })
 
+  it('renders fluent kebab attributes correctly', () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      key =
+        .kebab-attr = Attr value
+      `)
+    )
+
+    const component = {
+      template: `<div v-bind="$ta('key')"></div>`,
+    }
+
+    // Act
+    const mounted = mount(component, options)
+
+    // Assert
+    expect(mounted.html()).toEqual(`<div kebab-attr="Attr value"></div>`)
+  })
+
   it('warns about missing translation', () => {
     // Arange
     bundle.addResource(
