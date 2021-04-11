@@ -123,20 +123,20 @@ describe('component', () => {
     expect(mounted.html()).toEqual(`<span>Inner data ⁨<b>Inner text</b>⁩ test</span>`)
   })
 
-  it('interpolates components and provide translation attributes', () => {
+  it('interpolates components and provide camelized translation attributes', () => {
     // Arrange
     bundle.addResource(
       new FluentResource(ftl`
       key = Inner data {$child} test
-        .attr1 = Attribute: {$extra}
+        .kebab-attr1 = Attribute: {$extra}
       `)
     )
 
     const component = {
       template: `
         <i18n path="key" use-ta :args="{ extra: 'Extra' }">
-          <template #child="{ attr1 }">
-            <b>Inner text, {{ attr1 }}</b>
+          <template #child="{ kebabAttr1 }">
+            <b>Inner text, {{ kebabAttr1 }}</b>
           </template>
         </i18n>`,
     }

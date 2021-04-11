@@ -1,4 +1,5 @@
 import { defineComponent, h, getCurrentInstance, inject, computed } from 'vue-demi'
+import { camelize } from '../util/camelize'
 import { getContext } from '../composition'
 import { RootContextSymbol } from '../symbols'
 
@@ -48,7 +49,13 @@ export default defineComponent({
         return null
       }
 
-      return fluent.formatAttrs(props.path, fluentParams.value)
+      const attrs = fluent.formatAttrs(props.path, fluentParams.value)
+
+      const camelizedAttrs: { [key: string]: string } = {}
+      for (const attr in attrs) {
+        camelizedAttrs[camelize(attr)] = attrs[attr]
+      }
+      return camelizedAttrs
     })
 
     return () =>
