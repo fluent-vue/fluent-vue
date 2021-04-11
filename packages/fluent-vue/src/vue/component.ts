@@ -51,7 +51,7 @@ export default defineComponent({
 
       const attrs = fluent.formatAttrs(props.path, fluentParams.value)
 
-      const camelizedAttrs: { [key: string]: string } = {}
+      const camelizedAttrs: Record<string, string> = {}
       for (const attr in attrs) {
         camelizedAttrs[camelize(attr)] = attrs[attr]
       }
