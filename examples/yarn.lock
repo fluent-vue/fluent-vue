@@ -897,20 +897,20 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.2.tgz#8f03a22a04de437254e8ce8cc84ba39689288752"
   integrity sha512-HyYEUDeIj5rRQU2Hk5HTB2uHsbRQpF70nvMhVzi+VJR0X+xNEhjPui4/kBf3VeH/wqD28PT4sVOm8qqLjBrSZg==
 
-"@fluent/bundle@^0.16.0":
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/@fluent/bundle/-/bundle-0.16.0.tgz#e0cab75ba6ce9d9147ace3cb6ec61fd90f31ec1f"
-  integrity sha512-kUEAUePhb/y2BCcNpKOnjCs+WJkDczVpUUAQ+cDl0xvBGqL0Kv0Yog2oHSuv/Ou22c6KdXbvfCl3We0bIZnrmg==
+"@fluent/bundle@^0.16.1":
+  version "0.16.1"
+  resolved "https://registry.yarnpkg.com/@fluent/bundle/-/bundle-0.16.1.tgz#2d359eb2eca4c6053335258f6d3e1025f3fd3b1d"
+  integrity sha512-l/y8uvAC1vAIEGXfbt97g36s9gJ6wdEFRWCJo4vtoxD1e210MxBAXfLhU+wfzaatlxwh+HjJ15G41ee6V8Y4ww==
 
 "@fluent/dedent@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@fluent/dedent/-/dedent-0.3.0.tgz#cd6fbea955f9998d1079eb65f1827597c6163a9b"
   integrity sha512-HmMXSzvOVY0HRZmyk3u0ZUZwo863GHtN9IQeidHeq3xITESKJMXu7Wp+XNEbRxz+XWGJ0hIfiLnBJ4iNpf0QDQ==
 
-"@fluent/langneg@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@fluent/langneg/-/langneg-0.5.0.tgz#de448070efa16c8fb6cc4af1629663f01e10689b"
-  integrity sha512-jv0g3YO5byz29HXEE6DBzAog60q726mwV2nIoekEX590JVh+mbd6/ZXT5/l4mN2BMlrelzyscCTffKI4XScVtg==
+"@fluent/langneg@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@fluent/langneg/-/langneg-0.5.1.tgz#da8639bb22b46793feed326114a78610d1bb54a5"
+  integrity sha512-cjaaK6TNt32NaBChZfSDO3nSDzCthNx0rQn0Map52USlHVgbjRK/ReQxh5bE8jyms9KYWXDsLFqJmdsbHlBB/w==
 
 "@fluent/sequence@^0.6.0":
   version "0.6.0"
@@ -4270,7 +4270,7 @@ find-up@^4.0.0:
 "fluent-vue@file:../packages/fluent-vue":
   version "3.0.0-beta.8"
   dependencies:
-    "@fluent/langneg" "^0.5.0"
+    "@fluent/langneg" "^0.5.1"
     "@fluent/sequence" "^0.6.0"
     cached-iterable "^0.3.0"
     tslib "^2.2.0"
