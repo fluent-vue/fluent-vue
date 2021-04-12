@@ -66,6 +66,29 @@ describe('directive', () => {
     // Assert
     expect(mounted.html()).toEqual(`<a href="/foo">Fallback text</a>`)
     expect(warn).toHaveBeenCalledTimes(1)
+    expect(warn).toHaveBeenCalledWith(
+      '[fluent-vue] v-t directive is missing arg with translation key'
+    )
+  })
+
+  it('warns about missing translation', () => {
+    // Arrange
+    const component = {
+      template: `<a v-t:missing-key href="/foo">Fallback text</a>`,
+    }
+
+    const warn = jest.fn()
+    console.warn = warn
+
+    // Act
+    const mounted = mount(component, options)
+
+    // Assert
+    expect(mounted.html()).toEqual(`<a href="/foo">Fallback text</a>`)
+    expect(warn).toHaveBeenCalledTimes(1)
+    expect(warn).toHaveBeenCalledWith(
+      '[fluent-vue] Could not find translation for key [missing-key]'
+    )
   })
 
   it('can use parameters', () => {

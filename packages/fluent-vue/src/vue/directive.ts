@@ -96,8 +96,11 @@ function translate(el: HTMLElement, fluent: TranslationContext, binding: Directi
   }
 
   const translation = fluent.formatWithAttrs(key, binding.value)
+  if (translation == null) {
+    return
+  }
 
-  if (translation.matchFound) {
+  if (translation.value != null) {
     el.textContent = translation.value
   }
 

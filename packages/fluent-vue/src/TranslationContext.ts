@@ -7,9 +7,8 @@ import { computed, ComputedRef, Ref } from 'vue-demi'
 import { getOrderedBundles } from './getOrderedBundles'
 
 export interface TranslationWithAttrs {
-  value: string
+  value: string | null
   attributes: Record<string, string>
-  matchFound: boolean
 }
 
 export class TranslationContext {
@@ -55,11 +54,11 @@ export class TranslationContext {
     return formatted
   }
 
-  _format = (
+  private _format(
     context: FluentBundle | null,
     message: Message | null,
     value?: Record<string, FluentVariable>
-  ): string | null => {
+  ): string | null {
     if (context === null || message === null || message.value === null) {
       return null
     }
@@ -69,14 +68,15 @@ export class TranslationContext {
 
   format = (key: string, value?: Record<string, FluentVariable>): string => {
     const context = this.getBundle(key)
-    return this._format(context, this.getMessage(context, key), value) ?? key
+    const message = this.getMessage(context, key)
+    return this._format(context, message, value) ?? key
   }
 
-  _formatAttrs = (
+  private _formatAttrs(
     context: FluentBundle | null,
     message: Message | null,
     value?: Record<string, FluentVariable>
-  ): Record<string, string> => {
+  ): Record<string, string> {
     if (context === null || message === null) {
       return {}
     }
@@ -91,18 +91,24 @@ export class TranslationContext {
 
   formatAttrs = (key: string, value?: Record<string, FluentVariable>): Record<string, string> => {
     const context = this.getBundle(key)
-    return this._formatAttrs(context, this.getMessage(context, key), value)
+    const message = this.getMessage(context, key)
+    return this._formatAttrs(context, message, value)
   }
 
-  formatWithAttrs = (key: string, value?: Record<string, FluentVariable>): TranslationWithAttrs => {
+  formatWithAttrs = (
+    key: string,
+    value?: Record<string, FluentVariable>
+  ): TranslationWithAttrs | null => {
     const context = this.getBundle(key)
     const message = this.getMessage(context, key)
 
-    const formatValue = this._format(context, message, value)
+    if (context == null || message == null) {
+      return null
+    }
+
     return {
-      value: formatValue ?? key,
+      value: this._format(context, message, value),
       attributes: this._formatAttrs(context, message, value),
-      matchFound: formatValue !== null,
     }
   }
 
