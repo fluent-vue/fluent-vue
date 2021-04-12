@@ -897,20 +897,20 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.2.tgz#8f03a22a04de437254e8ce8cc84ba39689288752"
   integrity sha512-HyYEUDeIj5rRQU2Hk5HTB2uHsbRQpF70nvMhVzi+VJR0X+xNEhjPui4/kBf3VeH/wqD28PT4sVOm8qqLjBrSZg==
 
-"@fluent/bundle@^0.16.0":
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/@fluent/bundle/-/bundle-0.16.0.tgz#e0cab75ba6ce9d9147ace3cb6ec61fd90f31ec1f"
-  integrity sha512-kUEAUePhb/y2BCcNpKOnjCs+WJkDczVpUUAQ+cDl0xvBGqL0Kv0Yog2oHSuv/Ou22c6KdXbvfCl3We0bIZnrmg==
+"@fluent/bundle@^0.16.1":
+  version "0.16.1"
+  resolved "https://registry.yarnpkg.com/@fluent/bundle/-/bundle-0.16.1.tgz#2d359eb2eca4c6053335258f6d3e1025f3fd3b1d"
+  integrity sha512-l/y8uvAC1vAIEGXfbt97g36s9gJ6wdEFRWCJo4vtoxD1e210MxBAXfLhU+wfzaatlxwh+HjJ15G41ee6V8Y4ww==
 
 "@fluent/dedent@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@fluent/dedent/-/dedent-0.3.0.tgz#cd6fbea955f9998d1079eb65f1827597c6163a9b"
   integrity sha512-HmMXSzvOVY0HRZmyk3u0ZUZwo863GHtN9IQeidHeq3xITESKJMXu7Wp+XNEbRxz+XWGJ0hIfiLnBJ4iNpf0QDQ==
 
-"@fluent/langneg@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@fluent/langneg/-/langneg-0.5.0.tgz#de448070efa16c8fb6cc4af1629663f01e10689b"
-  integrity sha512-jv0g3YO5byz29HXEE6DBzAog60q726mwV2nIoekEX590JVh+mbd6/ZXT5/l4mN2BMlrelzyscCTffKI4XScVtg==
+"@fluent/langneg@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@fluent/langneg/-/langneg-0.5.1.tgz#da8639bb22b46793feed326114a78610d1bb54a5"
+  integrity sha512-cjaaK6TNt32NaBChZfSDO3nSDzCthNx0rQn0Map52USlHVgbjRK/ReQxh5bE8jyms9KYWXDsLFqJmdsbHlBB/w==
 
 "@fluent/sequence@^0.6.0":
   version "0.6.0"
@@ -3007,10 +3007,10 @@ core-js@^2.4.0, core-js@^2.6.5:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
   integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
 
-core-js@^3.8.3, core-js@^3.9.1:
-  version "3.10.0"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.10.0.tgz#9a020547c8b6879f929306949e31496bbe2ae9b3"
-  integrity sha512-MQx/7TLgmmDVamSyfE+O+5BHvG1aUGj/gHhLn1wVtm2B5u1eVIPvh7vkfjwWKNCjrTJB8+He99IntSQ1qP+vYQ==
+core-js@^3.10.1, core-js@^3.8.3:
+  version "3.10.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.10.1.tgz#e683963978b6806dcc6c0a4a8bd4ab0bdaf3f21a"
+  integrity sha512-pwCxEXnj27XG47mu7SXAwhLP3L5CrlvCB91ANUkIz40P27kUcvNfSdvyZJ9CLHiVoKSp+TTChMQMSKQEH/IQxA==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -4270,7 +4270,7 @@ find-up@^4.0.0:
 "fluent-vue@file:../packages/fluent-vue":
   version "3.0.0-beta.8"
   dependencies:
-    "@fluent/langneg" "^0.5.0"
+    "@fluent/langneg" "^0.5.1"
     "@fluent/sequence" "^0.6.0"
     cached-iterable "^0.3.0"
     tslib "^2.2.0"
@@ -9342,10 +9342,10 @@ webpack-virtual-modules@^0.4.2:
   resolved "https://registry.yarnpkg.com/webpack-virtual-modules/-/webpack-virtual-modules-0.4.2.tgz#68ce4479df7334a491b7a3f3bead47fe382947d9"
   integrity sha512-OUsT1VZhArN8nY7g6mMlw91HWnXcNXsIQjsQ83WteF4ViZ6YXqF2sWKOTDIZ0H+PPiApQdszLdZIrD7NNlU0Yw==
 
-webpack@^5.22.0, webpack@^5.30.0:
-  version "5.30.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.30.0.tgz#07d87c182a060e0c2491062f3dc0edc85a29d884"
-  integrity sha512-Zr9NIri5yzpfmaMea2lSMV1UygbW0zQsSlGLMgKUm63ACXg6alhd1u4v5UBSBjzYKXJN6BNMGVM7w165e7NxYA==
+webpack@^5.22.0, webpack@^5.31.0:
+  version "5.31.0"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.31.0.tgz#fab61d0be896feca4af87bdad5c18815c0d63455"
+  integrity sha512-3fUfZT/FUuThWSSyL32Fsh7weUUfYP/Fjc/cGSbla5KiSo0GtI1JMssCRUopJTvmLjrw05R2q7rlLtiKdSzkzQ==
   dependencies:
     "@types/eslint-scope" "^3.7.0"
     "@types/estree" "^0.0.46"
