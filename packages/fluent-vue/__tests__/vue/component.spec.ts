@@ -134,7 +134,7 @@ describe('component', () => {
 
     const component = {
       template: `
-        <i18n path="key" use-ta :args="{ extra: 'Extra' }">
+        <i18n path="key" :args="{ extra: 'Extra' }">
           <template #child="{ kebabAttr1 }">
             <b>Inner text, {{ kebabAttr1 }}</b>
           </template>

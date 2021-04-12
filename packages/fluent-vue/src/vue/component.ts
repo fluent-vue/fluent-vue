@@ -20,7 +20,6 @@ export default defineComponent({
     path: { type: String, required: true },
     tag: { type: String, default: 'span' },
     args: { type: Object, default: () => ({}) },
-    useTa: { type: Boolean, default: false },
   },
   setup(props, context) {
     const childSlots = context.slots
@@ -41,22 +40,14 @@ export default defineComponent({
     )
 
     const translation = computed(() => {
-      return fluent.format(props.path, fluentParams.value)
+      return fluent.formatWithAttrs(props.path, fluentParams.value)
     })
 
-    const translationAttrs = computed(() => {
-      if (!props.useTa) {
-        return null
-      }
-
-      const attrs = fluent.formatAttrs(props.path, fluentParams.value)
-
-      const camelizedAttrs: Record<string, string> = {}
-      for (const attr in attrs) {
-        camelizedAttrs[camelize(attr)] = attrs[attr]
-      }
-      return camelizedAttrs
-    })
+    const camelizedAttrs = computed(() =>
+      Object.fromEntries(
+        Object.entries(translation.value.attributes).map(([key, value]) => [camelize(key), value])
+      )
+    )
 
     return () =>
       h(
@@ -64,11 +55,11 @@ export default defineComponent({
         {
           ...context,
         },
-        translation.value
+        translation.value.value
           .split('\uFFFF')
           .map((text) =>
             text.startsWith('\uFFFE')
-              ? childSlots[text.replace('\uFFFE', '')]?.(translationAttrs.value)
+              ? childSlots[text.replace('\uFFFE', '')]?.(camelizedAttrs.value)
               : text
           ) as any
       )
