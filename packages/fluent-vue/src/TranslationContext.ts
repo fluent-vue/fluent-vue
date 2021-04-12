@@ -7,7 +7,8 @@ import { computed, ComputedRef, Ref } from 'vue-demi'
 import { getOrderedBundles } from './getOrderedBundles'
 
 export interface TranslationWithAttrs {
-  value: string | null
+  value: string
+  hasValue: boolean
   attributes: Record<string, string>
 }
 
@@ -76,9 +77,9 @@ export class TranslationContext {
     context: FluentBundle | null,
     message: Message | null,
     value?: Record<string, FluentVariable>
-  ): Record<string, string> {
+  ): Record<string, string> | null {
     if (context === null || message === null) {
-      return {}
+      return null
     }
 
     const result: Record<string, string> = {}
@@ -92,23 +93,19 @@ export class TranslationContext {
   formatAttrs = (key: string, value?: Record<string, FluentVariable>): Record<string, string> => {
     const context = this.getBundle(key)
     const message = this.getMessage(context, key)
-    return this._formatAttrs(context, message, value)
+    return this._formatAttrs(context, message, value) ?? {}
   }
 
-  formatWithAttrs = (
-    key: string,
-    value?: Record<string, FluentVariable>
-  ): TranslationWithAttrs | null => {
+  formatWithAttrs = (key: string, value?: Record<string, FluentVariable>): TranslationWithAttrs => {
     const context = this.getBundle(key)
     const message = this.getMessage(context, key)
 
-    if (context == null || message == null) {
-      return null
-    }
+    const formatValue = this._format(context, message, value)
 
     return {
-      value: this._format(context, message, value),
-      attributes: this._formatAttrs(context, message, value),
+      value: formatValue ?? key,
+      attributes: this._formatAttrs(context, message, value) ?? {},
+      hasValue: formatValue !== null,
     }
   }
 
