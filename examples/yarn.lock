@@ -907,10 +907,10 @@
   resolved "https://registry.yarnpkg.com/@fluent/dedent/-/dedent-0.3.0.tgz#cd6fbea955f9998d1079eb65f1827597c6163a9b"
   integrity sha512-HmMXSzvOVY0HRZmyk3u0ZUZwo863GHtN9IQeidHeq3xITESKJMXu7Wp+XNEbRxz+XWGJ0hIfiLnBJ4iNpf0QDQ==
 
-"@fluent/langneg@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@fluent/langneg/-/langneg-0.5.0.tgz#de448070efa16c8fb6cc4af1629663f01e10689b"
-  integrity sha512-jv0g3YO5byz29HXEE6DBzAog60q726mwV2nIoekEX590JVh+mbd6/ZXT5/l4mN2BMlrelzyscCTffKI4XScVtg==
+"@fluent/langneg@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@fluent/langneg/-/langneg-0.5.1.tgz#da8639bb22b46793feed326114a78610d1bb54a5"
+  integrity sha512-cjaaK6TNt32NaBChZfSDO3nSDzCthNx0rQn0Map52USlHVgbjRK/ReQxh5bE8jyms9KYWXDsLFqJmdsbHlBB/w==
 
 "@fluent/sequence@^0.6.0":
   version "0.6.0"
@@ -4270,7 +4270,7 @@ find-up@^4.0.0:
 "fluent-vue@file:../packages/fluent-vue":
   version "3.0.0-beta.8"
   dependencies:
-    "@fluent/langneg" "^0.5.0"
+    "@fluent/langneg" "^0.5.1"
     "@fluent/sequence" "^0.6.0"
     cached-iterable "^0.3.0"
     tslib "^2.2.0"
@@ -9342,10 +9342,10 @@ webpack-virtual-modules@^0.4.2:
   resolved "https://registry.yarnpkg.com/webpack-virtual-modules/-/webpack-virtual-modules-0.4.2.tgz#68ce4479df7334a491b7a3f3bead47fe382947d9"
   integrity sha512-OUsT1VZhArN8nY7g6mMlw91HWnXcNXsIQjsQ83WteF4ViZ6YXqF2sWKOTDIZ0H+PPiApQdszLdZIrD7NNlU0Yw==
 
-webpack@^5.22.0, webpack@^5.31.0:
-  version "5.31.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.31.0.tgz#fab61d0be896feca4af87bdad5c18815c0d63455"
-  integrity sha512-3fUfZT/FUuThWSSyL32Fsh7weUUfYP/Fjc/cGSbla5KiSo0GtI1JMssCRUopJTvmLjrw05R2q7rlLtiKdSzkzQ==
+webpack@^5.22.0, webpack@^5.31.2:
+  version "5.31.2"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.31.2.tgz#40d9b9d15b7d76af73d3f1cae895b82613a544d6"
+  integrity sha512-0bCQe4ybo7T5Z0SC5axnIAH+1WuIdV4FwLYkaAlLtvfBhIx8bPS48WHTfiRZS1VM+pSiYt7e/rgLs3gLrH82lQ==
   dependencies:
     "@types/eslint-scope" "^3.7.0"
     "@types/estree" "^0.0.46"
