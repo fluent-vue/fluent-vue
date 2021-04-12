@@ -39,7 +39,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@fluent/bundle": "~0.16.0",
+    "@fluent/bundle": "~0.16.1",
     "@fluent/dedent": "~0.3.0",
     "@vue/composition-api": "^1.0.0-rc.6",
     "@vue/test-utils": "~1.1.1",
