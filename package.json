@@ -11,8 +11,7 @@
     "lint": "prettier --write --parser typescript \"packages/**/*.ts?(x)\"",
     "ls-lint": "ls-lint",
     "test": "node scripts/build.js -f global -d && jest",
-    "release": "shipjs prepare",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    "release": "shipjs prepare"
   },
   "gitHooks": {
     "pre-commit": "ls-lint && lint-staged"
@@ -23,6 +22,20 @@
   },
   "engines": {
     "node": ">=12.0.0"
+  },
+  "changelog": {
+    "labels": {
+      "Type: Feature": ":star: New Features",
+      "Type: Bug": ":bug: Bug Fixes",
+      "Type: Security": ":lock: Security Fixes",
+      "Type: Performance": ":chart_with_upwards_trend: Performance Fixes",
+      "Type: Improvement": ":zap: Improved Features",
+      "Type: Breaking": ":boom: Breaking Change",
+      "Type: Deprecated": ":warning: Deprecated Features",
+      "Type: I18n": ":globe_with_meridians: Internationalization",
+      "Type: A11y": ":wheelchair: Accessibility",
+      "Type: Documentation": ":pencil: Documentation"
+    }
   },
   "devDependencies": {
     "@ls-lint/ls-lint": "^1.9.0",
