@@ -1,4 +1,5 @@
 import { defineComponent, h, getCurrentInstance, inject, computed } from 'vue-demi'
+import { camelize } from '../util/camelize'
 import { getContext } from '../composition'
 import { RootContextSymbol } from '../symbols'
 
@@ -28,17 +29,25 @@ export default defineComponent({
     const parent = getParentWithFluent(instance)
     const fluent = getContext(rootContext, parent)
 
-    const translation = computed(() => {
-      const params = Object.assign(
+    const fluentParams = computed(() =>
+      Object.assign(
         {},
         props.args,
         ...Object.keys(childSlots).map((key) => ({
           [key]: `\uFFFF\uFFFE${key}\uFFFF`,
         }))
       )
+    )
 
-      return fluent.format(props.path, params)
+    const translation = computed(() => {
+      return fluent.formatWithAttrs(props.path, fluentParams.value)
     })
+
+    const camelizedAttrs = computed(() =>
+      Object.fromEntries(
+        Object.entries(translation.value.attributes).map(([key, value]) => [camelize(key), value])
+      )
+    )
 
     return () =>
       h(
@@ -46,10 +55,12 @@ export default defineComponent({
         {
           ...context,
         },
-        translation.value
+        translation.value.value
           .split('\uFFFF')
           .map((text) =>
-            text.startsWith('\uFFFE') ? childSlots[text.replace('\uFFFE', '')]?.() : text
+            text.startsWith('\uFFFE')
+              ? childSlots[text.replace('\uFFFE', '')]?.(camelizedAttrs.value)
+              : text
           ) as any
       )
   },

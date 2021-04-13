@@ -123,6 +123,33 @@ describe('component', () => {
     expect(mounted.html()).toEqual(`<span>Inner data ⁨<b>Inner text</b>⁩ test</span>`)
   })
 
+  it('interpolates components and provide camelized translation attributes', () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      key = Inner data {$child} test
+        .kebab-attr1 = Attribute: {$extra}
+      `)
+    )
+
+    const component = {
+      template: `
+        <i18n path="key" :args="{ extra: 'Extra' }">
+          <template #child="{ kebabAttr1 }">
+            <b>Inner text, {{ kebabAttr1 }}</b>
+          </template>
+        </i18n>`,
+    }
+
+    // Act
+    const mounted = mount(component, options)
+
+    // Assert
+    expect(mounted.html()).toEqual(
+      `<span>Inner data ⁨<b>Inner text, Attribute: ⁨Extra⁩</b>⁩ test</span>`
+    )
+  })
+
   it('warns about missing translation', () => {
     // Arrange
     bundle.addResource(
