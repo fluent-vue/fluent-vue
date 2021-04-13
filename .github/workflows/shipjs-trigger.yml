@@ -13,9 +13,10 @@ jobs:
         with:
           fetch-depth: 0
           ref: develop
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
           registry-url: "https://registry.npmjs.org"
+          node-version: '14'
       - run: |
           if [ -f "yarn.lock" ]; then
             yarn install
