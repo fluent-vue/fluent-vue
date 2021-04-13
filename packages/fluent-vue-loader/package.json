@@ -21,7 +21,6 @@
     "loader"
   ],
   "main": "dist/fluent-vue-loader.cjs.prod.js",
-  "module": "dist/fluent-vue-loader.esm.js",
   "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
   "repository": {
     "type": "git",

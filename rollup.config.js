@@ -23,15 +23,16 @@ let hasTSChecked = false
 const outputConfigs = {
   esm: {
     file: resolve(`dist/${name}.esm.js`),
-    format: `es`,
+    format: 'es',
   },
   cjs: {
     file: resolve(`dist/${name}.cjs.js`),
-    format: `cjs`,
+    format: 'cjs',
+    exports: 'auto',
   },
   global: {
     file: resolve(`dist/${name}.global.js`),
-    format: `iife`,
+    format: 'iife',
   },
 }
 
@@ -162,13 +163,17 @@ function createReplacePlugin(isProduction, isGlobalBuild, isNodeBuild) {
       replacements[key] = process.env[key]
     }
   })
-  return replace(replacements)
+  return replace({
+    preventAssignment: true,
+    values: replacements,
+  })
 }
 
 function createProductionConfig(format) {
   return createConfig(format, {
     file: resolve(`dist/${name}.${format}.prod.js`),
     format: outputConfigs[format].format,
+    exports: 'auto',
   })
 }
 
