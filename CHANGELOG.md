@@ -1,3 +1,14 @@
+
+## v3.0.0-beta.9 (2021-04-13)
+
+#### :star: New Features
+* `fluent-vue`
+  * [#472](https://github.com/Demivan/fluent-vue/pull/472) Pass message attributes as i18n component slots props ([@davidrios](https://github.com/davidrios))
+
+#### Committers: 2
+- David Rios ([@davidrios](https://github.com/davidrios))
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
 ## v3.0.0-beta.8 (2021-04-01)
 
 
