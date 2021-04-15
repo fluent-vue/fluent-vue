@@ -50,7 +50,7 @@
     "@rollup/plugin-node-resolve": "^11.2.1",
     "@rollup/plugin-replace": "^2.4.2",
     "@types/jest": "^26.0.22",
-    "@types/node": "14.14.37",
+    "@types/node": "14.14.39",
     "brotli": "^1.3.2",
     "chalk": "^4.1.0",
     "eslint": "^7.24.0",
