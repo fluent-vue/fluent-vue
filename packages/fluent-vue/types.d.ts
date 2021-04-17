@@ -1,6 +1,6 @@
 import { FluentResource } from '@fluent/bundle'
-
-export { useFluent, createFluentVue } from './index'
+import { FluentBundle } from '@fluent/bundle'
+import { FluentVariable } from '@fluent/bundle'
 
 declare module 'vue/types/vue' {
   interface Vue {
