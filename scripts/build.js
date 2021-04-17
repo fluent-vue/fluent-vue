@@ -28,7 +28,7 @@ const formats = args.formats || args.f
 const devOnly = args.devOnly || args.d
 const prodOnly = !devOnly && (args.prodOnly || args.p)
 const sourceMap = args.sourcemap || args.s
-const buildTypes = true
+const buildTypes = false
 const buildAllMatching = args.all || args.a
 const commit = execa.sync('git', ['rev-parse', 'HEAD']).stdout.slice(0, 7)
 

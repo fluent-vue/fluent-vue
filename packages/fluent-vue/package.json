@@ -22,11 +22,11 @@
   ],
   "main": "dist/fluent-vue.cjs.prod.js",
   "module": "dist/fluent-vue.esm.js",
-  "types": "dist/fluent-vue.d.ts",
+  "types": "src/types.d.ts",
   "sideEffects": false,
   "files": [
     "dist",
-    "src/types",
+    "src",
     "README.md"
   ],
   "buildOptions": {
