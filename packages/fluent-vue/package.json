@@ -47,7 +47,7 @@
     "vue-template-compiler": "~2.6.12"
   },
   "dependencies": {
-    "@fluent/langneg": "^0.5.1",
+    "@fluent/langneg": "^0.5.2",
     "@fluent/sequence": "^0.6.0",
     "cached-iterable": "^0.3.0",
     "tslib": "^2.2.0",
