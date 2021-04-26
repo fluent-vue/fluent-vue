@@ -20,7 +20,7 @@
     "parcel-bundler": "^1.12.3",
     "sass": "^1.30.0",
     "typescript": "^4.2.4",
-    "vue-tsc": "^0.0.24"
+    "vue-tsc": "^0.0.25"
   },
   "browserslist": [
     "last 1 Chrome versions"
