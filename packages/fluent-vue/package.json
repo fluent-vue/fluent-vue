@@ -22,7 +22,7 @@
   ],
   "main": "dist/fluent-vue.cjs.prod.js",
   "module": "dist/fluent-vue.esm.js",
-  "types": "types.d.ts",
+  "types": "dist/fluent-vue.d.ts",
   "sideEffects": false,
   "files": [
     "dist",
@@ -30,7 +30,10 @@
     "README.md"
   ],
   "buildOptions": {
-    "name": "FluentVue"
+    "name": "FluentVue",
+    "dts": [
+      "src/types/vue.d.ts"
+    ]
   },
   "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
   "repository": {
