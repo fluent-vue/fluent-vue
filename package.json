@@ -15,8 +15,9 @@
     "size": "node scripts/build.js -p -f global",
     "lint": "prettier --write --parser typescript \"packages/**/*.ts?(x)\"",
     "ls-lint": "ls-lint",
-    "test": "vue-demi-switch 2 && node scripts/build.js -f global -d && jest",
-    "test:3": "vue-demi-switch 3 vue3 && node scripts/build.js -f global -d && jest",
+    "test": "node scripts/swap-vue 3 && jest",
+    "test:2": "node scripts/swap-vue 2 && jest",
+    "test:3": "node scripts/swap-vue 3 && jest",
     "release": "shipjs prepare"
   },
   "gitHooks": {

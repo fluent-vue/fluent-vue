@@ -1,31 +1,22 @@
-import { install, nextTick } from 'vue-demi'
-import { createLocalVue, mount } from '@vue/test-utils'
-
+import { nextTick } from 'vue-demi'
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
-import { createFluentVue } from '../../src'
+import { mountWithFluent } from '../utils'
 
-install()
+import { createFluentVue, FluentVue } from '../../src'
 
 describe('component', () => {
-  let options: any
+  let fluent: FluentVue
   let bundle: FluentBundle
 
   beforeEach(() => {
-    const localVue = createLocalVue()
-
     bundle = new FluentBundle('en-US')
 
-    const fluent = createFluentVue({
+    fluent = createFluentVue({
       locale: 'en-US',
       bundles: [bundle],
     })
-    localVue.use(fluent)
-
-    options = {
-      localVue,
-    }
   })
 
   it('handles simple translations', () => {
@@ -41,7 +32,7 @@ describe('component', () => {
     }
 
     // Act
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     // Assert
     expect(mounted.html()).toEqual(`<span>Inner data</span>`)
@@ -67,7 +58,7 @@ describe('component', () => {
     }
 
     // Act
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     // Assert
     expect(mounted.html()).toEqual(`<div><b><span>Inner data</span></b></div>`)
@@ -92,7 +83,7 @@ describe('component', () => {
     }
 
     // Act
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     // Assert
     expect(mounted.html()).toEqual(`<div><b><span>Inner data</span></b></div>`)
@@ -116,7 +107,7 @@ describe('component', () => {
     }
 
     // Act
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     // Assert
     expect(mounted.html()).toEqual(`<span>Inner data ⁨<b>Inner text</b>⁩ test</span>`)
@@ -141,7 +132,7 @@ describe('component', () => {
     }
 
     // Act
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     // Assert
     expect(mounted.html()).toEqual(
@@ -170,7 +161,7 @@ describe('component', () => {
     }
 
     // Act
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     // Assert
     expect(mounted.html()).toEqual(`<span>missing-key</span>`)
@@ -200,7 +191,7 @@ describe('component', () => {
     }
 
     // Act
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     // Assert
     expect(mounted.html()).toEqual(`<span>Hello ⁨John⁩ ⁨<b>Inner text</b>⁩ test</span>`)
@@ -228,7 +219,7 @@ describe('component', () => {
         </i18n>`,
     }
 
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
     expect(mounted.html()).toEqual(`<span>Hello ⁨John⁩ ⁨<b>Inner text</b>⁩ test</span>`)
 
     // Act

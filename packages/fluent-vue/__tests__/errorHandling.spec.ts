@@ -1,16 +1,11 @@
-import { install } from 'vue-demi'
-import { createLocalVue, mount } from '@vue/test-utils'
-
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
+import { mountWithFluent } from './utils'
+
 import { createFluentVue } from '../src'
 
-install()
-
 describe('vue integration', () => {
-  const localVue = createLocalVue()
-
   const bundle = new FluentBundle('en-US')
 
   bundle.addResource(
@@ -24,11 +19,6 @@ describe('vue integration', () => {
     locale: 'en-US',
     bundles: [bundle],
   })
-  localVue.use(fluent)
-
-  const options = {
-    localVue,
-  }
 
   it('warns about missing translation', () => {
     // Arrange
@@ -40,7 +30,7 @@ describe('vue integration', () => {
     console.warn = warn
 
     // Act
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     // Assert
     expect(mounted.html()).toEqual(`<div>message-not-found</div>`)
@@ -63,7 +53,7 @@ describe('vue integration', () => {
     console.warn = warn
 
     // Act
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     // Assert
     expect(mounted.html()).toEqual(`<div>{NUMBER($arg)}</div>`)
