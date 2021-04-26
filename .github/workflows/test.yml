@@ -12,12 +12,13 @@ env:
 
 jobs:
   test:
-    name: "Test on Node.js ${{ matrix.node }} OS: ${{matrix.os}}"
+    name: "Test on Node.js ${{ matrix.node }} OS: ${{ matrix.os }} Vue: ${{matrix.vue}}"
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
         node: [14]
+        vue: [2, 3]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -25,10 +26,8 @@ jobs:
         uses: actions/setup-node@v2.1.5
         with:
           node-version: ${{ matrix.node }}
-      - name: Install
-        run: yarn install
       - name: Test
-        run: yarn test --coverage
+        run: yarn test:${{ matrix.vue }} --coverage
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
