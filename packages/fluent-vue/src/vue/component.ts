@@ -21,9 +21,7 @@ export default defineComponent({
     tag: { type: String, default: 'span' },
     args: { type: Object, default: () => ({}) },
   },
-  setup(props, context) {
-    const childSlots = context.slots
-
+  setup(props, { slots, attrs }) {
     const rootContext = inject(RootContextSymbol)!
     const instance = getCurrentInstance()
     const parent = getParentWithFluent(instance)
@@ -33,7 +31,7 @@ export default defineComponent({
       Object.assign(
         {},
         props.args,
-        ...Object.keys(childSlots).map((key) => ({
+        ...Object.keys(slots).map((key) => ({
           [key]: `\uFFFF\uFFFE${key}\uFFFF`,
         }))
       )
@@ -53,13 +51,13 @@ export default defineComponent({
       h(
         props.tag,
         {
-          ...context,
+          ...attrs,
         },
         translation.value.value
           .split('\uFFFF')
           .map((text) =>
             text.startsWith('\uFFFE')
-              ? childSlots[text.replace('\uFFFE', '')]?.(camelizedAttrs.value)
+              ? slots[text.replace('\uFFFE', '')]?.(camelizedAttrs.value)
               : text
           ) as any
       )
