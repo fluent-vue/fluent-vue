@@ -1,13 +1,12 @@
-import Vue from 'vue'
+import { install, nextTick } from 'vue-demi'
 import { createLocalVue, mount } from '@vue/test-utils'
-import VueCompositionApi from '@vue/composition-api'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
 import { createFluentVue } from '../../src'
 
-Vue.use(VueCompositionApi)
+install()
 
 describe('component', () => {
   let options: any
@@ -235,7 +234,7 @@ describe('component', () => {
     // Act
     const vm = mounted.vm as any
     vm.name = 'Alice'
-    await Vue.nextTick()
+    await nextTick()
 
     // Assert
     expect(mounted.html()).toEqual(`<span>Hello ⁨Alice⁩ ⁨<b>Inner text</b>⁩ test</span>`)

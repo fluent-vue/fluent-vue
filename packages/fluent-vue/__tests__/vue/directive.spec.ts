@@ -1,13 +1,12 @@
-import Vue from 'vue'
+import { install, nextTick } from 'vue-demi'
 import { createLocalVue, mount } from '@vue/test-utils'
-import VueCompositionApi from '@vue/composition-api'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
 import { createFluentVue } from '../../src'
 
-Vue.use(VueCompositionApi)
+install()
 
 describe('directive', () => {
   let options: any
@@ -206,7 +205,7 @@ describe('directive', () => {
     // Act
     mounted.setData({ name: 'Anna' })
 
-    await Vue.nextTick()
+    await nextTick()
 
     // Assert
     expect(mounted.html()).toEqual(`<a aria-label="Localized aria">Hello ⁨Anna⁩</a>`)
@@ -236,7 +235,7 @@ describe('directive', () => {
     // Act
     mounted.setData({ otherName: 'Test' })
 
-    await Vue.nextTick()
+    await nextTick()
 
     // Assert
     expect(mounted.html()).toEqual(`<a aria-label="Hello ⁨John⁩">Test</a>`)

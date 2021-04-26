@@ -1,13 +1,12 @@
-import Vue from 'vue'
+import { install, nextTick } from 'vue-demi'
 import { createLocalVue, mount } from '@vue/test-utils'
-import VueCompositionApi from '@vue/composition-api'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
 import { createFluentVue } from '../src'
 
-Vue.use(VueCompositionApi)
+install()
 
 describe('language change', () => {
   let options: any
@@ -112,7 +111,7 @@ describe('language change', () => {
 
     fluent.locale = 'en'
 
-    await Vue.nextTick()
+    await nextTick()
 
     // Assert
     expect(mounted.html()).toEqual(`<a href="/foo">link text</a>`)
@@ -154,7 +153,7 @@ describe('language change', () => {
     fluent.bundles = fluent.bundles.concat(bundleUk)
     fluent.locale = 'uk'
 
-    await Vue.nextTick()
+    await nextTick()
 
     // Assert
     expect(mounted.html()).toEqual(`<a href="/foo">текст посилання</a>`)
@@ -214,7 +213,7 @@ describe('language change', () => {
 
     fluent.locale = 'en'
 
-    await Vue.nextTick()
+    await nextTick()
 
     // Assert
     expect(mounted.html()).toEqual(`<div><span>link text</span><span>Child message</span></div>`)
