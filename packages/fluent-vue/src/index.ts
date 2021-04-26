@@ -1,5 +1,5 @@
 import { isVue3, ref, provide, Ref } from 'vue-demi'
-import { TranslationContext } from './TranslationContext'
+import { TranslationContext, TranslationWithAttrs } from './TranslationContext'
 import { createVue2Directive, createVue3Directive } from './vue/directive'
 import component from './vue/component'
 import { getContext } from './composition'
@@ -25,11 +25,13 @@ export interface FluentVue {
 
   formatAttrs(key: string, value?: Record<string, FluentVariable>): Record<string, string>
 
+  formatWithAttrs(key: string, value?: Record<string, FluentVariable>): TranslationWithAttrs
+
   install(vue: any): void
 }
 
 /**
- * Creates FluentVue instance that can bu used on a Vue app.
+ * Creates FluentVue instance that can be used on a Vue app.
  *
  * @param options - {@link FluentVueOptions}
  */
@@ -56,6 +58,7 @@ export function createFluentVue(options: FluentVueOptions): FluentVue {
 
     format: rootContext.format.bind(rootContext),
     formatAttrs: rootContext.formatAttrs.bind(rootContext),
+    formatWithAttrs: rootContext.formatWithAttrs.bind(rootContext),
 
     install(vue: any) {
       if (isVue3) {

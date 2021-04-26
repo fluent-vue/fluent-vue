@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "parcel serve public/index.html",
-    "build": "parcel build public/index.html"
+    "build": "parcel build public/index.html",
+    "typecheck": "vue-tsc"
   },
   "dependencies": {
     "@fluent/bundle": "^0.16.1",
@@ -17,7 +18,9 @@
   "devDependencies": {
     "@vue/component-compiler-utils": "^3.0.0",
     "parcel-bundler": "^1.12.3",
-    "sass": "^1.30.0"
+    "sass": "^1.30.0",
+    "typescript": "^4.2.4",
+    "vue-tsc": "^0.0.24"
   },
   "browserslist": [
     "last 1 Chrome versions"

@@ -26,11 +26,13 @@
   "sideEffects": false,
   "files": [
     "dist",
-    "src/types",
     "README.md"
   ],
   "buildOptions": {
-    "name": "FluentVue"
+    "name": "FluentVue",
+    "dts": [
+      "src/types/vue.d.ts"
+    ]
   },
   "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
   "repository": {
