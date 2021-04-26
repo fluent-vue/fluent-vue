@@ -5,7 +5,8 @@
     "noEmit": true,
     "lib": [
       "ES2015",
-      "DOM"
+      "DOM",
+      "ESNext"
     ],
     "module": "es2015",
     "moduleResolution": "node",
