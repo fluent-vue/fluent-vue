@@ -38,6 +38,25 @@ describe('component', () => {
     expect(mounted.html()).toEqual(`<span>Inner data</span>`)
   })
 
+  it('preserves attributes', () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      key = Inner data
+      `)
+    )
+
+    const component = {
+      template: '<i18n path="key" class="component"></i18n>',
+    }
+
+    // Act
+    const mounted = mountWithFluent(fluent, component)
+
+    // Assert
+    expect(mounted.html()).toEqual(`<span class="component">Inner data</span>`)
+  })
+
   it('works with grandparent translations', () => {
     // Arrange
     bundle.addResource(
