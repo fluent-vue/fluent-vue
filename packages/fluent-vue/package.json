@@ -26,7 +26,6 @@
   "sideEffects": false,
   "files": [
     "dist",
-    "types.d.ts",
     "README.md"
   ],
   "buildOptions": {
