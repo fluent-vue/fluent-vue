@@ -1,35 +1,24 @@
-import Vue from 'vue'
-import { createLocalVue, mount } from '@vue/test-utils'
-import VueCompositionApi from '@vue/composition-api'
-
+import { nextTick } from 'vue-demi'
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
-import { createFluentVue } from '../src'
+import { mountWithFluent } from './utils'
 
-Vue.use(VueCompositionApi)
+import { createFluentVue, FluentVue } from '../src'
 
 describe('language change', () => {
-  let options: any
+  let fluent: FluentVue
   let bundleEn: FluentBundle
   let bundleUk: FluentBundle
 
   beforeEach(() => {
-    const localVue = createLocalVue()
-
     bundleEn = new FluentBundle('en-US')
     bundleUk = new FluentBundle('uk-UA')
 
-    const fluent = createFluentVue({
+    fluent = createFluentVue({
       locale: ['uk-UA', 'en-US'],
       bundles: [bundleUk, bundleEn],
     })
-
-    localVue.use(fluent)
-
-    options = {
-      localVue,
-    }
   })
 
   it('can work with multiple bundles', () => {
@@ -51,7 +40,7 @@ describe('language change', () => {
     }
 
     // Act
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     // Assert
     expect(mounted.html()).toEqual(`<a href="/foo">текст посилання</a>`)
@@ -70,7 +59,7 @@ describe('language change', () => {
     }
 
     // Act
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     // Assert
     expect(mounted.html()).toEqual(`<a href="/foo">link text</a>`)
@@ -78,8 +67,6 @@ describe('language change', () => {
 
   it('updates when changing current locale', async () => {
     // Arrange
-    const localVue = createLocalVue()
-
     bundleEn = new FluentBundle('en-US')
     bundleUk = new FluentBundle('uk-UA')
 
@@ -87,7 +74,6 @@ describe('language change', () => {
       locale: 'uk-UA',
       bundles: [bundleUk, bundleEn],
     })
-    localVue.use(fluent)
 
     bundleEn.addResource(
       new FluentResource(ftl`
@@ -106,13 +92,13 @@ describe('language change', () => {
     }
 
     // Act
-    const mounted = mount(component, { localVue })
+    const mounted = mountWithFluent(fluent, component)
 
     expect(mounted.html()).toEqual(`<a href="/foo">текст посилання</a>`)
 
     fluent.locale = 'en'
 
-    await Vue.nextTick()
+    await nextTick()
 
     // Assert
     expect(mounted.html()).toEqual(`<a href="/foo">link text</a>`)
@@ -120,15 +106,12 @@ describe('language change', () => {
 
   it('works when dynamically adding bundles', async () => {
     // Arrange
-    const localVue = createLocalVue()
-
     bundleEn = new FluentBundle('en-US')
 
     const fluent = createFluentVue({
       locale: 'en-US',
       bundles: [bundleEn],
     })
-    localVue.use(fluent)
 
     bundleEn.addResource(
       new FluentResource(ftl`
@@ -147,14 +130,14 @@ describe('language change', () => {
       template: `<a v-t:link href="/foo">Fallback text</a>`,
     }
 
-    const mounted = mount(component, { localVue })
+    const mounted = mountWithFluent(fluent, component)
     expect(mounted.html()).toEqual(`<a href="/foo">link text</a>`)
 
     // Act
     fluent.bundles = fluent.bundles.concat(bundleUk)
     fluent.locale = 'uk'
 
-    await Vue.nextTick()
+    await nextTick()
 
     // Assert
     expect(mounted.html()).toEqual(`<a href="/foo">текст посилання</a>`)
@@ -162,8 +145,6 @@ describe('language change', () => {
 
   it('updates child components with overrides', async () => {
     // Arrange
-    const localVue = createLocalVue()
-
     bundleEn = new FluentBundle('en-US')
     bundleUk = new FluentBundle('uk-UA')
 
@@ -171,7 +152,6 @@ describe('language change', () => {
       locale: 'uk-UA',
       bundles: [bundleUk, bundleEn],
     })
-    localVue.use(fluent)
 
     bundleEn.addResource(
       new FluentResource(ftl`
@@ -204,9 +184,7 @@ describe('language change', () => {
     }
 
     // Act
-    const mounted = mount(component, {
-      localVue,
-    })
+    const mounted = mountWithFluent(fluent, component)
 
     expect(mounted.html()).toEqual(
       `<div><span>текст посилання</span><span>Повідомлення</span></div>`
@@ -214,7 +192,7 @@ describe('language change', () => {
 
     fluent.locale = 'en'
 
-    await Vue.nextTick()
+    await nextTick()
 
     // Assert
     expect(mounted.html()).toEqual(`<div><span>link text</span><span>Child message</span></div>`)

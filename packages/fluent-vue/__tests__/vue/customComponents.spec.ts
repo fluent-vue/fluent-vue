@@ -1,32 +1,21 @@
-import Vue from 'vue'
-import { createLocalVue, mount } from '@vue/test-utils'
-import VueCompositionApi from '@vue/composition-api'
-
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
-import { createFluentVue } from '../../src'
+import { mountWithFluent } from '../utils'
 
-Vue.use(VueCompositionApi)
+import { createFluentVue, FluentVue } from '../../src'
 
 describe('method', () => {
-  let options: any
+  let fluent: FluentVue
   let bundle: FluentBundle
 
   beforeEach(() => {
-    const localVue = createLocalVue()
-
     bundle = new FluentBundle('en-US')
 
-    const fluent = createFluentVue({
+    fluent = createFluentVue({
       locale: 'en-US',
       bundles: [bundle],
     })
-    localVue.use(fluent)
-
-    options = {
-      localVue,
-    }
   })
 
   it('works with vue components', () => {
@@ -54,7 +43,7 @@ describe('method', () => {
     }
 
     // Act
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     // Assert
     expect(mounted.html()).toEqual(`<div attr="Attr value">Inner data</div>`)
@@ -74,7 +63,7 @@ describe('method', () => {
     }
 
     // Act
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     // Assert
     expect(mounted.html()).toEqual(`<div attr="Attr value"></div>`)
@@ -94,7 +83,7 @@ describe('method', () => {
     }
 
     // Act
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     // Assert
     expect(mounted.html()).toEqual(`<div kebab-attr="Attr value"></div>`)
@@ -117,7 +106,7 @@ describe('method', () => {
     }
 
     // Act
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     // Assert
     expect(mounted.html()).toEqual(`<div></div>`)

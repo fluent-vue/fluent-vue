@@ -43,10 +43,9 @@
   "devDependencies": {
     "@fluent/bundle": "~0.16.1",
     "@fluent/dedent": "~0.3.0",
-    "@vue/composition-api": "^1.0.0-rc.7",
-    "@vue/test-utils": "~1.1.4",
-    "vue": "^2.6.12",
-    "vue-template-compiler": "~2.6.12"
+    "vue": "^3.0.11",
+    "@vue/compiler-sfc": "^3.0.11",
+    "@vue/test-utils": "^2.0.0-beta.2"
   },
   "dependencies": {
     "@fluent/langneg": "^0.5.2",

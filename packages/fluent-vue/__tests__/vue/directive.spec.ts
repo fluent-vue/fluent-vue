@@ -1,32 +1,22 @@
-import Vue from 'vue'
-import { createLocalVue, mount } from '@vue/test-utils'
-import VueCompositionApi from '@vue/composition-api'
-
+import { nextTick } from 'vue-demi'
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
-import { createFluentVue } from '../../src'
+import { mountWithFluent } from '../utils'
 
-Vue.use(VueCompositionApi)
+import { createFluentVue, FluentVue } from '../../src'
 
 describe('directive', () => {
-  let options: any
+  let fluent: FluentVue
   let bundle: FluentBundle
 
   beforeEach(() => {
-    const localVue = createLocalVue()
-
     bundle = new FluentBundle('en-US')
 
-    const fluent = createFluentVue({
+    fluent = createFluentVue({
       locale: 'en-US',
       bundles: [bundle],
     })
-    localVue.use(fluent)
-
-    options = {
-      localVue,
-    }
   })
 
   it('translates text content', () => {
@@ -45,7 +35,7 @@ describe('directive', () => {
     }
 
     // Act
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     // Assert
     expect(mounted.html()).toEqual(`<a href="/foo">Link text</a>`)
@@ -61,7 +51,7 @@ describe('directive', () => {
     console.warn = warn
 
     // Act
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     // Assert
     expect(mounted.html()).toEqual(`<a href="/foo">Fallback text</a>`)
@@ -81,7 +71,7 @@ describe('directive', () => {
     console.warn = warn
 
     // Act
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     // Assert
     expect(mounted.html()).toEqual(`<a href="/foo">Fallback text</a>`)
@@ -107,7 +97,7 @@ describe('directive', () => {
     }
 
     // Act
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     // Assert
     expect(mounted.html()).toEqual(`<a href="/foo">Hello ⁨John⁩</a>`)
@@ -130,7 +120,7 @@ describe('directive', () => {
     }
 
     // Act
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     // Assert
     expect(mounted.html()).toEqual(`<a href="/foo" aria-label="Localized aria">Hello ⁨John⁩</a>`)
@@ -154,7 +144,7 @@ describe('directive', () => {
     }
 
     // Act
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     // Assert
     expect(mounted.html()).toEqual(`<a aria-label="Hello ⁨John⁩">Text</a>`)
@@ -177,7 +167,7 @@ describe('directive', () => {
     }
 
     // Act
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     // Assert
     expect(mounted.html()).toEqual(`<a aria-label="Localized aria">Hello ⁨John⁩</a>`)
@@ -199,14 +189,14 @@ describe('directive', () => {
       template: `<a v-t:link.aria-label="{ name }"></a>`,
     }
 
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     expect(mounted.html()).toEqual(`<a aria-label="Localized aria">Hello ⁨John⁩</a>`)
 
     // Act
     mounted.setData({ name: 'Anna' })
 
-    await Vue.nextTick()
+    await nextTick()
 
     // Assert
     expect(mounted.html()).toEqual(`<a aria-label="Localized aria">Hello ⁨Anna⁩</a>`)
@@ -229,14 +219,14 @@ describe('directive', () => {
       template: `<a v-t:link.aria-label="{ name }">{{ otherName }}</a>`,
     }
 
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     expect(mounted.html()).toEqual(`<a aria-label="Hello ⁨John⁩">Anna</a>`)
 
     // Act
     mounted.setData({ otherName: 'Test' })
 
-    await Vue.nextTick()
+    await nextTick()
 
     // Assert
     expect(mounted.html()).toEqual(`<a aria-label="Hello ⁨John⁩">Test</a>`)
@@ -260,7 +250,7 @@ describe('directive', () => {
     }
 
     // Act
-    const mounted = mount(component, options)
+    const mounted = mountWithFluent(fluent, component)
 
     // Assert
     expect(mounted.html()).toEqual(
