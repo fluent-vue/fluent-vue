@@ -9,7 +9,7 @@
   "dependencies": {
     "@fluent/bundle": "^0.16.1",
     "@fluent/dedent": "^0.3.0",
-    "@vue/composition-api": "^1.0.0-rc.7",
+    "@vue/composition-api": "^1.0.0-rc.8",
     "fluent-vue": "file:../../packages/fluent-vue",
     "vue": "~2.6.12",
     "vue-hot-reload-api": "^2.3.3"
