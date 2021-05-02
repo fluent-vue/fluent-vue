@@ -11,7 +11,7 @@ import { format } from 'date-fns'
 
 const bundle = new FluentBundle('en', {
   functions: {
-    DATEFNS(positionalArgs, nameArgs) {
+    DATEFNS(positionalArgs, namedArgs) {
       const [date, formatString] = positionalArgs
       return format(new Date(date), formatString)
     },
