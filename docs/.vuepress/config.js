@@ -12,6 +12,11 @@ module.exports = {
       'instalation',
       'api',
       {
+        title: 'HOWTO',
+        children: ['/howto/date-time'],
+        collapsable: false,
+      },
+      {
         title: 'Integrations',
         children: ['/integrations/webpack', '/integrations/vite'],
         collapsable: false,
