@@ -4,7 +4,6 @@
 
 ```js
 import vue from '@vitejs/plugin-vue'
-import { parse as parseUrl } from 'url'
 
 const fluentPlugin = {
   name: 'fluent-vue',
@@ -13,11 +12,12 @@ const fluentPlugin = {
       return
     }
 
-    const request = parseUrl(id)
-    const query = new URLSearchParams(request.search)
+    const [filename, rawQuery] = id.split('?', 2)
+    const query = new URLSearchParams(rawQuery)
 
     return `
 import { FluentResource } from '@fluent/bundle'
+
 export default function (Component) {
   Component.fluent = Component.fluent || {}
   Component.fluent['${query.get('locale')}'] = new FluentResource(\`${code}\`)
