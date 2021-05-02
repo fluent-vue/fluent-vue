@@ -13,7 +13,7 @@ module.exports = {
       'api',
       {
         title: 'HOWTO',
-        children: ['/howto/date-time'],
+        children: ['/howto/date-time', '/howto/access-outside-of-component'],
         collapsable: false,
       },
       {

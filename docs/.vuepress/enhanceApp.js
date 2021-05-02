@@ -17,12 +17,12 @@ const bundle = new FluentBundle('en', {
     },
   },
 })
-// #endregion datefns
 
 const fluent = createFluentVue({
   locale: 'en',
   bundles: [bundle],
 })
+// #endregion datefns
 
 export default ({ Vue }) => {
   Vue.use(fluent)
