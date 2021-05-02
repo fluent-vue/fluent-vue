@@ -1,6 +1,4 @@
-# Integrations
-
-## Webpack
+# Webpack
 
 `fluent-vue-loader` allows to use `i18n` custom blocks in your single file componens.
 

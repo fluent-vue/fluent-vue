@@ -7,7 +7,16 @@ module.exports = {
     editLinks: true,
     smoothScroll: true,
     displayAllHeaders: true,
-    sidebar: ['introduction', 'instalation', 'api', 'integrations'],
+    sidebar: [
+      'introduction',
+      'instalation',
+      'api',
+      {
+        title: 'Integrations',
+        children: ['/integrations/webpack', '/integrations/vite'],
+        collapsable: false,
+      },
+    ],
   },
   chainWebpack: (config) => {
     config.module
