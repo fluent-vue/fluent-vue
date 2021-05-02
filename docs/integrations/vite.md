@@ -9,7 +9,7 @@ import { parse as parseUrl } from 'url'
 const fluentPlugin = {
   name: 'fluent-vue',
   transform(code, id) {
-    if (!/vue&type=i18n/.test(id)) {
+    if (!/vue&type=fluent/.test(id)) {
       return
     }
 

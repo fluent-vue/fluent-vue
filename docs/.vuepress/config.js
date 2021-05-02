@@ -21,7 +21,7 @@ module.exports = {
   chainWebpack: (config) => {
     config.module
       .rule('fluent-vue')
-      .resourceQuery(/blockType=i18n/)
+      .resourceQuery(/blockType=fluent/)
       .use('fluent-vue')
       .loader('fluent-vue-loader')
   },

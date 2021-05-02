@@ -7,7 +7,7 @@ module.exports = {
     })
 
     config.module.rules.push({
-      resourceQuery: /blockType=i18n/,
+      resourceQuery: /blockType=fluent/,
       loader: 'fluent-vue-loader',
     })
   },

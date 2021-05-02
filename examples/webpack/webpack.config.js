@@ -11,7 +11,7 @@ module.exports = {
         type: 'javascript/esm',
       },
       {
-        resourceQuery: /blockType=i18n/,
+        resourceQuery: /blockType=fluent/,
         loader: 'fluent-vue-loader',
       },
       {

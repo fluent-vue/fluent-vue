@@ -15,7 +15,7 @@ export default {
 }
 </script>
 
-<i18n locale="en">
+<fluent locale="en">
 today = Today is {{ DATETIME($now, day: "numeric", month: "long") }}
 now = It is {{ DATETIME($now, hour: "numeric", minute: "numeric") }}
-</i18n>
+</fluent>

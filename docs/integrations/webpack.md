@@ -1,6 +1,6 @@
 # Webpack
 
-`fluent-vue-loader` allows to use `i18n` custom blocks in your single file componens.
+`fluent-vue-loader` allows to use custom blocks in your single file componens.
 
 Example:
 
@@ -31,7 +31,7 @@ module.exports = {
   module: {
     rules: [
       {
-        resourceQuery: /blockType=i18n/,
+        resourceQuery: /blockType=fluent/,
         loader: 'fluent-vue-loader',
       },
       // ...
