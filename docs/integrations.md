@@ -11,6 +11,7 @@ Example:
 1. Install `fluent-vue-loader` package
 
 <code-group>
+
 <code-block title="YARN" active>
 ```bash
 yarn add fluent-vue-loader --dev
@@ -22,6 +23,7 @@ yarn add fluent-vue-loader --dev
 npm install fluent-vue-loader --save-dev
 ```
 </code-block>
+
 </code-group>
 
 2. Configure Webpack

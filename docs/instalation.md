@@ -24,6 +24,7 @@ import { createFluentVue } from 'fluent-vue'
 Add `fluent-vue` and `@fluent/bundle` to your project.
 
 <code-group>
+
 <code-block title="YARN" active>
 ```bash
 yarn add fluent-vue @fluent/bundle
@@ -35,6 +36,7 @@ yarn add fluent-vue @fluent/bundle
 npm install fluent-vue @fluent/bundle
 ```
 </code-block>
+
 </code-group>
 
 #### Note:
