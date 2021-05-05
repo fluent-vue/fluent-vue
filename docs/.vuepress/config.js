@@ -7,12 +7,26 @@ module.exports = {
     editLinks: true,
     smoothScroll: true,
     displayAllHeaders: true,
-    sidebar: ['introduction', 'instalation', 'api', 'integrations'],
+    sidebar: [
+      'introduction',
+      'instalation',
+      'api',
+      {
+        title: 'HOWTO',
+        children: ['/howto/date-time', '/howto/access-outside-of-component'],
+        collapsable: false,
+      },
+      {
+        title: 'Integrations',
+        children: ['/integrations/webpack', '/integrations/vite'],
+        collapsable: false,
+      },
+    ],
   },
   chainWebpack: (config) => {
     config.module
       .rule('fluent-vue')
-      .resourceQuery(/blockType=i18n/)
+      .resourceQuery(/blockType=fluent/)
       .use('fluent-vue')
       .loader('fluent-vue-loader')
   },

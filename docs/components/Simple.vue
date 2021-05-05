@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<i18n locale="en">
+<fluent locale="en">
 # Simple things are simple.
 hello-user = Hello, {$userName}!
 
@@ -30,5 +30,5 @@ shared-photos =
      [female] her stream
     *[other] their stream
   }.
-</i18n>
+</fluent>
 // #endregion snippet

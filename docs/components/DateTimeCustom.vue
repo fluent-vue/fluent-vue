@@ -18,6 +18,6 @@ export default {
 
 <fluent locale="en">
 default = Now is {{ $now }}
-today = Today is {{ DATETIME($now, day: "numeric", month: "long", year: "numeric") }}
-now = It is {{ DATETIME($now, hour: "numeric", minute: "numeric") }}
+today = Today is {{ DATEFNS($now, "PP") }}
+now = It is {{ DATEFNS($now, "p") }}
 </fluent>

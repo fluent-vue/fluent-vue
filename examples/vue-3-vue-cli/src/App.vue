@@ -37,9 +37,9 @@ const fluent = useFluent()
 const username = fluent.$t('user-name')
 </script>
 
-<i18n locale="en">
+<fluent locale="en">
 user-name = World
 aria-key = Aria value
 greeting = Hello, {$name}
   .aria-label = Label value
-</i18n>
+</fluent>

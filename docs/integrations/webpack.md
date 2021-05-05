@@ -1,8 +1,6 @@
-# Integrations
+# Webpack
 
-## Webpack
-
-`fluent-vue-loader` allows to use `i18n` custom blocks in your single file componens.
+`fluent-vue-loader` allows to use custom blocks in your single file componens.
 
 Example:
 
@@ -11,6 +9,7 @@ Example:
 1. Install `fluent-vue-loader` package
 
 <code-group>
+
 <code-block title="YARN" active>
 ```bash
 yarn add fluent-vue-loader --dev
@@ -22,6 +21,7 @@ yarn add fluent-vue-loader --dev
 npm install fluent-vue-loader --save-dev
 ```
 </code-block>
+
 </code-group>
 
 2. Configure Webpack
@@ -31,7 +31,7 @@ module.exports = {
   module: {
     rules: [
       {
-        resourceQuery: /blockType=i18n/,
+        resourceQuery: /blockType=fluent/,
         loader: 'fluent-vue-loader',
       },
       // ...

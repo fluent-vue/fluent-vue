@@ -10,20 +10,16 @@
   - `Intl.NumberFormat` (standard, well-supported)
   - `Intl.PluralRules` (standard, new in ECMAScript 2018)
 
-`Intl.PluralRules` may already be available in some engines.  In most cases,
-however, a polyfill will be required. We recommend [intl-pluralrules](https://www.npmjs.com/package/intl-pluralrules).
-
-```javascript
-import 'intl-pluralrules'
-import { FluentBundle } from '@fluent/bundle'
-import { createFluentVue } from 'fluent-vue'
-```
+`Intl.PluralRules` may already be available in some engines. In most cases,
+however, a polyfill will be required. We recommend [polyfill.io](https://polyfill.io).
+It allows to only include polyfill on browsers where it is needed.
 
 ## Install npm packages
 
 Add `fluent-vue` and `@fluent/bundle` to your project.
 
 <code-group>
+
 <code-block title="YARN" active>
 ```bash
 yarn add fluent-vue @fluent/bundle
@@ -35,6 +31,7 @@ yarn add fluent-vue @fluent/bundle
 npm install fluent-vue @fluent/bundle
 ```
 </code-block>
+
 </code-group>
 
 #### Note:

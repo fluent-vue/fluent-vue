@@ -3,6 +3,11 @@
     "start": "vuepress dev",
     "build": "vuepress build"
   },
+  "dependencies": {
+    "@vue/composition-api": "^1.0.0-rc.8",
+    "date-fns": "^2.21.1",
+    "fluent-vue": "file:../packages/fluent-vue"
+  },
   "devDependencies": {
     "vuepress": "^1.7.1"
   }

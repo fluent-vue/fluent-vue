@@ -1,3 +1,8 @@
+# Vite
+
+Vite plugin is planned, but for now it is easy to add support for custom blocks using custom plugin:
+
+```js
 import vue from '@vitejs/plugin-vue'
 
 const fluentPlugin = {
@@ -26,3 +31,4 @@ export default {
   },
   plugins: [vue(), fluentPlugin],
 }
+```

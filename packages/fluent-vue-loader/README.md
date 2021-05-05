@@ -32,7 +32,7 @@ module.exports = {
     rules: [
       // ...
       {
-        resourceQuery: /blockType=i18n/,
+        resourceQuery: /blockType=fluent/,
         loader: 'fluent-vue-loader',
       },
       // ...
@@ -43,7 +43,7 @@ module.exports = {
 
 ## Example
 
-Example of `App.vue` with `i18n` custom block:
+Example of `App.vue` with custom block:
 
 ```vue
 <template>
@@ -56,7 +56,7 @@ export default {
 }
 </script>
 
-<i18n locale="en">
+<fluent locale="en">
 hello = hello world!
-</i18n>
+</fluent>
 ```
