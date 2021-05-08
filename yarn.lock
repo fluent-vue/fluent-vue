@@ -323,10 +323,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@eslint/eslintrc@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-0.4.0.tgz#99cc0a0584d72f1df38b900fb062ba995f395547"
-  integrity sha512-2ZPCc+uNbjV5ERJr+aKSPRwZgKd2z11x0EgLvb1PURmUrn9QNRXFqje0Ldq454PfAVyaJYyrDvvIKSFP4NnBog==
+"@eslint/eslintrc@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-0.4.1.tgz#442763b88cecbe3ee0ec7ca6d6dd6168550cbf14"
+  integrity sha512-5v7TDE9plVhvxQeWLXDTvFvJBdH6pEsdnl2g/dAptmuFEPedQ4Erq5rsDsX+mvAM610IhNaO2W5V1dOOnDKxkQ==
   dependencies:
     ajv "^6.12.4"
     debug "^4.1.1"
@@ -550,24 +550,24 @@
   resolved "https://registry.yarnpkg.com/@ls-lint/ls-lint/-/ls-lint-1.9.2.tgz#689f1f4c06072823a726802ba167340efcefe19c"
   integrity sha512-sugEjWjSSy9OHF6t1ZBLZCAROj52cZthB9dIePmzZzzMwmWwy3qAEMSdJheHeS1FOwDZI7Ipm1H/bWgzJNnSAw==
 
-"@microsoft/api-extractor-model@7.13.0":
-  version "7.13.0"
-  resolved "https://registry.yarnpkg.com/@microsoft/api-extractor-model/-/api-extractor-model-7.13.0.tgz#11327c1ab32939a375596859a27ec256eb17d68e"
-  integrity sha512-HnIbXpNiF/a+tTnGVJFq4aaxWEGI5XN7vpm1YjNLc+CY5C0s/bdT0LV9o9NzWSpQdHVUaYhQEVLviaDpusu6dg==
+"@microsoft/api-extractor-model@7.13.1":
+  version "7.13.1"
+  resolved "https://registry.yarnpkg.com/@microsoft/api-extractor-model/-/api-extractor-model-7.13.1.tgz#6dd9c4bd49b5d0d32b44c564a94c34b3c3aa2a87"
+  integrity sha512-PKAjDmAJ6X07tvqCHSN1PRaKq8bZQXF9QI6WGEMnCHNFWwXUoITOAcvFW0Ol3TzwHO5rLbuy/CqWebfhv8eOtw==
   dependencies:
     "@microsoft/tsdoc" "0.13.2"
     "@microsoft/tsdoc-config" "~0.15.2"
-    "@rushstack/node-core-library" "3.36.2"
+    "@rushstack/node-core-library" "3.37.0"
 
-"@microsoft/api-extractor@^7.15.0":
-  version "7.15.0"
-  resolved "https://registry.yarnpkg.com/@microsoft/api-extractor/-/api-extractor-7.15.0.tgz#138311dd8187b70b1a1dfb943c69f96310815f5c"
-  integrity sha512-VN6YUwV+xzdmBV9yTb0dVd3XbdKsCQy4KYzsoIdUCs0oVt61X1gVNF7Nk+0NOroI6j+UghtD6w5meh2nuA9KMg==
+"@microsoft/api-extractor@^7.15.1":
+  version "7.15.1"
+  resolved "https://registry.yarnpkg.com/@microsoft/api-extractor/-/api-extractor-7.15.1.tgz#c3791933367ddded72a2f1d3c437e17fa050eac5"
+  integrity sha512-PYbGAvxbM5B6HbafXY7tJ4ObYpeUZrZFt9vlN68tpYG/7aeldMLAZSjTyB30VFXaGlArjeEooKZIcs2ZnVAbNg==
   dependencies:
-    "@microsoft/api-extractor-model" "7.13.0"
+    "@microsoft/api-extractor-model" "7.13.1"
     "@microsoft/tsdoc" "0.13.2"
     "@microsoft/tsdoc-config" "~0.15.2"
-    "@rushstack/node-core-library" "3.36.2"
+    "@rushstack/node-core-library" "3.37.0"
     "@rushstack/rig-package" "0.2.12"
     "@rushstack/ts-command-line" "4.7.10"
     colors "~1.2.1"
@@ -784,10 +784,10 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
-"@rushstack/node-core-library@3.36.2":
-  version "3.36.2"
-  resolved "https://registry.yarnpkg.com/@rushstack/node-core-library/-/node-core-library-3.36.2.tgz#ba00d313577f9b06d5aafaa29da0d94e594874c0"
-  integrity sha512-5J8xSY/PuCKR+yfxS497l0PP43kBUeD86S4eS3RzrmMle04J4522MWal8mk1T1EIDpYpgi8qScannU9oVxoStA==
+"@rushstack/node-core-library@3.37.0":
+  version "3.37.0"
+  resolved "https://registry.yarnpkg.com/@rushstack/node-core-library/-/node-core-library-3.37.0.tgz#6e8ebfdbe2829d380bc827bbb450361fb48e142c"
+  integrity sha512-b0OGvl20zfepytLBnKsOtemtiadNZAVolXxaSYssV9VjXaLPF97oLvtLfwc58BX05ufIsrKZgXatnRo8YeffNg==
   dependencies:
     "@types/node" "10.17.13"
     colors "~1.2.1"
@@ -1526,11 +1526,6 @@ asynckit@^0.4.0:
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha1-x57Zf380y48robyXkLzDZkdLS3k=
 
-at-least-node@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/at-least-node/-/at-least-node-1.0.0.tgz#602cd4b46e844ad4effc92a8011a3c46e0238dc2"
-  integrity sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==
-
 atob@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
@@ -1886,15 +1881,7 @@ chalk@^3.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-chalk@^4.0.0, chalk@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.0.tgz#4e14870a618d9e2edd97dd8345fd9d9dc315646a"
-  integrity sha512-qwx12AxXe2Q5xQ43Ac//I6v5aXTipYrSESdOgzrN+9XjgEpyjpKuvSGaN4qE93f7TQTlerQQ8S+EQ0EyDoVL1A==
-  dependencies:
-    ansi-styles "^4.1.0"
-    supports-color "^7.1.0"
-
-chalk@^4.1.1:
+chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.1.tgz#c80b3fab28bf6371e6863325eee67e618b77e6ad"
   integrity sha512-diHzdDKxcU+bAsUboHLPEDQiw0qEe0qd7SYUn3HgcFlWgbDcfLGswOHYeGrHKzG9z6UYf01d9VFMfZxPM1xZSg==
@@ -2644,13 +2631,13 @@ eslint-visitor-keys@^2.0.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-2.0.0.tgz#21fdc8fbcd9c795cc0321f0563702095751511a8"
   integrity sha512-QudtT6av5WXels9WjIM7qz1XD1cWGvX4gGXvp/zBn9nXG02D0utdU3Em2m/QjTnrsk6bBjmCygl3rmj118msQQ==
 
-eslint@^7.25.0:
-  version "7.25.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.25.0.tgz#1309e4404d94e676e3e831b3a3ad2b050031eb67"
-  integrity sha512-TVpSovpvCNpLURIScDRB6g5CYu/ZFq9GfX2hLNIV4dSBKxIWojeDODvYl3t0k0VtMxYeR8OXPCFE5+oHMlGfhw==
+eslint@^7.26.0:
+  version "7.26.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.26.0.tgz#d416fdcdcb3236cd8f282065312813f8c13982f6"
+  integrity sha512-4R1ieRf52/izcZE7AlLy56uIHHDLT74Yzz2Iv2l6kDaYvEu9x+wMB5dZArVL8SYGXSYV2YAg70FcW5Y5nGGNIg==
   dependencies:
     "@babel/code-frame" "7.12.11"
-    "@eslint/eslintrc" "^0.4.0"
+    "@eslint/eslintrc" "^0.4.1"
     ajv "^6.10.0"
     chalk "^4.0.0"
     cross-spawn "^7.0.2"
@@ -3079,12 +3066,11 @@ fs-extra@8.1.0:
     jsonfile "^4.0.0"
     universalify "^0.1.0"
 
-fs-extra@^9.0.1:
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-9.1.0.tgz#5954460c764a8da2094ba3554bf839e6b9a7c86d"
-  integrity sha512-hcg3ZmepS30/7BSFqRvoo3DOMQu7IjqxO5nCDt+zM9XWjb33Wg7ziNT+Qvqbuc3+gWpzO02JubVyk2G4Zvo1OQ==
+fs-extra@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-10.0.0.tgz#9ff61b655dde53fb34a82df84bb214ce802e17c1"
+  integrity sha512-C5owb14u9eJwizKGdchcDUQeFtlSHHthBk8pbX9Vc1PFZrLombudjDnNns88aYslCyF6IY5SUw3Roz6xShcEIQ==
   dependencies:
-    at-least-node "^1.0.0"
     graceful-fs "^4.2.0"
     jsonfile "^6.0.1"
     universalify "^2.0.0"
