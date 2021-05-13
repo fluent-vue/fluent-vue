@@ -32,19 +32,5 @@ jobs:
       - name: Test
         run: yarn test:${{ matrix.vue }} --coverage
 
-      - name: Coveralls Parallel
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          flag-name: run-node-${{ matrix.node }}-os-${{ matrix.os }}-vue-${{matrix.vue}}
-          parallel: true
-
-  finish:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Coveralls Finished
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          parallel-finished: true
+      - name: Upload code coverage
+        uses: codecov/codecov-action@v1
