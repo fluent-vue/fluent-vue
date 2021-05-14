@@ -1,5 +1,8 @@
 ---
 home: true
+meta:
+  - name: keywords
+    content: vue i18n l10n vue.js fluent.js translation localization
 tagline: Vue.js integration for Project Fluent
 actionText: Get Started →
 actionLink: /introduction.html
@@ -12,3 +15,9 @@ features:
   details: With fluent-vue-loader you can include localization messages with rest of your single file component code.
 footer: MIT Licensed | Copyright © 2020-present Ivan Demchuk
 ---
+
+## Example
+
+<<< @/components/Simple.vue#snippet
+
+<simple-input />

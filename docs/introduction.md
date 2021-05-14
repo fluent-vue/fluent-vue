@@ -4,11 +4,21 @@
 
 Project Fluent keeps simple things simple and makes complex things possible. The syntax used for describing translations is easy to read and understand. At the same time it allows, when necessary, to represent complex concepts from natural languages like gender, plurals, conjugations, and others.
 
-## Example
+```
+# Simple things are simple.
+hello-user = Hello, {$userName}!
 
-<<< @/components/Simple.vue#snippet
-
-<simple-input />
+# Complex things are possible.
+shared-photos =
+  {$userName} {$photoCount ->
+     [one] added one photo
+    *[other] added {$photoCount} new photos
+  } to {$userGender ->
+     [male] his stream
+     [female] her stream
+    *[other] their stream
+  }.
+```
 
 ## FTL syntax
 
