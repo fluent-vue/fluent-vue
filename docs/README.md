@@ -15,3 +15,9 @@ features:
   details: With fluent-vue-loader you can include localization messages with rest of your single file component code.
 footer: MIT Licensed | Copyright © 2020-present Ivan Demchuk
 ---
+
+## Example
+
+<<< @/components/Simple.vue#snippet
+
+<simple-input />

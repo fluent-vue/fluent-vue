@@ -2,10 +2,6 @@
 
 `fluent-vue-loader` allows to use custom blocks in your single file componens.
 
-Example:
-
-<<< @/components/Simple.vue#snippet
-
 1. Install `fluent-vue-loader` package
 
 <code-group>
