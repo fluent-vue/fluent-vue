@@ -10,7 +10,11 @@ module.exports = {
     sidebar: [
       'introduction',
       'instalation',
-      'api',
+      {
+        title: 'Api',
+        children: ['/api/instance-methods', '/api/v-t-directive', '/api/i18n-component'],
+        collapsable: false,
+      },
       {
         title: 'HOWTO',
         children: ['/howto/date-time', '/howto/access-outside-of-component'],
