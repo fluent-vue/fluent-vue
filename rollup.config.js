@@ -74,6 +74,7 @@ function createConfig(format, output, plugins = []) {
 
   if (isGlobalBuild) {
     output.name = packageOptions.name
+    output.globals = packageOptions.globals || {}
   }
 
   const shouldEmitDeclarations = process.env.TYPES != null && !hasTSChecked
@@ -99,8 +100,8 @@ function createConfig(format, output, plugins = []) {
   const entryFile = `src/index.ts`
 
   const external = isGlobalBuild
-    ? // Global build. Externalize peer dependencies
-      [...Object.keys(pkg.peerDependencies || {})]
+    ? // Global build. Externalize peer and global dependencies
+      [...Object.keys(pkg.peerDependencies || {}), ...Object.keys(packageOptions.globals || {})]
     : // Node / esm builds. Externalize everything.
       [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})]
 
@@ -146,15 +147,6 @@ function createReplacePlugin(isProduction, isGlobalBuild, isNodeBuild) {
     __VERSION__: `"${masterVersion}"`,
     // this is only used during Vue's internal tests
     __TEST__: false,
-    // If the build is expected to run directly in the browser (global / esm builds)
-    __FEATURE_OPTIONS__: true,
-    __FEATURE_SUSPENSE__: true,
-    ...(isProduction
-      ? {
-          'context.onError(': `/*#__PURE__*/ context.onError(`,
-          'emitError(': `/*#__PURE__*/ emitError(`,
-        }
-      : {}),
   }
   // allow inline overrides like
   //__RUNTIME_COMPILE__=true yarn build runtime-core
