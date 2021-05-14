@@ -1,5 +1,8 @@
 ---
 home: true
+meta:
+  - name: keywords
+    content: vue i18n l10n vue.js fluent.js translation localization
 tagline: Vue.js integration for Project Fluent
 actionText: Get Started →
 actionLink: /introduction.html
