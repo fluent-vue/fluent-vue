@@ -6,16 +6,36 @@
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![GitHub license](https://img.shields.io/github/license/demivan/fluent-vue)](https://github.com/Demivan/fluent-vue/blob/develop/LICENSE)
 
-`fluent-vue` is [Vue.js](https://vuejs.org) integration for [Fluent.js](https://github.com/projectfluent/fluent.js) - JavaScript implementation of [Project Fluent](https://projectfluent.org)  
-`fluent-vue` is compatible both with Vue 2 and Vue 3
+Internationalization plugin for Vue.js
 
-## Packages
+`fluent-vue` is [Vue.js](https://vuejs.org) integration for [Fluent.js](https://github.com/projectfluent/fluent.js) - JavaScript implementation of [Project Fluent](https://projectfluent.org)  
+
+## 🚀 Features
+
+- **Simple api for developers**: Just 2 methods, 1 directive and 1 component
+- **Powerfull syntax for translators**: Use the entire expressive power of every language without need for changes to application source code
+- **Isolation**: Locale-specific logic doesn't leak to other locales. A simple string in English can map to a complex multi-variant translation in another language
+- **Seamless migration**: Works for **both** Vue 3 and 2
+- **No bundler required**: Usable via CDN
+
+## 📖 Documentation
+
+Documentation can be found here: [https://fluent-vue.demivan.me](https://fluent-vue.demivan.me)
+
+Examples for different Vue.js versions and build systems can be found [here](https://github.com/demivan/fluent-vue/tree/develop/examples).
+
+## 📜 Changelog
+
+Changes for each release are documented in the [CHANGELOG.md](https://github.com/demivan/fluent-vue/blob/develop/CHANGELOG.md).
+
+## 📦 Packages
 
 This monorepo contains multiple packages:
 
 * [fluent-vue](https://github.com/Demivan/fluent-vue/tree/develop/packages/fluent-vue) - Vue.js plugin
 * [fluent-vue-loader](https://github.com/Demivan/fluent-vue/tree/develop/packages/fluent-vue-loader) - Webpack loader that adds support for custom bloks in SFC
 
-## Documentation
 
-Work in progress documentation can be found here: [https://fluent-vue.demivan.me](https://fluent-vue.demivan.me)
+## 📄 License
+
+[MIT License](https://github.com/demivan/fluent-vue/blob/develop/LICENSE) © 2020-present [Ivan Demchuk](https://github.com/demivan)

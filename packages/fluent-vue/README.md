@@ -1,140 +1,33 @@
-fluent-vue
-==========
+# ![fluent-vue logo | height=100](../../docs/assets/logo.svg)
 
-`fluent-vue` is Vue.js plugin that adds bindings for Project Fluent
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/demivan/fluent-vue/Test)](https://github.com/Demivan/fluent-vue/actions)
+[![codecov](https://codecov.io/gh/Demivan/fluent-vue/branch/develop/graph/badge.svg?token=0JSSE94EGJ)](https://codecov.io/gh/Demivan/fluent-vue)
+[![npm bundle size](https://img.shields.io/bundlephobia/min/fluent-vue)](https://bundlephobia.com/result?p=fluent-vue)
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![GitHub license](https://img.shields.io/github/license/demivan/fluent-vue)](https://github.com/Demivan/fluent-vue/blob/develop/LICENSE)
 
-<!-- TOC depthfrom:2 -->
+Internationalization plugin for Vue.js
 
-- [Instalation](#instalation)
-- [Features](#features)
-	- [`$t` method - simple way of adding translations](#t-method---simple-way-of-adding-translations)
-	- [`$ta` method - gets all attributes for translation key](#ta-method---gets-all-attributes-for-translation-key)
-	- [`v-t` directive - binds all whitelisted attributes](#v-t-directive---binds-all-whitelisted-attributes)
-	- [`i18n` component - allows using components inside translations](#i18n-component---allows-using-components-inside-translations)
+`fluent-vue` is [Vue.js](https://vuejs.org) integration for [Fluent.js](https://github.com/projectfluent/fluent.js) - JavaScript implementation of [Project Fluent](https://projectfluent.org)  
 
-<!-- /TOC -->
+## 🚀 Features
 
-## Instalation
+- **Simple api for developers**: Just 2 methods, 1 directive and 1 component
+- **Powerfull syntax for translators**: Use the entire expressive power of every language without need for changes to the application source code
+- **Isolation**: Locale-specific logic doesn't leak to other locales. A simple string in English can map to a complex multi-variant translation in another language
+- **Seamless migration**: Works for **both** Vue 3 and 2
+- **No bundler required**: Usable via CDN
 
-**Add `fluent-vue` and `@fluent/bundle` to your project:**
+## 📖 Documentation
 
-For `npm` users:
-```
-npm install fluent-vue @fluent/bundle
-```
+Documentation can be found here: [https://fluent-vue.demivan.me](https://fluent-vue.demivan.me)
 
-For `yarn` users:
-```
-yarn add fluent-vue @fluent/bundle
-```
+Examples for different Vue.js versions and build systems can be found [here](https://github.com/demivan/fluent-vue/tree/develop/examples).
 
-#### Note:
-If you are using `vue` version 2 you need to install `@vue/composition-api` too
+## 📜 Changelog
 
-```
-yarn add @vue/composition-api
-```
+Changes for each release are documented in the [CHANGELOG.md](https://github.com/demivan/fluent-vue/blob/develop/CHANGELOG.md).
 
-**Install and configure plugin**
+## 📄 License
 
-```js
-import Vue from 'vue';
-import { FluentBundle, FluentResource } from '@fluent/bundle';
-
-import { createFluentVue } from 'fluent-vue'
-
-// Create bundle
-const bundle = new FluentBundle('en')
-
-// Add resources to the bundle
-bundle.addResource(new FluentResource('key = World'))
-bundle.addResource(new FluentResource('another-key = Hello, {$name}'))
-
-// Create fluent istance
-const fluent = createFluentVue({
-  locale: 'en',
-  bundles: [bundle]
-})
-
-// Add Vue plugin
-Vue.use(fluent)
-```
-
-## Features
-
-### `$t` method - simple way of adding translations
-
-Resources:
-```
-aria-key = Aria value
-greeting = Hello, {$name}
-```
-
-Template:
-```html
-<div :aria-label="$t('aria-key')">{{ $t('greeting', { name: 'World' }) }}</div>
-```
-
-Result:
-```html
-<div aria-label="Aria value">Hello, ⁨World⁩</div>
-```
-
-### `$ta` method - gets all attributes for translation key
-Useful for binding translations to custom components
-
-Resources:
-```
-greeting = Hello, {$name}
-  .aria-label = Label value
-```
-
-Template:
-```html
-<div v-bind="$ta('greeting')">{{ $t('greeting', { name: 'World' }) }}</div>
-```
-
-Result:
-```html
-<div aria-label="Aria value">Hello, ⁨World⁩</div>
-```
-
-### `v-t` directive - binds all whitelisted attributes
-
-Resources:
-```
-greeting = Hello, {$name}
-  .aria-label = Label value
-```
-
-Template:
-```html
-<div v-t:greeting="{ name: 'World' }"></div>
-```
-
-Result:
-```html
-<div aria-label="Label value">Hello, ⁨World⁩</div>
-```
-
-### `i18n` component - allows using components inside translations
-
-Resources:
-```
-greeting = Hello, {$name}
-```
-
-Template:
-```html
-<i18n path="greeting" tag="div">
-  <template #name>
-    <b>World</b>
-  </template>
-</i18n>
-```
-
-Result:
-```html
-<div>Hello, ⁨<b>World</b>⁩</div>
-```
-
+[MIT License](https://github.com/demivan/fluent-vue/blob/develop/LICENSE) © 2020-present [Ivan Demchuk](https://github.com/demivan)
