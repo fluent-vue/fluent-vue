@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@ls-lint/ls-lint": "^1.9.0",
-    "@microsoft/api-extractor": "^7.15.1",
+    "@microsoft/api-extractor": "^7.15.2",
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
