@@ -1,15 +1,14 @@
 {
   "name": "vite-example",
   "version": "0.0.0",
-  "private": true,
   "scripts": {
     "start": "vite",
     "build": "vite build"
   },
   "dependencies": {
     "@fluent/bundle": "^0.16.1",
-    "fluent-vue": "file:../../packages/fluent-vue",
-    "vue": "^3.0.2"
+    "fluent-vue": "^3.0.0-beta.9",
+    "vue": "^3.0.11"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.2.2",
