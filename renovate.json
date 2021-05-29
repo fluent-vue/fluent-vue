@@ -3,6 +3,7 @@
     "config:base",
     "group:allNonMajor"
   ],
+  "ignorePresets": [":ignoreModulesAndTests"],
   "lockFileMaintenance": { "enabled": true },
   "packageRules": [
     {
