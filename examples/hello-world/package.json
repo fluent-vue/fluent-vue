@@ -1,7 +1,6 @@
 {
   "name": "hello-world-example",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.0",
   "scripts": {
     "start": "parcel serve public/index.html",
     "build": "parcel build public/index.html"
