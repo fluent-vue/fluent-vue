@@ -17,7 +17,7 @@
   resolved "https://registry.yarnpkg.com/@fluent/dedent/-/dedent-0.3.0.tgz#cd6fbea955f9998d1079eb65f1827597c6163a9b"
   integrity sha512-HmMXSzvOVY0HRZmyk3u0ZUZwo863GHtN9IQeidHeq3xITESKJMXu7Wp+XNEbRxz+XWGJ0hIfiLnBJ4iNpf0QDQ==
 
-"@fluent/langneg@^0.5.2":
+"@fluent/langneg@^0.5.1":
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/@fluent/langneg/-/langneg-0.5.2.tgz#ae73cd5f3e59b6232715591e7e3f6a2c2da8a5bd"
   integrity sha512-6l8BfDB9mmNaeRhqu+N5BCWrUU+ZSKouyabMDnG6IDuurf+p2AAIvW0Wxe1saYYJ6vQ5QRdbT9NXtYZFz2ay6Q==
@@ -1334,19 +1334,23 @@ find-up@^4.0.0:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
 
-"fluent-vue-loader@file:../../packages/fluent-vue-loader":
+fluent-vue-loader@^3.0.0-beta.9:
   version "3.0.0-beta.9"
+  resolved "https://registry.yarnpkg.com/fluent-vue-loader/-/fluent-vue-loader-3.0.0-beta.9.tgz#3925e833a0197fe5e42b224f945246f03e02af0a"
+  integrity sha512-p9eYa0ay5HHSmiI3FiSZcR+oKowmbV4BvL3S5+TYwNWsjO9qzMzvU7IXEuXx3ZdGMi21Omr4B5Wv7Brix7Kd1w==
   dependencies:
     loader-utils "^2.0.0"
 
-"fluent-vue@file:../../packages/fluent-vue":
+fluent-vue@^3.0.0-beta.9:
   version "3.0.0-beta.9"
+  resolved "https://registry.yarnpkg.com/fluent-vue/-/fluent-vue-3.0.0-beta.9.tgz#d491445b4bc3f2124cebb2c72b77bf79b16a9ca6"
+  integrity sha512-7meOiD+cfh+PCBfzSyDXdlI2hv+bcTX/gqv+DiSXpnBOEAoqi+I4Peje1qAciWWZ5C6Copsl5rayZZXZVzxKcQ==
   dependencies:
-    "@fluent/langneg" "^0.5.2"
+    "@fluent/langneg" "^0.5.1"
     "@fluent/sequence" "^0.6.0"
     cached-iterable "^0.3.0"
     tslib "^2.2.0"
-    vue-demi latest
+    vue-demi "^0.7.4"
 
 follow-redirects@^1.0.0:
   version "1.13.0"
@@ -3438,10 +3442,10 @@ vary@~1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
-vue-demi@latest:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.9.0.tgz#b30da61450079d60a132d7aaf9e86d1949e8445e"
-  integrity sha512-f8vVUpC726YXv99fF/3zHaw5CUYbP5H/DVWBN+pncXM8P2Uz88kkffwj9yD7MukuVzPICDHNrgS3VC2ursaP7g==
+vue-demi@^0.7.4:
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.7.5.tgz#88dee7492fc99a0f911ff03fc02c658fa2a79af8"
+  integrity sha512-eFSQSvbQdY7C9ujOzvM6tn7XxwLjn0VQDXQsiYBLBwf28Na+2nTQR4BBBcomhmdP6mmHlBKAwarq6a0BPG87hQ==
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
@@ -3480,7 +3484,7 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue@~2.6.12:
+vue@^2.6.12:
   version "2.6.12"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.12.tgz#f5ebd4fa6bd2869403e29a896aed4904456c9123"
   integrity sha512-uhmLFETqPPNyuLLbsKz6ioJ4q7AZHzD8ZVFNATNyICSZouqP2Sz0rotWQC8UNBF6VGSCs5abnKJoStA6JbCbfg==

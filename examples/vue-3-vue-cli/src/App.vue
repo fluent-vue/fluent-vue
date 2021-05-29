@@ -30,7 +30,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { useFluent } from 'fluent-vue'
 const fluent = useFluent()
 
