@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "vue-template-compiler": "^2.6.12",
-    "parcel-bundler": "^1.12.3"
+    "parcel-bundler": "^1.12.5"
   },
   "browserslist": [
     "last 1 Chrome versions"

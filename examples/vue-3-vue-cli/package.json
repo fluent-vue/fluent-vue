@@ -13,7 +13,7 @@
     "vue": "^3.0.11"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.0",
+    "@vue/cli-plugin-babel": "^4.5.13",
     "@vue/cli-service": "^4.5.13",
     "@vue/compiler-sfc": "^3.0.11",
     "fluent-vue-loader": "^3.0.0-beta.9"

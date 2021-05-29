@@ -16,9 +16,9 @@
   },
   "devDependencies": {
     "vue-template-compiler": "^2.6.12",
-    "parcel-bundler": "^1.12.3",
-    "sass": "^1.32.13",
-    "typescript": "^4.2.4",
+    "parcel-bundler": "^1.12.5",
+    "sass": "^1.34.0",
+    "typescript": "^4.3.2",
     "vue-tsc": "^0.1.6"
   },
   "browserslist": [
