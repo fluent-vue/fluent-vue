@@ -16,6 +16,10 @@
     {
       "depTypeList": ["peerDependencies"],
       "rangeStrategy": "widen"
+    },
+    {
+      "matchPaths": ["+(examples/**/package.json)"],
+      "rangeStrategy": "bump"
     }
   ]
 }
