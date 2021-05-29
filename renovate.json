@@ -1,0 +1,30 @@
+{
+  "extends": [
+    "config:base",
+    "group:allNonMajor"
+  ],
+  "ignorePresets": [":ignoreModulesAndTests"],
+  "lockFileMaintenance": { "enabled": true },
+  "packageRules": [
+    {
+      "matchDepTypes": ["dependencies"],
+      "rangeStrategy": "replace"
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "rangeStrategy": "bump"
+    },
+    {
+      "matchDepTypes": ["peerDependencies"],
+      "rangeStrategy": "widen"
+    },
+    {
+      "matchPaths": ["+(examples/**/package.json)"],
+      "rangeStrategy": "bump"
+    },
+    {
+      "matchPackageNames": ["ts-jest", "jest"],
+      "groupName": "jest monorepo"
+    }
+  ]
+}
