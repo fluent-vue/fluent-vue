@@ -6,15 +6,15 @@
   "lockFileMaintenance": { "enabled": true },
   "packageRules": [
     {
-      "depTypeList": ["dependencies"],
+      "matchDepTypes": ["dependencies"],
       "rangeStrategy": "replace"
     },
     {
-      "depTypeList": ["devDependencies"],
+      "matchDepTypes": ["devDependencies"],
       "rangeStrategy": "bump"
     },
     {
-      "depTypeList": ["peerDependencies"],
+      "matchDepTypes": ["peerDependencies"],
       "rangeStrategy": "widen"
     },
     {
