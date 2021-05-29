@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { nextTick } from 'vue-demi'
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
