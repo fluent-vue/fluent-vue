@@ -1,6 +1,20 @@
 {
   "extends": [
-    "config:base",
-    "group:allNonMajor"
+    "config:base"
+  ],
+  "lockFileMaintenance": { "enabled": true },
+  "packageRules": [
+    {
+      "depTypeList": ["dependencies"],
+      "rangeStrategy": "replace"
+    },
+    {
+      "depTypeList": ["devDependencies"],
+      "rangeStrategy": "bump"
+    },
+    {
+      "depTypeList": ["peerDependencies"],
+      "rangeStrategy": "widen"
+    }
   ]
 }
