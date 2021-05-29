@@ -21,6 +21,10 @@
     {
       "matchPaths": ["+(examples/**/package.json)"],
       "rangeStrategy": "bump"
+    },
+    {
+      "matchPackageNames": ["ts-jest", "jest"],
+      "groupName": "jest monorepo"
     }
   ]
 }
