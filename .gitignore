@@ -12,3 +12,4 @@ compiled
 .cache/
 temp
 .env
+.parcel-cache/
