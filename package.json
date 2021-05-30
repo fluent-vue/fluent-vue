@@ -57,7 +57,7 @@
     "chalk": "^4.1.1",
     "eslint": "^7.27.0",
     "eslint-plugin-vue": "^7.10.0",
-    "execa": "^5.0.0",
+    "execa": "^5.0.1",
     "fs-extra": "^10.0.0",
     "jest": "^27.0.3",
     "lerna-changelog": "^1.0.1",
