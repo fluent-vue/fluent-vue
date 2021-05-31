@@ -1,18 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "esnext",
+    "module": "esnext",
     "strict": true,
     "noEmit": true,
-    "lib": [
-      "ES2015",
-      "DOM",
-      "ESNext"
-    ],
-    "module": "es2015",
     "moduleResolution": "node",
     "types": []
-  },
-  "include": [
-    "src"
-  ]
+  }
 }
