@@ -1,9 +1,11 @@
 {
-  "name": "vite-example",
+  "name": "vite-typescript-example",
   "version": "0.0.0",
+  "license": "MIT",
   "scripts": {
     "start": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "typecheck": "vue-tsc"
   },
   "dependencies": {
     "@fluent/bundle": "^0.16.1",
@@ -13,6 +15,8 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.2.2",
     "@vue/compiler-sfc": "^3.0.11",
-    "vite": "^2.3.4"
+    "typescript": "^4.3.2",
+    "vite": "^2.3.4",
+    "vue-tsc": "^0.1.6"
   }
 }

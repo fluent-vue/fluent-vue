@@ -1,0 +1,23 @@
+{
+  "name": "vue-2-vite-typescript",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "typecheck": "vue-tsc"
+  },
+  "dependencies": {
+    "@fluent/bundle": "^0.16.1",
+    "@vue/composition-api": "^1.0.0-rc.10",
+    "fluent-vue": "^3.0.0-beta.9",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "typescript": "^4.3.2",
+    "vite": "^2.3.4",
+    "vite-plugin-vue2": "^1.5.2",
+    "vue-template-compiler": "^2.6.12",
+    "vue-tsc": "^0.1.6"
+  }
+}

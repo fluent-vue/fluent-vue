@@ -4,14 +4,12 @@
 
     <h4>$t method</h4>
     <div>
-      <span>
-        {{ $t('greeting', { name: 'World' }) }}
-      </span>
+      <span>{{ $t('greeting', { name: 'World' }) }}</span>
     </div>
 
     <h4>$ta method</h4>
     <div>
-     <span v-bind="$ta('greeting')">{{ $t('greeting', { name: 'World' }) }}</span>
+      <span v-bind="$ta('greeting')">{{ $t('greeting', { name: 'World' }) }}</span>
     </div>
 
     <h4>Directive</h4>
@@ -30,14 +28,24 @@
   </div>
 </template>
 
-<script>
-export default {
-}
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'typescript',
+  computed: {
+    username() {
+      return this.$t('user-name')
+    },
+    greeting() {
+      return this.$ta('greeting')
+    },
+  },
+})
 </script>
 
-<fluent locale="en">
-user-name = World
-aria-key = Aria value
-greeting = Hello, {$name}
-  .aria-label = Label value
-</fluent>
+<style>
+.test {
+  display: block;
+}
+</style>

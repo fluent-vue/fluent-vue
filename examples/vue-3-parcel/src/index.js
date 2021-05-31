@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 import { createFluentVue } from 'fluent-vue'
@@ -20,9 +20,5 @@ const fluent = createFluentVue({
   locale: 'en',
   bundles: [bundle],
 })
-Vue.use(fluent)
 
-new Vue({
-  el: '#root',
-  render: (h) => h(App),
-})
+createApp(App).use(fluent).mount('#root')

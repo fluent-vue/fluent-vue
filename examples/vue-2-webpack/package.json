@@ -1,6 +1,7 @@
 {
   "name": "webpack-example",
   "version": "0.0.0",
+  "license": "MIT",
   "scripts": {
     "start": "webpack serve",
     "build": "webpack --mode=production"
