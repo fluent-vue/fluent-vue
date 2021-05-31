@@ -95,17 +95,6 @@ async function build(target) {
     })
 
     if (result.succeeded) {
-      // concat additional d.ts to rolled-up dts (mostly for JSX)
-      if (pkg.buildOptions && pkg.buildOptions.dts) {
-        const dtsPath = path.resolve(pkgDir, pkg.types)
-        const existing = await fs.readFile(dtsPath, 'utf-8')
-        const toAdd = await Promise.all(
-          pkg.buildOptions.dts.map((file) => {
-            return fs.readFile(path.resolve(pkgDir, file), 'utf-8')
-          })
-        )
-        await fs.writeFile(dtsPath, existing + '\n' + toAdd.join('\n'))
-      }
       console.log(chalk.bold(chalk.green(`API Extractor completed successfully.`)))
     } else {
       console.error(

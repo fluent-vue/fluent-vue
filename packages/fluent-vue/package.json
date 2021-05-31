@@ -24,22 +24,24 @@
   "module": "dist/fluent-vue.esm.js",
   "unpkg": "dist/fluent-vue.global.prod.js",
   "jsdelivr": "dist/fluent-vue.global.prod.js",
-  "types": "dist/fluent-vue.d.ts",
+  "types": "index.d.ts",
   "sideEffects": false,
   "files": [
+    "index.d.ts",
     "dist",
     "README.md"
   ],
   "buildOptions": {
     "name": "FluentVue",
-    "formats": ["esm", "cjs", "global"],
+    "formats": [
+      "esm",
+      "cjs",
+      "global"
+    ],
     "globals": {
       "vue-demi": "VueDemi",
       "@fluent/bundle": "FluentBundle"
-    },
-    "dts": [
-      "src/types/vue.d.ts"
-    ]
+    }
   },
   "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
   "repository": {
