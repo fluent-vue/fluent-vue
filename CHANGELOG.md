@@ -1,4 +1,24 @@
 
+## v3.0.0-beta.10 (2021-05-31)
+
+#### :star: New Features
+* `fluent-vue`
+  * [#608](https://github.com/Demivan/fluent-vue/pull/608) Add Vue 3 Typescript types ([@Demivan](https://github.com/Demivan))
+  * [#565](https://github.com/Demivan/fluent-vue/pull/565) Add global build for use in browsers ([@Demivan](https://github.com/Demivan))
+
+#### :bug: Bug Fixes
+* `fluent-vue`
+  * [#509](https://github.com/Demivan/fluent-vue/pull/509) Fix component when using Vue 3 ([@Demivan](https://github.com/Demivan))
+  * [#495](https://github.com/Demivan/fluent-vue/pull/495) Fix Vue 2 Typescript definitions ([@Demivan](https://github.com/Demivan))
+
+#### :pencil: Documentation
+* [#602](https://github.com/Demivan/fluent-vue/pull/602) Update examples ([@Demivan](https://github.com/Demivan))
+* [#564](https://github.com/Demivan/fluent-vue/pull/564) Improve docs ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
+
 ## v3.0.0-beta.9 (2021-04-13)
 
 #### :star: New Features
