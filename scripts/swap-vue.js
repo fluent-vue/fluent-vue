@@ -5,7 +5,7 @@ const execa = require('execa')
 const vue3packages = {
   vue: '^3.0.11',
   '@vue/compiler-sfc': '^3.0.11',
-  '@vue/test-utils': '^2.0.0-beta.2',
+  '@vue/test-utils': '^2.0.0-rc.6',
 }
 
 const vue2packages = {
