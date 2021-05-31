@@ -1,6 +1,7 @@
 {
   "name": "vue-2-vite-typescript",
   "version": "0.0.0",
+  "license": "MIT",
   "scripts": {
     "start": "vite",
     "build": "vite build",

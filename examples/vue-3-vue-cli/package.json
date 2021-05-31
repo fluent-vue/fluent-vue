@@ -1,6 +1,7 @@
 {
   "name": "vue-3-vue-cli",
   "version": "0.0.0",
+  "license": "MIT",
   "scripts": {
     "build": "vue-cli-service build",
     "start": "vue-cli-service serve"

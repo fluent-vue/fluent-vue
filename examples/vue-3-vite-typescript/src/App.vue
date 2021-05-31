@@ -44,7 +44,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style>
 .test {
   display: block;
 }

@@ -1,6 +1,7 @@
 {
   "name": "parcel-example",
   "version": "0.0.0",
+  "license": "MIT",
   "scripts": {
     "start": "parcel serve public/index.html",
     "build": "parcel build public/index.html"
