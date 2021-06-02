@@ -44,6 +44,8 @@ describe('composition api', () => {
 
     // Act
     const mounted = mountWithFluent(fluent, component)
+
+    // Assert
     expect(mounted.html()).toEqual(`<a href="/foo" aria-label="Aria label">link text</a>`)
   })
 })
