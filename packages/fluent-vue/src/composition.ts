@@ -74,5 +74,5 @@ export function useFluent(): TranslationContext {
     throw error
   }
 
-  return getContext(rootContext, instance)
+  return getContext(rootContext, instance.proxy)
 }
