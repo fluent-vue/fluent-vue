@@ -4,8 +4,8 @@ import { getContext } from '../composition'
 import { RootContextSymbol } from '../symbols'
 
 function getParentWithFluent(instance: any | null): any {
-  const parent = instance?.$parent ?? instance?.parent?.proxy
-  const target = parent?.$options ?? parent?.type
+  const parent = instance?.$parent
+  const target = parent?.$options
 
   if (target != null && target.fluent == null) {
     return getParentWithFluent(parent)
@@ -23,8 +23,8 @@ export default defineComponent({
   },
   setup(props, { slots, attrs }) {
     const rootContext = inject(RootContextSymbol)!
-    const instance = getCurrentInstance()
-    const parent = getParentWithFluent(instance)
+    const instance = getCurrentInstance()!
+    const parent = getParentWithFluent(instance.proxy)
     const fluent = getContext(rootContext, parent)
 
     const fluentParams = computed(() =>
