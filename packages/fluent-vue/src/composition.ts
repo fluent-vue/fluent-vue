@@ -11,20 +11,20 @@ export function getContext(rootContext: TranslationContext, instance: any): Tran
     return rootContext
   }
 
-  const target = instance.$options ?? instance.type
-  if (target._fluent != null) {
-    return target._fluent
+  const options = instance.$options
+  if (options._fluent != null) {
+    return options._fluent
   }
 
   let context = rootContext
 
   // If we override messages in a component
   // create new translation context with new bundles
-  if (target.fluent) {
+  if (options.fluent) {
     const overriddenBundles = computed(() => {
       const allLocales = rootContext.bundles.value.flatMap((bundle) => bundle.locales)
 
-      return Object.entries(target.fluent)
+      return Object.entries(options.fluent)
         .map(([locale, resources]) => {
           const locales = locale.split(/[\s+,]/)
           const parentLocale = negotiateLanguages(locales, allLocales, {
@@ -37,7 +37,7 @@ export function getContext(rootContext: TranslationContext, instance: any): Tran
 
           if (!parentBundle) {
             warn(
-              `Component ${target.name} overides translations for locale "${locale}" that is not in your bundles`
+              `Component ${options.name} overides translations for locale "${locale}" that is not in your bundles`
             )
             return null
           }
@@ -54,7 +54,7 @@ export function getContext(rootContext: TranslationContext, instance: any): Tran
     context = new TranslationContext(rootContext.locale, allBundles)
   }
 
-  target._fluent = context
+  options._fluent = context
 
   return context
 }
