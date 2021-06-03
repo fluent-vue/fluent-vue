@@ -1,9 +1,11 @@
+import type { Vue2Directive, Vue3Directive, VueDirectiveBinding } from '../types/typesCompat'
+import type { TranslationContext } from '../TranslationContext'
+
 import { warn } from '../util/warn'
-import { TranslationContext } from '../TranslationContext'
 import { getContext } from '../composition'
 
-// This part is from fluent-dom library
-const LOCALIZABLE_ATTRIBUTES = {
+// Copied from fluent-dom library
+const LOCALIZABLE_ATTRIBUTES: { [tag: string]: string[] } = {
   global: ['title', 'aria-label', 'aria-valuetext', 'aria-moz-hint'],
   a: ['download'],
   area: ['download', 'alt'],
@@ -17,7 +19,7 @@ const LOCALIZABLE_ATTRIBUTES = {
   img: ['alt'],
   textarea: ['placeholder'],
   th: ['abbr'],
-} as Record<string, string[]>
+}
 
 /**
  * Check if attribute is allowed for the given element.
@@ -29,18 +31,14 @@ const LOCALIZABLE_ATTRIBUTES = {
  * `explicitlyAllowed` can be passed as a list of attributes explicitly
  * allowed on this element.
  *
- * @param   {string}         name
- * @param   {Element}        element
- * @param   {Array}          explicitlyAllowed
- * @returns {boolean}
  * @private
  */
 function isAttrNameLocalizable(
   name: string,
   element: HTMLElement,
-  explicitlyAllowed: Array<string> | null = null
+  explicitlyAllowed: string[]
 ): boolean {
-  if (explicitlyAllowed && explicitlyAllowed.includes(name)) {
+  if (explicitlyAllowed.includes(name)) {
     return true
   }
 
@@ -81,13 +79,7 @@ function isAttrNameLocalizable(
   return false
 }
 
-interface DirectiveBinding {
-  arg: string | undefined
-  modifiers: Record<string, unknown>
-  value: Record<string, any>
-}
-
-function translate(el: HTMLElement, fluent: TranslationContext, binding: DirectiveBinding) {
+function translate(el: HTMLElement, fluent: TranslationContext, binding: VueDirectiveBinding) {
   const key = binding.arg
 
   if (key === undefined) {
@@ -109,9 +101,9 @@ function translate(el: HTMLElement, fluent: TranslationContext, binding: Directi
   }
 }
 
-export function createVue3Directive(rootContext: TranslationContext) {
+export function createVue3Directive(rootContext: TranslationContext): Vue3Directive {
   return {
-    beforeMount(el: any, binding: any, vnode: any) {
+    beforeMount(el, binding) {
       if (binding.instance == null) {
         return
       }
@@ -120,7 +112,7 @@ export function createVue3Directive(rootContext: TranslationContext) {
       translate(el, context, binding)
     },
 
-    updated(el: any, binding: any, vnode: any) {
+    updated(el, binding) {
       if (binding.instance == null) {
         return
       }
@@ -131,9 +123,9 @@ export function createVue3Directive(rootContext: TranslationContext) {
   }
 }
 
-export function createVue2Directive(rootContext: TranslationContext) {
+export function createVue2Directive(rootContext: TranslationContext): Vue2Directive {
   return {
-    bind(el: any, binding: any, vnode: any) {
+    bind(el, binding, vnode) {
       if (vnode.context == null) {
         return
       }
@@ -142,7 +134,7 @@ export function createVue2Directive(rootContext: TranslationContext) {
       translate(el, context, binding)
     },
 
-    update(el: any, binding: any, vnode: any) {
+    update(el, binding, vnode) {
       if (vnode.context == null) {
         return
       }

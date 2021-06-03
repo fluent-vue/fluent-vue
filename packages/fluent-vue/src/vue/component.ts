@@ -1,9 +1,14 @@
+import type { VueComponent } from '../types/typesCompat'
+
 import { defineComponent, h, getCurrentInstance, inject, computed } from 'vue-demi'
 import { camelize } from '../util/camelize'
 import { getContext } from '../composition'
 import { RootContextSymbol } from '../symbols'
+import { assert } from '../util/warn'
 
-function getParentWithFluent(instance: any | null): any {
+function getParentWithFluent(
+  instance: VueComponent | null | undefined
+): VueComponent | null | undefined {
   const parent = instance?.$parent
   const target = parent?.$options
 
@@ -22,9 +27,10 @@ export default defineComponent({
     args: { type: Object, default: () => ({}) },
   },
   setup(props, { slots, attrs }) {
-    const rootContext = inject(RootContextSymbol)!
-    const instance = getCurrentInstance()!
-    const parent = getParentWithFluent(instance.proxy)
+    const rootContext = inject(RootContextSymbol)
+    assert(rootContext != null, 'i18n component used without instaling plugin')
+    const instance = getCurrentInstance()
+    const parent = getParentWithFluent(instance?.proxy)
     const fluent = getContext(rootContext, parent)
 
     const fluentParams = computed(() =>
@@ -59,7 +65,7 @@ export default defineComponent({
             text.startsWith('\uFFFE')
               ? slots[text.replace('\uFFFE', '')]?.(camelizedAttrs.value)
               : text
-          ) as any
+          )
       )
   },
 })

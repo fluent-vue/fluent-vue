@@ -1,12 +1,17 @@
+import type { VueComponent } from './types/typesCompat'
+import type { FluentBundle } from '@fluent/bundle'
+
 import { computed, getCurrentInstance, inject } from 'vue-demi'
-import { FluentBundle } from '@fluent/bundle'
 import { negotiateLanguages } from '@fluent/langneg'
-import { warn } from './util/warn'
+import { warn, assert } from './util/warn'
 import { TranslationContext } from './TranslationContext'
 import { inheritBundle } from './inheritBundle'
 import { RootContextSymbol } from './symbols'
 
-export function getContext(rootContext: TranslationContext, instance: any): TranslationContext {
+export function getContext(
+  rootContext: TranslationContext,
+  instance: VueComponent | null | undefined
+): TranslationContext {
   if (instance == null) {
     return rootContext
   }
@@ -20,11 +25,12 @@ export function getContext(rootContext: TranslationContext, instance: any): Tran
 
   // If we override messages in a component
   // create new translation context with new bundles
-  if (options.fluent) {
+  const fluent = options.fluent
+  if (fluent) {
     const overriddenBundles = computed(() => {
       const allLocales = rootContext.bundles.value.flatMap((bundle) => bundle.locales)
 
-      return Object.entries(options.fluent)
+      return Object.entries(fluent)
         .map(([locale, resources]) => {
           const locales = locale.split(/[\s+,]/)
           const parentLocale = negotiateLanguages(locales, allLocales, {
@@ -43,7 +49,7 @@ export function getContext(rootContext: TranslationContext, instance: any): Tran
           }
 
           const bundle = inheritBundle(locales, parentBundle)
-          bundle.addResource(resources as any, { allowOverrides: true })
+          bundle.addResource(resources, { allowOverrides: true })
           return bundle
         })
         .filter((bundle) => bundle != null) as FluentBundle[]
@@ -61,18 +67,10 @@ export function getContext(rootContext: TranslationContext, instance: any): Tran
 
 export function useFluent(): TranslationContext {
   const instance = getCurrentInstance()
-  if (instance == null) {
-    const error = 'useFluent called outside of setup'
-    warn(error)
-    throw error
-  }
+  assert(instance != null, 'useFluent called outside of setup')
 
   const rootContext = inject(RootContextSymbol)
-  if (rootContext == null) {
-    const error = 'useFluent called without instaling plugin'
-    warn(error)
-    throw error
-  }
+  assert(rootContext != null, 'useFluent called without instaling plugin')
 
   return getContext(rootContext, instance.proxy)
 }
