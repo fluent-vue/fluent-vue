@@ -52,7 +52,9 @@
   "devDependencies": {
     "@fluent/bundle": "~0.16.1",
     "@fluent/dedent": "~0.3.0",
-    "vue": "^3.0.11",
+    "vue-2": "npm:vue@^2.6.12",
+    "vue-3": "npm:vue@^3.0.11",
+    "vue": "npm:vue@^3.0.11",
     "@vue/compiler-sfc": "^3.0.11",
     "@vue/test-utils": "^2.0.0-rc.6"
   },
