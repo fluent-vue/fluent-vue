@@ -25,6 +25,10 @@
     {
       "matchPackageNames": ["ts-jest", "jest"],
       "groupName": "jest monorepo"
+    },
+    {
+      "matchPackageNames": ["@parcel/transformer-vue", "parcel"],
+      "allowedVersions": "!/nightly/"
     }
   ]
 }
