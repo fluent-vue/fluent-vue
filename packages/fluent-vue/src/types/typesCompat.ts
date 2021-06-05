@@ -1,6 +1,6 @@
 import type {
   DirectiveOptions as Vue2DirectiveOptions,
-  PluginFunction as Vue2PluginType,
+  PluginFunction as Vue2PluginType
 } from 'vue-2'
 import type { Vue as Vue2Type } from 'vue-2/types/vue'
 import type { DirectiveBinding as Vue2DirectiveBinding } from 'vue-2/types/options'
@@ -8,7 +8,7 @@ import type {
   ObjectDirective as Vue3DirectiveOptions,
   DirectiveBinding as Vue3DirectiveBinding,
   ComponentPublicInstance as Vue3ComponentType,
-  App as Vue3Type,
+  App as Vue3Type
 } from 'vue-3'
 
 export type Vue2Directive = Vue2DirectiveOptions

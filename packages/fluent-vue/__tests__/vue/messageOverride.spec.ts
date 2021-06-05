@@ -20,7 +20,7 @@ describe('message override', () => {
 
     fluent = createFluentVue({
       locale: ['uk-UA', 'en'],
-      bundles: [bundleUk, bundleEn],
+      bundles: [bundleUk, bundleEn]
     })
   })
 
@@ -39,21 +39,21 @@ describe('message override', () => {
     )
 
     const component = {
-      template: `<a v-t:link href="/foo">Fallback text</a>`,
+      template: '<a v-t:link href="/foo">Fallback text</a>',
       fluent: {
         uk: new FluentResource(ftl`
         link = текст посилання 2
-        `),
-      },
+        `)
+      }
     }
 
     // Act
     const mounted = mountWithFluent(fluent, component)
-    expect(mounted.html()).toEqual(`<a href="/foo">текст посилання</a>`)
+    expect(mounted.html()).toEqual('<a href="/foo">текст посилання</a>')
 
     fluent.locale = 'uk'
 
     // Assert
-    expect(mounted.html()).toEqual(`<a href="/foo">текст посилання</a>`)
+    expect(mounted.html()).toEqual('<a href="/foo">текст посилання</a>')
   })
 })

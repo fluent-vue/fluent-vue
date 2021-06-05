@@ -18,11 +18,15 @@ const loader: LoaderDefinitionFunction = function (this, source, sourceMap): voi
   }
 }
 
-function generateCode(source: string | Buffer, query: OptionObject): string {
+function generateCode (source: string | Buffer, query: OptionObject): string {
   const rawData = convert(source)
 
   // vue-loader pads SFC file sections with newlines - trim those
   const data = rawData.replace(/^\n+|\n+$/g, '')
+
+  if (typeof query.locale !== 'string') {
+    throw new Error('localization block does not have locale specified')
+  }
 
   return `
 import { FluentResource } from '@fluent/bundle'
@@ -48,7 +52,7 @@ export default function (Component) {
 }\n`
 }
 
-function convert(source: string | Buffer): string {
+function convert (source: string | Buffer): string {
   const value = Buffer.isBuffer(source) ? source.toString() : source
 
   return value

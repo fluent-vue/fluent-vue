@@ -18,7 +18,7 @@ describe('component', () => {
 
     fluent = createFluentVue({
       locale: 'en-US',
-      bundles: [bundle],
+      bundles: [bundle]
     })
   })
 
@@ -31,14 +31,14 @@ describe('component', () => {
     )
 
     const component = {
-      template: '<i18n path="key"></i18n>',
+      template: '<i18n path="key"></i18n>'
     }
 
     // Act
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual(`<span>Inner data</span>`)
+    expect(mounted.html()).toEqual('<span>Inner data</span>')
   })
 
   it('preserves attributes', () => {
@@ -50,14 +50,14 @@ describe('component', () => {
     )
 
     const component = {
-      template: '<i18n path="key" class="component"></i18n>',
+      template: '<i18n path="key" class="component"></i18n>'
     }
 
     // Act
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual(`<span class="component">Inner data</span>`)
+    expect(mounted.html()).toEqual('<span class="component">Inner data</span>')
   })
 
   it('works with grandparent translations', () => {
@@ -69,46 +69,46 @@ describe('component', () => {
     )
 
     const child = {
-      template: '<b><slot /></b>',
+      template: '<b><slot /></b>'
     }
 
     const component = {
       components: {
-        child,
+        child
       },
-      template: '<div><child><i18n path="key"></i18n></child></div>',
+      template: '<div><child><i18n path="key"></i18n></child></div>'
     }
 
     // Act
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual(`<div><b><span>Inner data</span></b></div>`)
+    expect(mounted.html()).toEqual('<div><b><span>Inner data</span></b></div>')
   })
 
   it('works with local component messages', () => {
     // Arrange
     const child = {
-      template: '<b><slot /></b>',
+      template: '<b><slot /></b>'
     }
 
     const component = {
       components: {
-        child,
+        child
       },
       template: '<div><child><i18n path="i18n-key"></i18n></child></div>',
       fluent: {
         'en-US': new FluentResource(ftl`
         i18n-key = Inner data
-        `),
-      },
+        `)
+      }
     }
 
     // Act
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual(`<div><b><span>Inner data</span></b></div>`)
+    expect(mounted.html()).toEqual('<div><b><span>Inner data</span></b></div>')
   })
 
   it('interpolates components', () => {
@@ -125,14 +125,14 @@ describe('component', () => {
           <template #child>
             <b>Inner text</b>
           </template>
-        </i18n>`,
+        </i18n>`
     }
 
     // Act
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual(`<span>Inner data ⁨<b>Inner text</b>⁩ test</span>`)
+    expect(mounted.html()).toEqual('<span>Inner data ⁨<b>Inner text</b>⁩ test</span>')
   })
 
   it('interpolates components and provide camelized translation attributes', () => {
@@ -150,7 +150,7 @@ describe('component', () => {
           <template #child="{ kebabAttr1 }">
             <b>Inner text, {{ kebabAttr1 }}</b>
           </template>
-        </i18n>`,
+        </i18n>`
     }
 
     // Act
@@ -158,7 +158,7 @@ describe('component', () => {
 
     // Assert
     expect(mounted.html()).toEqual(
-      `<span>Inner data ⁨<b>Inner text, Attribute: ⁨Extra⁩</b>⁩ test</span>`
+      '<span>Inner data ⁨<b>Inner text, Attribute: ⁨Extra⁩</b>⁩ test</span>'
     )
   })
 
@@ -178,14 +178,14 @@ describe('component', () => {
           <template #child>
             <b>Inner text</b>
           </template>
-        </i18n>`,
+        </i18n>`
     }
 
     // Act
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual(`<span>missing-key</span>`)
+    expect(mounted.html()).toEqual('<span>missing-key</span>')
     expect(warn).toHaveBeenCalledTimes(1)
     expect(warn).toHaveBeenCalledWith(
       '[fluent-vue] Could not find translation for key [missing-key]'
@@ -204,9 +204,9 @@ describe('component', () => {
     )
 
     const component = {
-      data() {
+      data () {
         return {
-          name: 'John',
+          name: 'John'
         }
       },
       template: `
@@ -214,14 +214,14 @@ describe('component', () => {
           <template #child>
             <b>Inner text</b>
           </template>
-        </i18n>`,
+        </i18n>`
     }
 
     // Act
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual(`<span>Hello ⁨John⁩ ⁨<b>Inner text</b>⁩ test</span>`)
+    expect(mounted.html()).toEqual('<span>Hello ⁨John⁩ ⁨<b>Inner text</b>⁩ test</span>')
   })
 
   it('updates on parameter change', async () => {
@@ -233,9 +233,9 @@ describe('component', () => {
     )
 
     const component = {
-      data() {
+      data () {
         return {
-          name: 'John',
+          name: 'John'
         }
       },
       template: `
@@ -243,16 +243,16 @@ describe('component', () => {
           <template #child>
             <b>Inner text</b>
           </template>
-        </i18n>`,
+        </i18n>`
     }
 
     const mounted = mountWithFluent(fluent, component)
-    expect(mounted.html()).toEqual(`<span>Hello ⁨John⁩ ⁨<b>Inner text</b>⁩ test</span>`)
+    expect(mounted.html()).toEqual('<span>Hello ⁨John⁩ ⁨<b>Inner text</b>⁩ test</span>')
 
     // Act
     await mounted.setData({ name: 'Alice' })
 
     // Assert
-    expect(mounted.html()).toEqual(`<span>Hello ⁨Alice⁩ ⁨<b>Inner text</b>⁩ test</span>`)
+    expect(mounted.html()).toEqual('<span>Hello ⁨Alice⁩ ⁨<b>Inner text</b>⁩ test</span>')
   })
 })

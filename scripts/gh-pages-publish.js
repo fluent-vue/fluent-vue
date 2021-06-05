@@ -1,11 +1,10 @@
 const { cd, exec, echo } = require('shelljs')
 const { readFileSync } = require('fs')
-const url = require('url')
 
 let repoUrl
-let pkg = JSON.parse(readFileSync('package.json'))
+const pkg = JSON.parse(readFileSync('package.json'))
 if (typeof pkg.repository === 'object') {
-  if (!pkg.repository.hasOwnProperty('url')) {
+  if (!Object.prototype.hasOwnProperty.call(pkg.repository, 'url')) {
     throw new Error('URL does not exist in repository section')
   }
   repoUrl = pkg.repository.url
@@ -13,9 +12,9 @@ if (typeof pkg.repository === 'object') {
   repoUrl = pkg.repository
 }
 
-let parsedUrl = url.parse(repoUrl)
-let repository = (parsedUrl.host || '') + (parsedUrl.path || '')
-let ghToken = process.env.GH_TOKEN
+const parsedUrl = new URL(repoUrl)
+const repository = (parsedUrl.host || '') + (parsedUrl.path || '')
+const ghToken = process.env.GH_TOKEN
 
 echo('Deploying docs!!!')
 cd('docs')

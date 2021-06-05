@@ -5,7 +5,7 @@ const path = require('path')
 const read = promisify(fs.readFile)
 const write = fs.writeFileSync
 
-function extractSpecificChangelog(changelog, version) {
+function extractSpecificChangelog (changelog, version) {
   if (!changelog) {
     return null
   }
@@ -18,7 +18,7 @@ function extractSpecificChangelog(changelog, version) {
   return matches ? matches[1] : null
 }
 
-async function commitChangelog(current, next) {
+async function commitChangelog (current, next) {
   const { stdout } = await execa('npx', ['lerna-changelog', '--next-version', `v${next}`])
   const escapedVersion = next.replace(/\./g, '\\.')
   const regex = new RegExp(
@@ -35,7 +35,7 @@ module.exports = {
   monorepo: {
     mainVersionFile: 'package.json',
     packagesToBump: ['packages/*'],
-    packagesToPublish: ['packages/*'],
+    packagesToPublish: ['packages/*']
   },
   updateChangelog: false,
   beforeCommitChanges: ({ nextVersion, exec, dir }) => {
@@ -61,6 +61,6 @@ module.exports = {
         }
         throw err
       }
-    },
-  },
+    }
+  }
 }

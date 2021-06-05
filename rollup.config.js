@@ -14,7 +14,7 @@ const packagesDir = path.resolve(__dirname, 'packages')
 const packageDir = path.resolve(packagesDir, process.env.TARGET)
 const name = path.basename(packageDir)
 const resolve = (p) => path.resolve(packageDir, p)
-const pkg = require(resolve(`package.json`))
+const pkg = require(resolve('package.json'))
 const packageOptions = pkg.buildOptions || {}
 
 // ensure TS checks only once for each build
@@ -23,17 +23,17 @@ let hasTSChecked = false
 const outputConfigs = {
   esm: {
     file: resolve(`dist/${name}.esm.js`),
-    format: 'es',
+    format: 'es'
   },
   cjs: {
     file: resolve(`dist/${name}.cjs.js`),
     format: 'cjs',
-    exports: 'auto',
+    exports: 'auto'
   },
   global: {
     file: resolve(`dist/${name}.global.js`),
-    format: 'iife',
-  },
+    format: 'iife'
+  }
 }
 
 const defaultFormats = ['esm', 'cjs']
@@ -59,7 +59,7 @@ if (process.env.NODE_ENV === 'production') {
 
 export default packageConfigs
 
-function createConfig(format, output, plugins = []) {
+function createConfig (format, output, plugins = []) {
   if (!output) {
     console.log(require('chalk').yellow(`invalid format: "${format}"`))
     process.exit(1)
@@ -87,32 +87,32 @@ function createConfig(format, output, plugins = []) {
       compilerOptions: {
         sourceMap: output.sourcemap,
         declaration: shouldEmitDeclarations,
-        declarationMap: shouldEmitDeclarations,
+        declarationMap: shouldEmitDeclarations
       },
-      exclude: ['**/__tests__'],
-    },
+      exclude: ['**/__tests__']
+    }
   })
   // we only need to check TS and generate declarations once for each build.
   // it also seems to run into weird issues when checking multiple times
   // during a single build.
   hasTSChecked = true
 
-  const entryFile = `src/index.ts`
+  const entryFile = 'src/index.ts'
 
   const external = isGlobalBuild
-    ? // Global build. Externalize peer and global dependencies
-      [...Object.keys(pkg.peerDependencies || {}), ...Object.keys(packageOptions.globals || {})]
-    : // Node / esm builds. Externalize everything.
-      [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})]
+    // Global build. Externalize peer and global dependencies
+    ? [...Object.keys(pkg.peerDependencies || {}), ...Object.keys(packageOptions.globals || {})]
+    // Node / esm builds. Externalize everything.
+    : [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})]
 
   const nodePlugins =
     format !== 'cjs'
       ? [
-          nodeResolvePlugin({
-            preferBuiltins: true,
-          }),
-          require('@rollup/plugin-commonjs')(),
-        ]
+        nodeResolvePlugin({
+          preferBuiltins: true
+        }),
+        require('@rollup/plugin-commonjs')()
+      ]
       : []
 
   return {
@@ -122,12 +122,12 @@ function createConfig(format, output, plugins = []) {
     external,
     plugins: [
       json({
-        namedExports: false,
+        namedExports: false
       }),
       tsPlugin,
       createReplacePlugin(isProductionBuild, isGlobalBuild, isNodeBuild),
       ...nodePlugins,
-      ...plugins,
+      ...plugins
     ],
     output,
     onwarn: (msg, warn) => {
@@ -136,20 +136,20 @@ function createConfig(format, output, plugins = []) {
       }
     },
     treeshake: {
-      moduleSideEffects: false,
-    },
+      moduleSideEffects: false
+    }
   }
 }
 
-function createReplacePlugin(isProduction, isGlobalBuild, isNodeBuild) {
+function createReplacePlugin (isProduction, isGlobalBuild, isNodeBuild) {
   const replacements = {
     __COMMIT__: `"${process.env.COMMIT}"`,
     __VERSION__: `"${masterVersion}"`,
     // this is only used during Vue's internal tests
-    __TEST__: false,
+    __TEST__: false
   }
   // allow inline overrides like
-  //__RUNTIME_COMPILE__=true yarn build runtime-core
+  // __RUNTIME_COMPILE__=true yarn build runtime-core
   Object.keys(replacements).forEach((key) => {
     if (key in process.env) {
       replacements[key] = process.env[key]
@@ -157,34 +157,34 @@ function createReplacePlugin(isProduction, isGlobalBuild, isNodeBuild) {
   })
   return replace({
     preventAssignment: true,
-    values: replacements,
+    values: replacements
   })
 }
 
-function createProductionConfig(format) {
+function createProductionConfig (format) {
   return createConfig(format, {
     file: resolve(`dist/${name}.${format}.prod.js`),
     format: outputConfigs[format].format,
-    exports: 'auto',
+    exports: 'auto'
   })
 }
 
-function createMinifiedConfig(format) {
+function createMinifiedConfig (format) {
   const { terser } = require('rollup-plugin-terser')
   return createConfig(
     format,
     {
       file: outputConfigs[format].file.replace(/\.js$/, '.prod.js'),
-      format: outputConfigs[format].format,
+      format: outputConfigs[format].format
     },
     [
       terser({
         module: /^esm/.test(format),
         compress: {
           ecma: 2015,
-          pure_getters: true,
-        },
-      }),
+          pure_getters: true
+        }
+      })
     ]
   )
 }

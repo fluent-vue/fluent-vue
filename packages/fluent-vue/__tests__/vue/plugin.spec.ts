@@ -21,7 +21,7 @@ describe('vue integration', () => {
 
   const fluent = createFluentVue({
     locale: 'en-US',
-    bundles: [bundle],
+    bundles: [bundle]
   })
 
   it('translates messages in a component', () => {
@@ -34,35 +34,35 @@ describe('vue integration', () => {
 
     const component = {
       data: () => ({
-        name: 'John',
+        name: 'John'
       }),
-      template: "<div>{{ $t('message', { name }) }}</div>",
+      template: "<div>{{ $t('message', { name }) }}</div>"
     }
 
     // Act
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual(`<div>Hello, ⁨John⁩!</div>`)
+    expect(mounted.html()).toEqual('<div>Hello, ⁨John⁩!</div>')
   })
 
   it('translates messages in sub-component', () => {
     // Arrange
     const child = {
       data: () => ({
-        name: 'Alice',
+        name: 'Alice'
       }),
-      template: "<div>{{ $t('sub-message', { name }) }}</div>",
+      template: "<div>{{ $t('sub-message', { name }) }}</div>"
     }
 
     const component = {
       components: {
-        child,
+        child
       },
       data: () => ({
-        name: 'John',
+        name: 'John'
       }),
-      template: "<div>{{ $t('message', { name }) }}<child /></div>",
+      template: "<div>{{ $t('message', { name }) }}<child /></div>"
     }
 
     // Act
@@ -76,24 +76,24 @@ describe('vue integration', () => {
     // Arrange
     const child = {
       data: () => ({
-        name: 'Alice',
+        name: 'Alice'
       }),
       fluent: {
         'en-US': new FluentResource(ftl`
         sub-message = Hello from child component, { $name }
-        `),
+        `)
       },
-      template: "<div>{{ $t('sub-message', { name }) }}</div>",
+      template: "<div>{{ $t('sub-message', { name }) }}</div>"
     }
 
     const component = {
       components: {
-        child,
+        child
       },
       data: () => ({
-        name: 'John',
+        name: 'John'
       }),
-      template: "<div>{{ $t('message', { name }) }}<child /></div>",
+      template: "<div>{{ $t('message', { name }) }}<child /></div>"
     }
 
     // Act

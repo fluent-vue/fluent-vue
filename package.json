@@ -13,7 +13,7 @@
     "dev": "node scripts/dev.js",
     "build": "node scripts/build.js",
     "size": "node scripts/build.js -p -f global",
-    "lint": "ts-standard --fix \"packages/**/*.ts?(x)\" && eslint packages/*/src",
+    "lint": "ts-standard --fix && eslint packages/*/src",
     "ls-lint": "ls-lint",
     "test": "node scripts/swap-vue 3 && jest",
     "test:2": "node scripts/swap-vue 2 && jest",

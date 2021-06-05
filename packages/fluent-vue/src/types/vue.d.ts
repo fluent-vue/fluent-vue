@@ -13,7 +13,7 @@ declare module 'vue-2/types/options' {
      * Setup function from @vue/composition-api
      * @private
      */
-    setup?(): void
+    setup?: () => void
   }
 }
 

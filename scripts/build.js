@@ -34,7 +34,7 @@ const commit = execa.sync('git', ['rev-parse', 'HEAD']).stdout.slice(0, 7)
 
 run()
 
-async function run() {
+async function run () {
   if (!targets.length) {
     await buildAll(allTargets)
     checkAllSizes(allTargets)
@@ -44,13 +44,13 @@ async function run() {
   }
 }
 
-async function buildAll(targets) {
+async function buildAll (targets) {
   for (const target of targets) {
     await build(target)
   }
 }
 
-async function build(target) {
+async function build (target) {
   const pkgDir = path.resolve(`packages/${target}`)
   const pkg = require(`${pkgDir}/package.json`)
 
@@ -69,13 +69,13 @@ async function build(target) {
         `COMMIT:${commit}`,
         `NODE_ENV:${env}`,
         `TARGET:${target}`,
-        formats ? `FORMATS:${formats}` : ``,
-        buildTypes ? `TYPES:true` : ``,
-        prodOnly ? `PROD_ONLY:true` : ``,
-        sourceMap ? `SOURCE_MAP:true` : ``,
+        formats ? `FORMATS:${formats}` : '',
+        buildTypes ? 'TYPES:true' : '',
+        prodOnly ? 'PROD_ONLY:true' : '',
+        sourceMap ? 'SOURCE_MAP:true' : ''
       ]
         .filter(Boolean)
-        .join(','),
+        .join(',')
     ],
     { stdio: 'inherit' }
   )
@@ -87,19 +87,18 @@ async function build(target) {
     // build types
     const { Extractor, ExtractorConfig } = require('@microsoft/api-extractor')
 
-    const extractorConfigPath = path.resolve(pkgDir, `api-extractor.json`)
+    const extractorConfigPath = path.resolve(pkgDir, 'api-extractor.json')
     const extractorConfig = ExtractorConfig.loadFileAndPrepare(extractorConfigPath)
     const result = Extractor.invoke(extractorConfig, {
       localBuild: true,
-      showVerboseMessages: true,
+      showVerboseMessages: true
     })
 
     if (result.succeeded) {
-      console.log(chalk.bold(chalk.green(`API Extractor completed successfully.`)))
+      console.log(chalk.bold(chalk.green('API Extractor completed successfully.')))
     } else {
       console.error(
-        `API Extractor completed with ${extractorResult.errorCount} errors` +
-          ` and ${extractorResult.warningCount} warnings`
+        `API Extractor completed with ${result.errorCount} errors and ${result.warningCount} warnings`
       )
       process.exitCode = 1
     }
@@ -108,7 +107,7 @@ async function build(target) {
   }
 }
 
-function checkAllSizes(targets) {
+function checkAllSizes (targets) {
   if (devOnly) {
     return
   }
@@ -119,12 +118,12 @@ function checkAllSizes(targets) {
   console.log()
 }
 
-function checkSize(target) {
+function checkSize (target) {
   const pkgDir = path.resolve(`packages/${target}`)
   checkFileSize(`${pkgDir}/dist/${target}.global.prod.js`)
 }
 
-function checkFileSize(filePath) {
+function checkFileSize (filePath) {
   if (!fs.existsSync(filePath)) {
     return
   }

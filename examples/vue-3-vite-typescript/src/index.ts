@@ -20,7 +20,7 @@ bundle.addResource(
 
 const fluent = createFluentVue({
   locale: 'en',
-  bundles: [bundle],
+  bundles: [bundle]
 })
 
 createApp(App).use(fluent).mount('#root')

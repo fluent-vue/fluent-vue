@@ -24,28 +24,28 @@ describe('composition api', () => {
 
     fluent = createFluentVue({
       locale: ['en'],
-      bundles: [bundleEn],
+      bundles: [bundleEn]
     })
   })
 
   it('can be used in setup', () => {
     // Arrange
     const component = {
-      template: `<a href="/foo" v-bind="attrs">{{ text }}</a>`,
-      setup() {
+      template: '<a href="/foo" v-bind="attrs">{{ text }}</a>',
+      setup () {
         const { $t, $ta } = useFluent()
 
         return {
           attrs: $ta('link'),
-          text: $t('link'),
+          text: $t('link')
         }
-      },
+      }
     }
 
     // Act
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual(`<a href="/foo" aria-label="Aria label">link text</a>`)
+    expect(mounted.html()).toEqual('<a href="/foo" aria-label="Aria label">link text</a>')
   })
 })

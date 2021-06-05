@@ -24,7 +24,9 @@
   },
   "include": [
     "packages/global.d.ts",
+    "packages/*/index.d.ts",
     "packages/*/src",
-    "packages/*/__tests__"
+    "packages/*/__tests__",
+    "examples/*/src",
   ]
 }

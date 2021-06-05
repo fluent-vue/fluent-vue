@@ -1,4 +1,5 @@
-// @ts-ignore
+// @ts-disable
+/* eslint-disable */
 
 import type { VueWrapper } from '@vue/test-utils'
 import type { ComponentOptions, ComponentPublicInstance } from 'vue-3'
@@ -8,7 +9,7 @@ import { FluentVue } from '../../src'
 
 install()
 
-export function mountWithFluent<T>(
+export function mountWithFluent<T> (
   fluent: FluentVue,
   component: ComponentOptions<T>
 ): VueWrapper<ComponentPublicInstance<T>> {
@@ -17,8 +18,8 @@ export function mountWithFluent<T>(
 
     return mount(component, {
       global: {
-        plugins: [fluent],
-      },
+        plugins: [fluent]
+      }
     })
   } else {
     const { createLocalVue, mount } = require('@vue/test-utils')
@@ -26,7 +27,7 @@ export function mountWithFluent<T>(
     const localVue = createLocalVue()
     localVue.use(fluent)
     return mount(component, {
-      localVue,
+      localVue
     })
   }
 }
