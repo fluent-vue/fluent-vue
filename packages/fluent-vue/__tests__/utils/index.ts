@@ -1,6 +1,6 @@
-// @ts-disable
 /* eslint-disable */
 
+// @ts-ignore
 import type { VueWrapper } from '@vue/test-utils'
 import type { ComponentOptions, ComponentPublicInstance } from 'vue-3'
 import { install, isVue3 } from 'vue-demi'

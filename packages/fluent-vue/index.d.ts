@@ -1,6 +1,8 @@
-// @ts-disable
+/* eslint-disable @typescript-eslint/prefer-ts-expect-error */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-ignore
 import Vue from 'vue'
-// @ts-disable
+// @ts-ignore
 import '@vue/runtime-core'
 import { FluentResource } from '@fluent/bundle'
 
