@@ -11,5 +11,5 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'standard-with-typescript'
   ],
-  ignorePatterns: ['CHANGELOG.md']
+  ignorePatterns: ['node_modules/', 'dist/', '*.js']
 }

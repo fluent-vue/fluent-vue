@@ -13,7 +13,7 @@
     "dev": "node scripts/dev.js",
     "build": "node scripts/build.js",
     "size": "node scripts/build.js -p -f global",
-    "lint": "ts-standard --fix && eslint packages/*/src",
+    "lint": "eslint .",
     "ls-lint": "ls-lint",
     "test": "node scripts/swap-vue 3 && jest",
     "test:2": "node scripts/swap-vue 2 && jest",
@@ -24,8 +24,8 @@
     "pre-commit": "ls-lint && lint-staged"
   },
   "lint-staged": {
-    "*.js": "ts-standard --fix",
-    "*.ts?(x)": "ts-standard --fix"
+    "*.js": "eslint --fix",
+    "*.ts?(x)": "eslint --fix"
   },
   "engines": {
     "node": ">=12.0.0"
