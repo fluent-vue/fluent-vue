@@ -1,4 +1,14 @@
 
+## v3.0.0-beta.11 (2021-06-06)
+
+#### :bug: Bug Fixes
+* `fluent-vue`
+  * [#612](https://github.com/Demivan/fluent-vue/pull/612) Fix error when using `useFluent` method from Vue 2 ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
+
 ## v3.0.0-beta.10 (2021-05-31)
 
 #### :star: New Features
