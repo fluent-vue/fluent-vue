@@ -34,10 +34,10 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from '@vue/composition-api'
 import { useFluent } from 'fluent-vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'typescript',
   setup () {
     const { $t, $ta } = useFluent()
@@ -48,10 +48,10 @@ export default Vue.extend({
     }
   },
   computed: {
-    username (): string {
+    username () {
       return this.$t('user-name')
     },
-    greeting (): string {
+    greeting () {
       return this.$ta('greeting')
     },
   },
