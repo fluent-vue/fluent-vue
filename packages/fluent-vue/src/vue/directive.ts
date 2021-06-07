@@ -104,19 +104,11 @@ function translate (el: HTMLElement, fluent: TranslationContext, binding: VueDir
 export function createVue3Directive (rootContext: TranslationContext): Vue3Directive {
   return {
     beforeMount (el, binding) {
-      if (binding.instance == null) {
-        return
-      }
-
       const context = getContext(rootContext, binding.instance)
       translate(el, context, binding)
     },
 
     updated (el, binding) {
-      if (binding.instance == null) {
-        return
-      }
-
       const context = getContext(rootContext, binding.instance)
       translate(el, context, binding)
     }
@@ -126,19 +118,11 @@ export function createVue3Directive (rootContext: TranslationContext): Vue3Direc
 export function createVue2Directive (rootContext: TranslationContext): Vue2Directive {
   return {
     bind (el, binding, vnode) {
-      if (vnode.context == null) {
-        return
-      }
-
       const context = getContext(rootContext, vnode.context)
       translate(el, context, binding)
     },
 
     update (el, binding, vnode) {
-      if (vnode.context == null) {
-        return
-      }
-
       const context = getContext(rootContext, vnode.context)
       translate(el, context, binding)
     }
