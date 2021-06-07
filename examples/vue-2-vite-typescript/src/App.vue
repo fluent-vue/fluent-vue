@@ -27,7 +27,7 @@
     </div>
 
     <h4>Composition api (useFluent)</h4>
-    <div v-bind="compositionGreeting">
+    <div v-bind="compositionGreetingTa">
       {{ compositionGreeting }}
     </div>
   </div>
@@ -43,8 +43,8 @@ export default defineComponent({
     const { $t, $ta } = useFluent()
 
     return {
-      compositionUsername: $t('user-name', { name: $t('user-name') }),
-      compositionGreeting: $ta('greeting')
+      compositionGreeting: $t('greeting', { name: $t('user-name') }),
+      compositionGreetingTa: $ta('greeting', { name: $t('user-name') })
     }
   },
   computed: {

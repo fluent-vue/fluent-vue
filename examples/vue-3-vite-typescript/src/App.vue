@@ -27,7 +27,7 @@
     </div>
 
     <h4>Composition api (useFluent)</h4>
-    <div v-bind="compositionGreeting">
+    <div v-bind="compositionGreetingTa">
       {{ compositionGreeting }}
     </div>
   </div>
@@ -35,7 +35,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { useFluent } from 'packages/fluent-vue'
+import { useFluent } from 'fluent-vue'
 
 export default defineComponent({
   name: 'typescript',
