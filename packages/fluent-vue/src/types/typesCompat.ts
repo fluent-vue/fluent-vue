@@ -24,6 +24,4 @@ export type Vue2 = typeof Vue2Type
 export type Vue3 = Vue3Type
 export type Vue = Vue3 | Vue2
 
-export type InstallFunction<TOptions> =
-  | Vue2PluginType<TOptions>
-  | ((app: Vue3, options: TOptions) => void)
+export type InstallFunction<TOptions> = (vue: unknown, options: TOptions) => void
