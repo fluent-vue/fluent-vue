@@ -3,6 +3,7 @@ import type { FluentResource } from '@fluent/bundle'
 import type { FluentVue } from '../index'
 
 declare module 'vue-2/types/options' {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface ComponentOptions<V extends Vue> {
     fluent?: { [locale: string]: FluentResource }
 
@@ -13,7 +14,7 @@ declare module 'vue-2/types/options' {
      * Setup function from @vue/composition-api
      * @private
      */
-    setup?(): void
+    setup?: () => void
   }
 }
 

@@ -33,12 +33,12 @@ execa(
       `COMMIT:${commit}`,
       `TARGET:${target}`,
       `FORMATS:${formats || 'global'}`,
-      sourceMap ? `SOURCE_MAP:true` : ``,
+      sourceMap ? 'SOURCE_MAP:true' : ''
     ]
       .filter(Boolean)
-      .join(','),
+      .join(',')
   ],
   {
-    stdio: 'inherit',
+    stdio: 'inherit'
   }
 )

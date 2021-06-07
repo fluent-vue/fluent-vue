@@ -8,7 +8,7 @@ import { TranslationContext } from './TranslationContext'
 import { inheritBundle } from './inheritBundle'
 import { RootContextSymbol } from './symbols'
 
-export function getContext(
+export function getContext (
   rootContext: TranslationContext,
   instance: VueComponent | null | undefined
 ): TranslationContext {
@@ -26,7 +26,7 @@ export function getContext(
   // If we override messages in a component
   // create new translation context with new bundles
   const fluent = options.fluent
-  if (fluent) {
+  if (fluent != null) {
     const overriddenBundles = computed(() => {
       const allLocales = rootContext.bundles.value.flatMap((bundle) => bundle.locales)
 
@@ -35,15 +35,15 @@ export function getContext(
           const locales = locale.split(/[\s+,]/)
           const parentLocale = negotiateLanguages(locales, allLocales, {
             strategy: 'lookup',
-            defaultLocale: locales[0],
+            defaultLocale: locales[0]
           })[0]
           const parentBundle = rootContext.bundles.value.find((bundle) =>
             bundle.locales.includes(parentLocale)
           )
 
-          if (!parentBundle) {
+          if (parentBundle == null) {
             warn(
-              `Component ${options.name} overides translations for locale "${locale}" that is not in your bundles`
+              `Component ${options.name ?? '[no-name]'} overides translations for locale "${locale}" that is not in your bundles`
             )
             return null
           }
@@ -65,7 +65,7 @@ export function getContext(
   return context
 }
 
-export function useFluent(): TranslationContext {
+export function useFluent (): TranslationContext {
   const instance = getCurrentInstance()
   assert(instance != null, 'useFluent called outside of setup')
 

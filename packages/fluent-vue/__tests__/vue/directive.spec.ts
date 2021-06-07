@@ -18,7 +18,7 @@ describe('directive', () => {
 
     fluent = createFluentVue({
       locale: 'en-US',
-      bundles: [bundle],
+      bundles: [bundle]
     })
   })
 
@@ -32,22 +32,22 @@ describe('directive', () => {
 
     const component = {
       data: () => ({
-        name: 'John',
+        name: 'John'
       }),
-      template: `<a v-t:link href="/foo">Fallback text</a>`,
+      template: '<a v-t:link href="/foo">Fallback text</a>'
     }
 
     // Act
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual(`<a href="/foo">Link text</a>`)
+    expect(mounted.html()).toEqual('<a href="/foo">Link text</a>')
   })
 
   it('warns about missing key arg', () => {
     // Arrange
     const component = {
-      template: `<a v-t href="/foo">Fallback text</a>`,
+      template: '<a v-t href="/foo">Fallback text</a>'
     }
 
     const warn = jest.spyOn(console, 'warn').mockImplementation()
@@ -56,7 +56,7 @@ describe('directive', () => {
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual(`<a href="/foo">Fallback text</a>`)
+    expect(mounted.html()).toEqual('<a href="/foo">Fallback text</a>')
     expect(warn).toHaveBeenCalledTimes(1)
     expect(warn).toHaveBeenCalledWith(
       '[fluent-vue] v-t directive is missing arg with translation key'
@@ -69,7 +69,7 @@ describe('directive', () => {
   it('warns about missing translation', () => {
     // Arrange
     const component = {
-      template: `<a v-t:missing-key href="/foo">Fallback text</a>`,
+      template: '<a v-t:missing-key href="/foo">Fallback text</a>'
     }
 
     const warn = jest.spyOn(console, 'warn').mockImplementation()
@@ -78,7 +78,7 @@ describe('directive', () => {
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual(`<a href="/foo">Fallback text</a>`)
+    expect(mounted.html()).toEqual('<a href="/foo">Fallback text</a>')
     expect(warn).toHaveBeenCalledTimes(1)
     expect(warn).toHaveBeenCalledWith(
       '[fluent-vue] Could not find translation for key [missing-key]'
@@ -98,16 +98,16 @@ describe('directive', () => {
 
     const component = {
       data: () => ({
-        name: 'John',
+        name: 'John'
       }),
-      template: `<a v-t:link="{ name }" href="/foo">Fallback text</a>`,
+      template: '<a v-t:link="{ name }" href="/foo">Fallback text</a>'
     }
 
     // Act
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual(`<a href="/foo">Hello ⁨John⁩</a>`)
+    expect(mounted.html()).toEqual('<a href="/foo">Hello ⁨John⁩</a>')
   })
 
   it('can translate DOM attributes', () => {
@@ -121,16 +121,16 @@ describe('directive', () => {
 
     const component = {
       data: () => ({
-        name: 'John',
+        name: 'John'
       }),
-      template: `<a v-t:link.aria-label="{ name }" href="/foo" aria-label="Fallback aria">Fallback text</a>`,
+      template: '<a v-t:link.aria-label="{ name }" href="/foo" aria-label="Fallback aria">Fallback text</a>'
     }
 
     // Act
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual(`<a href="/foo" aria-label="Localized aria">Hello ⁨John⁩</a>`)
+    expect(mounted.html()).toEqual('<a href="/foo" aria-label="Localized aria">Hello ⁨John⁩</a>')
   })
 
   it('automatically binds whitelisted attrs', () => {
@@ -145,16 +145,16 @@ describe('directive', () => {
 
     const component = {
       data: () => ({
-        name: 'John',
+        name: 'John'
       }),
-      template: `<a v-t:link="{ name }">Fallback</a>`,
+      template: '<a v-t:link="{ name }">Fallback</a>'
     }
 
     // Act
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual(`<a aria-label="Hello ⁨John⁩">Text</a>`)
+    expect(mounted.html()).toEqual('<a aria-label="Hello ⁨John⁩">Text</a>')
   })
 
   it('works without fallbacks', () => {
@@ -168,16 +168,16 @@ describe('directive', () => {
 
     const component = {
       data: () => ({
-        name: 'John',
+        name: 'John'
       }),
-      template: `<a v-t:link.aria-label="{ name }"></a>`,
+      template: '<a v-t:link.aria-label="{ name }"></a>'
     }
 
     // Act
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual(`<a aria-label="Localized aria">Hello ⁨John⁩</a>`)
+    expect(mounted.html()).toEqual('<a aria-label="Localized aria">Hello ⁨John⁩</a>')
   })
 
   it('updates translations on component update', async () => {
@@ -191,20 +191,20 @@ describe('directive', () => {
 
     const component = {
       data: () => ({
-        name: 'John',
+        name: 'John'
       }),
-      template: `<a v-t:link.aria-label="{ name }"></a>`,
+      template: '<a v-t:link.aria-label="{ name }"></a>'
     }
 
     const mounted = mountWithFluent(fluent, component)
 
-    expect(mounted.html()).toEqual(`<a aria-label="Localized aria">Hello ⁨John⁩</a>`)
+    expect(mounted.html()).toEqual('<a aria-label="Localized aria">Hello ⁨John⁩</a>')
 
     // Act
     await mounted.setData({ name: 'Anna' })
 
     // Assert
-    expect(mounted.html()).toEqual(`<a aria-label="Localized aria">Hello ⁨Anna⁩</a>`)
+    expect(mounted.html()).toEqual('<a aria-label="Localized aria">Hello ⁨Anna⁩</a>')
   })
 
   it('preserves translations on component update', async () => {
@@ -219,20 +219,20 @@ describe('directive', () => {
     const component = {
       data: () => ({
         name: 'John',
-        otherName: 'Anna',
+        otherName: 'Anna'
       }),
-      template: `<a v-t:link.aria-label="{ name }">{{ otherName }}</a>`,
+      template: '<a v-t:link.aria-label="{ name }">{{ otherName }}</a>'
     }
 
     const mounted = mountWithFluent(fluent, component)
 
-    expect(mounted.html()).toEqual(`<a aria-label="Hello ⁨John⁩">Anna</a>`)
+    expect(mounted.html()).toEqual('<a aria-label="Hello ⁨John⁩">Anna</a>')
 
     // Act
     await mounted.setData({ otherName: 'Test' })
 
     // Assert
-    expect(mounted.html()).toEqual(`<a aria-label="Hello ⁨John⁩">Test</a>`)
+    expect(mounted.html()).toEqual('<a aria-label="Hello ⁨John⁩">Test</a>')
   })
 
   it('works with multiple attributes', () => {
@@ -247,9 +247,9 @@ describe('directive', () => {
 
     const component = {
       data: () => ({
-        name: 'John',
+        name: 'John'
       }),
-      template: `<a v-t:link.aria-label.placeholder="{ name }">Fallback</a>`,
+      template: '<a v-t:link.aria-label.placeholder="{ name }">Fallback</a>'
     }
 
     // Act
@@ -257,7 +257,7 @@ describe('directive', () => {
 
     // Assert
     expect(mounted.html()).toEqual(
-      `<a aria-label="Hello ⁨John⁩" placeholder="Placeholder">Text</a>`
+      '<a aria-label="Hello ⁨John⁩" placeholder="Placeholder">Text</a>'
     )
   })
 })

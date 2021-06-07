@@ -8,7 +8,7 @@ const bundle = new FluentBundle('en')
 
 const fluent = createFluentVue({
   locale: 'en',
-  bundles: [bundle],
+  bundles: [bundle]
 })
 
 createApp(App).use(fluent).mount('#app')

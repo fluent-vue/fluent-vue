@@ -17,7 +17,7 @@ export class TranslationContext {
   bundles: Ref<FluentBundle[]>
   bundlesIterable: ComputedRef<Iterable<FluentBundle>>
 
-  constructor(locale: Ref<string | string[]>, bundles: Ref<FluentBundle[]>) {
+  constructor (locale: Ref<string | string[]>, bundles: Ref<FluentBundle[]>) {
     this.locale = locale
     this.bundles = bundles
     this.bundlesIterable = computed(() =>
@@ -25,11 +25,11 @@ export class TranslationContext {
     )
   }
 
-  getBundle(key: string): FluentBundle | null {
+  getBundle (key: string): FluentBundle | null {
     return mapBundleSync(this.bundlesIterable.value, key)
   }
 
-  getMessage(bundle: FluentBundle | null, key: string): Message | null {
+  getMessage (bundle: FluentBundle | null, key: string): Message | null {
     const message = bundle?.getMessage(key)
 
     if (message === undefined) {
@@ -40,7 +40,7 @@ export class TranslationContext {
     return message
   }
 
-  formatPattern(
+  formatPattern (
     bundle: FluentBundle,
     message: Pattern,
     value?: Record<string, FluentVariable>
@@ -55,7 +55,7 @@ export class TranslationContext {
     return formatted
   }
 
-  private _format(
+  private _format (
     context: FluentBundle | null,
     message: Message | null,
     value?: Record<string, FluentVariable>
@@ -73,7 +73,7 @@ export class TranslationContext {
     return this._format(context, message, value) ?? key
   }
 
-  private _formatAttrs(
+  private _formatAttrs (
     context: FluentBundle | null,
     message: Message | null,
     value?: Record<string, FluentVariable>
@@ -105,7 +105,7 @@ export class TranslationContext {
     return {
       value: formatValue ?? key,
       attributes: this._formatAttrs(context, message, value) ?? {},
-      hasValue: formatValue !== null,
+      hasValue: formatValue !== null
     }
   }
 

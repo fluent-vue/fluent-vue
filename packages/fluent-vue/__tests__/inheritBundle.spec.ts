@@ -8,14 +8,14 @@ describe('inheritBundle', () => {
   it('gets options from parent', () => {
     // Arrange
     const functions = {
-      test: () => '',
+      test: () => ''
     }
-    const transform = () => ''
+    const transform = (): string => ''
 
     const parent = new FluentBundle('en', {
       useIsolating: false,
       functions,
-      transform,
+      transform
     })
 
     // Act
@@ -64,7 +64,7 @@ describe('inheritBundle', () => {
   it('can override parent messages', () => {
     // Arrange
     const parent = new FluentBundle('en', {
-      useIsolating: false, // For simpler testing
+      useIsolating: false // For simpler testing
     })
     const parentResource = new FluentResource(ftl`
     message = Localized parent
@@ -87,7 +87,7 @@ describe('inheritBundle', () => {
   it('can reference parent terms', () => {
     // Arrange
     const parent = new FluentBundle('en', {
-      useIsolating: false, // For simpler testing
+      useIsolating: false // For simpler testing
     })
     const parentResource = new FluentResource(ftl`
     -parent-term = Parent term

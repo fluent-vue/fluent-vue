@@ -6,7 +6,7 @@ import { getContext } from '../composition'
 import { RootContextSymbol } from '../symbols'
 import { assert } from '../util/warn'
 
-function getParentWithFluent(
+function getParentWithFluent (
   instance: VueComponent | null | undefined
 ): VueComponent | null | undefined {
   const parent = instance?.$parent
@@ -24,9 +24,9 @@ export default defineComponent({
   props: {
     path: { type: String, required: true },
     tag: { type: String, default: 'span' },
-    args: { type: Object, default: () => ({}) },
+    args: { type: Object, default: () => ({}) }
   },
-  setup(props, { slots, attrs }) {
+  setup (props, { slots, attrs }) {
     const rootContext = inject(RootContextSymbol)
     assert(rootContext != null, 'i18n component used without instaling plugin')
     const instance = getCurrentInstance()
@@ -38,7 +38,7 @@ export default defineComponent({
         {},
         props.args,
         ...Object.keys(slots).map((key) => ({
-          [key]: `\uFFFF\uFFFE${key}\uFFFF`,
+          [key]: `\uFFFF\uFFFE${key}\uFFFF`
         }))
       )
     )
@@ -57,7 +57,7 @@ export default defineComponent({
       h(
         props.tag,
         {
-          ...attrs,
+          ...attrs
         },
         translation.value.value
           .split('\uFFFF')
@@ -67,5 +67,5 @@ export default defineComponent({
               : text
           )
       )
-  },
+  }
 })

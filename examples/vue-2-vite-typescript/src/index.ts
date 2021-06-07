@@ -1,30 +1,23 @@
 import Vue from 'vue'
-import { FluentBundle, FluentResource } from '@fluent/bundle'
-import ftl from '@fluent/dedent'
+import CompositionApi from '@vue/composition-api'
+import { FluentBundle } from '@fluent/bundle'
 import { createFluentVue } from 'fluent-vue'
 
 import App from './App.vue'
 
-const bundle = new FluentBundle('en')
+// Only needed if you want to use composition api
+Vue.use(CompositionApi)
 
-bundle.addResource(new FluentResource('user-name = World'))
-bundle.addResource(new FluentResource('aria-key = Aria value'))
-bundle.addResource(
-  new FluentResource(
-    ftl`
-  greeting = Hello, {$name}
-    .aria-label = Label value
-  `
-  )
-)
+const bundle = new FluentBundle('en')
 
 const fluent = createFluentVue({
   locale: 'en',
-  bundles: [bundle],
+  bundles: [bundle]
 })
 Vue.use(fluent)
 
+// eslint-disable-next-line no-new
 new Vue({
   el: '#root',
-  render: (h) => h(App),
+  render: h => h(App)
 })

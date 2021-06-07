@@ -1,7 +1,7 @@
 import { negotiateLanguages } from '@fluent/langneg'
 import { FluentBundle } from '@fluent/bundle'
 
-export function getOrderedBundles(
+export function getOrderedBundles (
   requestedLocale: string | string[],
   bundles: FluentBundle[]
 ): FluentBundle[] {
@@ -11,7 +11,7 @@ export function getOrderedBundles(
 
   const avaliableLocales = bundles.flatMap((bundle) => bundle.locales)
   const negotiatedLocales = negotiateLanguages(requestedLocale, avaliableLocales, {
-    strategy: 'filtering',
+    strategy: 'filtering'
   })
 
   const newBundles = negotiatedLocales.map((locale) =>

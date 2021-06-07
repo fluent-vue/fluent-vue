@@ -8,11 +8,12 @@ const bundle = new FluentBundle('en')
 
 const fluent = createFluentVue({
   locale: 'en',
-  bundles: [bundle],
+  bundles: [bundle]
 })
 Vue.use(fluent)
 
+// eslint-disable-next-line no-new
 new Vue({
   el: '#root',
-  render: (h) => h(App),
+  render: h => h(App)
 })

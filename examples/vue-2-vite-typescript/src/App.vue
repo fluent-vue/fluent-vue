@@ -25,24 +25,45 @@
         </template>
       </i18n>
     </div>
+
+    <h4>Composition api (useFluent)</h4>
+    <div v-bind="compositionGreetingTa">
+      {{ compositionGreeting }}
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from '@vue/composition-api'
+import { useFluent } from 'fluent-vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'typescript',
+  setup () {
+    const { $t, $ta } = useFluent()
+
+    return {
+      compositionGreeting: $t('greeting', { name: $t('user-name') }),
+      compositionGreetingTa: $ta('greeting', { name: $t('user-name') })
+    }
+  },
   computed: {
-    username() {
+    username () {
       return this.$t('user-name')
     },
-    greeting() {
+    greeting () {
       return this.$ta('greeting')
     },
   },
 })
 </script>
+
+<fluent locale="en">
+user-name = World
+aria-key = Aria value
+greeting = Hello, {$name}
+  .aria-label = Label value
+</fluent>
 
 <style>
 .test {

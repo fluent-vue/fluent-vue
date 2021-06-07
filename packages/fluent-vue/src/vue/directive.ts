@@ -18,7 +18,7 @@ const LOCALIZABLE_ATTRIBUTES: { [tag: string]: string[] } = {
   track: ['label'],
   img: ['alt'],
   textarea: ['placeholder'],
-  th: ['abbr'],
+  th: ['abbr']
 }
 
 /**
@@ -33,7 +33,7 @@ const LOCALIZABLE_ATTRIBUTES: { [tag: string]: string[] } = {
  *
  * @private
  */
-function isAttrNameLocalizable(
+function isAttrNameLocalizable (
   name: string,
   element: HTMLElement,
   explicitlyAllowed: string[]
@@ -55,7 +55,7 @@ function isAttrNameLocalizable(
   }
 
   // Are there no allowed attributes for this element?
-  if (!LOCALIZABLE_ATTRIBUTES[elemName]) {
+  if (LOCALIZABLE_ATTRIBUTES[elemName] == null) {
     return false
   }
 
@@ -79,7 +79,7 @@ function isAttrNameLocalizable(
   return false
 }
 
-function translate(el: HTMLElement, fluent: TranslationContext, binding: VueDirectiveBinding) {
+function translate (el: HTMLElement, fluent: TranslationContext, binding: VueDirectiveBinding): void {
   const key = binding.arg
 
   if (key === undefined) {
@@ -101,46 +101,30 @@ function translate(el: HTMLElement, fluent: TranslationContext, binding: VueDire
   }
 }
 
-export function createVue3Directive(rootContext: TranslationContext): Vue3Directive {
+export function createVue3Directive (rootContext: TranslationContext): Vue3Directive {
   return {
-    beforeMount(el, binding) {
-      if (binding.instance == null) {
-        return
-      }
-
+    beforeMount (el, binding) {
       const context = getContext(rootContext, binding.instance)
       translate(el, context, binding)
     },
 
-    updated(el, binding) {
-      if (binding.instance == null) {
-        return
-      }
-
+    updated (el, binding) {
       const context = getContext(rootContext, binding.instance)
       translate(el, context, binding)
-    },
+    }
   }
 }
 
-export function createVue2Directive(rootContext: TranslationContext): Vue2Directive {
+export function createVue2Directive (rootContext: TranslationContext): Vue2Directive {
   return {
-    bind(el, binding, vnode) {
-      if (vnode.context == null) {
-        return
-      }
-
+    bind (el, binding, vnode) {
       const context = getContext(rootContext, vnode.context)
       translate(el, context, binding)
     },
 
-    update(el, binding, vnode) {
-      if (vnode.context == null) {
-        return
-      }
-
+    update (el, binding, vnode) {
       const context = getContext(rootContext, vnode.context)
       translate(el, context, binding)
-    },
+    }
   }
 }

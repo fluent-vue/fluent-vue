@@ -2,12 +2,12 @@ import vue from '@vitejs/plugin-vue'
 
 const fluentPlugin = {
   name: 'fluent-vue',
-  transform(code, id) {
+  transform (code, id) {
     if (!/vue&type=fluent/.test(id)) {
       return
     }
 
-    const [filename, rawQuery] = id.split('?', 2)
+    const [, rawQuery] = id.split('?', 2)
     const query = new URLSearchParams(rawQuery)
 
     return `
@@ -17,12 +17,12 @@ export default function (Component) {
   Component.fluent = Component.fluent || {}
   Component.fluent['${query.get('locale')}'] = new FluentResource(\`${code}\`)
 }`
-  },
+  }
 }
 
 export default {
   optimizeDeps: {
-    link: ['fluent-vue'],
+    link: ['fluent-vue']
   },
-  plugins: [vue(), fluentPlugin],
+  plugins: [vue(), fluentPlugin]
 }

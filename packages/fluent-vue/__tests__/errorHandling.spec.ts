@@ -21,13 +21,13 @@ describe('vue integration', () => {
 
   const fluent = createFluentVue({
     locale: 'en-US',
-    bundles: [bundle],
+    bundles: [bundle]
   })
 
   it('warns about missing translation', () => {
     // Arrange
     const component = {
-      template: "<div>{{ $t('message-not-found') }}</div>",
+      template: "<div>{{ $t('message-not-found') }}</div>"
     }
 
     const warn = jest.spyOn(console, 'warn').mockImplementation()
@@ -36,11 +36,9 @@ describe('vue integration', () => {
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual(`<div>message-not-found</div>`)
+    expect(mounted.html()).toEqual('<div>message-not-found</div>')
     expect(warn).toHaveBeenCalledTimes(1)
-    expect(warn).toHaveBeenCalledWith(
-      '[fluent-vue] Could not find translation for key [message-not-found]'
-    )
+    expect(warn).toHaveBeenCalledWith('[fluent-vue] Could not find translation for key [message-not-found]')
 
     // Cleanup
     warn.mockRestore()
@@ -55,7 +53,7 @@ describe('vue integration', () => {
     )
 
     const component = {
-      template: "<div>{{ $t('message') }}</div>",
+      template: "<div>{{ $t('message') }}</div>"
     }
 
     const warn = jest.spyOn(console, 'warn').mockImplementation()
@@ -64,12 +62,9 @@ describe('vue integration', () => {
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual(`<div>{NUMBER($arg)}</div>`)
+    expect(mounted.html()).toEqual('<div>{NUMBER($arg)}</div>')
     expect(warn).toHaveBeenCalledTimes(1)
-    expect(warn).toHaveBeenCalledWith(
-      '[fluent-vue] Error when formatting',
-      new Error('Unknown variable: $arg')
-    )
+    expect(warn).toHaveBeenCalledWith('[fluent-vue] Error when formatting', new Error('Unknown variable: $arg'))
 
     // Cleanup
     warn.mockRestore()

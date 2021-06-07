@@ -9,12 +9,12 @@ const examples = readdirSync('examples')
     package: JSON.parse(readFileSync(`examples/${f}/package.json`)),
   }))
 
-async function buildExamples() {
+async function buildExamples () {
   await execa('yarn', [], { stdio: 'inherit' })
   await execa('yarn', ['build'], { stdio: 'inherit' })
   await execa('yarn', ['pack', '-f', '../../fluent-vue.tgz'], {
     stdio: 'inherit',
-    cwd: 'packages/fluent-vue',
+    cwd: 'packages/fluent-vue'
   })
 
   for (const example of examples) {
