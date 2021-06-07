@@ -1,4 +1,14 @@
 
+## v3.0.0-beta.12 (2021-06-07)
+
+#### :bug: Bug Fixes
+* `fluent-vue`
+  * [#621](https://github.com/Demivan/fluent-vue/pull/621) Fix directive not updating on locale change with Vue 3.1.0 ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
+
 ## v3.0.0-beta.11 (2021-06-06)
 
 #### :bug: Bug Fixes
