@@ -3,9 +3,9 @@ import type { LoaderDefinitionFunction } from 'webpack/types'
 import { parseQuery, OptionObject } from 'loader-utils'
 
 const loader: LoaderDefinitionFunction = function (this, source, sourceMap): void {
-  if (this.version && Number(this.version) >= 2) {
+  if (this.version >= 2) {
     try {
-      this.cacheable && this.cacheable()
+      this.cacheable()
       this.callback(null, generateCode(source, parseQuery(this.resourceQuery)), sourceMap)
     } catch (err) {
       this.emitError(err.message)

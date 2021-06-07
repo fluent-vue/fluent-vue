@@ -62,7 +62,7 @@ export function createFluentVue (options: FluentVueOptions): FluentVue {
     formatAttrs: rootContext.formatAttrs.bind(rootContext),
     formatWithAttrs: rootContext.formatWithAttrs.bind(rootContext),
 
-    install(vue) {
+    install (vue) {
       if (isVue3) {
         const vue3 = vue as Vue3
 
@@ -101,7 +101,7 @@ export function createFluentVue (options: FluentVueOptions): FluentVue {
         vue2.directive('t', createVue2Directive(rootContext))
       }
 
-      ;(vue as Vue).component('i18n', component)
+      (vue as Vue).component('i18n', component)
     }
   }
 }
