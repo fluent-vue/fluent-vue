@@ -1,6 +1,7 @@
 import type { Vue2Directive, Vue3Directive, VueDirectiveBinding } from '../types/typesCompat'
 import type { TranslationContext } from '../TranslationContext'
 
+import { watchEffect } from 'vue-demi'
 import { warn } from '../util/warn'
 import { getContext } from '../composition'
 
@@ -103,9 +104,11 @@ function translate (el: HTMLElement, fluent: TranslationContext, binding: VueDir
 
 export function createVue3Directive (rootContext: TranslationContext): Vue3Directive {
   return {
-    beforeMount (el, binding) {
-      const context = getContext(rootContext, binding.instance)
-      translate(el, context, binding)
+    mounted (el, binding) {
+      watchEffect(() => {
+        const context = getContext(rootContext, binding.instance)
+        translate(el, context, binding)
+      })
     },
 
     updated (el, binding) {
