@@ -2,7 +2,6 @@
  * @jest-environment jsdom
  */
 
-import { nextTick } from 'vue-demi'
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
@@ -171,8 +170,7 @@ describe('component', () => {
       `)
     )
 
-    const warn = jest.fn()
-    console.warn = warn
+    const warn = jest.spyOn(console, 'warn').mockImplementation()
 
     const component = {
       template: `
@@ -189,6 +187,12 @@ describe('component', () => {
     // Assert
     expect(mounted.html()).toEqual(`<span>missing-key</span>`)
     expect(warn).toHaveBeenCalledTimes(1)
+    expect(warn).toHaveBeenCalledWith(
+      '[fluent-vue] Could not find translation for key [missing-key]'
+    )
+
+    // Cleanup
+    warn.mockRestore()
   })
 
   it('can accept parameters', () => {
@@ -246,9 +250,7 @@ describe('component', () => {
     expect(mounted.html()).toEqual(`<span>Hello ⁨John⁩ ⁨<b>Inner text</b>⁩ test</span>`)
 
     // Act
-    const vm = mounted.vm as any
-    vm.name = 'Alice'
-    await nextTick()
+    await mounted.setData({ name: 'Alice' })
 
     // Assert
     expect(mounted.html()).toEqual(`<span>Hello ⁨Alice⁩ ⁨<b>Inner text</b>⁩ test</span>`)

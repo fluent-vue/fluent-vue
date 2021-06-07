@@ -1,13 +1,12 @@
-const fs = require('fs')
-const execa = require('execa')
-const chalk = require('chalk')
+import { readdirSync, readFileSync, statSync } from 'fs'
+import execa from 'execa'
+import chalk from 'chalk'
 
-const examples = fs
-  .readdirSync('examples')
-  .filter((f) => fs.statSync(`examples/${f}`).isDirectory())
+const examples = readdirSync('examples')
+  .filter((f) => statSync(`examples/${f}`).isDirectory())
   .map((f) => ({
     folder: `examples/${f}`,
-    package: require(`../examples/${f}/package.json`),
+    package: JSON.parse(readFileSync(`examples/${f}/package.json`)),
   }))
 
 async function buildExamples() {
@@ -31,4 +30,4 @@ async function buildExamples() {
   }
 }
 
-buildExamples()
+await buildExamples()

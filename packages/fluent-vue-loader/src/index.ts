@@ -1,11 +1,8 @@
-import { parseQuery, OptionObject } from 'loader-utils'
-import { RawSourceMap } from 'source-map'
+import type { LoaderDefinitionFunction } from 'webpack/types'
 
-const loader = function (
-  this: any,
-  source: string | Buffer,
-  sourceMap: RawSourceMap | undefined
-): void {
+import { parseQuery, OptionObject } from 'loader-utils'
+
+const loader: LoaderDefinitionFunction = function (this, source, sourceMap): void {
   if (this.version && Number(this.version) >= 2) {
     try {
       this.cacheable && this.cacheable()
@@ -16,7 +13,7 @@ const loader = function (
     }
   } else {
     const message = 'Webpack 2 is not supported'
-    this.emitError(message)
+    this.emitError(new Error(message))
     this.callback(new Error(message))
   }
 }

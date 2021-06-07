@@ -49,7 +49,7 @@ export class TranslationContext {
     const formatted = bundle.formatPattern(message, value, errors)
 
     for (const error of errors) {
-      warn(`Error when formatting: ${error}`)
+      warn('Error when formatting', error)
     }
 
     return formatted

@@ -2,7 +2,6 @@
  * @jest-environment jsdom
  */
 
-import { nextTick } from 'vue-demi'
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
@@ -51,8 +50,7 @@ describe('directive', () => {
       template: `<a v-t href="/foo">Fallback text</a>`,
     }
 
-    const warn = jest.fn()
-    console.warn = warn
+    const warn = jest.spyOn(console, 'warn').mockImplementation()
 
     // Act
     const mounted = mountWithFluent(fluent, component)
@@ -63,6 +61,9 @@ describe('directive', () => {
     expect(warn).toHaveBeenCalledWith(
       '[fluent-vue] v-t directive is missing arg with translation key'
     )
+
+    // Cleanup
+    warn.mockRestore()
   })
 
   it('warns about missing translation', () => {
@@ -71,8 +72,7 @@ describe('directive', () => {
       template: `<a v-t:missing-key href="/foo">Fallback text</a>`,
     }
 
-    const warn = jest.fn()
-    console.warn = warn
+    const warn = jest.spyOn(console, 'warn').mockImplementation()
 
     // Act
     const mounted = mountWithFluent(fluent, component)
@@ -83,6 +83,9 @@ describe('directive', () => {
     expect(warn).toHaveBeenCalledWith(
       '[fluent-vue] Could not find translation for key [missing-key]'
     )
+
+    // Cleanup
+    warn.mockRestore()
   })
 
   it('can use parameters', () => {
@@ -198,9 +201,7 @@ describe('directive', () => {
     expect(mounted.html()).toEqual(`<a aria-label="Localized aria">Hello ⁨John⁩</a>`)
 
     // Act
-    mounted.setData({ name: 'Anna' })
-
-    await nextTick()
+    await mounted.setData({ name: 'Anna' })
 
     // Assert
     expect(mounted.html()).toEqual(`<a aria-label="Localized aria">Hello ⁨Anna⁩</a>`)
@@ -228,9 +229,7 @@ describe('directive', () => {
     expect(mounted.html()).toEqual(`<a aria-label="Hello ⁨John⁩">Anna</a>`)
 
     // Act
-    mounted.setData({ otherName: 'Test' })
-
-    await nextTick()
+    await mounted.setData({ otherName: 'Test' })
 
     // Assert
     expect(mounted.html()).toEqual(`<a aria-label="Hello ⁨John⁩">Test</a>`)

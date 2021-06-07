@@ -102,8 +102,7 @@ describe('method', () => {
       `)
     )
 
-    const warn = jest.fn()
-    console.warn = warn
+    const warn = jest.spyOn(console, 'warn').mockImplementation()
 
     const component = {
       template: `<div v-bind="$ta('missing-key')"></div>`,
@@ -115,5 +114,11 @@ describe('method', () => {
     // Assert
     expect(mounted.html()).toEqual(`<div></div>`)
     expect(warn).toHaveBeenCalledTimes(1)
+    expect(warn).toHaveBeenCalledWith(
+      '[fluent-vue] Could not find translation for key [missing-key]'
+    )
+
+    // Cleanup
+    warn.mockRestore()
   })
 })

@@ -50,4 +50,4 @@ jobs:
         run: yarn install
 
       - name: Test
-        run: node scripts/build-examples.js
+        run: node scripts/build-examples.mjs

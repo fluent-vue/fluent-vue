@@ -18,7 +18,7 @@ declare module 'vue/types/options' {
     /**
      * Message override for Vue component
      */
-    fluent?: Record<string, FluentResource>
+    fluent?: { [locale: string]: FluentResource }
   }
 }
 // #endregion
@@ -28,6 +28,12 @@ declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
     $t(key: string, values?: Record<string, unknown>): string
     $ta(key: string, values?: Record<string, unknown>): Record<string, string>
+  }
+}
+
+declare module '@vue/runtime-core' {
+  interface ComponentCustomOptions {
+    fluent?: { [locale: string]: FluentResource }
   }
 }
 // #endregion
