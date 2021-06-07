@@ -2,7 +2,6 @@
  * @jest-environment jsdom
  */
 
-import { nextTick } from 'vue-demi'
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
@@ -198,9 +197,7 @@ describe('directive', () => {
     expect(mounted.html()).toEqual(`<a aria-label="Localized aria">Hello ⁨John⁩</a>`)
 
     // Act
-    mounted.setData({ name: 'Anna' })
-
-    await nextTick()
+    await mounted.setData({ name: 'Anna' })
 
     // Assert
     expect(mounted.html()).toEqual(`<a aria-label="Localized aria">Hello ⁨Anna⁩</a>`)
@@ -228,9 +225,7 @@ describe('directive', () => {
     expect(mounted.html()).toEqual(`<a aria-label="Hello ⁨John⁩">Anna</a>`)
 
     // Act
-    mounted.setData({ otherName: 'Test' })
-
-    await nextTick()
+    await mounted.setData({ otherName: 'Test' })
 
     // Assert
     expect(mounted.html()).toEqual(`<a aria-label="Hello ⁨John⁩">Test</a>`)

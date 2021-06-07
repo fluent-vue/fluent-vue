@@ -2,7 +2,6 @@
  * @jest-environment jsdom
  */
 
-import { nextTick } from 'vue-demi'
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
@@ -246,9 +245,7 @@ describe('component', () => {
     expect(mounted.html()).toEqual(`<span>Hello ⁨John⁩ ⁨<b>Inner text</b>⁩ test</span>`)
 
     // Act
-    const vm = mounted.vm as any
-    vm.name = 'Alice'
-    await nextTick()
+    await mounted.setData({ name: 'Alice' })
 
     // Assert
     expect(mounted.html()).toEqual(`<span>Hello ⁨Alice⁩ ⁨<b>Inner text</b>⁩ test</span>`)
