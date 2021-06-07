@@ -1,6 +1,5 @@
 import type {
-  DirectiveOptions as Vue2DirectiveOptions,
-  PluginFunction as Vue2PluginType
+  DirectiveOptions as Vue2DirectiveOptions
 } from 'vue-2'
 import type { Vue as Vue2Type } from 'vue-2/types/vue'
 import type { DirectiveBinding as Vue2DirectiveBinding } from 'vue-2/types/options'
