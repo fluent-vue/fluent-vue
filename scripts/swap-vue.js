@@ -9,8 +9,8 @@ const vue3packages = {
 }
 
 const vue2packages = {
-  vue: 'npm:vue@^2.6.13',
-  'vue-template-compiler': '^2.6.13',
+  vue: 'npm:vue@^2.6.14',
+  'vue-template-compiler': '^2.6.14',
   '@vue/test-utils': '^1.1.4',
   '@vue/composition-api': '^1.0.0-rc.7'
 }
