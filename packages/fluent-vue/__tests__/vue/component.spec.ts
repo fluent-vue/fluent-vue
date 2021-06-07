@@ -170,8 +170,7 @@ describe('component', () => {
       `)
     )
 
-    const warn = jest.fn()
-    console.warn = warn
+    const warn = jest.spyOn(console, 'warn').mockImplementation()
 
     const component = {
       template: `
@@ -188,6 +187,12 @@ describe('component', () => {
     // Assert
     expect(mounted.html()).toEqual(`<span>missing-key</span>`)
     expect(warn).toHaveBeenCalledTimes(1)
+    expect(warn).toHaveBeenCalledWith(
+      '[fluent-vue] Could not find translation for key [missing-key]'
+    )
+
+    // Cleanup
+    warn.mockRestore()
   })
 
   it('can accept parameters', () => {

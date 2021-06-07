@@ -50,8 +50,7 @@ describe('directive', () => {
       template: `<a v-t href="/foo">Fallback text</a>`,
     }
 
-    const warn = jest.fn()
-    console.warn = warn
+    const warn = jest.spyOn(console, 'warn').mockImplementation()
 
     // Act
     const mounted = mountWithFluent(fluent, component)
@@ -62,6 +61,9 @@ describe('directive', () => {
     expect(warn).toHaveBeenCalledWith(
       '[fluent-vue] v-t directive is missing arg with translation key'
     )
+
+    // Cleanup
+    warn.mockRestore()
   })
 
   it('warns about missing translation', () => {
@@ -70,8 +72,7 @@ describe('directive', () => {
       template: `<a v-t:missing-key href="/foo">Fallback text</a>`,
     }
 
-    const warn = jest.fn()
-    console.warn = warn
+    const warn = jest.spyOn(console, 'warn').mockImplementation()
 
     // Act
     const mounted = mountWithFluent(fluent, component)
@@ -82,6 +83,9 @@ describe('directive', () => {
     expect(warn).toHaveBeenCalledWith(
       '[fluent-vue] Could not find translation for key [missing-key]'
     )
+
+    // Cleanup
+    warn.mockRestore()
   })
 
   it('can use parameters', () => {
