@@ -2,6 +2,7 @@
  * @jest-environment jsdom
  */
 
+import { nextTick } from 'vue-demi'
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
@@ -18,14 +19,6 @@ describe('message override', () => {
     bundleEn = new FluentBundle(['en', 'en-US'])
     bundleUk = new FluentBundle(['uk', 'uk-UA'])
 
-    fluent = createFluentVue({
-      locale: ['uk-UA', 'en'],
-      bundles: [bundleUk, bundleEn]
-    })
-  })
-
-  it('can override one locale from a bundle with multiple locales', () => {
-    // Arrange
     bundleEn.addResource(
       new FluentResource(ftl`
       link = link text
@@ -38,6 +31,14 @@ describe('message override', () => {
       `)
     )
 
+    fluent = createFluentVue({
+      locale: ['uk-UA', 'en'],
+      bundles: [bundleUk, bundleEn]
+    })
+  })
+
+  it('can override one locale from a bundle with multiple locales', async () => {
+    // Arrange
     const component = {
       template: '<a v-t:link href="/foo">Fallback text</a>',
       fluent: {
@@ -53,7 +54,9 @@ describe('message override', () => {
 
     fluent.locale = 'uk'
 
+    await nextTick()
+
     // Assert
-    expect(mounted.html()).toEqual('<a href="/foo">текст посилання</a>')
+    expect(mounted.html()).toEqual('<a href="/foo">текст посилання 2</a>')
   })
 })
