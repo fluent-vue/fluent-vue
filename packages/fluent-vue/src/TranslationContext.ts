@@ -1,8 +1,8 @@
-import { CachedSyncIterable } from 'cached-iterable'
+import type { Message, Pattern } from '@fluent/bundle/esm/ast'
+import type { FluentBundle, FluentVariable } from '@fluent/bundle'
+
 import { mapBundleSync } from '@fluent/sequence'
 import { warn } from './util/warn'
-import { FluentBundle, FluentVariable } from '@fluent/bundle'
-import { Message, Pattern } from '@fluent/bundle/esm/ast'
 import { computed, ComputedRef, Ref } from 'vue-demi'
 import { getOrderedBundles } from './getOrderedBundles'
 
@@ -15,13 +15,13 @@ export interface TranslationWithAttrs {
 export class TranslationContext {
   locale: Ref<string | string[]>
   bundles: Ref<FluentBundle[]>
-  bundlesIterable: ComputedRef<Iterable<FluentBundle>>
+  bundlesIterable: ComputedRef<FluentBundle[]>
 
   constructor (locale: Ref<string | string[]>, bundles: Ref<FluentBundle[]>) {
     this.locale = locale
     this.bundles = bundles
     this.bundlesIterable = computed(() =>
-      CachedSyncIterable.from(getOrderedBundles(this.locale.value, bundles.value))
+      getOrderedBundles(this.locale.value, bundles.value)
     )
   }
 
