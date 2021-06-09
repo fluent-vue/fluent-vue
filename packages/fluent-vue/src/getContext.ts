@@ -2,10 +2,8 @@ import type { VueComponent } from './types/typesCompat'
 import type { FluentBundle } from '@fluent/bundle'
 
 import { TranslationContext } from './TranslationContext'
-import { negotiateLanguages } from '@fluent/langneg'
 import { computed } from 'vue-demi'
 import { inheritBundle } from './inheritBundle'
-import { warn } from './util/warn'
 
 export function getContext (
   rootContext: TranslationContext,
@@ -32,18 +30,12 @@ export function getContext (
       return Object.entries(fluent)
         .map(([locale, resources]) => {
           const locales = locale.split(/[\s+,]/)
-          const parentLocale = negotiateLanguages(locales, allLocales, {
-            strategy: 'lookup',
-            defaultLocale: locales[0]
-          })[0]
+          const parentLocale = allLocales.find(l => l === locale) ?? locales[0]
           const parentBundle = rootContext.bundles.value.find((bundle) =>
             bundle.locales.includes(parentLocale)
           )
 
           if (parentBundle == null) {
-            warn(
-              `Component ${options.name ?? '[no-name]'} overides translations for locale "${locale}" that is not in your bundles`
-            )
             return null
           }
 
@@ -56,7 +48,7 @@ export function getContext (
 
     const allBundles = computed(() => overriddenBundles.value.concat(rootContext.bundles.value))
 
-    context = new TranslationContext(rootContext.locale, allBundles)
+    context = new TranslationContext(allBundles)
   }
 
   options._fluent = context

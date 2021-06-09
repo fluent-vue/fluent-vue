@@ -23,7 +23,6 @@ describe('composition api', () => {
     )
 
     fluent = createFluentVue({
-      locale: ['en'],
       bundles: [bundleEn]
     })
   })
