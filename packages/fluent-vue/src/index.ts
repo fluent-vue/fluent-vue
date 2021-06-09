@@ -5,7 +5,7 @@ import { isVue3, ref, provide, Ref } from 'vue-demi'
 import { TranslationContext, TranslationWithAttrs } from './TranslationContext'
 import { createVue2Directive, createVue3Directive } from './vue/directive'
 import component from './vue/component'
-import { getContext } from './composition'
+import { getContext } from './getContext'
 import { RootContextSymbol } from './symbols'
 
 export { useFluent } from './composition'

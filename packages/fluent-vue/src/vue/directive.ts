@@ -3,7 +3,7 @@ import type { TranslationContext } from '../TranslationContext'
 
 import { watchEffect } from 'vue-demi'
 import { warn } from '../util/warn'
-import { getContext } from '../composition'
+import { getContext } from '../getContext'
 
 // Copied from fluent-dom library
 const LOCALIZABLE_ATTRIBUTES: { [tag: string]: string[] } = {
