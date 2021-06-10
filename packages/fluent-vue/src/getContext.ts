@@ -1,5 +1,4 @@
 import type { VueComponent } from './types/typesCompat'
-import type { FluentBundle } from '@fluent/bundle'
 
 import { TranslationContext } from './TranslationContext'
 import { computed } from 'vue-demi'
@@ -14,42 +13,38 @@ export function getContext (
   }
 
   const options = instance.$options
+
+  const fluent = options.fluent
+  if (fluent == null) {
+    return rootContext
+  }
+
   if (options._fluent != null) {
     return options._fluent
   }
 
-  let context = rootContext
-
   // If we override messages in a component
   // create new translation context with new bundles
-  const fluent = options.fluent
-  if (fluent != null) {
-    const overriddenBundles = computed(() => {
-      const allLocales = rootContext.bundles.value.flatMap((bundle) => bundle.locales)
+  const overriddenBundles = computed(() => rootContext.bundles.value
+    .flatMap(parentBundle => Object.entries(fluent)
+      .map(([locale, resources]) => {
+        const locales = locale.split(/[\s+,]/)
 
-      return Object.entries(fluent)
-        .map(([locale, resources]) => {
-          const locales = locale.split(/[\s+,]/)
-          const parentLocale = allLocales.find(l => l === locale) ?? locales[0]
-          const parentBundle = rootContext.bundles.value.find((bundle) =>
-            bundle.locales.includes(parentLocale)
-          )
+        const matchingLocales = parentBundle.locales.filter(bundleLocale => locales.includes(bundleLocale))
 
-          if (parentBundle == null) {
-            return null
-          }
+        if (matchingLocales.length === 0) {
+          return parentBundle
+        }
 
-          const bundle = inheritBundle(locales, parentBundle)
-          bundle.addResource(resources, { allowOverrides: true })
-          return bundle
-        })
-        .filter((bundle) => bundle != null) as FluentBundle[]
-    })
+        const bundle = inheritBundle(parentBundle.locales, parentBundle)
+        bundle.addResource(resources, { allowOverrides: true })
 
-    const allBundles = computed(() => overriddenBundles.value.concat(rootContext.bundles.value))
+        return bundle
+      })
+    )
+  )
 
-    context = new TranslationContext(allBundles)
-  }
+  const context = new TranslationContext(overriddenBundles)
 
   options._fluent = context
 
