@@ -123,4 +123,55 @@ describe('message override', () => {
     await nextTick()
     expect(mounted.html()).toEqual('<a href="/foo">Generic link text</a><a href="/other-foo">other link text</a>')
   })
+
+  it('can override messages from different bundles', async () => {
+    // Arrange
+    const bundleUa = new FluentBundle(['uk-UA'])
+    bundleUa.addResource(
+      new FluentResource(ftl`
+      link = текст посилання ua
+      other-link = інший текст посилання ua
+      `)
+    )
+
+    const component = {
+      template: `
+        <a v-t:link href="/foo">Fallback text</a>
+        <a v-t:other-link href="/other-foo">Other fallback text</a>
+      `,
+      fluent: {
+        'uk en': new FluentResource(ftl`
+        link = Generic link text
+        `)
+      }
+    }
+
+    // Act
+    const mounted = mountWithFluent(fluent, component)
+
+    fluent.bundles = [bundleUa]
+    await nextTick()
+
+    expect(mounted.html()).toEqual('<a href="/foo">текст посилання ua</a><a href="/other-foo">інший текст посилання ua</a>')
+
+    fluent.bundles = [bundleUa, bundleUk]
+    await nextTick()
+
+    expect(mounted.html()).toEqual('<a href="/foo">текст посилання ua</a><a href="/other-foo">інший текст посилання ua</a>')
+
+    fluent.bundles = [bundleEn]
+
+    await nextTick()
+    expect(mounted.html()).toEqual('<a href="/foo">Generic link text</a><a href="/other-foo">other link text</a>')
+
+    fluent.bundles = [bundleUk]
+
+    await nextTick()
+    expect(mounted.html()).toEqual('<a href="/foo">Generic link text</a><a href="/other-foo">інший текст посилання</a>')
+
+    fluent.bundles = [bundleEn, bundleUk]
+
+    await nextTick()
+    expect(mounted.html()).toEqual('<a href="/foo">Generic link text</a><a href="/other-foo">other link text</a>')
+  })
 })
