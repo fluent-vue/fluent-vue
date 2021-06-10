@@ -12,12 +12,12 @@ export { useFluent } from './composition'
 
 export interface FluentVueOptions {
   /** Current negotiated fallback chain of languages */
-  bundles: FluentBundle[]
+  bundles: Iterable<FluentBundle>
 }
 
 export interface FluentVue {
   /** Current negotiated fallback chain of languages */
-  bundles: FluentBundle[]
+  bundles: Iterable<FluentBundle>
 
   format: (key: string, value?: Record<string, FluentVariable>) => string
 
@@ -34,7 +34,7 @@ export interface FluentVue {
  * @param options - {@link FluentVueOptions}
  */
 export function createFluentVue (options: FluentVueOptions): FluentVue {
-  const bundles: Ref<FluentBundle[]> = ref(options.bundles)
+  const bundles: Ref<Iterable<FluentBundle>> = ref(options.bundles)
 
   const rootContext = new TranslationContext(bundles)
 

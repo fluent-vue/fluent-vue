@@ -1,8 +1,16 @@
 import type { VueComponent } from './types/typesCompat'
 
-import { TranslationContext } from './TranslationContext'
 import { computed } from 'vue-demi'
+import { CachedSyncIterable } from 'cached-iterable'
+
+import { TranslationContext } from './TranslationContext'
 import { inheritBundle } from './inheritBundle'
+
+function * flatMap<T, TR> (iterable: Iterable<T>, mapper: (element: T) => TR[]): IterableIterator<TR> {
+  for (const item of iterable) {
+    yield * mapper(item)
+  }
+}
 
 export function getContext (
   rootContext: TranslationContext,
@@ -25,22 +33,24 @@ export function getContext (
 
   // If we override messages in a component
   // create new translation context with new bundles
-  const overriddenBundles = computed(() => rootContext.bundles.value
-    .flatMap(parentBundle => Object.entries(fluent)
-      .map(([locale, resources]) => {
-        const locales = locale.split(/[\s+,]/)
+  const overriddenBundles = computed(() =>
+    CachedSyncIterable.from(
+      flatMap(rootContext.bundles.value, parentBundle => Object.entries(fluent)
+        .map(([locale, resources]) => {
+          const locales = locale.split(/[\s+,]/)
 
-        const matchingLocales = parentBundle.locales.filter(bundleLocale => locales.includes(bundleLocale))
+          const matchingLocales = parentBundle.locales.filter(bundleLocale => locales.includes(bundleLocale))
 
-        if (matchingLocales.length === 0) {
-          return parentBundle
-        }
+          if (matchingLocales.length === 0) {
+            return parentBundle
+          }
 
-        const bundle = inheritBundle(parentBundle.locales, parentBundle)
-        bundle.addResource(resources, { allowOverrides: true })
+          const bundle = inheritBundle(locales, parentBundle)
+          bundle.addResource(resources, { allowOverrides: true })
 
-        return bundle
-      })
+          return bundle
+        })
+      )
     )
   )
 

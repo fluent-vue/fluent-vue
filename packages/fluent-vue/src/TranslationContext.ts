@@ -12,9 +12,9 @@ export interface TranslationWithAttrs {
 }
 
 export class TranslationContext {
-  bundles: Ref<FluentBundle[]>
+  bundles: Ref<Iterable<FluentBundle>>
 
-  constructor (bundles: Ref<FluentBundle[]>) {
+  constructor (bundles: Ref<Iterable<FluentBundle>>) {
     this.bundles = bundles
   }
 
