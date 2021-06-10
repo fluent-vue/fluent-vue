@@ -42,8 +42,9 @@ describe('message override', () => {
     // Arrange
     const component = {
       template: `
-        <a v-t:link href="/foo">Fallback text</a>
-        <a v-t:other-link href="/other-foo">Other fallback text</a>
+        <div>
+          <a v-t:link href="/foo">Fallback text</a><a v-t:other-link href="/other-foo">Other fallback text</a>
+        </div>
       `,
       fluent: {
         uk: new FluentResource(ftl`
@@ -56,20 +57,21 @@ describe('message override', () => {
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual('<a href="/foo">текст посилання 2</a><a href="/other-foo">інший текст посилання</a>')
+    expect(mounted.html()).toEqual('<div><a href="/foo">текст посилання 2</a><a href="/other-foo">інший текст посилання</a></div>')
 
     fluent.bundles = [bundleEn]
     await nextTick()
 
-    expect(mounted.html()).toEqual('<a href="/foo">link text</a><a href="/other-foo">other link text</a>')
+    expect(mounted.html()).toEqual('<div><a href="/foo">link text</a><a href="/other-foo">other link text</a></div>')
   })
 
   it('can override both locales from a bundle with multiple locales', async () => {
     // Arrange
     const component = {
       template: `
-        <a v-t:link href="/foo">Fallback text</a>
-        <a v-t:other-link href="/other-foo">Other fallback text</a>
+        <div>
+          <a v-t:link href="/foo">Fallback text</a><a v-t:other-link href="/other-foo">Other fallback text</a>
+        </div>
       `,
       fluent: {
         'uk uk-UA': new FluentResource(ftl`
@@ -82,20 +84,21 @@ describe('message override', () => {
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual('<a href="/foo">текст посилання 2</a><a href="/other-foo">інший текст посилання</a>')
+    expect(mounted.html()).toEqual('<div><a href="/foo">текст посилання 2</a><a href="/other-foo">інший текст посилання</a></div>')
 
     fluent.bundles = [bundleEn]
     await nextTick()
 
-    expect(mounted.html()).toEqual('<a href="/foo">link text</a><a href="/other-foo">other link text</a>')
+    expect(mounted.html()).toEqual('<div><a href="/foo">link text</a><a href="/other-foo">other link text</a></div>')
   })
 
   it('can override messages from different bundles', async () => {
     // Arrange
     const component = {
       template: `
-        <a v-t:link href="/foo">Fallback text</a>
-        <a v-t:other-link href="/other-foo">Other fallback text</a>
+        <div>
+          <a v-t:link href="/foo">Fallback text</a><a v-t:other-link href="/other-foo">Other fallback text</a>
+        </div>
       `,
       fluent: {
         'uk en': new FluentResource(ftl`
@@ -106,22 +109,22 @@ describe('message override', () => {
 
     // Act
     const mounted = mountWithFluent(fluent, component)
-    expect(mounted.html()).toEqual('<a href="/foo">Generic link text</a><a href="/other-foo">інший текст посилання</a>')
+    expect(mounted.html()).toEqual('<div><a href="/foo">Generic link text</a><a href="/other-foo">інший текст посилання</a></div>')
 
     fluent.bundles = [bundleEn]
 
     await nextTick()
-    expect(mounted.html()).toEqual('<a href="/foo">Generic link text</a><a href="/other-foo">other link text</a>')
+    expect(mounted.html()).toEqual('<div><a href="/foo">Generic link text</a><a href="/other-foo">other link text</a></div>')
 
     fluent.bundles = [bundleUk]
 
     await nextTick()
-    expect(mounted.html()).toEqual('<a href="/foo">Generic link text</a><a href="/other-foo">інший текст посилання</a>')
+    expect(mounted.html()).toEqual('<div><a href="/foo">Generic link text</a><a href="/other-foo">інший текст посилання</a></div>')
 
     fluent.bundles = [bundleEn, bundleUk]
 
     await nextTick()
-    expect(mounted.html()).toEqual('<a href="/foo">Generic link text</a><a href="/other-foo">other link text</a>')
+    expect(mounted.html()).toEqual('<div><a href="/foo">Generic link text</a><a href="/other-foo">other link text</a></div>')
   })
 
   it('can override messages from different bundles', async () => {
@@ -136,8 +139,9 @@ describe('message override', () => {
 
     const component = {
       template: `
-        <a v-t:link href="/foo">Fallback text</a>
-        <a v-t:other-link href="/other-foo">Other fallback text</a>
+        <div>
+          <a v-t:link href="/foo">Fallback text</a><a v-t:other-link href="/other-foo">Other fallback text</a>
+        </div>
       `,
       fluent: {
         'uk en': new FluentResource(ftl`
@@ -152,26 +156,26 @@ describe('message override', () => {
     fluent.bundles = [bundleUa]
     await nextTick()
 
-    expect(mounted.html()).toEqual('<a href="/foo">текст посилання ua</a><a href="/other-foo">інший текст посилання ua</a>')
+    expect(mounted.html()).toEqual('<div><a href="/foo">текст посилання ua</a><a href="/other-foo">інший текст посилання ua</a></div>')
 
     fluent.bundles = [bundleUa, bundleUk]
     await nextTick()
 
-    expect(mounted.html()).toEqual('<a href="/foo">текст посилання ua</a><a href="/other-foo">інший текст посилання ua</a>')
+    expect(mounted.html()).toEqual('<div><a href="/foo">текст посилання ua</a><a href="/other-foo">інший текст посилання ua</a></div>')
 
     fluent.bundles = [bundleEn]
 
     await nextTick()
-    expect(mounted.html()).toEqual('<a href="/foo">Generic link text</a><a href="/other-foo">other link text</a>')
+    expect(mounted.html()).toEqual('<div><a href="/foo">Generic link text</a><a href="/other-foo">other link text</a></div>')
 
     fluent.bundles = [bundleUk]
 
     await nextTick()
-    expect(mounted.html()).toEqual('<a href="/foo">Generic link text</a><a href="/other-foo">інший текст посилання</a>')
+    expect(mounted.html()).toEqual('<div><a href="/foo">Generic link text</a><a href="/other-foo">інший текст посилання</a></div>')
 
     fluent.bundles = [bundleEn, bundleUk]
 
     await nextTick()
-    expect(mounted.html()).toEqual('<a href="/foo">Generic link text</a><a href="/other-foo">other link text</a>')
+    expect(mounted.html()).toEqual('<div><a href="/foo">Generic link text</a><a href="/other-foo">other link text</a></div>')
   })
 })
