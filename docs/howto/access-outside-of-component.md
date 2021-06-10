@@ -12,7 +12,6 @@ const bundle = new FluentBundle('en')
 bundle.addResource(new FluentResource('hello-user = Hello, { $username }!'))
 
 const fluent = createFluentVue({
-  locale: 'en',
   bundles: [bundle],
 })
 
