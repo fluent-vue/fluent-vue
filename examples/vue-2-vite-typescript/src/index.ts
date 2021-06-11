@@ -11,7 +11,6 @@ Vue.use(CompositionApi)
 const bundle = new FluentBundle('en')
 
 const fluent = createFluentVue({
-  locale: 'en',
   bundles: [bundle]
 })
 Vue.use(fluent)

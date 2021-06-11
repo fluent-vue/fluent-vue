@@ -7,7 +7,6 @@ import App from './App.vue'
 const bundle = new FluentBundle('en')
 
 const fluent = createFluentVue({
-  locale: 'en',
   bundles: [bundle]
 })
 

@@ -1,10 +1,9 @@
 import type { Message, Pattern } from '@fluent/bundle/esm/ast'
 import type { FluentBundle, FluentVariable } from '@fluent/bundle'
+import type { Ref } from 'vue-demi'
 
 import { mapBundleSync } from '@fluent/sequence'
 import { warn } from './util/warn'
-import { computed, ComputedRef, Ref } from 'vue-demi'
-import { getOrderedBundles } from './getOrderedBundles'
 
 export interface TranslationWithAttrs {
   value: string
@@ -13,20 +12,14 @@ export interface TranslationWithAttrs {
 }
 
 export class TranslationContext {
-  locale: Ref<string | string[]>
-  bundles: Ref<FluentBundle[]>
-  bundlesIterable: ComputedRef<FluentBundle[]>
+  bundles: Ref<Iterable<FluentBundle>>
 
-  constructor (locale: Ref<string | string[]>, bundles: Ref<FluentBundle[]>) {
-    this.locale = locale
+  constructor (bundles: Ref<Iterable<FluentBundle>>) {
     this.bundles = bundles
-    this.bundlesIterable = computed(() =>
-      getOrderedBundles(this.locale.value, bundles.value)
-    )
   }
 
   getBundle (key: string): FluentBundle | null {
-    return mapBundleSync(this.bundlesIterable.value, key)
+    return mapBundleSync(this.bundles.value, key)
   }
 
   getMessage (bundle: FluentBundle | null, key: string): Message | null {

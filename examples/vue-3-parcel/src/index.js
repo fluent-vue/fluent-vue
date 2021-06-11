@@ -17,7 +17,6 @@ bundle.addResource(
 )
 
 const fluent = createFluentVue({
-  locale: 'en',
   bundles: [bundle]
 })
 

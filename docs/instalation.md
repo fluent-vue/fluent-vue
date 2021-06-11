@@ -68,8 +68,8 @@ enBundle.addResource(new FluentResource('key = World'))
 enBundle.addResource(new FluentResource('another-key = Hello, {$name}'))
 
 // Create plugin istance
+// bundles - The current negotiated fallback chain of languages
 const fluent = createFluentVue({
-  locale: 'en',
   bundles: [enBundle, ukBundle]
 })
 

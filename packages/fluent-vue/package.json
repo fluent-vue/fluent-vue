@@ -59,8 +59,8 @@
     "@vue/test-utils": "^2.0.0-rc.6"
   },
   "dependencies": {
-    "@fluent/langneg": "^0.5.2",
     "@fluent/sequence": "^0.6.0",
+    "cached-iterable": "^0.3.0",
     "tslib": "^2.2.0",
     "vue-demi": "latest"
   },

@@ -20,7 +20,6 @@ describe('language change', () => {
     bundleUk = new FluentBundle('uk-UA')
 
     fluent = createFluentVue({
-      locale: ['uk-UA', 'en-US'],
       bundles: [bundleUk, bundleEn]
     })
   })
@@ -75,8 +74,7 @@ describe('language change', () => {
     bundleUk = new FluentBundle('uk-UA')
 
     const fluent = createFluentVue({
-      locale: 'uk-UA',
-      bundles: [bundleUk, bundleEn]
+      bundles: [bundleUk]
     })
 
     bundleEn.addResource(
@@ -100,7 +98,7 @@ describe('language change', () => {
 
     expect(mounted.html()).toEqual('<a href="/foo">текст посилання</a>')
 
-    fluent.locale = 'en'
+    fluent.bundles = [bundleEn]
 
     await nextTick()
 
@@ -113,7 +111,6 @@ describe('language change', () => {
     bundleEn = new FluentBundle('en-US')
 
     const fluent = createFluentVue({
-      locale: 'en-US',
       bundles: [bundleEn]
     })
 
@@ -138,8 +135,7 @@ describe('language change', () => {
     expect(mounted.html()).toEqual('<a href="/foo">link text</a>')
 
     // Act
-    fluent.bundles = fluent.bundles.concat(bundleUk)
-    fluent.locale = 'uk'
+    fluent.bundles = [bundleUk]
 
     await nextTick()
 
@@ -153,7 +149,6 @@ describe('language change', () => {
     bundleUk = new FluentBundle('uk-UA')
 
     const fluent = createFluentVue({
-      locale: 'uk-UA',
       bundles: [bundleUk, bundleEn]
     })
 
@@ -194,7 +189,7 @@ describe('language change', () => {
       '<div><span>текст посилання</span><span>Повідомлення</span></div>'
     )
 
-    fluent.locale = 'en'
+    fluent.bundles = [bundleEn]
 
     await nextTick()
 

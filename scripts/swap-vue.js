@@ -26,7 +26,7 @@ async function switchPackages (fromPackages, toPackages) {
   }
 
   const packageString = JSON.stringify(packageData, null, 2)
-  fs.writeFileSync(packageFile, packageString)
+  fs.writeFileSync(packageFile, packageString + '\n')
 
   await execa('yarn', [], { stdio: 'inherit' })
   await execa('yarn', ['vue-demi-fix'], { stdio: 'inherit' })

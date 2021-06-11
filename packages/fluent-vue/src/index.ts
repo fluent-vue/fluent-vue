@@ -5,23 +5,19 @@ import { isVue3, ref, provide, Ref } from 'vue-demi'
 import { TranslationContext, TranslationWithAttrs } from './TranslationContext'
 import { createVue2Directive, createVue3Directive } from './vue/directive'
 import component from './vue/component'
-import { getContext } from './composition'
+import { getContext } from './getContext'
 import { RootContextSymbol } from './symbols'
 
 export { useFluent } from './composition'
 
 export interface FluentVueOptions {
-  /** Currently selected locale */
-  locale: string | string[]
-  /** List of bundles used in application */
-  bundles: FluentBundle[]
+  /** Current negotiated fallback chain of languages */
+  bundles: Iterable<FluentBundle>
 }
 
 export interface FluentVue {
-  /** Currently selected locale */
-  locale: string | string[]
-  /** List of bundles used in application */
-  bundles: FluentBundle[]
+  /** Current negotiated fallback chain of languages */
+  bundles: Iterable<FluentBundle>
 
   format: (key: string, value?: Record<string, FluentVariable>) => string
 
@@ -38,19 +34,11 @@ export interface FluentVue {
  * @param options - {@link FluentVueOptions}
  */
 export function createFluentVue (options: FluentVueOptions): FluentVue {
-  const locale = ref(options.locale)
-  const bundles: Ref<FluentBundle[]> = ref(options.bundles)
+  const bundles: Ref<Iterable<FluentBundle>> = ref(options.bundles)
 
-  const rootContext = new TranslationContext(locale, bundles)
+  const rootContext = new TranslationContext(bundles)
 
   return {
-    get locale () {
-      return locale.value
-    },
-    set locale (value) {
-      locale.value = value
-    },
-
     get bundles () {
       return bundles.value
     },

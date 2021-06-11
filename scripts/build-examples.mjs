@@ -1,9 +1,11 @@
-import { readdirSync, readFileSync, statSync } from 'fs'
+import { readdirSync, readFileSync, existsSync } from 'fs'
 import execa from 'execa'
 import chalk from 'chalk'
 
+const id = Math.random().toString(36).substr(2, 9)
+
 const examples = readdirSync('examples')
-  .filter((f) => statSync(`examples/${f}`).isDirectory())
+  .filter((f) => existsSync(`examples/${f}/package.json`))
   .map((f) => ({
     folder: `examples/${f}`,
     package: JSON.parse(readFileSync(`examples/${f}/package.json`)),
@@ -12,14 +14,14 @@ const examples = readdirSync('examples')
 async function buildExamples () {
   await execa('yarn', [], { stdio: 'inherit' })
   await execa('yarn', ['build'], { stdio: 'inherit' })
-  await execa('yarn', ['pack', '-f', '../../fluent-vue.tgz'], {
+  await execa('yarn', ['pack', '-f', `../../temp/fluent-vue-${id}.tgz`], {
     stdio: 'inherit',
     cwd: 'packages/fluent-vue'
   })
 
   for (const example of examples) {
     console.log(chalk.bold(chalk.yellow(`building ${example.folder}...`)))
-    await execa('yarn', ['add', '../../fluent-vue.tgz'], { stdio: 'inherit', cwd: example.folder })
+    await execa('yarn', ['add', `../../temp/fluent-vue-${id}.tgz`], { stdio: 'inherit', cwd: example.folder })
     await execa('yarn', [], { stdio: 'inherit', cwd: example.folder })
     await execa('yarn', ['build'], { stdio: 'inherit', cwd: example.folder })
   }

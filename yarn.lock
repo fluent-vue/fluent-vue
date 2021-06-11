@@ -326,11 +326,6 @@
   resolved "https://registry.yarnpkg.com/@fluent/dedent/-/dedent-0.3.0.tgz#cd6fbea955f9998d1079eb65f1827597c6163a9b"
   integrity sha512-HmMXSzvOVY0HRZmyk3u0ZUZwo863GHtN9IQeidHeq3xITESKJMXu7Wp+XNEbRxz+XWGJ0hIfiLnBJ4iNpf0QDQ==
 
-"@fluent/langneg@^0.5.2":
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/@fluent/langneg/-/langneg-0.5.2.tgz#ae73cd5f3e59b6232715591e7e3f6a2c2da8a5bd"
-  integrity sha512-6l8BfDB9mmNaeRhqu+N5BCWrUU+ZSKouyabMDnG6IDuurf+p2AAIvW0Wxe1saYYJ6vQ5QRdbT9NXtYZFz2ay6Q==
-
 "@fluent/sequence@^0.6.0":
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/@fluent/sequence/-/sequence-0.6.0.tgz#6642c2896125fe618df20a3a66dc860d622b720c"
@@ -1650,6 +1645,11 @@ cacache@^14.0.0:
     ssri "^7.0.0"
     tar "^6.0.0"
     unique-filename "^1.1.1"
+
+cached-iterable@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/cached-iterable/-/cached-iterable-0.3.0.tgz#2618204549e9c5dd102102a6e7e50af6adb77df8"
+  integrity sha512-MDqM6TpBVebZD4UDtmlFp8EjVtRcsB6xt9aRdWymjk0fWVUUGgmt/V7o0H0gkI2Tkvv8B0ucjidZm4mLosdlWw==
 
 call-bind@^1.0.0, call-bind@^1.0.2:
   version "1.0.2"

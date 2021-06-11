@@ -2,7 +2,7 @@ import type { VueComponent } from '../types/typesCompat'
 
 import { defineComponent, h, getCurrentInstance, inject, computed } from 'vue-demi'
 import { camelize } from '../util/camelize'
-import { getContext } from '../composition'
+import { getContext } from '../getContext'
 import { RootContextSymbol } from '../symbols'
 import { assert } from '../util/warn'
 

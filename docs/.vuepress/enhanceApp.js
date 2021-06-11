@@ -19,7 +19,6 @@ const bundle = new FluentBundle('en', {
 })
 
 const fluent = createFluentVue({
-  locale: 'en',
   bundles: [bundle],
 })
 // #endregion datefns
