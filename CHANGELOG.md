@@ -1,4 +1,39 @@
 
+## v3.0.0-beta.13 (2021-06-12)
+
+#### :star: New Features
+* `fluent-vue`
+  * [#625](https://github.com/Demivan/fluent-vue/pull/625) Rework locale change ([@Demivan](https://github.com/Demivan))
+
+#### :boom: Breaking Change
+Initialization code changed from:
+```js
+const enBundle = new FluentBundle('en')
+const ukBundle = new FluentBundle('uk')
+
+const fluent = createFluentVue({
+  locale: 'en',
+  bundles: [enBundle, ukBundle] 
+})
+```
+to:
+```js
+const enBundle = new FluentBundle('en')
+const ukBundle = new FluentBundle('uk')
+
+const fluent = createFluentVue({
+  bundles: [enBundle] 
+})
+```
+
+Instead of using `locale` property to select current locale, `bundles` property is now used as current negotiated fallback chain of languages.
+
+This allows consumers to choose language negotiation logic suitable for their app.
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
+
 ## v3.0.0-beta.12 (2021-06-07)
 
 #### :bug: Bug Fixes
