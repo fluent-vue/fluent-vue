@@ -1,4 +1,18 @@
 
+## v3.0.0-beta.13 (2021-06-12)
+
+#### :star: New Features
+* `fluent-vue`
+  * [#625](https://github.com/Demivan/fluent-vue/pull/625) Rework locale change ([@Demivan](https://github.com/Demivan))
+
+#### :boom: Breaking Change
+* `fluent-vue`
+  * [#625](https://github.com/Demivan/fluent-vue/pull/625) Rework locale change ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
+
 ## v3.0.0-beta.12 (2021-06-07)
 
 #### :bug: Bug Fixes
