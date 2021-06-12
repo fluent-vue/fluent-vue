@@ -1,3 +1,15 @@
+## v3.0.0 (2021-06-12)
+
+#### :tada: Stable release :tada:
+
+Complete rewrite of library since version 2
+
+* Support Vue 3 and 2
+* Composition api support
+* Webpack loader for defining translation resources in SFC custom blocks
+* Added Typescript type definitions
+* [#472](https://github.com/Demivan/fluent-vue/pull/472) Pass message attributes as i18n component slots props ([@davidrios](https://github.com/davidrios))
+
 
 ## v3.0.0-beta.19 (2021-09-01)
 
