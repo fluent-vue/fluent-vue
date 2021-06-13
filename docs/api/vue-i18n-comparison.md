@@ -102,3 +102,24 @@ $t('now', { date: $d(new Date(), 'short') })
 ```
 now = Now is {$date}
 ```
+
+## Linked messages
+
+### fluent-vue
+
+**Message**
+```js
+world = World
+hello = Hello, 
+linked = { hello } { world }!
+```
+
+### vue-i18n
+
+**Message**
+```
+world = World
+hello = Hello, 
+linked = @:message.hello @:message.world!
+```
+
