@@ -12,7 +12,7 @@ module.exports = {
       'instalation',
       {
         title: 'Api',
-        children: ['/api/instance-methods', '/api/v-t-directive', '/api/i18n-component'],
+        children: ['/api/instance-methods', '/api/v-t-directive', '/api/i18n-component', '/api/vue-i18n-comparison'],
         collapsable: false,
       },
       {
