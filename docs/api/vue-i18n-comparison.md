@@ -12,7 +12,7 @@ $t('hello', { name: 'John' })
 ```
 
 **Message**
-```
+```ftl
 hello = Hello {$name}
 ```
 
@@ -40,10 +40,10 @@ $t('apples', { count: 2 })
 ```
 
 **Message**
-```
-{$count ->
+```ftl
+apples = { $count ->
    [0] no apples
-   [one] one apple 
+   [one] one apple
   *[other] {$count} apples
 }
 ```
@@ -64,7 +64,7 @@ apples = no apples | one apple | {count} apples
 
 Both `fluent-vue` and `vue-i18n` use [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) for date formatting. With `vue-i18n` selection of date format is responsibility of developer and not translators, and changing it requires changing application code. `fluent-vue` date format is part of localization messages and can be easily changed, if translation does not fit UI for example in some language.
 
-`fluent-vue` date formatting a function call of build-in function. It can easily be changed by [adding custom function](/howto/date-time.html#using-custom-library-for-date-formatting).
+`fluent-vue` date formatting is a function call of build-in function. It can easily be changed by [adding custom function](/howto/date-time.html#using-custom-library-for-date-formatting).
 
 ### fluent-vue
 
@@ -74,8 +74,8 @@ $t('now', { date: new Date() })
 ```
 
 **Message**
-```
-Now is { DATETIME($date, year: "numeric", month: "short", day: "numeric") }
+```ftl
+now = Now is { DATETIME($date, year: "numeric", month: "short", day: "numeric") }
 ```
 
 ### vue-i18n
@@ -100,7 +100,7 @@ $t('now', { date: $d(new Date(), 'short') })
 
 **Message**
 ```
-now = Now is {$date}
+now = Now is {date}
 ```
 
 ## Linked messages
@@ -108,9 +108,9 @@ now = Now is {$date}
 ### fluent-vue
 
 **Message**
-```js
+```ftl
 world = World
-hello = Hello, 
+hello = Hello,
 linked = { hello } { world }!
 ```
 
@@ -119,7 +119,7 @@ linked = { hello } { world }!
 **Message**
 ```
 world = World
-hello = Hello, 
+hello = Hello,
 linked = @:message.hello @:message.world!
 ```
 

@@ -4,7 +4,7 @@
 
 Project Fluent keeps simple things simple and makes complex things possible. The syntax used for describing translations is easy to read and understand. At the same time it allows, when necessary, to represent complex concepts from natural languages like gender, plurals, conjugations, and others.
 
-```
+```ftl
 # Simple things are simple.
 hello-user = Hello, {$userName}!
 

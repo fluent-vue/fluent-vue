@@ -2,10 +2,16 @@
 home: true
 meta:
   - name: keywords
-    content: vue i18n l10n vue.js fluent.js translation localization
-tagline: Vue.js integration for Project Fluent
-actionText: Get Started →
-actionLink: /introduction.html
+    content: vue i18n l10n i18n vue.js fluent.js ProjectFluent translation localization
+tagline: >
+  Internationalization plugin for Vue.js
+  Vue.js integration for Project Fluent
+
+actions:
+  - text: Get Started
+    link: /introduction.html
+    type: primary
+
 features:
 - title: FTL syntax
   details: The syntax used for describing translation is easy to read and understand. At the same time it allows to represent complex concepts from natural languages.
@@ -18,6 +24,6 @@ footer: MIT Licensed | Copyright © 2020-present Ivan Demchuk
 
 ## Example
 
-<<< @/components/Simple.vue#snippet
+@[code{11-33}](./components/Simple.vue)
 
 <simple-input />
