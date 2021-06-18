@@ -9,6 +9,7 @@ import 'primevue/resources/themes/saga-blue/theme.css'
 import 'primevue/resources/primevue.min.css'
 import 'primeicons/primeicons.css'
 import 'primeflex/primeflex.css'
+import './theme.scss'
 
 import SimpleInput from '../components/SimpleInput.vue'
 import DateTime from '../components/DateTime.vue'

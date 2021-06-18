@@ -54,6 +54,7 @@ export default defineUserConfig<DefaultThemeOptions>({
   description: 'Internationalization plugin for Vue.js. Vue.js integration for Project Fluent.',
   themeConfig: {
     repo: 'demivan/fluent-vue',
+    logo: '/assets/logo.svg',
     docsDir: 'docs',
     docsBranch: 'develop',
     editLinks: true,
