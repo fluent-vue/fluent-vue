@@ -1,0 +1,206 @@
+{
+  "name": "ftl",
+  "scopeName": "source.ftl",
+  "fileTypes": "ftl",
+  "patterns": [
+    {
+      "include": "#comment"
+    },
+    {
+      "include": "#message"
+    },
+    {
+      "include": "#wrong-line"
+    }
+  ],
+  "repository": {
+    "comment": {
+      "name": "comment.fluent",
+      "match": "^##?#?\\s.*$"
+    },
+    "message": {
+      "begin": "^(-?[a-zA-Z][a-zA-Z0-9_-]*\\s*=\\s*)",
+      "end": "^(?=\\S)",
+      "beginCaptures": {
+        "1": {
+          "name": "support.class.message-identifier.fluent"
+        }
+      },
+      "contentName": "string.fluent",
+      "patterns": [
+        {
+          "include": "#attributes"
+        },
+        {
+          "include": "#placeable"
+        }
+      ]
+    },
+    "attributes": {
+      "begin": "\\s*(\\.[a-zA-Z][a-zA-Z0-9_-]*\\s*=\\s*)",
+      "end": "^(?=\\s*[^\\.])",
+      "beginCaptures": {
+        "1": {
+          "name": "support.class.attribute-begin.fluent"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#placeable"
+        }
+      ]
+    },
+    "placeable": {
+      "begin": "({)",
+      "end": "(})",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.placeable.begin.fluent"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "keyword.placeable.end.fluent"
+        }
+      },
+      "contentName": "variable.other.placeable.content.fluent",
+      "patterns": [
+        {
+          "include": "#placeable-string"
+        },
+        {
+          "include": "#placeable-function"
+        },
+        {
+          "include": "#placeable-reference-or-number"
+        },
+        {
+          "include": "#selector"
+        },
+        {
+          "include": "#invalid-placeable-wrong-placeable-missing-end"
+        },
+        {
+          "include": "#invalid-placeable-string-missing-end-quote"
+        },
+        {
+          "include": "#invalid-placeable-wrong-function-name"
+        }
+      ]
+    },
+    "placeable-reference-or-number": {
+      "name": "variable.other.placeable.reference-or-number.fluent",
+      "match": "((-|\\$)[a-zA-Z0-9_-]+|[a-zA-Z][a-zA-Z0-9_-]*|[0-9]+)"
+    },
+    "placeable-function": {
+      "begin": "([A-Z][A-Z0-9_-]*\\()",
+      "end": "(\\))",
+      "beginCaptures": {
+        "1": {
+          "name": "support.function.placeable-function.call.begin.fluent"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "support.function.placeable-function.call.end.fluent"
+        }
+      },
+      "contentName": "string.placeable-function.fluent",
+      "patterns": [
+        {
+          "include": "#function-comma"
+        },
+        {
+          "include": "#function-positional-argument"
+        },
+        {
+          "include": "#function-named-argument"
+        }
+      ]
+    },
+    "function-comma": {
+      "name": "support.function.function-comma.fluent",
+      "match": ","
+    },
+    "function-positional-argument": {
+      "name": "variable.other.function.positional-argument.fluent",
+      "match": "\\$[a-zA-Z0-9_-]+"
+    },
+    "function-named-argument": {
+      "begin": "([a-zA-Z0-9]+:)\\s*([\"a-zA-Z0-9]+)",
+      "end": "(?=\\)|,|\\s)",
+      "beginCaptures": {
+        "1": {
+          "name": "support.function.named-argument.name.fluent"
+        },
+        "2": {
+          "name": "variable.other.named-argument.value.fluent"
+        }
+      },
+      "name": "variable.other.named-argument.fluent"
+    },
+    "placeable-string": {
+      "begin": "(\")(?=[^\\n]*\")",
+      "end": "(\")",
+      "beginCaptures": {
+        "1": {
+          "name": "variable.other.placeable-string-begin.fluent"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "variable.other.placeable-string-end.fluent"
+        }
+      },
+      "contentName": "string.placeable-string-content.fluent"
+    },
+    "selector": {
+      "begin": "(->)",
+      "end": "^(?=\\s*})",
+      "beginCaptures": {
+        "1": {
+          "name": "support.function.selector.begin.fluent"
+        }
+      },
+      "contentName": "string.selector.content.fluent",
+      "patterns": [
+        {
+          "include": "#selector-item"
+        }
+      ]
+    },
+    "selector-item": {
+      "begin": "(\\s*\\*?\\[)([a-zA-Z0-9_-]+)(\\]\\s*)",
+      "end": "^(?=\\s|})",
+      "beginCaptures": {
+        "1": {
+          "name": "support.function.selector-item.begin.fluent"
+        },
+        "2": {
+          "name": "variable.other.selector-item.begin.fluent"
+        },
+        "3": {
+          "name": "support.function.selector-item.begin.fluent"
+        }
+      },
+      "contentName": "string.selector-item.content.fluent",
+      "patterns": [
+        {
+          "include": "#placeable"
+        }
+      ]
+    },
+    "wrong-line": {
+      "match": ".*",
+      "name": "invalid.illegal.wrong-line.fluent"
+    },
+    "invalid-placeable-wrong-placeable-missing-end": {
+      "name": "invalid.illegal.wrong-placeable-missing-end.fluent",
+      "match": "([^}A-Z]*$|[^-][^>]$)\\b"
+    },
+    "invalid-placeable-string-missing-end-quote": {
+      "name": "invalid.illegal.wrong-placeable-missing-end-quote.fluent",
+      "match": "\"[^\"]+$"
+    }
+  }
+}
