@@ -1,0 +1,12 @@
+.navbar .site-name {
+  display: none;
+}
+
+.navbar .logo {
+  width: 226px;
+  height: 35px;
+}
+
+.dark .navbar .logo {
+  filter: invert(80%);
+}

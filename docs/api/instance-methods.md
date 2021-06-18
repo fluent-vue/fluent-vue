@@ -7,7 +7,7 @@ Formats message  with `key` identifier. `args` will be used to resolve reference
 * Arguments
   * `{string} key`: required
   * `{object} args`: optional
-  
+
 * Returns: `{string}`
 
 Template:
@@ -16,8 +16,8 @@ Template:
 ```
 
 Message:
-```
-greating = Hello, {$name}
+```ftl
+greeting = Hello, {$name}
 ```
 
 Result:
@@ -43,7 +43,7 @@ Template:
 ```
 
 Message:
-```
+```ftl
 login-input =
     .placeholder = email@example.com
     .aria-label = Login input value

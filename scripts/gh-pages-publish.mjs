@@ -15,7 +15,8 @@ if (typeof pkg.repository === 'object') {
 }
 
 const parsedUrl = new URL(repoUrl)
-const repository = (parsedUrl.host || '') + (parsedUrl.path || '')
+const repository = (parsedUrl.host || '') + (parsedUrl.pathname || '')
+
 const ghToken = process.env.GH_TOKEN
 
 if (!ghToken) {
@@ -38,6 +39,6 @@ await execa('git', ['add', '.'], options)
 await execa('git', ['config', 'user.name', '"Ivan Demchuk"'], options)
 await execa('git', ['config', 'user.email', '"ivan.demchuk@gmail.com"'], options)
 await execa('git', ['commit', '-m', '"docs(docs): update gh-pages"'], options)
-await execa('git', ['push', '--force', '--quiet', `"https://${ghToken}@${repository}"`, 'master:gh-pages'], options)
+await execa('git', ['push', '--force', '--quiet', `https://${ghToken}@${repository}`, 'master:gh-pages'], options)
 
 echo('Docs deployed!!')

@@ -4,7 +4,7 @@ Fluent has build-in function for formatting date and time: `DATETIME`. It uses `
 
 ### Example:
 
-```
+```ftl
 today-is = Today is { DATETIME($date, month: "long", year: "numeric", day: "numeric") }
 ```
 
@@ -27,7 +27,7 @@ See the [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaS
 
 ### Example component
 
-<<< @/components/DateTime.vue#snippet
+@[code{11-33}](../components/DateTime.vue)
 
 <date-time />
 
@@ -38,10 +38,26 @@ You can add custom function for date and time formatting instead of using built-
 Example of using `date-fns`:
 
 ### Add custom function to the bundle
-<<< @/.vuepress/enhanceApp.js#datefns
+
+```ts
+import { format } from 'date-fns'
+
+const bundle = new FluentBundle('en', {
+  functions: {
+    DATEFNS (positionalArgs, namedArgs) {
+      const [date, formatString] = positionalArgs as [string, string]
+      return format(new Date(date), formatString)
+    }
+  }
+})
+
+const fluent = createFluentVue({
+  bundles: [bundle],
+})
+```
 
 ### Use it
 
-<<< @/components/DateTimeCustom.vue#snippet
+@[code{11-33}](../components/DateTimeCustom.vue)
 
 <date-time-custom />

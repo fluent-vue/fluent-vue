@@ -21,7 +21,7 @@ Template:
 ```
 
 Message:
-```
+```ftl
 link = Hello, {$userName}!
     .aria-label = Welcome message for {$userName}
 ```

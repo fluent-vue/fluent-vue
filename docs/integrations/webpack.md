@@ -6,17 +6,21 @@
 
 <code-group>
 
-<code-block title="YARN" active>
-```bash
+<code-group-item title="YARN" active>
+
+```bash:no-line-numbers
 yarn add fluent-vue-loader --dev
 ```
-</code-block>
 
-<code-block title="NPM">
-```bash
+</code-group-item>
+
+<code-group-item title="NPM">
+
+```bash:no-line-numbers
 npm install fluent-vue-loader --save-dev
 ```
-</code-block>
+
+</code-group-item>
 
 </code-group>
 

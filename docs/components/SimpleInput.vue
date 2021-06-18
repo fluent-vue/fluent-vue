@@ -2,24 +2,26 @@
   <div class="demo">
     <simple :user-name="userName" :user-gender="userGender" :photo-count="photoCount" class="demo" />
 
-    <dl>
-      <dt>$userName</dt>
-      <dd><input v-model="userName" type="text"></dd>
-    </dl>
-    <dl>
-      <dt>$userGender</dt>
-      <dd>
-        <select v-model="userGender">
-          <option>male</option>
-          <option>female</option>
-          <option>unspecified</option>
-        </select>
-      </dd>
-    </dl>
-    <dl>
-      <dt>$photoCount</dt>
-      <dd><input v-model.number="photoCount" type="range" min="1" max="100"> {{ photoCount }}</dd>
-    </dl>
+    <div class="p-fluid p-py-3">
+      <div class="p-field p-grid">
+        <label for="userName" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">$userName</label>
+        <div class="p-col-12 p-md-10">
+          <p-input v-model="userName" id="userName" />
+        </div>
+      </div>
+      <div class="p-field p-grid">
+        <label for="userGender" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">$userGender</label>
+        <div class="p-col-12 p-md-10">
+          <p-dropdown v-model="userGender" id="userGender" :options="genderOptions" append-to='self' />
+        </div>
+      </div>
+      <div class="p-field p-grid">
+        <label for="photoCount" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">$photoCount</label>
+        <div class="p-col-12 p-md-10">
+          <p-slider v-model="photoCount" id="photoCount" :min="1" :max="30" class="p-mt-2" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -35,7 +37,12 @@
       return {
         userName: 'John Doe',
         userGender: 'male',
-        photoCount: 1
+        photoCount: 2,
+        genderOptions: [
+          'male',
+          'female',
+          'unspecified'
+        ]
       }
     }
   }
