@@ -1,11 +1,9 @@
 import type { DefaultThemeOptions } from 'vuepress'
 
 import { defineUserConfig } from 'vuepress'
-import { getHighlighter, Highlighter, BUNDLED_LANGUAGES } from 'shiki'
+import { BUNDLED_LANGUAGES } from 'shiki'
 import VueGrammar from 'shiki/languages/vue.tmLanguage.json'
 import FluentGrammar from './fluent.tmLanguage.json'
-
-let shikiHighlighter: Highlighter
 
 const shikiLanguages = BUNDLED_LANGUAGES
   .filter(lang => lang.id !== 'vue')
@@ -61,7 +59,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     editLinks: true,
     smoothScroll: true,
     displayAllHeaders: true,
-    sidebarDepth: 1,
+    sidebarDepth: 0,
     sidebar: [
       '/introduction.html',
       '/instalation.html',
@@ -82,48 +80,23 @@ export default defineUserConfig<DefaultThemeOptions>({
       },
     ]
   },
-  plugins: [{
-    name: 'shiki',
-    async extendsMarkdown (md, app) {
-      if (!shikiHighlighter) {
-        shikiHighlighter = await getHighlighter({
-          theme: 'solarized-dark',
-          langs: [...shikiLanguages, {
-            id: 'vue',
-            scopeName: 'source.vue',
-            grammar: VueGrammar,
-            aliases: []
-          }, {
-            id: 'ftl',
-            scopeName: 'source.ftl',
-            grammar: FluentGrammar,
-            aliases: []
-          }
-        ]
-        })
-      }
-
-      function escapeHtml(html) {
-        const htmlEscapes = {
-          '&': '&amp;',
-          '<': '&lt;',
-          '>': '&gt;',
-          '"': '&quot;',
-          "'": '&#39;'
+  plugins: [
+    ['@vuepress/shiki', {
+      theme: 'solarized-dark',
+      langs: [
+        ...shikiLanguages, {
+          id: 'vue',
+          scopeName: 'source.vue',
+          grammar: VueGrammar
+        }, {
+          id: 'ftl',
+          scopeName: 'source.ftl',
+          grammar: FluentGrammar
         }
-
-        return html.replace(/[&<>"']/g, chr => htmlEscapes[chr])
-      }
-
-      md.options.highlight = ((code, lang) => {
-        if (!lang) {
-          return `<pre><code>${escapeHtml(code)}</code></pre>`
-        }
-
-        return shikiHighlighter.codeToHtml(code, lang)
-      })
-    }
-  }, '@vuepress/plugin-search'],
+      ]
+    }],
+    '@vuepress/plugin-search'
+  ],
   bundlerConfig: {
     chainWebpack: (config) => {
     config.module
