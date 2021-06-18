@@ -66,9 +66,10 @@ export default defineUserConfig<DefaultThemeOptions>({
       '/instalation.html',
       {
         text: 'Api',
-        children: ['/api/instance-methods.html', '/api/v-t-directive.html', '/api/i18n-component.html', '/api/vue-i18n-comparison.html'],
+        children: ['/api/instance-methods.html', '/api/v-t-directive.html', '/api/i18n-component.html'],
         collapsable: false,
       },
+      '/vue-i18n-comparison.html',
       {
         text: 'HOWTO',
         children: ['/howto/date-time.html', '/howto/access-outside-of-component.html'],

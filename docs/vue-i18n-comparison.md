@@ -1,4 +1,4 @@
-# fluent-vue comparison with vue-i18n
+# Comparison with vue-i18n
 
 ## Formatting
 
