@@ -20,17 +20,21 @@ Add `fluent-vue` and `@fluent/bundle` to your project.
 
 <code-group>
 
-<code-block title="YARN" active>
-```bash
+<code-group-item title="YARN" active>
+
+```bash:no-line-numbers
 yarn add fluent-vue @fluent/bundle
 ```
-</code-block>
 
-<code-block title="NPM">
-```bash
+</code-group-item>
+
+<code-group-item title="NPM">
+
+```bash:no-line-numbers
 npm install fluent-vue @fluent/bundle
 ```
-</code-block>
+
+</code-group-item>
 
 </code-group>
 
@@ -38,17 +42,20 @@ npm install fluent-vue @fluent/bundle
 If you are using `Vue` version 2 you need to install `@vue/composition-api`
 
 <code-group>
-<code-block title="YARN" active>
-```bash
+<code-group-item title="YARN" active>
+
+```bash:no-line-numbers
 yarn add @vue/composition-api
 ```
-</code-block>
 
-<code-block title="NPM">
-```bash
+</code-group-item>
+<code-group-item title="NPM">
+
+```bash:no-line-numbers
 npm install @vue/composition-api
 ```
-</code-block>
+
+</code-group-item>
 </code-group>
 
 ## Configure and install Vue plugin
