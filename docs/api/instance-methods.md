@@ -17,7 +17,7 @@ Template:
 
 Message:
 ```ftl
-greating = Hello, {$name}
+greeting = Hello, {$name}
 ```
 
 Result:
