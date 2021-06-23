@@ -439,6 +439,15 @@
     "@vuepress/core" "2.0.0-beta.19"
     execa "^5.1.1"
 
+"@vuepress/plugin-google-analytics@^2.0.0-beta.19":
+  version "2.0.0-beta.19"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-google-analytics/-/plugin-google-analytics-2.0.0-beta.19.tgz#b31d26c4b4d78d24637b6ce711387761dcf03f0b"
+  integrity sha512-1fF2Y/W0XotIQgP5t8DVZCNA1Y3QrpOnOTTM9xE5tEaYQxi9f5lYmvJbOGkhYuHSqELZHam/ND9K7FmeGZfCNA==
+  dependencies:
+    "@vuepress/client" "2.0.0-beta.19"
+    "@vuepress/core" "2.0.0-beta.19"
+    "@vuepress/utils" "2.0.0-beta.19"
+
 "@vuepress/plugin-medium-zoom@2.0.0-beta.19":
   version "2.0.0-beta.19"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-medium-zoom/-/plugin-medium-zoom-2.0.0-beta.19.tgz#4a4701331995cec6f0271b4c66b329c0ec11313a"

@@ -4,6 +4,7 @@
     "build": "vuepress build"
   },
   "devDependencies": {
+    "@vuepress/plugin-google-analytics": "^2.0.0-beta.19",
     "@vuepress/plugin-search": "^2.0.0-beta.19",
     "@vuepress/plugin-shiki": "^2.0.0-beta.19",
     "date-fns": "^2.22.1",

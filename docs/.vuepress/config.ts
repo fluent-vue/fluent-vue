@@ -97,7 +97,13 @@ export default defineUserConfig<DefaultThemeOptions>({
         }
       ]
     }],
-    '@vuepress/plugin-search'
+    '@vuepress/plugin-search',
+    [
+      '@vuepress/plugin-google-analytics',
+      {
+        id: 'G-XBF065RFBE',
+      },
+    ]
   ],
   bundlerConfig: {
     chainWebpack: (config) => {
