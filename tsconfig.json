@@ -11,6 +11,7 @@
     "noUnusedLocals": true,
     "esModuleInterop": true,
     "removeComments": false,
+    "isolatedModules": true,
     "jsx": "preserve",
     "lib": ["esnext", "dom"],
     "types": ["jest", "node"],
