@@ -1,15 +1,13 @@
 import path from 'path'
 import ts from 'rollup-plugin-typescript2'
 import replace from '@rollup/plugin-replace'
-import json from '@rollup/plugin-json'
-
 import nodeResolvePlugin from '@rollup/plugin-node-resolve'
+import commonjsPlugin from '@rollup/plugin-commonjs'
 
 if (!process.env.TARGET) {
   throw new Error('TARGET package must be specified via --environment flag.')
 }
 
-const masterVersion = require('./package.json').version
 const packagesDir = path.resolve(__dirname, 'packages')
 const packageDir = path.resolve(packagesDir, process.env.TARGET)
 const name = path.basename(packageDir)
@@ -69,7 +67,6 @@ function createConfig (format, output, plugins = []) {
   output.externalLiveBindings = false
 
   const isProductionBuild = process.env.__DEV__ === 'false' || /\.prod\.js$/.test(output.file)
-  const isNodeBuild = format === 'cjs'
   const isGlobalBuild = /global/.test(format)
 
   if (isGlobalBuild) {
@@ -105,28 +102,16 @@ function createConfig (format, output, plugins = []) {
     // Node / esm builds. Externalize everything.
     : [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})]
 
-  const nodePlugins =
-    format !== 'cjs'
-      ? [
-        nodeResolvePlugin({
-          preferBuiltins: true
-        }),
-        require('@rollup/plugin-commonjs')()
-      ]
-      : []
-
   return {
     input: resolve(entryFile),
     // Global and Browser ESM builds inlines everything so that they can be
     // used alone.
     external,
     plugins: [
-      json({
-        namedExports: false
-      }),
+      nodeResolvePlugin(),
+      commonjsPlugin(),
       tsPlugin,
-      createReplacePlugin(isProductionBuild, isGlobalBuild, isNodeBuild),
-      ...nodePlugins,
+      createReplacePlugin(isProductionBuild),
       ...plugins
     ],
     output,
@@ -141,23 +126,12 @@ function createConfig (format, output, plugins = []) {
   }
 }
 
-function createReplacePlugin (isProduction, isGlobalBuild, isNodeBuild) {
-  const replacements = {
-    __COMMIT__: `"${process.env.COMMIT}"`,
-    __VERSION__: `"${masterVersion}"`,
-    // this is only used during Vue's internal tests
-    __TEST__: false
-  }
-  // allow inline overrides like
-  // __RUNTIME_COMPILE__=true yarn build runtime-core
-  Object.keys(replacements).forEach((key) => {
-    if (key in process.env) {
-      replacements[key] = process.env[key]
-    }
-  })
+function createReplacePlugin (isProduction) {
   return replace({
     preventAssignment: true,
-    values: replacements
+    values: {
+      'process.env.NODE_ENV': JSON.stringify(isProduction ? 'production' : 'development')
+    }
   })
 }
 

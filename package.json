@@ -12,12 +12,12 @@
   "scripts": {
     "dev": "node scripts/dev.js",
     "build": "node scripts/build.js",
-    "size": "node scripts/build.js -p -f global",
+    "size": "node scripts/build.js fluent-vue -p -f global",
     "lint": "eslint .",
     "ls-lint": "ls-lint",
-    "test": "node scripts/swap-vue 3 && jest",
-    "test:2": "node scripts/swap-vue 2 && jest",
-    "test:3": "node scripts/swap-vue 3 && jest",
+    "test": "node scripts/swap-vue 3 && jest --runInBand",
+    "test:2": "node scripts/swap-vue 2 && jest --runInBand",
+    "test:3": "node scripts/swap-vue 3 && jest --runInBand",
     "release": "shipjs prepare"
   },
   "gitHooks": {
@@ -48,7 +48,6 @@
     "@ls-lint/ls-lint": "^1.9.2",
     "@microsoft/api-extractor": "^7.16.1",
     "@rollup/plugin-commonjs": "^19.0.0",
-    "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
     "@rollup/plugin-replace": "^2.4.2",
     "@types/jest": "^26.0.23",

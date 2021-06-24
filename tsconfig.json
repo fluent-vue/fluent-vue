@@ -9,23 +9,14 @@
     "allowJs": false,
     "strict": true,
     "noUnusedLocals": true,
-    "experimentalDecorators": true,
-    "resolveJsonModule": true,
     "esModuleInterop": true,
     "removeComments": false,
     "jsx": "preserve",
     "lib": ["esnext", "dom"],
     "types": ["jest", "node"],
-    "rootDir": ".",
-    "paths": {
-      "@fluent-vue/*": ["packages/*/src"],
-      "fluent-vue": ["packages/fluent-vue/src"]
-    }
+    "rootDir": "."
   },
   "include": [
-    "packages/*/index.d.ts",
-    "packages/*/src",
-    "packages/*/__tests__",
-    "examples/*/src",
+    "packages/**/src"
   ]
 }
