@@ -1,4 +1,16 @@
 
+## v3.0.0-beta.14 (2021-06-24)
+
+#### :star: New Features
+* [#635](https://github.com/Demivan/fluent-vue/pull/635) Reduce bundle size ([@Demivan](https://github.com/Demivan))
+
+#### :pencil: Documentation
+* [#631](https://github.com/Demivan/fluent-vue/pull/631) Update docs ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
+
 ## v3.0.0-beta.13 (2021-06-12)
 
 #### :star: New Features
@@ -13,7 +25,7 @@ const ukBundle = new FluentBundle('uk')
 
 const fluent = createFluentVue({
   locale: 'en',
-  bundles: [enBundle, ukBundle] 
+  bundles: [enBundle, ukBundle]
 })
 ```
 to:
@@ -22,7 +34,7 @@ const enBundle = new FluentBundle('en')
 const ukBundle = new FluentBundle('uk')
 
 const fluent = createFluentVue({
-  bundles: [enBundle] 
+  bundles: [enBundle]
 })
 ```
 
