@@ -19,6 +19,7 @@ const path = require('path')
 const chalk = require('chalk')
 const { gzipSync } = require('zlib')
 const { compress } = require('brotli')
+const execa = require('execa')
 const { targets: allTargets, fuzzyMatchTarget } = require('./utils')
 
 const { build: esbuild } = require('esbuild')
@@ -28,6 +29,7 @@ const targets = args._
 const formats = args.formats || args.f
 const devOnly = args.devOnly || args.d
 const watch = args.watch || args.w
+const buildTypes = args.types || args.t
 const prodOnly = !devOnly && (args.prodOnly || args.p)
 const sourceMap = args.sourcemap || args.s
 const buildAllMatching = args.all || args.a
@@ -140,6 +142,39 @@ async function build (target) {
       },
       logLevel: 'debug'
     })
+  }
+
+  if (buildTypes && pkg.types) {
+    console.log()
+    console.log(chalk.bold(chalk.yellow(`Building type definitions for ${target}...`)))
+
+    await execa('pnpm', ['tsc', '-p', 'tsconfig.json', '--declaration', '--emitDeclarationOnly'], {
+      cwd: pkgDir
+    })
+
+    console.log()
+    console.log(chalk.bold(chalk.yellow(`Rolling up type definitions for ${target}...`)))
+
+    // build types
+    const { Extractor, ExtractorConfig } = require('@microsoft/api-extractor')
+
+    const extractorConfigPath = path.resolve(pkgDir, 'api-extractor.json')
+    const extractorConfig = ExtractorConfig.loadFileAndPrepare(extractorConfigPath)
+    const result = Extractor.invoke(extractorConfig, {
+      localBuild: true,
+      showVerboseMessages: true
+    })
+
+    if (result.succeeded) {
+      console.log(chalk.bold(chalk.green('API Extractor completed successfully.')))
+    } else {
+      console.error(
+        `API Extractor completed with ${result.errorCount} errors and ${result.warningCount} warnings`
+      )
+      process.exitCode = 1
+    }
+
+    await fs.remove(`${pkgDir}/dist/packages`)
   }
 }
 
