@@ -15,9 +15,9 @@
     "size": "node scripts/build.js -p -f global",
     "lint": "eslint .",
     "ls-lint": "ls-lint",
-    "test": "node scripts/swap-vue 3 && jest",
-    "test:2": "node scripts/swap-vue 2 && jest",
-    "test:3": "node scripts/swap-vue 3 && jest",
+    "test": "node scripts/swap-vue 3 && jest --runInBand",
+    "test:2": "node scripts/swap-vue 2 && jest --runInBand",
+    "test:3": "node scripts/swap-vue 3 && jest --runInBand",
     "release": "shipjs prepare"
   },
   "gitHooks": {
