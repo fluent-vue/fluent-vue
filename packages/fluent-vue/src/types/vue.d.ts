@@ -18,7 +18,7 @@ declare module 'vue-2/types/options' {
   }
 }
 
-declare module '@vue/runtime-core' {
+declare module 'vue-3' {
   interface ComponentCustomOptions {
     fluent?: { [locale: string]: FluentResource }
   }
