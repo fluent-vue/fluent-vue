@@ -3,26 +3,20 @@
     "baseUrl": ".",
     "outDir": "dist",
     "sourceMap": true,
-    "target": "ES2019",
+    "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
     "allowJs": false,
     "strict": true,
     "noUnusedLocals": true,
-    "experimentalDecorators": true,
-    "resolveJsonModule": true,
     "esModuleInterop": true,
     "removeComments": false,
     "jsx": "preserve",
     "lib": ["esnext", "dom"],
     "types": ["jest", "node"],
-    "rootDir": ".",
-    "paths": {
-      "@fluent-vue/*": ["packages/*/src"],
-      "fluent-vue": ["packages/fluent-vue/src"]
-    }
+    "rootDir": "."
   },
   "include": [
-    "packages/*/src"
+    "packages/**/src"
   ]
 }
