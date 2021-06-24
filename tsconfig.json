@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "outDir": "dist",
     "sourceMap": true,
-    "target": "esnext",
+    "target": "ES2019",
     "module": "esnext",
     "moduleResolution": "node",
     "allowJs": false,
