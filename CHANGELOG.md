@@ -1,4 +1,13 @@
 
+## v3.0.0-beta.14 (2021-06-24)
+
+#### :pencil: Documentation
+* [#631](https://github.com/Demivan/fluent-vue/pull/631) Update docs ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
+
 ## v3.0.0-beta.13 (2021-06-12)
 
 #### :star: New Features
