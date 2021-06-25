@@ -1,0 +1,25 @@
+name: Size
+on:
+  pull_request:
+    branches:
+      - develop
+env:
+  CI: true
+
+jobs:
+  size:
+    runs-on: ubuntu-latest
+    env:
+      CI_JOB_NUMBER: 1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+      - name: Setup Node.js
+        uses: actions/setup-node@v2.1.5
+
+      - name: Check build size
+        uses: posva/size-check-action@v1.1.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          build_script: size
+          files: packages/fluent-vue/dist/fluent-vue.global.prod.js
