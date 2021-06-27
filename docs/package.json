@@ -4,15 +4,15 @@
     "build": "vuepress build"
   },
   "devDependencies": {
-    "@vuepress/plugin-google-analytics": "^2.0.0-beta.19",
-    "@vuepress/plugin-search": "^2.0.0-beta.19",
-    "@vuepress/plugin-shiki": "^2.0.0-beta.19",
+    "@vuepress/plugin-google-analytics": "^2.0.0-beta.20",
+    "@vuepress/plugin-search": "^2.0.0-beta.20",
+    "@vuepress/plugin-shiki": "^2.0.0-beta.20",
     "date-fns": "^2.22.1",
-    "fluent-vue": "^3.0.0-beta.13",
-    "fluent-vue-loader": "^3.0.0-beta.13",
+    "fluent-vue": "^3.0.0-beta.14",
+    "fluent-vue-loader": "^3.0.0-beta.14",
     "primeflex": "^2.0.0",
     "primeicons": "^4.1.0",
     "primevue": "^3.5.1",
-    "vuepress": "^2.0.0-beta.19"
+    "vuepress": "^2.0.0-beta.20"
   }
 }
