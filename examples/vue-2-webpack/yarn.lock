@@ -17,11 +17,6 @@
   resolved "https://registry.yarnpkg.com/@fluent/dedent/-/dedent-0.3.0.tgz#cd6fbea955f9998d1079eb65f1827597c6163a9b"
   integrity sha512-HmMXSzvOVY0HRZmyk3u0ZUZwo863GHtN9IQeidHeq3xITESKJMXu7Wp+XNEbRxz+XWGJ0hIfiLnBJ4iNpf0QDQ==
 
-"@fluent/langneg@^0.5.1":
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/@fluent/langneg/-/langneg-0.5.2.tgz#ae73cd5f3e59b6232715591e7e3f6a2c2da8a5bd"
-  integrity sha512-6l8BfDB9mmNaeRhqu+N5BCWrUU+ZSKouyabMDnG6IDuurf+p2AAIvW0Wxe1saYYJ6vQ5QRdbT9NXtYZFz2ay6Q==
-
 "@fluent/sequence@^0.6.0":
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/@fluent/sequence/-/sequence-0.6.0.tgz#6642c2896125fe618df20a3a66dc860d622b720c"
@@ -77,9 +72,9 @@
   integrity sha512-1z8k4wzFnNjVK/tlxvrWuK5WMt6mydWWP7+zvH5eFep4oj+UkrfiJTRtjCeBXNpwaA/FYqqtb4/QS4ianFpIRA==
 
 "@types/node@*":
-  version "15.12.4"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-15.12.4.tgz#e1cf817d70a1e118e81922c4ff6683ce9d422e26"
-  integrity sha512-zrNj1+yqYF4WskCMOHwN+w9iuD12+dGm0rQ35HLl9/Ouuq52cEtd0CH9qMgrdNmi5ejC1/V7vKEXYubB+65DkA==
+  version "15.12.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-15.12.5.tgz#9a78318a45d75c9523d2396131bd3cca54b2d185"
+  integrity sha512-se3yX7UHv5Bscf8f1ERKvQOD6sTyycH3hdaoozvaLxgUiY5lIGEeH37AD0G0Qi9kPqihPn0HOfd2yaIEN9VwEg==
 
 "@vue/component-compiler-utils@^3.1.0":
   version "3.2.2"
@@ -261,9 +256,9 @@ accepts@~1.3.4, accepts@~1.3.5, accepts@~1.3.7:
     negotiator "0.6.2"
 
 acorn@^8.2.1:
-  version "8.4.0"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.4.0.tgz#af53266e698d7cffa416714b503066a82221be60"
-  integrity sha512-ULr0LDaEqQrMFGyQ3bhJkLsbtrQ8QibAseGZeaSUiT/6zb9IvIkomWHJIvgvwad+hinRAgsI51JcWk2yvwyL+w==
+  version "8.4.1"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.4.1.tgz#56c36251fc7cabc7096adc18f05afe814321a28c"
+  integrity sha512-asabaBSkEKosYKMITunzX177CXxQ4Q8BSSzMTKD+FefUhipQC70gfW5SiUDhYQ3vk8G+81HqQk7Fv9OXwwn9KA==
 
 ajv-errors@^1.0.0:
   version "1.0.1"
@@ -564,9 +559,9 @@ camelcase@^5.0.0:
   integrity sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
 
 caniuse-lite@^1.0.30001219:
-  version "1.0.30001239"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001239.tgz#66e8669985bb2cb84ccb10f68c25ce6dd3e4d2b8"
-  integrity sha512-cyBkXJDMeI4wthy8xJ2FvDU6+0dtcZSJW3voUF8+e9f1bBeuvyZfc3PNbkOETyhbR+dGCPzn9E7MA3iwzusOhQ==
+  version "1.0.30001240"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001240.tgz#ec15d125b590602c8731545c5351ff054ad2d52f"
+  integrity sha512-nb8mDzfMdxBDN7ZKx8chWafAdBp5DAAlpWvNyUGe5tcDWd838zpzDN3Rah9cjCqhfOKkrvx40G2SDtP0qiWX/w==
 
 chalk@^2.4.2:
   version "2.4.2"
@@ -975,9 +970,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.723:
-  version "1.3.752"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.752.tgz#0728587f1b9b970ec9ffad932496429aef750d09"
-  integrity sha512-2Tg+7jSl3oPxgsBsWKh5H83QazTkmWG/cnNwJplmyZc7KcN61+I10oUgaXSVk/NwfvN3BdkKDR4FYuRBQQ2v0A==
+  version "1.3.759"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.759.tgz#b0d652d376831470a4c230ba721da2427bfb996a"
+  integrity sha512-nM76xH0t2FBH5iMEZDVc3S/qbdKjGH7TThezxC8k1Q7w7WHvIAyJh8lAe2UamGfdRqBTjHfPDn82LJ0ksCiB9g==
 
 emoji-regex@^7.0.1:
   version "7.0.3"
@@ -1272,15 +1267,14 @@ fluent-vue-loader@^3.0.0-beta.14:
     loader-utils "^2.0.0"
 
 fluent-vue@^3.0.0-beta.9:
-  version "3.0.0-beta.9"
-  resolved "https://registry.yarnpkg.com/fluent-vue/-/fluent-vue-3.0.0-beta.9.tgz#d491445b4bc3f2124cebb2c72b77bf79b16a9ca6"
-  integrity sha512-7meOiD+cfh+PCBfzSyDXdlI2hv+bcTX/gqv+DiSXpnBOEAoqi+I4Peje1qAciWWZ5C6Copsl5rayZZXZVzxKcQ==
+  version "3.0.0-beta.14"
+  resolved "https://registry.yarnpkg.com/fluent-vue/-/fluent-vue-3.0.0-beta.14.tgz#591b2477aa75789d0621c412bc86ad644f02dc90"
+  integrity sha512-1QW1ql2cpWEWXqvpq5dDZ+XnZQVVHqgyrT3taJBdt8x8u3UH0EX+LqCGA2XjtZxKph//1zmZiPgmtyKkBWf2ag==
   dependencies:
-    "@fluent/langneg" "^0.5.1"
     "@fluent/sequence" "^0.6.0"
     cached-iterable "^0.3.0"
     tslib "^2.2.0"
-    vue-demi "^0.7.4"
+    vue-demi latest
 
 follow-redirects@^1.0.0:
   version "1.14.1"
@@ -3299,10 +3293,10 @@ vary@~1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
-vue-demi@^0.7.4:
-  version "0.7.5"
-  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.7.5.tgz#88dee7492fc99a0f911ff03fc02c658fa2a79af8"
-  integrity sha512-eFSQSvbQdY7C9ujOzvM6tn7XxwLjn0VQDXQsiYBLBwf28Na+2nTQR4BBBcomhmdP6mmHlBKAwarq6a0BPG87hQ==
+vue-demi@latest:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.9.1.tgz#25d6e1ebd4d4010757ff3571e2bf6a1d7bf3de82"
+  integrity sha512-7s1lufRD2l369eFWPjgLvhqCRk0XzGWJsQc7K4q+0mZtixyGIvsK1Cg88P4NcaRIEiBuuN4q1NN4SZKFKwQswA==
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
