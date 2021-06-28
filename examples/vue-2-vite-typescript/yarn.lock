@@ -3570,10 +3570,10 @@ vfile@^4.0.0, vfile@^4.0.1:
     unist-util-stringify-position "^2.0.0"
     vfile-message "^2.0.0"
 
-vite-plugin-vue2@^1.6.2:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/vite-plugin-vue2/-/vite-plugin-vue2-1.6.2.tgz#e101986d1024fa4435dc5b1dcce189a40e78cd0b"
-  integrity sha512-rQXutoFG8WoQIC1HVdBJCwoGCFbJ3EHyJsgSby252dhmyproGkZRnOKeiLH8SwxVGcjuTR/mMKk2CM76HxBqjA==
+vite-plugin-vue2@^1.7.2:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/vite-plugin-vue2/-/vite-plugin-vue2-1.7.2.tgz#4fcb4293a07fc0fbf65e59c92dfd78e9c917f89c"
+  integrity sha512-lBYF8l61HSdNFEsv8IAFuGCe2Jza0Fae3P4GM5oDcvwY/xETZr9f4TYqdA9aaK1zqhvt43I2Q6emhQcHI6K8ug==
   dependencies:
     "@babel/core" "^7.11.6"
     "@babel/parser" "^7.13.10"
@@ -3593,7 +3593,6 @@ vite-plugin-vue2@^1.6.2:
     rollup "^2.35.1"
     slash "^3.0.0"
     source-map "^0.7.3"
-    vue-template-compiler "^2.2.0"
     vue-template-es2015-compiler "^1.9.1"
 
 vite@^2.3.8:
@@ -3770,7 +3769,7 @@ vue-demi@^0.7.4:
   resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.7.5.tgz#88dee7492fc99a0f911ff03fc02c658fa2a79af8"
   integrity sha512-eFSQSvbQdY7C9ujOzvM6tn7XxwLjn0VQDXQsiYBLBwf28Na+2nTQR4BBBcomhmdP6mmHlBKAwarq6a0BPG87hQ==
 
-vue-template-compiler@^2.2.0, vue-template-compiler@^2.6.14:
+vue-template-compiler@^2.6.14:
   version "2.6.14"
   resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.6.14.tgz#a2f0e7d985670d42c9c9ee0d044fed7690f4f763"
   integrity sha512-ODQS1SyMbjKoO1JBJZojSw6FE4qnh9rIpUZn2EUT86FKizx9uH5z6uXiIrm4/Nb/gwxTi/o17ZDEGWAXHvtC7g==
