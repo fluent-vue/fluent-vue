@@ -2962,10 +2962,10 @@ pretty-error@^3.0.4:
     lodash "^4.17.20"
     renderkid "^2.0.6"
 
-primeflex@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/primeflex/-/primeflex-2.0.0.tgz#b4152a97a455bbfad33503b6e10fe73d1f9e2228"
-  integrity sha512-t6AG3iRI1rh04uI+9nC4JSlbKfA8PnpRDFtjyqi3rDSLRgdfOuhIiunJbjVQ4alnnCfuQAAbVyde1AKN9QxT/w==
+primeflex@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/primeflex/-/primeflex-3.0.0.tgz#c1d9f928579c0faf8013dc331f942ebe151ddd37"
+  integrity sha512-uIJaJWnH+bHIwbq/Q2rfK9A9PGp5zG+G685nskn9xwg5zGGh4fSYB8PkSo76jgapUTJSTg95+jaVT7yzClkdjg==
 
 primeicons@^4.1.0:
   version "4.1.0"
