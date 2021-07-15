@@ -43,6 +43,7 @@
     "type": "git",
     "url": "https://github.com/Demivan/fluent-vue"
   },
+  "homepage": "https://fluent-vue.demivan.me",
   "license": "MIT",
   "devDependencies": {
     "@fluent/bundle": "~0.16.1",
