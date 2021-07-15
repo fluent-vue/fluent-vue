@@ -1,4 +1,14 @@
 
+## v3.0.0-beta.15 (2021-07-15)
+
+#### :star: New Features
+* `fluent-vue-loader`, `fluent-vue`
+  * [#644](https://github.com/Demivan/fluent-vue/pull/644) Add `exports` and `homepage` fields to package.json ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
+
 ## v3.0.0-beta.14 (2021-06-24)
 
 #### :star: New Features
