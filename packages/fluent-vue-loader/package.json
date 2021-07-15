@@ -20,12 +20,23 @@
     "webpack",
     "loader"
   ],
-  "main": "dist/fluent-vue-loader.cjs.prod.js",
+  "main": "dist/fluent-vue-loader.cjs.js",
+  "module": "dist/fluent-vue.esm.js",
+  "types": "dist/fluent-vue-loader.d.ts",
+  "exports": {
+    "import": "./dist/fluent-vue.esm.js",
+    "require": "./dist/fluent-vue-loader.cjs.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/Demivan/fluent-vue"
   },
+  "homepage": "https://fluent-vue.demivan.me/integrations/webpack.html",
   "license": "MIT",
   "devDependencies": {
     "@types/loader-utils": "^2.0.3",
