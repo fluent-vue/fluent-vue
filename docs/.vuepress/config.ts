@@ -63,7 +63,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     sidebarDepth: 0,
     sidebar: [
       '/introduction.html',
-      '/instalation.html',
+      '/installation.html',
       {
         text: 'Api',
         children: ['/api/instance-methods.html', '/api/v-t-directive.html', '/api/i18n-component.html'],
