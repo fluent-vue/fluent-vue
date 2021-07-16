@@ -32,7 +32,7 @@ hello = Hello {name}
 
 `vue-i18n` has separate method `$tc` for pluralization. `fluent-vue` uses same `$t` method as with simple formatting.
 
-So in `fluent-vue` adding pluralization can be done without changing application code just changing localization message.
+So in `fluent-vue` adding pluralization can be done without changing app code just changing localization message.
 
 ### fluent-vue
 
@@ -64,10 +64,10 @@ apples = no apples | one apple | {count} apples
 
 ## DateTime localization
 
-Both `fluent-vue` and `vue-i18n` use [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) for date formatting. With `vue-i18n` selection of date format is responsibility of developer and not translators, and changing it requires changing application code.
+Both `fluent-vue` and `vue-i18n` use [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) for date formatting. With `vue-i18n` selection of date format is responsibility of developer and not translators, and changing it requires changing app code.
 
-In `fluent-vue` date format is part of localization messages and can be easily changed, if translation does not fit UI for example in some language.
-`fluent-vue` date formatting is a function call of build-in function. It can easily be changed by [adding custom function](/howto/date-time.html#using-custom-library-for-date-formatting).
+In `fluent-vue` date format is part of localization messages and can be changed, if translation doesn't fit UI for example in some language.
+`fluent-vue` date formatting is a function call of build-in function. It can be changed by [adding custom function](/howto/date-time.html#using-custom-library-for-date-formatting).
 
 ### fluent-vue
 
