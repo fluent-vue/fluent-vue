@@ -1,4 +1,4 @@
-# Instalation
+# Installation
 
 ## Compatibility
 
@@ -10,9 +10,8 @@
   - `Intl.NumberFormat` (standard, well-supported)
   - `Intl.PluralRules` (standard, new in ECMAScript 2018)
 
-`Intl.PluralRules` may already be available in some engines. In most cases,
-however, a polyfill will be required. We recommend [polyfill.io](https://polyfill.io).
-It allows to only include polyfill on browsers where it is needed.
+`Intl.PluralRules` may already be available in some engines. Usually,
+however, a polyfill is required. You can use [polyfill.io](https://polyfill.io) service or [intl-pluralrules](https://www.npmjs.com/package/intl-pluralrules) npm package for this purpose.
 
 ## Install npm packages
 

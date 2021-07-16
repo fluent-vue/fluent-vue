@@ -2,7 +2,7 @@
 
 ### `$t` method
 
-Formats message  with `key` identifier. `args` will be used to resolve references to variables passed as arguments to the translation.
+Formats message  with `key` identifier. `args` is used to resolve references to variables passed as arguments to the translation.
 
 * Arguments
   * `{string} key`: required
@@ -27,7 +27,7 @@ Result:
 
 ### `$ta` method
 
-Formats message with `key` identifier, but only returns message attributes. `args` will be used to resolve references to variables passed as arguments to the translation.
+Formats message with `key` identifier, but only returns message attributes. `args` is used to resolve references to variables passed as arguments to the translation.
 
 This method should be used mostly for passing parameters to custom components. For localization of regular html elements [v-t](/api/v-t-directive) directive is more convenient.
 

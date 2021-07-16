@@ -19,7 +19,7 @@ const fluent = createFluentVue({
 export const $t = fluent.format
 ```
 
-### In other js file:
+### In another js file:
 
 ```js
 import { $t } from './fluent'

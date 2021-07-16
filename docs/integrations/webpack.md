@@ -1,6 +1,6 @@
 # Webpack
 
-`fluent-vue-loader` allows to use custom blocks in your single file componens.
+`fluent-vue-loader` allows to use custom blocks in your single file components.
 
 1. Install `fluent-vue-loader` package
 
