@@ -1,7 +1,7 @@
 {
   "name": "fluent-vue",
   "version": "3.0.0-beta.15",
-  "description": "Project Fluent bindings for Vue.js",
+  "description": "Internationalization plugin for Vue.js. Project Fluent bindings for Vue.js",
   "keywords": [
     "localization",
     "l10n",
