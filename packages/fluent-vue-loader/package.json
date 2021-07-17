@@ -21,10 +21,10 @@
     "loader"
   ],
   "main": "dist/fluent-vue-loader.cjs.js",
-  "module": "dist/fluent-vue.esm.js",
+  "module": "dist/fluent-vue-loader.esm.js",
   "types": "dist/fluent-vue-loader.d.ts",
   "exports": {
-    "import": "./dist/fluent-vue.esm.js",
+    "import": "./dist/fluent-vue-loader.esm.js",
     "require": "./dist/fluent-vue-loader.cjs.js"
   },
   "files": [
