@@ -3,16 +3,16 @@ const path = require('path')
 const execa = require('execa')
 
 const vue3packages = {
-  vue: 'npm:vue@^3.1.1',
-  '@vue/compiler-sfc': '^3.1.1',
-  '@vue/test-utils': '^2.0.0-rc.6'
+  vue: 'npm:vue@^3.1.5',
+  '@vue/compiler-sfc': '^3.1.5',
+  '@vue/test-utils': '^2.0.0-rc.10'
 }
 
 const vue2packages = {
   vue: 'npm:vue@^2.6.14',
   'vue-template-compiler': '^2.6.14',
-  '@vue/test-utils': '^1.1.4',
-  '@vue/composition-api': '^1.0.0-rc.7'
+  '@vue/test-utils': '^1.2.1',
+  '@vue/composition-api': '^1.0.2'
 }
 
 const packageFile = path.join(__dirname, '../packages/fluent-vue/package.json')
