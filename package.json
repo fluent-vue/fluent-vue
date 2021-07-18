@@ -16,7 +16,7 @@
     "lint": "eslint .",
     "ls-lint": "ls-lint",
     "test": "node scripts/swap-vue 3 && jest --runInBand",
-    "test:2": "node scripts/swap-vue 2 && jest --runInBand",
+    "test:2": "node scripts/swap-vue 2 && jest --runInBand packages/fluent-vue",
     "test:3": "node scripts/swap-vue 3 && jest --runInBand",
     "release": "shipjs prepare"
   },
@@ -72,6 +72,7 @@
     "rollup": "^2.53.1",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.30.0",
+    "rollup-plugin-vue": "^6.0.0",
     "ts-jest": "^27.0.3",
     "ts-standard": "^10.0.0",
     "typescript": "^4.3.5",
