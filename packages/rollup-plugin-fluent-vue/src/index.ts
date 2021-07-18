@@ -18,8 +18,7 @@ export default function fluentPlugin ({ blockType = 'fluent' }: PluginOptions = 
       const locale = query.get('locale')
 
       if (locale == null) {
-        this.error('Custom block does not have locale attribute')
-        return
+        return this.error('Custom block does not have locale attribute')
       }
 
       return `
