@@ -1699,17 +1699,17 @@ find-up@^4.0.0:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
 
-fluent-vue-loader@^3.0.0-beta.14:
-  version "3.0.0-beta.14"
-  resolved "https://registry.yarnpkg.com/fluent-vue-loader/-/fluent-vue-loader-3.0.0-beta.14.tgz#951faa18c9f8343e63780296f12cb5d6c8e3d93a"
-  integrity sha512-kgJ6PlNflxvWi7C4B0pvQx5VUu3dECjyMSyCiQzF9HeB17oHACefzuy/XezibEKHWiBE1RG6XRE5/ahIA4tvog==
+fluent-vue-loader@^3.0.0-beta.15:
+  version "3.0.0-beta.15"
+  resolved "https://registry.yarnpkg.com/fluent-vue-loader/-/fluent-vue-loader-3.0.0-beta.15.tgz#326c53e9f413ed30c2207d075555291fa63625d6"
+  integrity sha512-A1qslySJO/zWZWKk+pS/A2Op0JfPRA7tqbDen3+kIURDXT7+zlaWtjDN1unS5gBZd9vWBRVigDVdOxdr+5ZMnA==
   dependencies:
     loader-utils "^2.0.0"
 
-fluent-vue@^3.0.0-beta.14:
-  version "3.0.0-beta.14"
-  resolved "https://registry.yarnpkg.com/fluent-vue/-/fluent-vue-3.0.0-beta.14.tgz#591b2477aa75789d0621c412bc86ad644f02dc90"
-  integrity sha512-1QW1ql2cpWEWXqvpq5dDZ+XnZQVVHqgyrT3taJBdt8x8u3UH0EX+LqCGA2XjtZxKph//1zmZiPgmtyKkBWf2ag==
+fluent-vue@^3.0.0-beta.15:
+  version "3.0.0-beta.15"
+  resolved "https://registry.yarnpkg.com/fluent-vue/-/fluent-vue-3.0.0-beta.15.tgz#f7a47d20b851fe0ba8ebb67746e435978a530793"
+  integrity sha512-QbOGvVYQOcYTVOceIxHzfDbe80wOLRbMRCfZ59YRSjimTGBvDN9fLtihj4idMme6EYF7rlQaDIr3XWbyu1z01w==
   dependencies:
     "@fluent/sequence" "^0.6.0"
     cached-iterable "^0.3.0"
