@@ -1,0 +1,44 @@
+{
+  "name": "rollup-plugin-fluent-vue",
+  "version": "3.0.0-beta.15",
+  "description": "Rollup and vite plugin with custom block support for fluent-vue",
+  "keywords": [
+    "localization",
+    "l10n",
+    "internationalization",
+    "i18n",
+    "ftl",
+    "locale",
+    "language",
+    "formatting",
+    "translate",
+    "translation",
+    "format",
+    "vue",
+    "vuejs",
+    "vue.js",
+    "rollup-plugin",
+    "vite-plugin"
+  ],
+  "main": "dist/rollup-plugin-fluent-vue.cjs.js",
+  "module": "dist/rollup-plugin-fluent-vue.esm.js",
+  "types": "dist/rollup-plugin-fluent-vue.d.ts",
+  "exports": {
+    "import": "./dist/rollup-plugin-fluent-vue.esm.js",
+    "require": "./dist/rollup-plugin-fluent-vue.cjs.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Demivan/fluent-vue"
+  },
+  "homepage": "https://fluent-vue.demivan.me/integrations/rollup.html",
+  "license": "MIT",
+  "devDependencies": {
+    "rollup": "^2.53.2"
+  }
+}

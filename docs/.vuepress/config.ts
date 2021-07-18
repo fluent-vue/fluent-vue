@@ -77,7 +77,7 @@ export default defineUserConfig<DefaultThemeOptions>({
       },
       {
         text: 'Integrations',
-        children: ['/integrations/webpack.html', '/integrations/vite.html'],
+        children: ['/integrations/webpack.html', '/integrations/rollup.html', '/integrations/vite.html'],
         collapsable: false,
       },
     ]

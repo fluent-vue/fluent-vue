@@ -1,34 +1,21 @@
 # Vite
 
-Vite plugin is planned, but for now it's easy to add support for custom blocks using custom plugin:
+Vite support for custom blocks in SFC is provided by [rollup-plugin-fluent-vue](https://www.npmjs.com/package/rollup-plugin-fluent-vue).
 
 ```js
 import vue from '@vitejs/plugin-vue'
-
-const fluentPlugin = {
-  name: 'fluent-vue',
-  transform(code, id) {
-    if (!/vue&type=fluent/.test(id)) {
-      return
-    }
-
-    const [filename, rawQuery] = id.split('?', 2)
-    const query = new URLSearchParams(rawQuery)
-
-    return `
-import { FluentResource } from '@fluent/bundle'
-
-export default function (Component) {
-  Component.fluent = Component.fluent || {}
-  Component.fluent['${query.get('locale')}'] = new FluentResource(\`${code}\`)
-}`
-  },
-}
+import fluentPlugin from 'rollup-plugin-fluent-vue'
 
 export default {
-  optimizeDeps: {
-    link: ['fluent-vue'],
-  },
-  plugins: [vue(), fluentPlugin],
+  plugins: [vue(), fluentPlugin()]
 }
 ```
+
+## Options
+
+### blockType
+
+Type: `string`<br>
+Default: `fluent`
+
+Custom block tag name.

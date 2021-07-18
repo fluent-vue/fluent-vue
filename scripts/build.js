@@ -113,6 +113,10 @@ function checkAllSizes (targets) {
   }
   console.log()
   for (const target of targets) {
+    if (target !== 'fluent-vue') {
+      return
+    }
+    
     checkSize(target)
   }
   console.log()

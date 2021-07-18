@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rollup plugin custom blockType 1`] = `
+"'use strict';
+
+var vue = require('vue');
+var bundle = require('@fluent/bundle');
+
+function render(_ctx, _cache) {
+  return (vue.openBlock(), vue.createBlock(\\"div\\", null, [
+    vue.createVNode(\\"div\\", null, vue.toDisplayString(_ctx.$t('hello-user', { userName: _ctx.userName })), 1 /* TEXT */),
+    vue.createVNode(\\"div\\", null, vue.toDisplayString(_ctx.$t('shared-photos', { userName: _ctx.userName, photoCount: _ctx.photoCount, userGender: _ctx.userGender })), 1 /* TEXT */)
+  ]))
+}
+
+function block0 (Component) {
+  const target = Component.options || Component;
+  target.fluent = target.fluent || {};
+  target.fluent['en'] = new bundle.FluentResource(\`
+# Simple things are simple.
+hello-user = Hello, {$userName}!
+
+# Complex things are possible.
+shared-photos =
+  {$userName} {$photoCount ->
+     [one] added one photo
+    *[other] added {$photoCount} new photos
+  } to {$userGender ->
+     [male] his stream
+     [female] her stream
+    *[other] their stream
+  }.
+\`);
+}
+
+const script = {};
+if (typeof block0 === 'function') block0(script);
+
+script.render = render;
+script.__file = \\"blockType.vue\\";
+
+module.exports = script;
+"
+`;
+
+exports[`rollup plugin errors with no locale attr 1`] = `"Custom block does not have locale attribute"`;
+
+exports[`rollup plugin generates custom block code 1`] = `
+"'use strict';
+
+var vue = require('vue');
+var bundle = require('@fluent/bundle');
+
+function render(_ctx, _cache) {
+  return (vue.openBlock(), vue.createBlock(\\"div\\", null, [
+    vue.createVNode(\\"div\\", null, vue.toDisplayString(_ctx.$t('hello-user', { userName: _ctx.userName })), 1 /* TEXT */),
+    vue.createVNode(\\"div\\", null, vue.toDisplayString(_ctx.$t('shared-photos', { userName: _ctx.userName, photoCount: _ctx.photoCount, userGender: _ctx.userGender })), 1 /* TEXT */)
+  ]))
+}
+
+function block0 (Component) {
+  const target = Component.options || Component;
+  target.fluent = target.fluent || {};
+  target.fluent['en'] = new bundle.FluentResource(\`
+# Simple things are simple.
+hello-user = Hello, {$userName}!
+
+# Complex things are possible.
+shared-photos =
+  {$userName} {$photoCount ->
+     [one] added one photo
+    *[other] added {$photoCount} new photos
+  } to {$userGender ->
+     [male] his stream
+     [female] her stream
+    *[other] their stream
+  }.
+\`);
+}
+
+const script = {};
+if (typeof block0 === 'function') block0(script);
+
+script.render = render;
+script.__file = \\"test.vue\\";
+
+module.exports = script;
+"
+`;
