@@ -4,7 +4,7 @@ import { createFsFromVolume, Volume } from 'memfs'
 
 import { VueLoaderPlugin } from 'vue-loader'
 
-export default async (fixture: string, options = {}): Promise<webpack.Stats> => {
+export default async (fixture: string, options = {}, hot = false): Promise<webpack.Stats> => {
   const compiler = webpack({
     context: __dirname,
     entry: `./${fixture}`,
@@ -35,7 +35,8 @@ export default async (fixture: string, options = {}): Promise<webpack.Stats> => 
       ]
     },
     plugins: [
-      new VueLoaderPlugin()
+      new VueLoaderPlugin(),
+      ...(hot ? [new webpack.HotModuleReplacementPlugin()] : [])
     ]
   })
 

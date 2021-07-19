@@ -1,142 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`webpack loader errors with no locale attr 1`] = `
-Array [
-  Object {
-    "details": "NonErrorEmittedError: (Emitted value instead of an instance of Error) localization block does not have locale specified
-    at Object.emitError (/home/demivan/projects/fluent/fluent-vue/node_modules/webpack/lib/NormalModule.js:547:14)
-    at Object.loader (/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/src/index.ts:11:12)",
-    "message": "Module Error (from ../src/index.ts):
-(Emitted value instead of an instance of Error) localization block does not have locale specified",
-    "moduleId": 82,
-    "moduleIdentifier": "/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/src/index.ts??clonedRuleSet-5.use!/home/demivan/projects/fluent/fluent-vue/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/__tests__/fixtures/noLocale.vue?vue&type=custom&index=0&blockType=fluent",
-    "moduleName": "../src/index.ts??clonedRuleSet-5.use!../../../node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./fixtures/noLocale.vue?vue&type=custom&index=0&blockType=fluent",
-    "moduleTrace": Array [
-      Object {
-        "dependencies": Array [
-          Object {
-            "loc": "1:0-202",
-          },
-          Object {
-            "loc": "1:0-202",
-          },
-          Object {
-            "loc": "1:203-394",
-          },
-          Object {
-            "loc": "1:203-394",
-          },
-        ],
-        "moduleId": 82,
-        "moduleIdentifier": "/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/src/index.ts??clonedRuleSet-5.use!/home/demivan/projects/fluent/fluent-vue/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/__tests__/fixtures/noLocale.vue?vue&type=custom&index=0&blockType=fluent",
-        "moduleName": "../src/index.ts??clonedRuleSet-5.use!../../../node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./fixtures/noLocale.vue?vue&type=custom&index=0&blockType=fluent",
-        "originId": null,
-        "originIdentifier": "/home/demivan/projects/fluent/fluent-vue/node_modules/vue-loader/dist/pitcher.js!/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/src/index.ts??clonedRuleSet-5.use!/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/src/index.ts??clonedRuleSet-5.use!/home/demivan/projects/fluent/fluent-vue/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/__tests__/fixtures/noLocale.vue?vue&type=custom&index=0&blockType=fluent",
-        "originName": "./fixtures/noLocale.vue?vue&type=custom&index=0&blockType=fluent",
-      },
-      Object {
-        "dependencies": Array [
-          Object {
-            "loc": "5:0-76",
-          },
-          Object {
-            "loc": "6:11-17",
-          },
-          Object {
-            "loc": "6:34-40",
-          },
-        ],
-        "moduleId": null,
-        "moduleIdentifier": "/home/demivan/projects/fluent/fluent-vue/node_modules/vue-loader/dist/pitcher.js!/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/src/index.ts??clonedRuleSet-5.use!/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/src/index.ts??clonedRuleSet-5.use!/home/demivan/projects/fluent/fluent-vue/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/__tests__/fixtures/noLocale.vue?vue&type=custom&index=0&blockType=fluent",
-        "moduleName": "./fixtures/noLocale.vue?vue&type=custom&index=0&blockType=fluent",
-        "originId": null,
-        "originIdentifier": "/home/demivan/projects/fluent/fluent-vue/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/__tests__/fixtures/noLocale.vue",
-        "originName": "./fixtures/noLocale.vue",
-      },
-    ],
-    "stack": "ModuleError: Module Error (from ../src/index.ts):
-(Emitted value instead of an instance of Error) localization block does not have locale specified
-    at Object.emitError (/home/demivan/projects/fluent/fluent-vue/node_modules/webpack/lib/NormalModule.js:550:6)
-    at Object.loader (/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/src/index.ts:11:12)
-    at LOADER_EXECUTION (/home/demivan/projects/fluent/fluent-vue/node_modules/loader-runner/lib/LoaderRunner.js:132:14)
-    at runSyncOrAsync (/home/demivan/projects/fluent/fluent-vue/node_modules/loader-runner/lib/LoaderRunner.js:133:4)
-    at iterateNormalLoaders (/home/demivan/projects/fluent/fluent-vue/node_modules/loader-runner/lib/LoaderRunner.js:250:2)
-    at iterateNormalLoaders (/home/demivan/projects/fluent/fluent-vue/node_modules/loader-runner/lib/LoaderRunner.js:239:10)
-    at /home/demivan/projects/fluent/fluent-vue/node_modules/loader-runner/lib/LoaderRunner.js:254:3
-    at Object.context.callback (/home/demivan/projects/fluent/fluent-vue/node_modules/loader-runner/lib/LoaderRunner.js:124:13)
-    at Object.selectBlock (/home/demivan/projects/fluent/fluent-vue/node_modules/vue-loader/dist/select.js:38:23)
-    at Object.loader (/home/demivan/projects/fluent/fluent-vue/node_modules/vue-loader/dist/index.js:70:25)",
-  },
-  Object {
-    "details": undefined,
-    "message": "Module build failed (from ../src/index.ts):
-Error: localization block does not have locale specified
-    at generateCode (/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/src/index.ts:28:11)
-    at Object.loader (/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/src/index.ts:9:27)",
-    "moduleId": 82,
-    "moduleIdentifier": "/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/src/index.ts??clonedRuleSet-5.use!/home/demivan/projects/fluent/fluent-vue/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/__tests__/fixtures/noLocale.vue?vue&type=custom&index=0&blockType=fluent",
-    "moduleName": "../src/index.ts??clonedRuleSet-5.use!../../../node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./fixtures/noLocale.vue?vue&type=custom&index=0&blockType=fluent",
-    "moduleTrace": Array [
-      Object {
-        "dependencies": Array [
-          Object {
-            "loc": "1:0-202",
-          },
-          Object {
-            "loc": "1:0-202",
-          },
-          Object {
-            "loc": "1:203-394",
-          },
-          Object {
-            "loc": "1:203-394",
-          },
-        ],
-        "moduleId": 82,
-        "moduleIdentifier": "/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/src/index.ts??clonedRuleSet-5.use!/home/demivan/projects/fluent/fluent-vue/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/__tests__/fixtures/noLocale.vue?vue&type=custom&index=0&blockType=fluent",
-        "moduleName": "../src/index.ts??clonedRuleSet-5.use!../../../node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!./fixtures/noLocale.vue?vue&type=custom&index=0&blockType=fluent",
-        "originId": null,
-        "originIdentifier": "/home/demivan/projects/fluent/fluent-vue/node_modules/vue-loader/dist/pitcher.js!/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/src/index.ts??clonedRuleSet-5.use!/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/src/index.ts??clonedRuleSet-5.use!/home/demivan/projects/fluent/fluent-vue/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/__tests__/fixtures/noLocale.vue?vue&type=custom&index=0&blockType=fluent",
-        "originName": "./fixtures/noLocale.vue?vue&type=custom&index=0&blockType=fluent",
-      },
-      Object {
-        "dependencies": Array [
-          Object {
-            "loc": "5:0-76",
-          },
-          Object {
-            "loc": "6:11-17",
-          },
-          Object {
-            "loc": "6:34-40",
-          },
-        ],
-        "moduleId": null,
-        "moduleIdentifier": "/home/demivan/projects/fluent/fluent-vue/node_modules/vue-loader/dist/pitcher.js!/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/src/index.ts??clonedRuleSet-5.use!/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/src/index.ts??clonedRuleSet-5.use!/home/demivan/projects/fluent/fluent-vue/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/__tests__/fixtures/noLocale.vue?vue&type=custom&index=0&blockType=fluent",
-        "moduleName": "./fixtures/noLocale.vue?vue&type=custom&index=0&blockType=fluent",
-        "originId": null,
-        "originIdentifier": "/home/demivan/projects/fluent/fluent-vue/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[7].use[0]!/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/__tests__/fixtures/noLocale.vue",
-        "originName": "./fixtures/noLocale.vue",
-      },
-    ],
-    "stack": "ModuleBuildError: Module build failed (from ../src/index.ts):
-Error: localization block does not have locale specified
-    at generateCode (/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/src/index.ts:28:11)
-    at Object.loader (/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/src/index.ts:9:27)
-    at processResult (/home/demivan/projects/fluent/fluent-vue/node_modules/webpack/lib/NormalModule.js:701:19)
-    at /home/demivan/projects/fluent/fluent-vue/node_modules/webpack/lib/NormalModule.js:807:5
-    at /home/demivan/projects/fluent/fluent-vue/node_modules/loader-runner/lib/LoaderRunner.js:399:11
-    at /home/demivan/projects/fluent/fluent-vue/node_modules/loader-runner/lib/LoaderRunner.js:251:18
-    at Object.context.callback (/home/demivan/projects/fluent/fluent-vue/node_modules/loader-runner/lib/LoaderRunner.js:124:13)
-    at Object.loader (/home/demivan/projects/fluent/fluent-vue/packages/fluent-vue-loader/src/index.ts:12:12)
-    at LOADER_EXECUTION (/home/demivan/projects/fluent/fluent-vue/node_modules/loader-runner/lib/LoaderRunner.js:132:14)
-    at runSyncOrAsync (/home/demivan/projects/fluent/fluent-vue/node_modules/loader-runner/lib/LoaderRunner.js:133:4)
-    at iterateNormalLoaders (/home/demivan/projects/fluent/fluent-vue/node_modules/loader-runner/lib/LoaderRunner.js:250:2)
-    at iterateNormalLoaders (/home/demivan/projects/fluent/fluent-vue/node_modules/loader-runner/lib/LoaderRunner.js:239:10)",
-  },
-]
-`;
-
 exports[`webpack loader generates custom block code 1`] = `
 Array [
   "
@@ -158,9 +21,35 @@ shared-photos =
      [female] her stream
     *[other] their stream
   }.\`)
+  
+}
+",
+]
+`;
 
+exports[`webpack loader includes HMR code only when HMR is enabled 1`] = `
+Array [
+  "
+import { FluentResource } from '@fluent/bundle'
+
+export default function (Component) {
+  const target = Component.options || Component
+  target.fluent = target.fluent || {}
+  target.fluent['en'] = new FluentResource(\`# Simple things are simple.
+hello-user = Hello, {$userName}!
+
+# Complex things are possible.
+shared-photos =
+  {$userName} {$photoCount ->
+     [one] added one photo
+    *[other] added {$photoCount} new photos
+  } to {$userGender ->
+     [male] his stream
+     [female] her stream
+    *[other] their stream
+  }.\`)
   if (module.hot) {
-    if (typeof __VUE_HMR_RUNTIME__ !== 'undefined' ) {
+    if (typeof __VUE_HMR_RUNTIME__ !== 'undefined') {
       // Vue 3
       const id = target.__hmrId
       const api = __VUE_HMR_RUNTIME__
