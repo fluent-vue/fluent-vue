@@ -16,7 +16,7 @@
     "lint": "eslint .",
     "ls-lint": "ls-lint",
     "test": "node scripts/swap-vue 3 && jest --runInBand",
-    "test:2": "node scripts/swap-vue 2 && jest --runInBand packages/fluent-vue",
+    "test:2": "node scripts/swap-vue 2 && jest --runInBand packages/fluent-vue/",
     "test:3": "node scripts/swap-vue 3 && jest --runInBand",
     "release": "shipjs prepare"
   },
