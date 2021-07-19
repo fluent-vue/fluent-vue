@@ -34,7 +34,7 @@ This monorepo contains multiple packages:
 
 * [fluent-vue](https://github.com/Demivan/fluent-vue/tree/develop/packages/fluent-vue) - Vue.js plugin
 * [fluent-vue-loader](https://github.com/Demivan/fluent-vue/tree/develop/packages/fluent-vue-loader) - Webpack loader that adds support for custom bloks in SFC
-
+* [rollup-plugin-fluent-vue](https://github.com/Demivan/fluent-vue/tree/develop/packages/rollup-plugin-fluent-vue) - Rollup\Vite plugin that adds support for custom bloks in SFC
 
 ## 📄 License
 
