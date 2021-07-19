@@ -68,7 +68,6 @@
     "lerna-changelog": "^1.0.1",
     "lint-staged": "^11.0.1",
     "minimist": "^1.2.5",
-    "prettier": "^2.3.2",
     "rollup": "^2.53.2",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.30.0",
