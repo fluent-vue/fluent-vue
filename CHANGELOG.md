@@ -1,4 +1,22 @@
 
+## v3.0.0-beta.16 (2021-07-19)
+
+#### :star: New Features
+* `rollup-plugin-fluent-vue`
+  * [#649](https://github.com/Demivan/fluent-vue/pull/649) Implement Rollup/Vite plugin ([@Demivan](https://github.com/Demivan))
+
+#### :bug: Bug Fixes
+* `fluent-vue-loader`
+  * [#648](https://github.com/Demivan/fluent-vue/pull/648) Fix incorect paths in package.json ([@Demivan](https://github.com/Demivan))
+
+#### :pencil: Documentation
+* `fluent-vue`
+  * [#646](https://github.com/Demivan/fluent-vue/pull/646) Update documentation ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
+
 ## v3.0.0-beta.15 (2021-07-15)
 
 #### :star: New Features
