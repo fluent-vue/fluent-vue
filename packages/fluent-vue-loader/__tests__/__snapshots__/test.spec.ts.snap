@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`webpack loader generates custom block code 1`] = `
+Array [
+  "
+import { FluentResource } from '@fluent/bundle'
+
+export default function (Component) {
+  const target = Component.options || Component
+  target.fluent = target.fluent || {}
+  target.fluent['en'] = new FluentResource(\`# Simple things are simple.
+hello-user = Hello, {$userName}!
+
+# Complex things are possible.
+shared-photos =
+  {$userName} {$photoCount ->
+     [one] added one photo
+    *[other] added {$photoCount} new photos
+  } to {$userGender ->
+     [male] his stream
+     [female] her stream
+    *[other] their stream
+  }.\`)
+  
+}
+",
+]
+`;
+
+exports[`webpack loader includes HMR code only when HMR is enabled 1`] = `
+Array [
+  "
+import { FluentResource } from '@fluent/bundle'
+
+export default function (Component) {
+  const target = Component.options || Component
+  target.fluent = target.fluent || {}
+  target.fluent['en'] = new FluentResource(\`# Simple things are simple.
+hello-user = Hello, {$userName}!
+
+# Complex things are possible.
+shared-photos =
+  {$userName} {$photoCount ->
+     [one] added one photo
+    *[other] added {$photoCount} new photos
+  } to {$userGender ->
+     [male] his stream
+     [female] her stream
+    *[other] their stream
+  }.\`)
+  if (module.hot) {
+    if (typeof __VUE_HMR_RUNTIME__ !== 'undefined') {
+      // Vue 3
+      const id = target.__hmrId
+      const api = __VUE_HMR_RUNTIME__
+      api.reload(id, target)
+    } else {
+      // Vue 2
+      // There is no proper api to access HMR for component from custom block
+      // so use this magic
+      delete target._Ctor
+    }
+  }
+}
+",
+]
+`;
