@@ -4,7 +4,7 @@ import { parseQuery, OptionObject } from 'loader-utils'
 
 function generateCode (rawData: string, query: OptionObject, hot = false): string {
   // vue-loader pads SFC file sections with newlines - trim those
-  const data = rawData.replace(/^\n+|\n+$/g, '')
+  const data = rawData.replace(/^(\n|\r\n)+|(\n|\r\n)+$/g, '')
 
   if (typeof query.locale !== 'string') {
     throw new Error('Custom block does not have locale attribute')
