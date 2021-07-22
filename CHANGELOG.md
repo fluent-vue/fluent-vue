@@ -7,6 +7,7 @@ Complete rewrite of library since version 2
 * Support Vue 3 and 2
 * Composition api support
 * Webpack loader for defining translation resources in SFC custom blocks
+* Rollup/Vite plugin for defining translation resources in SFC custom blocks
 * Added Typescript type definitions
 * [#472](https://github.com/Demivan/fluent-vue/pull/472) Pass message attributes as i18n component slots props ([@davidrios](https://github.com/davidrios))
 
