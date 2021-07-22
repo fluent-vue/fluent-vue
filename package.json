@@ -11,7 +11,7 @@
   },
   "scripts": {
     "dev": "node scripts/build.js fluent-vue -w -p -f global",
-    "build": "node scripts/build.js -t",
+    "build": "node scripts/build.js",
     "size": "node scripts/build.js fluent-vue -p -f global",
     "lint": "eslint .",
     "ls-lint": "ls-lint",
