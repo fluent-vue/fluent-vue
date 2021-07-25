@@ -7,7 +7,7 @@
     "@vuepress/plugin-google-analytics": "^2.0.0-beta.22",
     "@vuepress/plugin-search": "^2.0.0-beta.22",
     "@vuepress/plugin-shiki": "^2.0.0-beta.22",
-    "date-fns": "^2.22.1",
+    "date-fns": "^2.23.0",
     "fluent-vue": "^3.0.0-beta.16",
     "fluent-vue-loader": "^3.0.0-beta.16",
     "primeflex": "^2.0.0",
