@@ -39,6 +39,6 @@
   "homepage": "https://fluent-vue.demivan.me/integrations/rollup.html",
   "license": "MIT",
   "devDependencies": {
-    "rollup": "^2.54.0"
+    "rollup": "^2.55.0"
   }
 }
