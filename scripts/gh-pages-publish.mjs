@@ -34,11 +34,11 @@ await execa('yarn', ['build'], { cwd: 'docs', stdio: 'inherit' })
 
 const options = { cwd: 'docs/.vuepress/dist', stdio: 'inherit' }
 writeFileSync('docs/.vuepress/dist/CNAME', 'fluent-vue.demivan.me')
-await execa('git', ['init'], options)
+await execa('git', ['init', '--initial-branch', 'main'], options)
 await execa('git', ['add', '.'], options)
 await execa('git', ['config', 'user.name', '"Ivan Demchuk"'], options)
 await execa('git', ['config', 'user.email', '"ivan.demchuk@gmail.com"'], options)
 await execa('git', ['commit', '-m', '"docs(docs): update gh-pages"'], options)
-await execa('git', ['push', '--force', '--quiet', `https://${ghToken}@${repository}`, 'master:gh-pages'], options)
+await execa('git', ['push', '--force', '--quiet', `https://${ghToken}@${repository}`, 'main:gh-pages'], options)
 
 echo('Docs deployed!!')
