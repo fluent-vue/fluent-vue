@@ -83,26 +83,36 @@ export default defineUserConfig<DefaultThemeOptions>({
     ]
   },
   plugins: [
-    ['@vuepress/shiki', {
-      theme: 'solarized-dark',
-      langs: [
-        ...shikiLanguages, {
-          id: 'vue',
-          scopeName: 'source.vue',
-          grammar: VueGrammar
-        }, {
-          id: 'ftl',
-          scopeName: 'source.ftl',
-          grammar: FluentGrammar
-        }
-      ]
-    }],
+    [
+      '@vuepress/shiki', 
+      {
+        theme: 'solarized-dark',
+        langs: [
+          ...shikiLanguages, {
+            id: 'vue',
+            scopeName: 'source.vue',
+            grammar: VueGrammar
+          }, {
+            id: 'ftl',
+            scopeName: 'source.ftl',
+            grammar: FluentGrammar
+          }
+        ]
+      }
+    ],
     '@vuepress/plugin-search',
     [
       '@vuepress/plugin-google-analytics',
       {
         id: 'G-XBF065RFBE',
       },
+    ],
+    [
+      require.resolve('./sitemapPlugin.ts'),
+      {
+        hostname: 'https://fluent-vue.demivan.me',
+        exclude: ['/404.html']
+      }
     ]
   ],
   bundlerConfig: {
