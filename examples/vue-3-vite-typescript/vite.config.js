@@ -2,5 +2,5 @@ import vue from '@vitejs/plugin-vue'
 import fluentPlugin from 'rollup-plugin-fluent-vue'
 
 export default {
-  plugins: [vue(), fluentPlugin({ vue: '3' })]
+  plugins: [vue(), fluentPlugin()]
 }
