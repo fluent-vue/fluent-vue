@@ -1,6 +1,8 @@
-import type { DefaultThemeOptions } from 'vuepress'
+import type { DefaultThemeOptions } from 'vuepress-vite'
 
-import { defineUserConfig } from 'vuepress'
+import { defineUserConfig } from 'vuepress-vite'
+import fluentPlugin from 'rollup-plugin-fluent-vue'
+
 import { BUNDLED_LANGUAGES } from 'shiki'
 import VueGrammar from 'shiki/languages/vue.tmLanguage.json'
 import FluentGrammar from './fluent.tmLanguage.json'
@@ -51,7 +53,7 @@ VueGrammar.patterns.unshift(
 
 export default defineUserConfig<DefaultThemeOptions>({
   title: 'fluent-vue',
-  description: 'Internationalization plugin for Vue.js. Vue.js integration for Project Fluent.',
+  description: 'fluent-vue is an internationalization plugin for Vue.js that works both with Vue 2 and Vue 3. Is it a Vue.js integration for Mozilla\'s Project Fluent.',
   themeConfig: {
     repo: 'demivan/fluent-vue',
     logo: '/assets/logo.svg',
@@ -83,43 +85,43 @@ export default defineUserConfig<DefaultThemeOptions>({
     ]
   },
   plugins: [
-    ['@vuepress/shiki', {
-      theme: 'solarized-dark',
-      langs: [
-        ...shikiLanguages, {
-          id: 'vue',
-          scopeName: 'source.vue',
-          grammar: VueGrammar
-        }, {
-          id: 'ftl',
-          scopeName: 'source.ftl',
-          grammar: FluentGrammar
-        }
-      ]
-    }],
+    [
+      '@vuepress/shiki', 
+      {
+        theme: 'solarized-dark',
+        langs: [
+          ...shikiLanguages, {
+            id: 'vue',
+            scopeName: 'source.vue',
+            grammar: VueGrammar
+          }, {
+            id: 'ftl',
+            scopeName: 'source.ftl',
+            grammar: FluentGrammar
+          }
+        ]
+      }
+    ],
     '@vuepress/plugin-search',
     [
       '@vuepress/plugin-google-analytics',
       {
         id: 'G-XBF065RFBE',
       },
+    ],
+    [
+      require.resolve('./sitemapPlugin.ts'),
+      {
+        hostname: 'https://fluent-vue.demivan.me',
+        exclude: ['/404.html']
+      }
     ]
   ],
   bundlerConfig: {
-    chainWebpack: (config) => {
-    config.module
-      .rule('fluent-vue')
-      .resourceQuery(/blockType=fluent/)
-      .use('fluent-vue')
-      .loader('fluent-vue-loader')
-
-    config.module
-      .rule('fix-fluent')
-      .include
-        .add((/@fluent[\\/](bundle|langneg|syntax|sequence)[\\/]/))
-        .end()
-      .test(/[.]js$/)
-      .type('javascript/esm')
+    viteOptions: {
+      plugins: [
+        fluentPlugin()
+      ]
     }
   }
 })

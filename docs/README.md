@@ -1,5 +1,6 @@
 ---
 home: true
+title: Internationalization plugin for Vue.js
 meta:
   - name: keywords
     content: vue i18n l10n i18n vue.js fluent.js Fluent ProjectFluent translation localization
