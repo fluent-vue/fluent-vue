@@ -10,3 +10,15 @@
 .dark .navbar .logo {
   filter: invert(80%);
 }
+
+code {
+  font-size: 14px;
+}
+
+:root {
+  --font-family-code: "JetBrains Mono", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace
+}
+
+pre {
+  font-family: "JetBrains Mono", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
+}
