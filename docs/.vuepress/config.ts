@@ -1,6 +1,8 @@
-import type { DefaultThemeOptions } from 'vuepress'
+import type { DefaultThemeOptions } from 'vuepress-vite'
 
-import { defineUserConfig } from 'vuepress'
+import { defineUserConfig } from 'vuepress-vite'
+import fluentPlugin from 'rollup-plugin-fluent-vue'
+
 import { BUNDLED_LANGUAGES } from 'shiki'
 import VueGrammar from 'shiki/languages/vue.tmLanguage.json'
 import FluentGrammar from './fluent.tmLanguage.json'
@@ -116,20 +118,10 @@ export default defineUserConfig<DefaultThemeOptions>({
     ]
   ],
   bundlerConfig: {
-    chainWebpack: (config) => {
-    config.module
-      .rule('fluent-vue')
-      .resourceQuery(/blockType=fluent/)
-      .use('fluent-vue')
-      .loader('fluent-vue-loader')
-
-    config.module
-      .rule('fix-fluent')
-      .include
-        .add((/@fluent[\\/](bundle|langneg|syntax|sequence)[\\/]/))
-        .end()
-      .test(/[.]js$/)
-      .type('javascript/esm')
+    viteOptions: {
+      plugins: [
+        fluentPlugin()
+      ]
     }
   }
 })
