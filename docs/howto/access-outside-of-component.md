@@ -1,6 +1,6 @@
 # Access to localizations outside of component
 
-To use localizations outside of Vue components your can export `FluentVue.format` and `FluentVue.formatAttrs` functions from your *fluent-vue* setup code. These functions work like `$t` and `$ta` component methods respectively.
+To use localizations outside of Vue components you can export `FluentVue.format` and `FluentVue.formatAttrs` functions from your *fluent-vue* setup code. These functions work like `$t` and `$ta` component methods respectively.
 
 ### fluent.js - fluent-vue setup code
 
