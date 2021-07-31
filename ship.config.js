@@ -38,6 +38,7 @@ module.exports = {
     packagesToPublish: ['packages/*']
   },
   updateChangelog: false,
+  buildCommand: () => "yarn build:prod",
   beforeCommitChanges: ({ nextVersion, exec, dir }) => {
     return new Promise((resolve) => {
       const pkg = require('./package.json')

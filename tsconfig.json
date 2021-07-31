@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "outDir": "dist",
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "declarationMap": true,
     "sourceMap": true,
     "target": "ES2019",
     "module": "esnext",
@@ -12,11 +13,6 @@
     "esModuleInterop": true,
     "removeComments": false,
     "jsx": "preserve",
-    "lib": ["esnext", "dom"],
-    "types": ["jest", "node"],
-    "rootDir": "."
-  },
-  "include": [
-    "packages/**/src"
-  ]
+    "types": ["jest"]
+  }
 }

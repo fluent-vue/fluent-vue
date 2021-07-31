@@ -39,7 +39,6 @@
   "homepage": "https://fluent-vue.demivan.me/integrations/webpack.html",
   "license": "MIT",
   "devDependencies": {
-    "@types/loader-utils": "^2.0.3",
     "webpack": "^5.47.0"
   },
   "dependencies": {

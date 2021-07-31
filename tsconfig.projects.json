@@ -1,0 +1,8 @@
+{
+  "references": [
+    { "path": "packages/fluent-vue" },
+    { "path": "packages/fluent-vue-loader" },
+    { "path": "packages/rollup-plugin-fluent-vue" }
+  ],
+  "files": []
+}

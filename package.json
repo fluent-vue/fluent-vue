@@ -12,7 +12,8 @@
   "scripts": {
     "dev": "node scripts/build.mjs fluent-vue -w -p -f global",
     "build": "node scripts/build.mjs",
-    "size": "node scripts/build.mjs fluent-vue -p -f global",
+    "build:prod": "node scripts/build.mjs -t",
+    "size": "node scripts/build.mjs fluent-vue -p -f global --size",
     "lint": "eslint .",
     "ls-lint": "ls-lint",
     "test": "node scripts/swap-vue 3 && jest --runInBand",
@@ -21,7 +22,7 @@
     "release": "shipjs prepare"
   },
   "gitHooks": {
-    "pre-commit": "ls-lint && lint-staged"
+    "pre-commit": "ls-lint && lint-staged && tsc --build tsconfig.projects.json"
   },
   "lint-staged": {
     "*.js": "eslint --fix",
@@ -48,7 +49,6 @@
     "@ls-lint/ls-lint": "^1.10.0",
     "@microsoft/api-extractor": "^7.18.4",
     "@types/jest": "^26.0.24",
-    "@types/node": "15.0.3",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
     "brotli": "^1.3.2",

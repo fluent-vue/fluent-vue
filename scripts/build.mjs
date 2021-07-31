@@ -22,6 +22,8 @@ import { compress } from 'brotli'
 import execa from 'execa'
 import { targets as allTargets, fuzzyMatchTarget } from './utils.mjs'
 
+import { Extractor, ExtractorConfig } from '@microsoft/api-extractor'
+
 import { build as esbuild } from 'esbuild'
 
 import minimist from 'minimist'
@@ -35,6 +37,7 @@ const buildTypes = args.types || args.t
 const prodOnly = !devOnly && (args.prodOnly || args.p)
 const sourceMap = args.sourcemap || args.s
 const buildAllMatching = args.all || args.a
+const shouldCheckSize = args.size || args.s || false
 
 run()
 
@@ -42,7 +45,10 @@ async function run () {
   const selectedTargets = !targets.length ? allTargets : fuzzyMatchTarget(targets, buildAllMatching)
 
   await buildAll(selectedTargets)
-  checkAllSizes(selectedTargets)
+
+  if (shouldCheckSize) {
+    checkAllSizes(selectedTargets)
+  }
 }
 
 async function buildAll (targets) {
@@ -151,16 +157,15 @@ async function build (target) {
     console.log()
     console.log(chalk.bold(chalk.yellow(`Building type definitions for ${target}...`)))
 
-    await execa('pnpm', ['tsc', '-p', 'tsconfig.json', '--declaration', '--emitDeclarationOnly'], {
-      cwd: pkgDir
+    await execa('yarn', ['tsc', '-p', 'tsconfig.json', '--declaration', '--emitDeclarationOnly'], {
+      cwd: pkgDir,
+      stdio: 'inherit'
     })
 
     console.log()
     console.log(chalk.bold(chalk.yellow(`Rolling up type definitions for ${target}...`)))
 
     // build types
-    const { Extractor, ExtractorConfig } = require('@microsoft/api-extractor')
-
     const extractorConfigPath = path.resolve(pkgDir, 'api-extractor.json')
     const extractorConfig = ExtractorConfig.loadFileAndPrepare(extractorConfigPath)
     const result = Extractor.invoke(extractorConfig, {
@@ -177,7 +182,7 @@ async function build (target) {
       process.exitCode = 1
     }
 
-    await fs.remove(`${pkgDir}/dist/packages`)
+    await fs.remove(`${pkgDir}/dist/tsc`)
   }
 }
 
