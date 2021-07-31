@@ -14,17 +14,19 @@ yarn build core --formats cjs
 ```
 */
 
-const fs = require('fs-extra')
-const path = require('path')
-const chalk = require('chalk')
-const { gzipSync } = require('zlib')
-const { compress } = require('brotli')
-const execa = require('execa')
-const { targets: allTargets, fuzzyMatchTarget } = require('./utils')
+import fs from 'fs-extra'
+import path from 'path'
+import chalk from 'chalk'
+import { gzipSync } from 'zlib'
+import { compress } from 'brotli'
+import execa from 'execa'
+import { targets as allTargets, fuzzyMatchTarget } from './utils.mjs'
 
-const { build: esbuild } = require('esbuild')
+import { build as esbuild } from 'esbuild'
 
-const args = require('minimist')(process.argv.slice(2))
+import minimist from 'minimist'
+
+const args = minimist(process.argv.slice(2))
 const targets = args._
 const formats = args.formats || args.f
 const devOnly = args.devOnly || args.d
@@ -51,7 +53,8 @@ async function buildAll (targets) {
 
 async function build (target) {
   const pkgDir = path.resolve(`packages/${target}`)
-  const pkg = require(`${pkgDir}/package.json`)
+  const pkgString = await fs.readFile(`${pkgDir}/package.json`)
+  const pkg = JSON.parse(pkgString)
 
   // if building a specific format, do not remove dist.
   if (!formats) {
