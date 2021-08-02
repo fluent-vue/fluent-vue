@@ -4,9 +4,9 @@
     "build": "vuepress-vite build"
   },
   "devDependencies": {
-    "@vuepress/plugin-google-analytics": "^2.0.0-beta.22",
-    "@vuepress/plugin-search": "^2.0.0-beta.22",
-    "@vuepress/plugin-shiki": "^2.0.0-beta.22",
+    "@vuepress/plugin-google-analytics": "^2.0.0-beta.23",
+    "@vuepress/plugin-search": "^2.0.0-beta.23",
+    "@vuepress/plugin-shiki": "^2.0.0-beta.23",
     "date-fns": "^2.23.0",
     "fluent-vue": "^3.0.0-beta.16",
     "fluent-vue-loader": "^3.0.0-beta.16",
@@ -15,6 +15,6 @@
     "primevue": "^3.6.0",
     "rollup-plugin-fluent-vue": "^3.0.0-beta.16",
     "sitemap": "^7.0.0",
-    "vuepress-vite": "^2.0.0-beta.22"
+    "vuepress-vite": "^2.0.0-beta.23"
   }
 }
