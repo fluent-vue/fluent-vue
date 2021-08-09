@@ -65,7 +65,6 @@
     "execa": "^5.1.1",
     "fs-extra": "^10.0.0",
     "jest": "^27.0.6",
-    "lerna-changelog": "^1.0.1",
     "lint-staged": "^11.1.2",
     "memfs": "^3.2.2",
     "minimist": "^1.2.5",
