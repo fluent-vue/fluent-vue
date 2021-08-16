@@ -1,7 +1,7 @@
 import type { InstallFunction, Vue, Vue2, Vue3, Vue3Component } from './types/typesCompat'
 import type { FluentBundle, FluentVariable } from '@fluent/bundle'
 
-import { isVue3, ref, provide, Ref } from 'vue-demi'
+import { isVue3, shallowRef, provide } from 'vue-demi'
 import { TranslationContext, TranslationWithAttrs } from './TranslationContext'
 import { createVue2Directive, createVue3Directive } from './vue/directive'
 import component from './vue/component'
@@ -34,7 +34,7 @@ export interface FluentVue {
  * @param options - {@link FluentVueOptions}
  */
 export function createFluentVue (options: FluentVueOptions): FluentVue {
-  const bundles: Ref<Iterable<FluentBundle>> = ref(options.bundles)
+  const bundles = shallowRef(options.bundles)
 
   const rootContext = new TranslationContext(bundles)
 
