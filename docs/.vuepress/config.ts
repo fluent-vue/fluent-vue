@@ -54,6 +54,9 @@ VueGrammar.patterns.unshift(
 export default defineUserConfig<DefaultThemeOptions>({
   title: 'fluent-vue',
   description: 'fluent-vue is an internationalization plugin for Vue.js that works both with Vue 2 and Vue 3. Is it a Vue.js integration for Mozilla\'s Project Fluent.',
+  head: [
+    ['meta', { name: 'keywords', content: 'vue, i18n, vue i18n, vue.js, internationalization, localization, vue plugin, fluent, project fluent' }]
+  ],
   themeConfig: {
     repo: 'demivan/fluent-vue',
     logo: '/assets/logo.svg',
