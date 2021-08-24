@@ -1,6 +1,63 @@
+---
+description: i18n component allows localizing text that contains HTML elements or Vue.js components | fluent-vue - Vue.js internationalization plugin
+---
+
 # `i18n` component
 
-Allows to use Vue components and html elements inside translation messages.
+Very common problem of localizing web apps is localizing text that needs to include HTML elements or components. Consider the example:
+
+```html
+<p>
+  <router-link :to="{ name: 'login' }">Sign in</router-link>
+  or
+  <router-link :to="{ name: 'register' }">sign up</router-link>
+  to add comments on this article.
+</p>
+```
+
+One solution for this could be to translate each part of the message separatelly like this:
+
+```html
+<p>
+  <router-link :to="{ name: 'login' }">{{ $t('sign-in') }}</router-link>
+  {{ $t('or') }}
+  <router-link :to="{ name: 'register' }">{{ $t('sign-up') }}</router-link>
+  {{ $t('to-comment') }}
+</p>
+```
+
+But this is cumbersome and could lead to confusion and errors, as it is hard to see that these messages are actually just one sentence.
+
+Another solution is using v-html directive. But that only works for simpler static HTML. And it could lead to accidentaly breaking a page if the message is not properly formatted.
+
+`i18n` component allows to use Vue components and HTML elements inside translation messages.
+
+Previous example would look like this when using `i18n` component:
+
+```html
+<i18n path="sign-in-up-to-add-comments" tag="p">
+  <template #signInLink="{ signInLabel }">
+    <router-link :to="{ name: 'login' }">{{ signInLabel }}</router-link>
+  </template>
+  <template #signUpLink="{ signUpLabel }">
+    <router-link :to="{ name: 'register' }">{{ signUpLabel }}</router-link>
+  </template>
+</i18n>
+```
+
+Localization message:
+```ftl
+# $signInLink - will be replaced with link to login page
+# .sign-in-label - text for login link
+sign-in-up-to-add-comments =
+  {$signInLink} or {$signUpLink} to add comments on this article.
+  .sign-in-label = Sign in
+  .sign-up-label = sign up
+```
+
+As you can see entire sentence uses just one translation key. It does not use v-html directive. And we can even add comments, so translators know what they are dealing with.
+
+### API
 
 * Props:
   * `path {string}` localization message key
