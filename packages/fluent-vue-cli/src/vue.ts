@@ -75,15 +75,21 @@ function getBlocks (descriptor: SFCDescriptor): SFCBlock[] {
 }
 
 function buildContent (blockToAdd: SFCBlock, raw: string, blocks: SFCBlock[]): string {
+  const EOL = /\r?\n|\r/g.exec(raw)?.[0]
+  if (EOL == null) {
+    // Empty input
+    return raw
+  }
+
   let offset = 0
   let inserted = false
   let contents: string[] = []
   let fluentOffset = -1
 
-  contents = blocks.reduce((contents, block) => {
+  contents = blocks.reduce((contents, block, i) => {
     if (block.type === 'fluent' && block.attrs.locale === blockToAdd.attrs.locale) {
       contents = contents.concat(raw.slice(offset, block.loc.start.offset))
-      contents = contents.concat(`\n${blockToAdd.content}`)
+      contents = contents.concat(`${EOL}${blockToAdd.content}`)
       offset = block.loc.end.offset
       inserted = true
     } else {
@@ -91,7 +97,7 @@ function buildContent (blockToAdd: SFCBlock, raw: string, blocks: SFCBlock[]): s
       offset = block.loc.end.offset
 
       if (block.type === 'fluent') {
-        fluentOffset = contents.join('').length + '</fluent>\n'.length
+        fluentOffset = contents.join('').length + '</fluent>'.length + EOL.length
       }
     }
     return contents
@@ -102,7 +108,7 @@ function buildContent (blockToAdd: SFCBlock, raw: string, blocks: SFCBlock[]): s
   let source = contents.join('')
 
   if (!inserted) {
-    const content = `\n<fluent locale="${blockToAdd.attrs.locale as string}">\n${blockToAdd.content}</fluent>\n`
+    const content = `${EOL}<fluent locale="${blockToAdd.attrs.locale as string}">${EOL}${blockToAdd.content}</fluent>${EOL}`
 
     if (fluentOffset !== -1) {
       source = source.slice(0, fluentOffset) + content + source.slice(fluentOffset)
