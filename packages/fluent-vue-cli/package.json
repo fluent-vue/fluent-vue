@@ -1,0 +1,31 @@
+{
+  "name": "fluent-vue-cli",
+  "version": "3.0.0-beta.16",
+  "description": "fluent-vue CLI to manage translation resources",
+  "keywords": [
+    "localization",
+    "internationalization",
+    "vue",
+    "Fluent",
+    "ftl",
+    "CLI",
+    "fluent-vue"
+  ],
+  "sideEffects": false,
+  "types": "dist/fluent-vue-cli.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Demivan/fluent-vue"
+  },
+  "homepage": "https://fluent-vue.demivan.me/cli",
+  "license": "MIT",
+  "dependencies": {
+    "@fluent/syntax": "^0.17.0",
+    "@vue/compiler-sfc": "^3.2.6"
+  }
+}
