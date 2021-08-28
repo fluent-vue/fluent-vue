@@ -1,4 +1,21 @@
 
+## v3.0.0-beta.17 (2021-08-28)
+
+#### :star: New Features
+* `fluent-vue-cli`, `fluent-vue`
+  * [#679](https://github.com/Demivan/fluent-vue/pull/679) Add api for managing locale messages  ([@Demivan](https://github.com/Demivan))
+
+#### :bug: Bug Fixes
+* `fluent-vue`
+  * [#673](https://github.com/Demivan/fluent-vue/pull/673) Make bundles property not deeply reactive ([@Demivan](https://github.com/Demivan))
+
+#### :pencil: Documentation
+* [#661](https://github.com/Demivan/fluent-vue/pull/661) Updated documentation ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
+
 ## v3.0.0-beta.16 (2021-07-19)
 
 #### :star: New Features
