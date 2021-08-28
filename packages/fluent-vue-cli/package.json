@@ -12,7 +12,13 @@
     "fluent-vue"
   ],
   "sideEffects": false,
+  "main": "dist/fluent-vue-cli.cjs.js",
+  "module": "dist/fluent-vue-cli.esm.js",
   "types": "dist/fluent-vue-cli.d.ts",
+  "exports": {
+    "import": "./dist/fluent-vue-cli.esm.js",
+    "require": "./dist/fluent-vue-cli.cjs.js"
+  },
   "files": [
     "dist",
     "README.md"
