@@ -6,7 +6,7 @@ const serializer = new FluentSerializer()
 
 function getText (entry: Message): string {
   entry.comment = null
-  return serializer.serializeEntry(entry).substring(entry.id.name.length + 3)
+  return serializer.serializeEntry(entry).substring(entry.id.name.length + 3).trimEnd()
 }
 
 export function getMessages (content: string): Record<string, string> {

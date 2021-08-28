@@ -1,17 +1,19 @@
 import type { SFCBlock, SFCDescriptor } from '@vue/compiler-sfc'
-import type { SFCFileInfo } from './types'
+import type { MessagesWithLocale } from './types'
 
 import { parse } from '@vue/compiler-sfc'
-import { merge as mergeFtl } from './ftl'
+import { merge as mergeFtl, getMessages as getFtlMessages } from './ftl'
 
-export function getDescriptor (file: SFCFileInfo): SFCDescriptor {
-  return parse(file.content, {
-    filename: file.path
-  }).descriptor
+export function getMessages (source: string): MessagesWithLocale[] {
+  const descriptor = getDescriptor(source)
+  descriptor.customBlocks.sort((a, b) => {
+    return a.loc.start.offset - b.loc.start.offset
+  })
+  return extractFromCustomBlocks(descriptor.customBlocks)
 }
 
-export function merge (file: SFCFileInfo, locale: string, messages: Record<string, string>): string {
-  const parseResult = getDescriptor(file)
+export function merge (source: string, locale: string, messages: Record<string, string>): string {
+  const parseResult = getDescriptor(source)
 
   let fluentBlock = parseResult.customBlocks
     .find(block => block.type === 'fluent' && block.attrs.locale === locale)
@@ -34,8 +36,35 @@ export function merge (file: SFCFileInfo, locale: string, messages: Record<strin
   return buildContent(fluentBlock, parseResult.source, blocks)
 }
 
+function getDescriptor (source: string): SFCDescriptor {
+  return parse(source, {
+    sourceMap: false,
+    ignoreEmpty: false,
+    pad: false
+  }).descriptor
+}
+
+function extractFromCustomBlocks (blocks: SFCBlock[]): MessagesWithLocale[] {
+  return blocks.map(block => {
+    if (block.type !== 'fluent') {
+      return undefined
+    }
+
+    const locale = block.attrs.locale
+    if (locale == null || typeof locale !== 'string') {
+      throw new Error('fluent custom block does not have locale specified')
+    }
+
+    return {
+      locale,
+      messages: getFtlMessages(block.content)
+    }
+  }).filter(Boolean) as MessagesWithLocale[]
+}
+
 function getBlocks (descriptor: SFCDescriptor): SFCBlock[] {
   const { template, script, styles, customBlocks } = descriptor
+
   const blocks: SFCBlock[] = [...styles, ...customBlocks]
   ;(template != null) && blocks.push(template as SFCBlock)
   ;(script != null) && blocks.push(script as SFCBlock)
@@ -62,7 +91,7 @@ function buildContent (blockToAdd: SFCBlock, raw: string, blocks: SFCBlock[]): s
       offset = block.loc.end.offset
 
       if (block.type === 'fluent') {
-        fluentOffset = contents.length
+        fluentOffset = contents.join('').length + '</fluent>\n'.length
       }
     }
     return contents
@@ -70,15 +99,17 @@ function buildContent (blockToAdd: SFCBlock, raw: string, blocks: SFCBlock[]): s
 
   contents = contents.concat(raw.slice(offset, raw.length))
 
+  let source = contents.join('')
+
   if (!inserted) {
     const content = `\n<fluent locale="${blockToAdd.attrs.locale as string}">\n${blockToAdd.content}</fluent>\n`
 
     if (fluentOffset !== -1) {
-      contents.splice(fluentOffset, 0, content)
+      source = source.slice(0, fluentOffset) + content + source.slice(fluentOffset)
     } else {
-      contents.push(content)
+      source = source + content
     }
   }
 
-  return contents.join('')
+  return source
 }
