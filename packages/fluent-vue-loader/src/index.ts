@@ -41,8 +41,8 @@ const loader: LoaderDefinitionFunction = function (this, source, sourceMap) {
   try {
     this.callback(null, generateCode(source, parseQuery(this.resourceQuery), this.hot), sourceMap)
   } catch (err) {
-    this.emitError(err)
-    this.callback(err)
+    this.emitError(err as Error)
+    this.callback(err as Error)
   }
 }
 
