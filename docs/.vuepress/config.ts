@@ -82,7 +82,7 @@ export default defineUserConfig<DefaultThemeOptions>({
       },
       {
         text: 'Tooling and integrations',
-        link: '/integrations',
+        link: '/integrations/',
         children: ['/integrations/webpack.html', '/integrations/rollup.html', '/integrations/vite.html'],
         collapsable: false,
       },
