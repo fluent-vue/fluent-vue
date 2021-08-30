@@ -1070,9 +1070,9 @@
   integrity sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==
 
 "@types/node@*":
-  version "16.7.4"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.7.4.tgz#68a9384694af63ceab8848e95d76d9a3519e84b6"
-  integrity sha512-25QXpDsTiDnl2rZGUenagVMwO46way8dOUdvoC3R3p+6TrbpxeJBo/v87BEG1IHI31Jhaa8lPeSHcqwxsVBeYQ==
+  version "16.7.6"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.7.6.tgz#8666478db8095aa66e25b7e469f3e7b53ea2855e"
+  integrity sha512-VESVNFoa/ahYA62xnLBjo5ur6gPsgEE5cNRy8SrdnkZ2nwJSW0kJ4ufbFr2zuU9ALtHM8juY53VcRoTA7htXSg==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -2738,17 +2738,17 @@ copy-webpack-plugin@^5.1.1:
     webpack-log "^2.0.0"
 
 core-js-compat@^3.14.0, core-js-compat@^3.16.0, core-js-compat@^3.6.5:
-  version "3.16.3"
-  resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.16.3.tgz#ae12a6e20505a1d79fbd16b6689dfc77fc989114"
-  integrity sha512-A/OtSfSJQKLAFRVd4V0m6Sep9lPdjD8bpN8v3tCCGwE0Tmh0hOiVDm9tw6mXmWOKOSZIyr3EkywPo84cJjGvIQ==
+  version "3.16.4"
+  resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.16.4.tgz#cf28abe0e45a43645b04b2c1a073efa03d0b3b26"
+  integrity sha512-IzCSomxRdahCYb6G3HiN6pl3JCiM0NMunRcNa1pIeC7g17Vd6Ue3AT9anQiENPIm/svThUVer1pIbLMDERIsFw==
   dependencies:
     browserslist "^4.16.8"
     semver "7.0.0"
 
 core-js@^3.12.1, core-js@^3.6.5:
-  version "3.16.3"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.16.3.tgz#1f2d43c51a9ed014cc6c83440af14697ae4b75f2"
-  integrity sha512-lM3GftxzHNtPNUJg0v4pC2RC6puwMd6VZA7vXUczi+SKmCWSf4JwO89VJGMqbzmB7jlK7B5hr3S64PqwFL49cA==
+  version "3.16.4"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.16.4.tgz#0fb1029a554fc2688c0963d7c900e188188a78e0"
+  integrity sha512-Tq4GVE6XCjE+hcyW6hPy0ofN3hwtLudz5ZRdrlCnsnD/xkm/PWQRudzYHiKgZKUcefV6Q57fhDHjZHJP5dpfSg==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -3230,9 +3230,9 @@ domelementtype@^2.0.1, domelementtype@^2.2.0:
   integrity sha512-DtBMo82pv1dFtUmHyr48beiuq792Sxohr+8Hm9zoxklYPfa6n0Z3Byjj2IV7bmr2IyqClnqEQhfgHJJ5QF0R5A==
 
 domhandler@^4.0.0, domhandler@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/domhandler/-/domhandler-4.2.0.tgz#f9768a5f034be60a89a27c2e4d0f74eba0d8b059"
-  integrity sha512-zk7sgt970kzPks2Bf+dwT/PLzghLnsivb9CcxkvR8Mzr66Olr0Ofd8neSbglHJHaHa2MadfoSdNlKYAaafmWfA==
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/domhandler/-/domhandler-4.2.2.tgz#e825d721d19a86b8c201a35264e226c678ee755f"
+  integrity sha512-PzE9aBMsdZO8TK4BnuJwH0QT41wgMbRzuZrHUcpYncEjmQazq8QEaBWgLG7ZyC/DAZKEgglpIA6j4Qn/HmxS3w==
   dependencies:
     domelementtype "^2.2.0"
 
@@ -3729,9 +3729,9 @@ find-cache-dir@^2.1.0:
     pkg-dir "^3.0.0"
 
 find-cache-dir@^3.0.0, find-cache-dir@^3.3.1:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/find-cache-dir/-/find-cache-dir-3.3.1.tgz#89b33fad4a4670daa94f855f7fbe31d6d84fe880"
-  integrity sha512-t2GDMt3oGC/v+BMwzmllWDuJF/xcDtE5j/fCGbqDD7OLuJkj0cfh1YSA5VKPvwMeLFLNDBkwOKZ2X85jGLVftQ==
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/find-cache-dir/-/find-cache-dir-3.3.2.tgz#b30c5b6eff0730731aea9bbd9dbecbd80256d64b"
+  integrity sha512-wXZV5emFEjrridIgED11OoUKLxiYjAcqot/NJdAkOhlJ+vGzwhOAfcG5OX1jP+S0PcjEn8bdMJv+g2jwQ3Onig==
   dependencies:
     commondir "^1.0.1"
     make-dir "^3.0.2"
@@ -3753,16 +3753,16 @@ find-up@^4.0.0:
     path-exists "^4.0.0"
 
 fluent-vue-loader@^3.0.0-beta.16:
-  version "3.0.0-beta.16"
-  resolved "https://registry.yarnpkg.com/fluent-vue-loader/-/fluent-vue-loader-3.0.0-beta.16.tgz#768ca49b4cf1ecc59f836328cf8060ea327b5f9e"
-  integrity sha512-1ilOnIgWf9BJJMtmV7glsOux4vlR/nP4H9pyp5G1ZeNpzugpnhnRgffd1lDdnldBWemHT3xPA8fR66M8265nxw==
+  version "3.0.0-beta.17"
+  resolved "https://registry.yarnpkg.com/fluent-vue-loader/-/fluent-vue-loader-3.0.0-beta.17.tgz#fb2b7ac9fca0299f2e0dad7c1d26c2cb3f145354"
+  integrity sha512-gY16hd5WCG5pBQv02ski7SdLsWLAz4MwpE0Rx88iQW3qJazQ8Ub98ku4w0BWq17EjYGHUN+pu4uqSpYWWNx7YQ==
   dependencies:
     loader-utils "^2.0.0"
 
 fluent-vue@^3.0.0-beta.9:
-  version "3.0.0-beta.16"
-  resolved "https://registry.yarnpkg.com/fluent-vue/-/fluent-vue-3.0.0-beta.16.tgz#fb43952becc9fc14d8fe7e940bbddb33e001a70a"
-  integrity sha512-w1pfrJ8sl4QOcdn+8EDtC0bW6omhSJYQYQVrhjtmw5Ci9Qn9FvTN9QoHg29Z3f49ZW+x6jwb1XKuINF8zqpJTg==
+  version "3.0.0-beta.17"
+  resolved "https://registry.yarnpkg.com/fluent-vue/-/fluent-vue-3.0.0-beta.17.tgz#f7f5df01ec0a46a550f346f98ef6733866bc023e"
+  integrity sha512-ngq6mEiBosHWW8CjjRKapgMgu6nQHqhb22ZUBDNg2w7TdiHS6Xfw33wmNWM3XeY406j65xuHrZYv85GwbhkCjg==
   dependencies:
     "@fluent/sequence" "^0.6.0"
     cached-iterable "^0.3.0"

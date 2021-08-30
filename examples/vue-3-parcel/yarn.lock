@@ -883,9 +883,9 @@
     "@types/node" "*"
 
 "@types/node@*":
-  version "16.7.4"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.7.4.tgz#68a9384694af63ceab8848e95d76d9a3519e84b6"
-  integrity sha512-25QXpDsTiDnl2rZGUenagVMwO46way8dOUdvoC3R3p+6TrbpxeJBo/v87BEG1IHI31Jhaa8lPeSHcqwxsVBeYQ==
+  version "16.7.6"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.7.6.tgz#8666478db8095aa66e25b7e469f3e7b53ea2855e"
+  integrity sha512-VESVNFoa/ahYA62xnLBjo5ur6gPsgEE5cNRy8SrdnkZ2nwJSW0kJ4ufbFr2zuU9ALtHM8juY53VcRoTA7htXSg==
 
 "@vue/compiler-core@3.2.6":
   version "3.2.6"
@@ -1619,9 +1619,9 @@ copy-descriptor@^0.1.0:
   integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
 
 core-js@^3.2.1:
-  version "3.16.3"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.16.3.tgz#1f2d43c51a9ed014cc6c83440af14697ae4b75f2"
-  integrity sha512-lM3GftxzHNtPNUJg0v4pC2RC6puwMd6VZA7vXUczi+SKmCWSf4JwO89VJGMqbzmB7jlK7B5hr3S64PqwFL49cA==
+  version "3.16.4"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.16.4.tgz#0fb1029a554fc2688c0963d7c900e188188a78e0"
+  integrity sha512-Tq4GVE6XCjE+hcyW6hPy0ofN3hwtLudz5ZRdrlCnsnD/xkm/PWQRudzYHiKgZKUcefV6Q57fhDHjZHJP5dpfSg==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -1959,9 +1959,9 @@ domexception@^1.0.1:
     webidl-conversions "^4.0.2"
 
 domhandler@^4.0.0, domhandler@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/domhandler/-/domhandler-4.2.0.tgz#f9768a5f034be60a89a27c2e4d0f74eba0d8b059"
-  integrity sha512-zk7sgt970kzPks2Bf+dwT/PLzghLnsivb9CcxkvR8Mzr66Olr0Ofd8neSbglHJHaHa2MadfoSdNlKYAaafmWfA==
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/domhandler/-/domhandler-4.2.2.tgz#e825d721d19a86b8c201a35264e226c678ee755f"
+  integrity sha512-PzE9aBMsdZO8TK4BnuJwH0QT41wgMbRzuZrHUcpYncEjmQazq8QEaBWgLG7ZyC/DAZKEgglpIA6j4Qn/HmxS3w==
   dependencies:
     domelementtype "^2.2.0"
 
@@ -2312,9 +2312,9 @@ finalhandler@1.1.2:
     unpipe "~1.0.0"
 
 fluent-vue@^3.0.0-beta.9:
-  version "3.0.0-beta.16"
-  resolved "https://registry.yarnpkg.com/fluent-vue/-/fluent-vue-3.0.0-beta.16.tgz#fb43952becc9fc14d8fe7e940bbddb33e001a70a"
-  integrity sha512-w1pfrJ8sl4QOcdn+8EDtC0bW6omhSJYQYQVrhjtmw5Ci9Qn9FvTN9QoHg29Z3f49ZW+x6jwb1XKuINF8zqpJTg==
+  version "3.0.0-beta.17"
+  resolved "https://registry.yarnpkg.com/fluent-vue/-/fluent-vue-3.0.0-beta.17.tgz#f7f5df01ec0a46a550f346f98ef6733866bc023e"
+  integrity sha512-ngq6mEiBosHWW8CjjRKapgMgu6nQHqhb22ZUBDNg2w7TdiHS6Xfw33wmNWM3XeY406j65xuHrZYv85GwbhkCjg==
   dependencies:
     "@fluent/sequence" "^0.6.0"
     cached-iterable "^0.3.0"
