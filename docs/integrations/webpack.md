@@ -1,6 +1,16 @@
-# Webpack
+---
+description: fluent-vue-loader - official Webpack loader for fluent-vue that allows defining locale messages directly in Vue SFC files
+---
 
-`fluent-vue-loader` allows to use custom blocks in your single file components.
+# Webpack loader
+
+`fluent-vue-loader` allows you to use custom blocks in your single file components.
+
+**Example**
+
+@[code{11-33}](../components/Simple.vue)
+
+## Instalation
 
 1. Install `fluent-vue-loader` package
 
