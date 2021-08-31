@@ -2,6 +2,7 @@ import type { SFCBlock, SFCDescriptor } from '@vue/compiler-sfc'
 import type { MessagesWithLocale } from './types'
 
 import { parse } from '@vue/compiler-sfc'
+import { parse as parseDom, compile as compileDom } from '@vue/compiler-dom'
 import { merge as mergeFtl, getMessages as getFtlMessages } from './ftl'
 
 export function getMessages (source: string): MessagesWithLocale[] {
@@ -36,11 +37,29 @@ export function merge (source: string, locale: string, messages: Record<string, 
   return buildContent(fluentBlock, parseResult.source, blocks)
 }
 
+const decodeRE = /&(gt|lt|amp|apos|quot);/g
+const decodeMap = {
+  gt: '>',
+  lt: '<',
+  amp: '&',
+  apos: "'",
+  quot: '"'
+}
+
 function getDescriptor (source: string): SFCDescriptor {
   return parse(source, {
     sourceMap: false,
     ignoreEmpty: false,
-    pad: false
+    pad: false,
+    compiler: {
+      parse (template, options) {
+        return parseDom(template, {
+          ...options,
+          decodeEntities: (rawText) => rawText.replace(decodeRE, (_, p1: keyof typeof decodeMap) => decodeMap[p1])
+        })
+      },
+      compile: compileDom
+    }
   }).descriptor
 }
 
