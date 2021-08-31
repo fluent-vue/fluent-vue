@@ -729,7 +729,7 @@ resolve@^1.15.1, resolve@^1.20.0:
     is-core-module "^2.2.0"
     path-parse "^1.0.6"
 
-rollup-plugin-fluent-vue@^3.0.0-beta.16:
+rollup-plugin-fluent-vue@^3.0.0-beta.17:
   version "3.0.0-beta.17"
   resolved "https://registry.yarnpkg.com/rollup-plugin-fluent-vue/-/rollup-plugin-fluent-vue-3.0.0-beta.17.tgz#8c45be253a134790835ea0fed4818fe0d2e32c90"
   integrity sha512-DDq1toL/toWyrB87F7vwjAwv6Nmj0fN78qYVFAqx54QcoVYiV/cL/46m5PTq73cz4HxWXyXUceU6cghmB2XxMA==
@@ -791,10 +791,10 @@ util-deprecate@^1.0.2:
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
 
-vite@^2.5.1:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-2.5.1.tgz#953c71a034c07b3ae0448d57664ec9c6862f23a8"
-  integrity sha512-FwmLbbz8MB1pBs9dKoRDgpiqoijif8hSK1+NNUYc12/cnf+pM2UFhhQ1rcpXgbMhm/5c2USZdVAf0FSkSxaFDA==
+vite@^2.5.2:
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-2.5.2.tgz#3963a4ec1e6ecae49359eddfdd67f6cb1e6e07a1"
+  integrity sha512-JK5uhiVyMqHiAJbgBa8rCvpP8bEhAE9dKDv1gCmP+EUP2FSPmEeW3WXlCXauPB3MDa8behPW+ntyNXqnGaxslg==
   dependencies:
     esbuild "^0.12.17"
     postcss "^8.3.6"
