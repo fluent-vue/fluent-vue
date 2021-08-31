@@ -14,13 +14,13 @@
     "vue": "^2.6.14"
   },
   "devDependencies": {
-    "fluent-vue-loader": "^3.0.0-beta.16",
+    "fluent-vue-loader": "^3.0.0-beta.17",
     "html-webpack-plugin": "^5.3.2",
     "vue-loader": "^15.9.8",
     "vue-template-compiler": "^2.6.14",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0",
-    "webpack-dev-server": "^4.0.0"
+    "webpack-dev-server": "^4.1.0"
   },
   "browserslist": [
     "last 1 Chrome versions"
