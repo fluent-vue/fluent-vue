@@ -32,6 +32,7 @@
   "license": "MIT",
   "dependencies": {
     "@fluent/syntax": "^0.17.0",
+    "@vue/compiler-dom": "^3.2.6",
     "@vue/compiler-sfc": "^3.2.6"
   }
 }
