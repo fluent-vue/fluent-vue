@@ -1,3 +1,13 @@
+
+## v3.0.0-beta.19 (2021-09-01)
+
+#### :bug: Bug Fixes
+* `fluent-vue-cli`
+  * [#686](https://github.com/Demivan/fluent-vue/pull/686) Fix compiler-sfc trying to access the document ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
 ## v3.0.0-beta.17 (2021-08-28)
 
 #### :star: New Features
