@@ -1,4 +1,8 @@
-# Handling date and time
+---
+description: 'fluent-vue has built-in date and time formatting using native js methods. But it allows custom implementation using any library you want: dayjs, date-fns, moment etc'
+---
+
+# Localizing date and time
 
 Fluent has build-in function for formatting date and time: `DATETIME`. It uses `Intl.DateTimeFormat` under the hood.
 
@@ -10,20 +14,16 @@ today-is = Today is { DATETIME($date, month: "long", year: "numeric", day: "nume
 
 ### Parameters:
 
-```
-hour12
-weekday
-era
-year
-month
-day
-hour
-minute
-second
-timeZoneName
-```
+Here is the list of most commonly used parameters:
 
-See the [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) for the description of the parameters.
+**dateStyle**: `[ 'full', 'long', 'medium', 'short' ]`  
+**timeStyle**: `[ 'full', 'long', 'medium', 'short' ]`  
+**month**: `[ 'numeric', '2-digit', 'long', 'short', 'narrow' ]`  
+**year**: `[ 'numeric', '2-digit' ]`  
+**weekday**: `[ 'long', 'short', 'narrow' ]`  
+**day, hour, minute and second**: `[ 'numeric', '2-digit' ]`  
+
+See the [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) for the rest of the parameters and their description.
 
 ### Example component
 
@@ -33,9 +33,9 @@ See the [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaS
 
 ## Using custom library for date formatting
 
-You can add custom function for date and time formatting instead of using built-in one.
+You can add a custom function for date or time formatting instead of using the built-in one.
 
-Example of using `date-fns`:
+For example you can use `date-fns`:
 
 ### Add custom function to the bundle
 
