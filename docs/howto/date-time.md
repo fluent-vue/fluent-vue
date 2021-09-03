@@ -1,10 +1,10 @@
 ---
-description: 'fluent-vue has built-in date and time formatting using native js methods. But it allows custom implementation using any library you want: dayjs, date-fns, moment etc'
+description: 'fluent-vue has built-in date and time formatting using native js methods. But it allows custom implementation using any library you want: dayjs, date-fns, moment, etc.'
 ---
 
 # Localizing date and time
 
-Fluent has build-in function for formatting date and time: `DATETIME`. It uses `Intl.DateTimeFormat` under the hood.
+Fluent has build-in function for formatting date and time: `DATETIME`. It uses [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) under the hood.
 
 ### Example:
 
