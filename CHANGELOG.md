@@ -2,7 +2,7 @@
 
 #### :tada: Stable release :tada:
 
-Complete rewrite of library since version 2
+Complete rewrite of the library since version 2
 
 * Support Vue 3 and 2
 * Composition api support
