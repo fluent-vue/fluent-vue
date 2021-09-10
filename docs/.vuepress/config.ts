@@ -68,6 +68,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     sidebarDepth: 0,
     sidebar: [
       '/introduction.html',
+      '/fluent-syntax.html',
       '/installation.html',
       {
         text: 'Api',
