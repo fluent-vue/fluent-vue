@@ -1,6 +1,6 @@
 ---
-description: 
-keywords: vue.js, vue, js, i18n, internationalization, localization, fluent, ftl, pluralization, plural, 
+description: The bulk of functionality of fluent-vue comes from the power of Fluent syntax. All the pluralization, date, time, and number formatting are handled by Fluent.
+keywords: vue.js, vue, js, i18n, internationalization, localization, fluent, ftl, pluralization, plural, date format, number format
 ---
 
 # Fluent syntax
