@@ -194,3 +194,5 @@ home-link = Home
 creating-page-title = Creating { $title }
 creating-page-title-default = page
 ```
+
+*This page content is available under the [Creative Commons BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) license.*
