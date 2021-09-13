@@ -1,12 +1,15 @@
 import path from 'path'
-import ts from 'rollup-plugin-typescript2'
+import ts from '@rollup/plugin-typescript'
 import replace from '@rollup/plugin-replace'
+import dts from 'rollup-plugin-dts'
 import nodeResolvePlugin from '@rollup/plugin-node-resolve'
 import commonjsPlugin from '@rollup/plugin-commonjs'
 
 if (!process.env.TARGET) {
   throw new Error('TARGET package must be specified via --environment flag.')
 }
+
+const emitTypes = process.env.TYPES != null
 
 const packagesDir = path.resolve(__dirname, 'packages')
 const packageDir = path.resolve(packagesDir, process.env.TARGET)
@@ -55,6 +58,14 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
+if (emitTypes) {
+  packageConfigs.push({
+    input: resolve(`dist/dist/packages/${name}/src/index.d.ts`),
+    output: [{ file: resolve(`dist/${name}.d.ts`), format: "es" }],
+    plugins: [dts()],
+  })
+}
+
 export default packageConfigs
 
 function createConfig (format, output, plugins = []) {
@@ -74,21 +85,15 @@ function createConfig (format, output, plugins = []) {
     output.globals = packageOptions.globals || {}
   }
 
-  const shouldEmitDeclarations = process.env.TYPES != null && !hasTSChecked
+  const shouldEmitDeclarations = emitTypes && !hasTSChecked
 
   const tsPlugin = ts({
-    check: process.env.NODE_ENV === 'production' && !hasTSChecked,
     tsconfig: path.resolve(__dirname, 'tsconfig.json'),
-    cacheRoot: path.resolve(__dirname, 'node_modules/.rts2_cache'),
-    tsconfigOverride: {
-      compilerOptions: {
-        sourceMap: output.sourcemap,
-        declaration: shouldEmitDeclarations,
-        declarationMap: shouldEmitDeclarations
-      },
-      exclude: ['**/__tests__']
-    }
+    sourceMap: output.sourcemap,
+    declaration: shouldEmitDeclarations,
+    exclude: ['**/__tests__']
   })
+
   // we only need to check TS and generate declarations once for each build.
   // it also seems to run into weird issues when checking multiple times
   // during a single build.

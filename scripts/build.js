@@ -81,29 +81,8 @@ async function build (target) {
   )
 
   if (buildTypes && pkg.types) {
-    console.log()
-    console.log(chalk.bold(chalk.yellow(`Rolling up type definitions for ${target}...`)))
-
-    // build types
-    const { Extractor, ExtractorConfig } = require('@microsoft/api-extractor')
-
-    const extractorConfigPath = path.resolve(pkgDir, 'api-extractor.json')
-    const extractorConfig = ExtractorConfig.loadFileAndPrepare(extractorConfigPath)
-    const result = Extractor.invoke(extractorConfig, {
-      localBuild: true,
-      showVerboseMessages: true
-    })
-
-    if (result.succeeded) {
-      console.log(chalk.bold(chalk.green('API Extractor completed successfully.')))
-    } else {
-      console.error(
-        `API Extractor completed with ${result.errorCount} errors and ${result.warningCount} warnings`
-      )
-      process.exitCode = 1
-    }
-
-    await fs.remove(`${pkgDir}/dist/packages`)
+    // Remove extra files after build
+    await fs.remove(`${pkgDir}/dist/dist`)
   }
 }
 

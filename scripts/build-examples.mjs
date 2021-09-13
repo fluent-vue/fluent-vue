@@ -1,4 +1,5 @@
-import { readdirSync, readFileSync, existsSync } from 'fs'
+import { readdirSync, readFileSync, existsSync, mkdirSync } from 'fs'
+import path from 'path'
 import execa from 'execa'
 import chalk from 'chalk'
 
@@ -14,6 +15,7 @@ const examples = readdirSync('examples')
 async function buildExamples () {
   await execa('yarn', [], { stdio: 'inherit' })
   await execa('yarn', ['build'], { stdio: 'inherit' })
+  mkdirSync(path.resolve('temp'))
   await execa('yarn', ['pack', '-f', `../../temp/fluent-vue-${id}.tgz`], {
     stdio: 'inherit',
     cwd: 'packages/fluent-vue'
