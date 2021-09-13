@@ -3,13 +3,13 @@ const path = require('path')
 const execa = require('execa')
 
 const vue3packages = {
-  vue: 'npm:vue@^3.2.6',
+  'vue': 'npm:vue@^3.2.6',
   '@vue/compiler-sfc': '^3.2.6',
   '@vue/test-utils': '^2.0.0-rc.12'
 }
 
 const vue2packages = {
-  vue: 'npm:vue@^2.6.14',
+  'vue': 'npm:vue@^2.6.14',
   'vue-template-compiler': '^2.6.14',
   '@vue/test-utils': '^1.2.1',
   '@vue/composition-api': '^1.0.2'

@@ -5,6 +5,15 @@
   ],
   "ignorePresets": [":ignoreModulesAndTests"],
   "lockFileMaintenance": { "enabled": true },
+  "regexManagers": [
+    {
+      "fileMatch": ["scripts/swap-vue.js"],
+      "matchStrings": [
+        "'(?<depName>\\S*)': '(?:npm:\\S+@)?(?<currentValue>\\S*)'"   
+      ],
+      "datasourceTemplate": "npm"
+    }
+  ],
   "packageRules": [
     {
       "matchDepTypes": ["dependencies"],
