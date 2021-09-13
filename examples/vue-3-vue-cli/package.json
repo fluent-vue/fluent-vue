@@ -17,7 +17,7 @@
     "@vue/cli-plugin-babel": "^4.5.13",
     "@vue/cli-service": "^4.5.13",
     "@vue/compiler-sfc": "^3.2.11",
-    "fluent-vue-loader": "^3.0.0-beta.17"
+    "fluent-vue-loader": "^3.0.0"
   },
   "browserslist": [
     "last 1 Chrome versions"

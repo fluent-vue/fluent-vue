@@ -25,10 +25,10 @@
   resolved "https://registry.yarnpkg.com/@fluent/bundle/-/bundle-0.17.0.tgz#02f51f2ca8b85f80dd6b07df93e7ba421b124d52"
   integrity sha512-G/9wDCTKGPyHgw4ON3vBlLUIBBGG7vq8ytExqh4uwTfoeOfQ5VU5Xr6F+UV8B72k9P9S72GqFTXvqjS48pBVpg==
 
-"@fluent/sequence@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@fluent/sequence/-/sequence-0.6.0.tgz#6642c2896125fe618df20a3a66dc860d622b720c"
-  integrity sha512-U9GRc4GR3IIO58RRfa+Mo9OMKJ3c/R+1lBQ3LWulBVF6BIfzVh50h0uKqsss8pyVqsaMowTVChK8aus+d8ke4g==
+"@fluent/sequence@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@fluent/sequence/-/sequence-0.7.0.tgz#2fbfa872e87293cca209ba4a586d1a8fbaa2e5c4"
+  integrity sha512-aH1xMwX8DFvKOQSKUKpB3zMsnJ2rRKt7MajLNnx/r3V3DWDo2nzEfm21d7UyOgwEckPIjPmhxdW1MEmsGUxYIw==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -819,19 +819,19 @@ fill-range@^7.0.1:
   dependencies:
     to-regex-range "^5.0.1"
 
-fluent-vue-loader@^3.0.0-beta.17:
-  version "3.0.0-beta.17"
-  resolved "https://registry.yarnpkg.com/fluent-vue-loader/-/fluent-vue-loader-3.0.0-beta.17.tgz#fb2b7ac9fca0299f2e0dad7c1d26c2cb3f145354"
-  integrity sha512-gY16hd5WCG5pBQv02ski7SdLsWLAz4MwpE0Rx88iQW3qJazQ8Ub98ku4w0BWq17EjYGHUN+pu4uqSpYWWNx7YQ==
+fluent-vue-loader@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/fluent-vue-loader/-/fluent-vue-loader-3.0.0.tgz#309f37d05d5b38d79a772f4a6e52542644b2d18c"
+  integrity sha512-X13NnJZg00RGatQHctLbZBe+SpxrJzrUpjODy6JGXZJG+Rya2cuNW21Kpd3k5oUqlZaOdjBIQFP+rSwiN/9w5Q==
   dependencies:
     loader-utils "^2.0.0"
 
-fluent-vue@^3.0.0-beta.17:
-  version "3.0.0-beta.17"
-  resolved "https://registry.yarnpkg.com/fluent-vue/-/fluent-vue-3.0.0-beta.17.tgz#f7f5df01ec0a46a550f346f98ef6733866bc023e"
-  integrity sha512-ngq6mEiBosHWW8CjjRKapgMgu6nQHqhb22ZUBDNg2w7TdiHS6Xfw33wmNWM3XeY406j65xuHrZYv85GwbhkCjg==
+fluent-vue@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/fluent-vue/-/fluent-vue-3.0.0.tgz#45b490732f3ebe88309a61d1ba0d410f42e611b3"
+  integrity sha512-nHspmM4Dmr7c5YvcoIZopQ/PgoujrPb2fzbbGRK1FdeCqahRs9UpeBMdcxUPsoZcshd1N0o8nJuQnng7AKFb3Q==
   dependencies:
-    "@fluent/sequence" "^0.6.0"
+    "@fluent/sequence" "^0.7.0"
     cached-iterable "^0.3.0"
     tslib "^2.2.0"
     vue-demi latest
@@ -1407,10 +1407,10 @@ reusify@^1.0.4:
   resolved "https://registry.yarnpkg.com/reusify/-/reusify-1.0.4.tgz#90da382b1e126efc02146e90845a88db12925d76"
   integrity sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==
 
-rollup-plugin-fluent-vue@^3.0.0-beta.17:
-  version "3.0.0-beta.17"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-fluent-vue/-/rollup-plugin-fluent-vue-3.0.0-beta.17.tgz#8c45be253a134790835ea0fed4818fe0d2e32c90"
-  integrity sha512-DDq1toL/toWyrB87F7vwjAwv6Nmj0fN78qYVFAqx54QcoVYiV/cL/46m5PTq73cz4HxWXyXUceU6cghmB2XxMA==
+rollup-plugin-fluent-vue@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-fluent-vue/-/rollup-plugin-fluent-vue-3.0.0.tgz#d10a021b17f263e8c91c6d5187f923aa7dfc3a92"
+  integrity sha512-4UjZpsQylowhHDbt4DYkzC2NxnIxfhSnlsBPIJXDSJlK/iqohiz6dSbZbE2C/NpQCZM4FpFsEEp0cZxw+WEYHQ==
 
 rollup@^2.38.5, rollup@^2.56.2:
   version "2.56.3"

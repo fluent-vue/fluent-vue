@@ -1733,10 +1733,10 @@ resolve@^1.15.1, resolve@^1.20.0:
     is-core-module "^2.2.0"
     path-parse "^1.0.6"
 
-rollup-plugin-fluent-vue@^3.0.0-beta.17:
-  version "3.0.0-beta.17"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-fluent-vue/-/rollup-plugin-fluent-vue-3.0.0-beta.17.tgz#8c45be253a134790835ea0fed4818fe0d2e32c90"
-  integrity sha512-DDq1toL/toWyrB87F7vwjAwv6Nmj0fN78qYVFAqx54QcoVYiV/cL/46m5PTq73cz4HxWXyXUceU6cghmB2XxMA==
+rollup-plugin-fluent-vue@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-fluent-vue/-/rollup-plugin-fluent-vue-3.0.0.tgz#d10a021b17f263e8c91c6d5187f923aa7dfc3a92"
+  integrity sha512-4UjZpsQylowhHDbt4DYkzC2NxnIxfhSnlsBPIJXDSJlK/iqohiz6dSbZbE2C/NpQCZM4FpFsEEp0cZxw+WEYHQ==
 
 rollup@^2.35.1, rollup@^2.38.5:
   version "2.56.3"

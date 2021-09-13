@@ -1036,10 +1036,10 @@ find-up@^4.0.0:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
 
-fluent-vue-loader@^3.0.0-beta.17:
-  version "3.0.0-beta.17"
-  resolved "https://registry.yarnpkg.com/fluent-vue-loader/-/fluent-vue-loader-3.0.0-beta.17.tgz#fb2b7ac9fca0299f2e0dad7c1d26c2cb3f145354"
-  integrity sha512-gY16hd5WCG5pBQv02ski7SdLsWLAz4MwpE0Rx88iQW3qJazQ8Ub98ku4w0BWq17EjYGHUN+pu4uqSpYWWNx7YQ==
+fluent-vue-loader@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/fluent-vue-loader/-/fluent-vue-loader-3.0.0.tgz#309f37d05d5b38d79a772f4a6e52542644b2d18c"
+  integrity sha512-X13NnJZg00RGatQHctLbZBe+SpxrJzrUpjODy6JGXZJG+Rya2cuNW21Kpd3k5oUqlZaOdjBIQFP+rSwiN/9w5Q==
   dependencies:
     loader-utils "^2.0.0"
 
