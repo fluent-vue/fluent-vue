@@ -14,7 +14,7 @@
     "vue": "^2.6.14"
   },
   "devDependencies": {
-    "rollup-plugin-fluent-vue": "^3.0.0-beta.17",
+    "rollup-plugin-fluent-vue": "^3.0.0",
     "typescript": "^4.4.3",
     "vite": "^2.5.7",
     "vite-plugin-vue2": "^1.8.2",
