@@ -16,12 +16,6 @@ export default async (fixture: string, options = {}, hot = false): Promise<webpa
     module: {
       rules: [
         {
-          // https://github.com/projectfluent/fluent.js/issues/517
-          test: /\.js/,
-          include: /@fluent[\\/](bundle|langneg|syntax|sequence)[\\/]/,
-          type: 'javascript/esm'
-        },
-        {
           resourceQuery: /blockType=fluent/,
           use: {
             loader: path.resolve(__dirname, '../src/index.ts'),

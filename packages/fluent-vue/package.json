@@ -76,7 +76,7 @@
     "vue-demi": "latest"
   },
   "peerDependencies": {
-    "@fluent/bundle": ">=0.14.0",
+    "@fluent/bundle": ">=0.17.0",
     "@vue/composition-api": ">=1.0.0-rc.1",
     "vue": "^2.6.11 || >=3.0.0"
   },
