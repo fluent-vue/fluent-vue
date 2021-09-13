@@ -7,8 +7,8 @@
     "start": "vue-cli-service serve"
   },
   "dependencies": {
-    "@fluent/bundle": "^0.16.1",
-    "@fluent/dedent": "^0.3.0",
+    "@fluent/bundle": "^0.17.0",
+    "@fluent/dedent": "^0.4.0",
     "core-js": "^3.12.1",
     "fluent-vue": "^3.0.0-beta.9",
     "vue": "^3.0.11"

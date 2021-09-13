@@ -7,8 +7,8 @@
     "build": "webpack --mode=production"
   },
   "dependencies": {
-    "@fluent/bundle": "^0.16.1",
-    "@fluent/dedent": "^0.3.0",
+    "@fluent/bundle": "^0.17.0",
+    "@fluent/dedent": "^0.4.0",
     "@vue/composition-api": "^1.0.0-rc.8",
     "fluent-vue": "^3.0.0-beta.9",
     "vue": "^2.6.14"

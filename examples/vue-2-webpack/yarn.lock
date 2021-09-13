@@ -7,15 +7,15 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.3.tgz#90420f9f9c6d3987f176a19a7d8e764271a2f55d"
   integrity sha512-Fxt+AfXgjMoin2maPIYzFZnQjAXjAL0PHscM5pRTtatFqB+vZxAM9tLp2Optnuw3QOQC40jTNeGYFOMvyf7v9g==
 
-"@fluent/bundle@^0.16.1":
-  version "0.16.1"
-  resolved "https://registry.yarnpkg.com/@fluent/bundle/-/bundle-0.16.1.tgz#2d359eb2eca4c6053335258f6d3e1025f3fd3b1d"
-  integrity sha512-l/y8uvAC1vAIEGXfbt97g36s9gJ6wdEFRWCJo4vtoxD1e210MxBAXfLhU+wfzaatlxwh+HjJ15G41ee6V8Y4ww==
+"@fluent/bundle@^0.17.0":
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/@fluent/bundle/-/bundle-0.17.0.tgz#02f51f2ca8b85f80dd6b07df93e7ba421b124d52"
+  integrity sha512-G/9wDCTKGPyHgw4ON3vBlLUIBBGG7vq8ytExqh4uwTfoeOfQ5VU5Xr6F+UV8B72k9P9S72GqFTXvqjS48pBVpg==
 
-"@fluent/dedent@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@fluent/dedent/-/dedent-0.3.0.tgz#cd6fbea955f9998d1079eb65f1827597c6163a9b"
-  integrity sha512-HmMXSzvOVY0HRZmyk3u0ZUZwo863GHtN9IQeidHeq3xITESKJMXu7Wp+XNEbRxz+XWGJ0hIfiLnBJ4iNpf0QDQ==
+"@fluent/dedent@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@fluent/dedent/-/dedent-0.4.0.tgz#b44bebf707df9eceeaed4d2b01c6fbc23046bb12"
+  integrity sha512-qb/UfPjbsZRHDuJRlMXRHyIPnzLBKtxBpv6bSsAdDYzJXhWnwHndapWkfIJflyUHzeXGCa2zIsYW9KZdeyPlfg==
 
 "@fluent/sequence@^0.6.0":
   version "0.6.0"

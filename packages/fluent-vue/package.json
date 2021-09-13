@@ -61,8 +61,8 @@
   "homepage": "https://fluent-vue.demivan.me",
   "license": "MIT",
   "devDependencies": {
-    "@fluent/bundle": "~0.16.1",
-    "@fluent/dedent": "~0.3.0",
+    "@fluent/bundle": "~0.17.0",
+    "@fluent/dedent": "~0.4.0",
     "vue-2": "npm:vue@^2.6.14",
     "vue-3": "npm:vue@^3.2.11",
     "@vue/compiler-sfc": "^3.2.11",
@@ -70,7 +70,7 @@
     "@vue/test-utils": "^2.0.0-rc.14"
   },
   "dependencies": {
-    "@fluent/sequence": "^0.6.0",
+    "@fluent/sequence": "^0.7.0",
     "cached-iterable": "^0.3.0",
     "tslib": "^2.2.0",
     "vue-demi": "latest"
