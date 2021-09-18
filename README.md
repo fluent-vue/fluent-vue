@@ -1,12 +1,28 @@
-# ![fluent-vue logo](https://raw.githubusercontent.com/demivan/fluent-vue/HEAD/docs/assets/logo.svg)
+<h1 align="center">
+  <img src="https://raw.githubusercontent.com/demivan/fluent-vue/HEAD/docs/assets/logo.svg" alt="fluent-vue logo" />
+</h1>
 
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/demivan/fluent-vue/Test)](https://github.com/Demivan/fluent-vue/actions)
-[![codecov](https://codecov.io/gh/Demivan/fluent-vue/branch/develop/graph/badge.svg?token=0JSSE94EGJ)](https://codecov.io/gh/Demivan/fluent-vue)
-[![npm bundle size](https://img.shields.io/bundlephobia/min/fluent-vue)](https://bundlephobia.com/result?p=fluent-vue)
-[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-[![GitHub license](https://img.shields.io/github/license/demivan/fluent-vue)](https://github.com/Demivan/fluent-vue/blob/develop/LICENSE)
+<p align="center">
+  Internationalization plugin for Vue.js
+</p>
 
-Internationalization plugin for Vue.js
+<p align="center">
+  <a href="https://github.com/Demivan/fluent-vue/actions">
+    <img src="https://img.shields.io/github/workflow/status/demivan/fluent-vue/Test" alt="GitHub Workflow Status">
+  </a>
+  <a href="https://codecov.io/gh/Demivan/fluent-vue">
+    <img src="https://codecov.io/gh/Demivan/fluent-vue/branch/develop/graph/badge.svg?token=0JSSE94EGJ" alt="codecov">
+  </a>
+  <a href="https://bundlephobia.com/result?p=fluent-vue">
+    <img src="https://img.shields.io/bundlephobia/min/fluent-vue" alt="npm bundle size">
+  </a>
+  <a href="https://standardjs.com">
+    <img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="Standard - JavaScript Style Guide">
+  </a>
+  <a href="https://github.com/Demivan/fluent-vue/blob/develop/LICENSE">
+    <img src="https://img.shields.io/github/license/demivan/fluent-vue" alt="GitHub license">
+  </a>
+</p>
 
 `fluent-vue` is [Vue.js](https://vuejs.org) integration for [Fluent.js](https://github.com/projectfluent/fluent.js) - JavaScript implementation of [Project Fluent](https://projectfluent.org)
 
@@ -17,6 +33,34 @@ Internationalization plugin for Vue.js
 - **Isolation**: Locale-specific logic doesn't leak to other locales. A simple string in English can map to a complex multi-variant translation in another language
 - **Seamless migration**: Works for **both** Vue 3 and 2
 - **No bundler required**: Usable via CDN
+
+## 🎉 Example
+
+```vue
+<template>
+  <div>
+    <div>{{ $t('hello-user', { userName }) }}</div>
+    <div>{{ $t('shared-photos', { userName, photoCount, userGender }) }}</div>
+  </div>
+</template>
+
+<fluent locale="en">
+# Simple things are simple.
+hello-user = Hello, {$userName}!
+
+# Complex things are possible.
+shared-photos =
+  {$userName} {$photoCount ->
+     [one] added one photo
+    *[other] added {$photoCount} new photos
+  } to {$userGender ->
+     [male] his stream
+     [female] her stream
+    *[other] their stream
+  }.
+</fluent>
+
+```
 
 ## 📖 Documentation
 
