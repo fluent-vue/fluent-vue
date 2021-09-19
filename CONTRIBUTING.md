@@ -24,10 +24,6 @@ non-English languages, those may be closed.
 
 ## Pull Request Guidelines
 
-- The `master` branch is basically just a snapshot of the latest stable release. All development should be done in dedicated branches. **Do not submit PRs against the `master` branch.**
-
-- Checkout a topic branch from the relevant branch, e.g. `develop`, and merge back against that branch.
-
 - Make sure `yarn test` passes. (see [development setup](#development-setup))
 
 - If adding new feature:
@@ -44,17 +40,17 @@ non-English languages, those may be closed.
 ### Work Step Example
 
 - Fork the repository from [Demivan/fluent-vue][#repo]
-- Create your topic branch from `develop`:
+- Create your topic branch from `main`:
 
   ```shell
-  git branch my-new-topic origin/develop
+  git branch my-new-topic origin/main
   ```
 
 - Write new code and relevant tests
 - Run test and lint scripts
 - Commit your changes: `git commit -am 'add feature X'`
 - Push to the branch: `git push origin my-new-topic`
-- Submit a pull request to `develop` branch of `Demivan/fluent-vue` repository
+- Submit a pull request to `main` branch of `Demivan/fluent-vue` repository
 
 ## Development Setup
 
