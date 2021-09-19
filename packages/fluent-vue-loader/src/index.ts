@@ -12,6 +12,7 @@ function generateCode (rawData: string, query: OptionObject, hot = false): strin
 
   const hotCode = hot
     ? `if (module.hot) {
+    delete target._fluent
     if (typeof __VUE_HMR_RUNTIME__ !== 'undefined') {
       // Vue 3
       const id = target.__hmrId
