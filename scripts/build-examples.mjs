@@ -15,7 +15,9 @@ const examples = readdirSync('examples')
 async function buildExamples () {
   await execa('yarn', [], { stdio: 'inherit' })
   await execa('yarn', ['build'], { stdio: 'inherit' })
-  mkdirSync(path.resolve('temp'))
+  const tempPath = path.resolve('temp')
+  if (!existsSync(tempPath))
+    mkdirSync(tempPath)
   await execa('yarn', ['pack', '-f', `../../temp/fluent-vue-${id}.tgz`], {
     stdio: 'inherit',
     cwd: 'packages/fluent-vue'
