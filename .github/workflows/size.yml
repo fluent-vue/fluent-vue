@@ -2,7 +2,7 @@ name: Size
 on:
   pull_request:
     branches:
-      - develop
+      - main
 env:
   CI: true
 
