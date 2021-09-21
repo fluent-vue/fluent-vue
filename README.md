@@ -11,7 +11,7 @@
     <img src="https://img.shields.io/github/workflow/status/demivan/fluent-vue/Test" alt="GitHub Workflow Status">
   </a>
   <a href="https://codecov.io/gh/Demivan/fluent-vue">
-    <img src="https://codecov.io/gh/Demivan/fluent-vue/branch/develop/graph/badge.svg?token=0JSSE94EGJ" alt="codecov">
+    <img src="https://codecov.io/gh/Demivan/fluent-vue/branch/main/graph/badge.svg?token=0JSSE94EGJ" alt="codecov">
   </a>
   <a href="https://bundlephobia.com/result?p=fluent-vue">
     <img src="https://img.shields.io/bundlephobia/min/fluent-vue" alt="npm bundle size">
@@ -19,7 +19,7 @@
   <a href="https://standardjs.com">
     <img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="Standard - JavaScript Style Guide">
   </a>
-  <a href="https://github.com/Demivan/fluent-vue/blob/develop/LICENSE">
+  <a href="https://github.com/Demivan/fluent-vue/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/demivan/fluent-vue" alt="GitHub license">
   </a>
 </p>
@@ -66,20 +66,20 @@ shared-photos =
 
 Documentation can be found here: [https://fluent-vue.demivan.me](https://fluent-vue.demivan.me)
 
-Examples for different Vue.js versions and build systems can be found [here](https://github.com/demivan/fluent-vue/tree/develop/examples).
+Examples for different Vue.js versions and build systems can be found [here](https://github.com/demivan/fluent-vue/tree/main/examples).
 
 ## 📜 Changelog
 
-Changes for each release are documented in the [CHANGELOG.md](https://github.com/demivan/fluent-vue/blob/develop/CHANGELOG.md).
+Changes for each release are documented in the [CHANGELOG.md](https://github.com/demivan/fluent-vue/blob/main/CHANGELOG.md).
 
 ## 📦 Packages
 
 This monorepo contains multiple packages:
 
-* [fluent-vue](https://github.com/Demivan/fluent-vue/tree/develop/packages/fluent-vue) - Vue.js plugin
-* [fluent-vue-loader](https://github.com/Demivan/fluent-vue/tree/develop/packages/fluent-vue-loader) - Webpack loader that adds support for custom blocks in SFC
-* [rollup-plugin-fluent-vue](https://github.com/Demivan/fluent-vue/tree/develop/packages/rollup-plugin-fluent-vue) - Rollup\Vite plugin that adds support for custom blocks in SFC
+* [fluent-vue](https://github.com/Demivan/fluent-vue/tree/main/packages/fluent-vue) - Vue.js plugin
+* [fluent-vue-loader](https://github.com/Demivan/fluent-vue/tree/main/packages/fluent-vue-loader) - Webpack loader that adds support for custom blocks in SFC
+* [rollup-plugin-fluent-vue](https://github.com/Demivan/fluent-vue/tree/main/packages/rollup-plugin-fluent-vue) - Rollup\Vite plugin that adds support for custom blocks in SFC
 
 ## 📄 License
 
-[MIT License](https://github.com/demivan/fluent-vue/blob/develop/LICENSE) © 2020-present [Ivan Demchuk](https://github.com/demivan)
+[MIT License](https://github.com/demivan/fluent-vue/blob/main/LICENSE) © 2020-present [Ivan Demchuk](https://github.com/demivan)

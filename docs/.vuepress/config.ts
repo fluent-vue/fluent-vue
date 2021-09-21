@@ -61,7 +61,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     repo: 'demivan/fluent-vue',
     logo: '/assets/logo.svg',
     docsDir: 'docs',
-    docsBranch: 'develop',
+    docsBranch: 'main',
     editLinks: true,
     smoothScroll: true,
     displayAllHeaders: true,
