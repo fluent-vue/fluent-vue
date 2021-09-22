@@ -55,8 +55,13 @@ jobs:
     runs-on: ubuntu-latest
     name: "Test build of example projects"
     steps:
-      - name: Checkout
+      - name: Checkout fluent-vue
         uses: actions/checkout@v2.3.4
+      - name: Checkout examples
+        uses: actions/checkout@v2.3.4
+        with:
+          repository: 'fluent-vue/examples'
+          path: 'examples'
       - name: Setup Node.js
         uses: actions/setup-node@v2.4.0
 
