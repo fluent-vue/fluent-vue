@@ -22,7 +22,7 @@ Internationalization plugin for Vue.js
 
 Documentation can be found here: [https://fluent-vue.demivan.me](https://fluent-vue.demivan.me)
 
-Examples for different Vue.js versions and build systems can be found [here](https://github.com/demivan/fluent-vue/tree/main/examples).
+Examples for different Vue.js versions and build systems can be found [here](https://github.com/fluent-vue/examples).
 
 ## 📜 Changelog
 
