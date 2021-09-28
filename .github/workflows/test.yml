@@ -22,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.3.4
       - name: Setup Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v2.4.0
+        uses: actions/setup-node@v2.4.1
         with:
           node-version: ${{ matrix.node }}
       - name: Install
@@ -43,7 +43,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.3.4
       - name: Setup Node.js
-        uses: actions/setup-node@v2.4.0
+        uses: actions/setup-node@v2.4.1
 
       - name: Install
         run: yarn install
@@ -63,7 +63,7 @@ jobs:
           repository: 'fluent-vue/examples'
           path: 'examples'
       - name: Setup Node.js
-        uses: actions/setup-node@v2.4.0
+        uses: actions/setup-node@v2.4.1
 
       - name: Install
         run: yarn install
