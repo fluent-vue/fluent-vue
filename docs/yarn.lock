@@ -657,10 +657,10 @@ csstype@^2.6.8:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.18.tgz#980a8b53085f34af313410af064f2bd241784218"
   integrity sha512-RSU6Hyeg14am3Ah4VZEmeX8H7kLwEEirXe6aU2IPfKNvhXwTflK5HQRDNI0ypQXoqmm+QPyG2IaPuQE5zMwSIQ==
 
-date-fns@^2.24.0:
-  version "2.24.0"
-  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.24.0.tgz#7d86dc0d93c87b76b63d213b4413337cfd1c105d"
-  integrity sha512-6ujwvwgPID6zbI0o7UbURi2vlLDR9uP26+tW6Lg+Ji3w7dd0i3DOcjcClLjLPranT60SSEFBwdSyYwn/ZkPIuw==
+date-fns@^2.25.0:
+  version "2.25.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.25.0.tgz#8c5c8f1d958be3809a9a03f4b742eba894fc5680"
+  integrity sha512-ovYRFnTrbGPD4nqaEqescPEv1mNwvt+UTqI3Ay9SzNtey9NZnYu6E2qCcBBgJ6/2VF1zGGygpyTDITqpQQ5e+w==
 
 debug@^4.3.2:
   version "4.3.2"
@@ -1226,10 +1226,10 @@ primeicons@^4.1.0:
   resolved "https://registry.yarnpkg.com/primeicons/-/primeicons-4.1.0.tgz#19eaef8ef5594b0006358ae64e738d03e167c9bb"
   integrity sha512-uEv2pSPk1zQCfaB2VgnUfnUxxlGryYi+5rbdxmZBBt5v9S/pscIQYS5YDLxsQZ7D9jn5c76+Tx5wX/2J1nK6sA==
 
-primevue@^3.7.2:
-  version "3.7.2"
-  resolved "https://registry.yarnpkg.com/primevue/-/primevue-3.7.2.tgz#4deccf50da3cbf651d0419c48ac8875570e52507"
-  integrity sha512-yPfoeabXwnmZJ6+L8qGazN99YI4aGglHziyN1vqD+aQ07kx7ktpSks//uzGdxJb5NTzdk8/+/vJ6U4T+ZUY/AQ==
+primevue@^3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/primevue/-/primevue-3.8.0.tgz#218c7331c1dca870e0d6e821360e4a4dec360253"
+  integrity sha512-p3k1uy4nd+wf2MAxfmT4dHX7+SR1tRIS2LGkv6bMOar6LjS8bR2R4r4RAb+w4qMhEq5A/nDWGyF/hL9DacFXGg==
 
 prismjs@^1.24.1:
   version "1.25.0"

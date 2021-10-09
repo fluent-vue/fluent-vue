@@ -40,7 +40,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/loader-utils": "^2.0.3",
-    "webpack": "^5.54.0"
+    "webpack": "^5.58.1"
   },
   "dependencies": {
     "loader-utils": "^2.0.0"
