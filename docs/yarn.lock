@@ -1317,10 +1317,10 @@ primeicons@^4.1.0:
   resolved "https://registry.yarnpkg.com/primeicons/-/primeicons-4.1.0.tgz#19eaef8ef5594b0006358ae64e738d03e167c9bb"
   integrity sha512-uEv2pSPk1zQCfaB2VgnUfnUxxlGryYi+5rbdxmZBBt5v9S/pscIQYS5YDLxsQZ7D9jn5c76+Tx5wX/2J1nK6sA==
 
-primevue@^3.8.0:
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/primevue/-/primevue-3.8.0.tgz#218c7331c1dca870e0d6e821360e4a4dec360253"
-  integrity sha512-p3k1uy4nd+wf2MAxfmT4dHX7+SR1tRIS2LGkv6bMOar6LjS8bR2R4r4RAb+w4qMhEq5A/nDWGyF/hL9DacFXGg==
+primevue@^3.8.1:
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/primevue/-/primevue-3.8.1.tgz#0be15b297dbcc1b0f6029d78bfe98ed133fc5353"
+  integrity sha512-YVP6uVFlLqvpqvmW0gK408+gvCODZrFt++Qmm/VZnInyT4xVntvtzbzXqhhAXxQ0aVppSHD7exXhWpeIVffZXw==
 
 prismjs@^1.24.1:
   version "1.25.0"
