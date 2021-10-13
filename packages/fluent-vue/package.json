@@ -67,7 +67,7 @@
     "vue-3": "npm:vue@^3.2.20",
     "@vue/compiler-sfc": "^3.2.20",
     "vue": "npm:vue@^3.2.20",
-    "@vue/test-utils": "^2.0.0-rc.15"
+    "@vue/test-utils": "^2.0.0-rc.16"
   },
   "dependencies": {
     "@fluent/sequence": "^0.7.0",
