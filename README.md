@@ -77,8 +77,13 @@ Changes for each release are documented in the [CHANGELOG.md](https://github.com
 This monorepo contains multiple packages:
 
 * [fluent-vue](https://github.com/Demivan/fluent-vue/tree/main/packages/fluent-vue) - Vue.js plugin
-* [fluent-vue-loader](https://github.com/Demivan/fluent-vue/tree/main/packages/fluent-vue-loader) - Webpack loader that adds support for custom blocks in SFC
 * [rollup-plugin-fluent-vue](https://github.com/Demivan/fluent-vue/tree/main/packages/rollup-plugin-fluent-vue) - Rollup\Vite plugin that adds support for custom blocks in SFC
+
+## 📦 Related Projects
+
+| Project | NPM | Repo |
+| ------- | --- | ---- |
+| Webpack loader | [![fluent-vue-loader](https://img.shields.io/npm/v/fluent-vue-loader.svg)](https://www.npmjs.com/package/fluent-vue-loader) | [fluent-vue/fluent-vue-loader](https://github.com/fluent-vue/fluent-vue-loader)
 
 ## 📄 License
 
