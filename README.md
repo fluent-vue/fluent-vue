@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://raw.githubusercontent.com/demivan/fluent-vue/HEAD/docs/assets/logo.svg" alt="fluent-vue logo" />
+  <img src="https://raw.githubusercontent.com/fluent-vue/docs/HEAD/src/assets/logo.svg" alt="fluent-vue logo" />
 </h1>
 
 <p align="center">
