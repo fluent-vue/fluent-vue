@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://fluent-vue.demivan.me/sitemap.xml

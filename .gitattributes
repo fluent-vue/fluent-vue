@@ -1,4 +1,0 @@
-scripts/* -linguist-detectable
-*.config.js -linguist-detectable
-docs/* linguist-documentation
-examples/* linguist-documentation
