@@ -1,6 +1,4 @@
-/**
- * @jest-environment jsdom
- */
+import { describe, beforeEach, it, spyOn, expect } from 'vitest'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
@@ -49,7 +47,8 @@ describe('directive', () => {
       template: '<a v-t href="/foo">Fallback text</a>'
     }
 
-    const warn = jest.spyOn(console, 'warn').mockImplementation()
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    const warn = spyOn(console, 'warn').mockImplementation(() => {})
 
     // Act
     const mounted = mountWithFluent(fluent, component)
@@ -71,7 +70,8 @@ describe('directive', () => {
       template: '<a v-t:missing-key href="/foo">Fallback text</a>'
     }
 
-    const warn = jest.spyOn(console, 'warn').mockImplementation()
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    const warn = spyOn(console, 'warn').mockImplementation(() => {})
 
     // Act
     const mounted = mountWithFluent(fluent, component)

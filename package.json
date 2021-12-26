@@ -15,9 +15,10 @@
     "size": "node scripts/build.js fluent-vue -p -f global",
     "lint": "eslint .",
     "ls-lint": "ls-lint",
-    "test": "node scripts/swap-vue 3 && jest --runInBand",
-    "test:2": "node scripts/swap-vue 2 && jest --runInBand packages/fluent-vue/",
-    "test:3": "node scripts/swap-vue 3 && jest --runInBand",
+    "test": "node scripts/swap-vue.js 3 && vitest run",
+    "test:watch": "node scripts/swap-vue.js 3 && vitest",
+    "test:2": "node scripts/swap-vue.js 2 && vitest run",
+    "test:3": "node scripts/swap-vue.js 3 && vitest run",
     "release": "shipjs prepare"
   },
   "gitHooks": {
@@ -50,7 +51,6 @@
     "@rollup/plugin-node-resolve": "^13.0.6",
     "@rollup/plugin-replace": "^3.0.0",
     "@rollup/plugin-typescript": "^8.3.0",
-    "@types/jest": "^27.0.2",
     "@types/node": "15.0.3",
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "@typescript-eslint/parser": "^5.2.0",
@@ -63,15 +63,16 @@
     "eslint-plugin-promise": "^6.0.0",
     "execa": "^5.1.1",
     "fs-extra": "^10.0.0",
-    "jest": "^27.3.1",
+    "jsdom": "^19.0.0",
     "lint-staged": "^12.1.3",
     "minimist": "^1.2.5",
     "rollup": "^2.58.3",
     "rollup-plugin-dts": "^4.0.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-vue": "^6.0.0",
-    "ts-jest": "^27.0.7",
     "typescript": "^4.4.4",
+    "vite": "^2.7.7",
+    "vitest": "^0.0.114",
     "yorkie": "^2.0.0"
   }
 }

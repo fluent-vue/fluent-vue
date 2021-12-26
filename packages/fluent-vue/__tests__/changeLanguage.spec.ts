@@ -1,6 +1,4 @@
-/**
- * @jest-environment jsdom
- */
+import { describe, beforeEach, it, expect } from 'vitest'
 
 import { nextTick } from 'vue-demi'
 import { FluentBundle, FluentResource } from '@fluent/bundle'

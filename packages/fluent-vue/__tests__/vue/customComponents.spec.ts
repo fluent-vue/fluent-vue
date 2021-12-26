@@ -1,6 +1,4 @@
-/**
- * @jest-environment jsdom
- */
+import { describe, beforeEach, it, spyOn, expect } from 'vitest'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
@@ -101,7 +99,8 @@ describe('method', () => {
       `)
     )
 
-    const warn = jest.spyOn(console, 'warn').mockImplementation()
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    const warn = spyOn(console, 'warn').mockImplementation(() => {})
 
     const component = {
       template: '<div v-bind="$ta(\'missing-key\')"></div>'

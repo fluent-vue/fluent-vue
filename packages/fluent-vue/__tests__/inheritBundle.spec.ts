@@ -1,3 +1,5 @@
+import { describe, it, expect } from 'vitest'
+
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 import { Pattern } from '@fluent/bundle/esm/ast'

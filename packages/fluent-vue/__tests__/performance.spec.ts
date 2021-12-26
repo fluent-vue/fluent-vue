@@ -1,6 +1,4 @@
-/**
- * @jest-environment jsdom
- */
+import { describe, it, expect } from 'vitest'
 
 import { isReactive } from 'vue-demi'
 import { FluentBundle } from '@fluent/bundle'

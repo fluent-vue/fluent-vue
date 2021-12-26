@@ -1,6 +1,4 @@
-/**
- * @jest-environment jsdom
- */
+import { describe, beforeEach, it, expect } from 'vitest'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
