@@ -74,16 +74,11 @@ Changes for each release are documented in the [CHANGELOG.md](https://github.com
 
 ## 📦 Packages
 
-This monorepo contains multiple packages:
-
-* [fluent-vue](https://github.com/Demivan/fluent-vue/tree/main/packages/fluent-vue) - Vue.js plugin
-* [rollup-plugin-fluent-vue](https://github.com/Demivan/fluent-vue/tree/main/packages/rollup-plugin-fluent-vue) - Rollup\Vite plugin that adds support for custom blocks in SFC
-
-## 📦 Related Projects
-
 | Project | NPM | Repo |
 | ------- | --- | ---- |
+| fluent-vue | [![fluent-vue](https://img.shields.io/npm/v/fluent-vue.svg)](https://www.npmjs.com/package/fluent-vue) | [demivan/fluent-vue](https://github.com/Demivan/fluent-vue/tree/main/packages/fluent-vue)
 | Webpack loader | [![fluent-vue-loader](https://img.shields.io/npm/v/fluent-vue-loader.svg)](https://www.npmjs.com/package/fluent-vue-loader) | [fluent-vue/fluent-vue-loader](https://github.com/fluent-vue/fluent-vue-loader)
+| Rollup/Vite plugin | [![frollup-plugin-fluent-vue](https://img.shields.io/npm/v/rollup-plugin-fluent-vue.svg)](https://www.npmjs.com/package/rollup-plugin-fluent-vue) | [fluent-vue/rollup-plugin-fluent-vue](https://github.com/fluent-vue/rollup-plugin-fluent-vue)
 
 ## 📄 License
 
