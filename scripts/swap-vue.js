@@ -15,7 +15,7 @@ const vue2packages = {
   '@vue/composition-api': '^1.0.2'
 }
 
-const packageFile = path.join(__dirname, '../packages/fluent-vue/package.json')
+const packageFile = path.join(__dirname, '../package.json')
 const packageData = require(packageFile)
 
 async function switchPackages (fromPackages, toPackages) {

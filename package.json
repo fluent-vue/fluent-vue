@@ -1,9 +1,25 @@
 {
-  "private": true,
+  "name": "fluent-vue",
   "version": "3.0.0",
-  "workspaces": [
-    "packages/*"
+  "description": "Internationalization plugin for Vue.js. Project Fluent bindings for Vue.js",
+  "keywords": [
+    "localization",
+    "internationalization",
+    "i18n",
+    "ftl",
+    "locale",
+    "formatting",
+    "translate",
+    "translation",
+    "format",
+    "vue",
+    "vuejs",
+    "vue.js",
+    "ProjectFluent",
+    "Project Fluent"
   ],
+  "license": "MIT",
+  "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
   "homepage": "https://fluent-vue.demivan.me",
   "repository": {
     "type": "git",
@@ -20,6 +36,41 @@
     "test:2": "node scripts/swap-vue.js 2 && vitest run",
     "test:3": "node scripts/swap-vue.js 3 && vitest run",
     "release": "shipjs prepare"
+  },
+  "main": "dist/fluent-vue.cjs.js",
+  "module": "dist/fluent-vue.esm.js",
+  "unpkg": "dist/fluent-vue.global.prod.js",
+  "jsdelivr": "dist/fluent-vue.global.prod.js",
+  "types": "index.d.ts",
+  "exports": {
+    "script": {
+      "development": "./dist/fluent-vue.global.js",
+      "default": "./dist/fluent-vue.global.prod.js"
+    },
+    "production": {
+      "require": "./dist/fluent-vue.cjs.prod.js",
+      "import": "./dist/fluent-vue.esm.prod.js"
+    },
+    "require": "./dist/fluent-vue.cjs.js",
+    "import": "./dist/fluent-vue.esm.js"
+  },
+  "sideEffects": false,
+  "files": [
+    "index.d.ts",
+    "dist",
+    "README.md"
+  ],
+  "buildOptions": {
+    "name": "FluentVue",
+    "formats": [
+      "esm",
+      "cjs",
+      "global"
+    ],
+    "globals": {
+      "vue-demi": "VueDemi",
+      "@fluent/bundle": "FluentBundle"
+    }
   },
   "gitHooks": {
     "pre-commit": "ls-lint && lint-staged"
@@ -46,6 +97,13 @@
     }
   },
   "devDependencies": {
+    "@fluent/bundle": "~0.17.0",
+    "@fluent/dedent": "~0.4.0",
+    "vue-2": "npm:vue@^2.6.14",
+    "vue-3": "npm:vue@^3.2.20",
+    "@vue/compiler-sfc": "^3.2.20",
+    "vue": "npm:vue@^3.2.20",
+    "@vue/test-utils": "^2.0.0-rc.16",
     "@ls-lint/ls-lint": "^1.10.0",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
@@ -74,5 +132,21 @@
     "vite": "^2.7.7",
     "vitest": "^0.0.114",
     "yorkie": "^2.0.0"
+  },
+  "dependencies": {
+    "@fluent/sequence": "^0.7.0",
+    "cached-iterable": "^0.3.0",
+    "tslib": "^2.2.0",
+    "vue-demi": "latest"
+  },
+  "peerDependencies": {
+    "@fluent/bundle": ">=0.17.0",
+    "@vue/composition-api": ">=1.0.0-rc.1",
+    "vue": "^2.6.11 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
   }
 }
