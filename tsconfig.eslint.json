@@ -3,6 +3,7 @@
   "include": [
     "index.d.ts",
     "src",
+    "scripts",
     "__tests__",
     "vitest.config.ts",
     "tsup.config.ts"

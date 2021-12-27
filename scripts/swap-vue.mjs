@@ -1,5 +1,4 @@
-import { writeFileSync } from 'fs'
-import { join } from 'path'
+import { readFileSync, writeFileSync } from 'fs'
 import { execa } from 'execa'
 
 const vue3packages = {
@@ -15,8 +14,9 @@ const vue2packages = {
   '@vue/composition-api': '^1.0.2'
 }
 
-const packageFile = join(__dirname, '../package.json')
-const packageData = require(packageFile)
+const packageFile = './package.json'
+const packageFileData = readFileSync(packageFile).toString()
+const packageData = JSON.parse(packageFileData)
 
 async function switchPackages (fromPackages, toPackages) {
   Object.keys(fromPackages).forEach((key) => delete packageData.devDependencies[key])
