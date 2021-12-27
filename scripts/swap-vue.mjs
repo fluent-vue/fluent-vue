@@ -1,6 +1,6 @@
-const fs = require('fs')
-const path = require('path')
-const execa = require('execa')
+import { writeFileSync } from 'fs'
+import { join } from 'path'
+import { execa } from 'execa'
 
 const vue3packages = {
   'vue': 'npm:vue@^3.2.20',
@@ -15,7 +15,7 @@ const vue2packages = {
   '@vue/composition-api': '^1.0.2'
 }
 
-const packageFile = path.join(__dirname, '../package.json')
+const packageFile = join(__dirname, '../package.json')
 const packageData = require(packageFile)
 
 async function switchPackages (fromPackages, toPackages) {
@@ -26,7 +26,7 @@ async function switchPackages (fromPackages, toPackages) {
   }
 
   const packageString = JSON.stringify(packageData, null, 2)
-  fs.writeFileSync(packageFile, packageString + '\n')
+  writeFileSync(packageFile, packageString + '\n')
 
   await execa('pnpm', ['i'], { stdio: 'inherit' })
   await execa('pnpm', ['vue-demi-fix'], { stdio: 'inherit' })
