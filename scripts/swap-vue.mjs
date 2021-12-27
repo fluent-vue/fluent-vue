@@ -28,7 +28,7 @@ async function switchPackages (fromPackages, toPackages) {
   const packageString = JSON.stringify(packageData, null, 2)
   writeFileSync(packageFile, packageString + '\n')
 
-  await execa('pnpm', ['i'], { stdio: 'inherit' })
+  await execa('pnpm', ['i', '--no-frozen-lockfile'], { stdio: 'inherit' })
   await execa('pnpm', ['vue-demi-fix'], { stdio: 'inherit' })
 
   console.log(`Swiched from vue ${fromPackages.vue} to ${toPackages.vue}`)
