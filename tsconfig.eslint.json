@@ -1,9 +1,11 @@
 {
   "extends": "./tsconfig.json",
   "include": [
-    "packages/*/index.d.ts",
-    "packages/*/src",
-    "packages/*/__tests__",
-    "examples/*/src",
+    "index.d.ts",
+    "src",
+    "scripts",
+    "__tests__",
+    "vitest.config.ts",
+    "tsup.config.ts"
   ]
 }

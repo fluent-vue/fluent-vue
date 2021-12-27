@@ -32,11 +32,6 @@ async function commitChangelog (current, next) {
 }
 
 module.exports = {
-  monorepo: {
-    mainVersionFile: 'package.json',
-    packagesToBump: ['packages/*'],
-    packagesToPublish: ['packages/*']
-  },
   updateChangelog: false,
   beforeCommitChanges: ({ nextVersion, exec, dir }) => {
     return new Promise((resolve) => {

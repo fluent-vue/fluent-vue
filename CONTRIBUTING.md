@@ -1,8 +1,11 @@
 # fluent-vue Contributing Guide
 
+- [General Guidelines](#general-guidelines)
 - [Issue Reporting Guidelines](#issue-reporting-guidelines)
 - [Pull Request Guidelines](#pull-request-guidelines)
+  - [Work Step Example](#work-step-example)
 - [Development Setup](#development-setup)
+  - [Commonly used NPM scripts](#commonly-used-npm-scripts)
 
 ## General Guidelines
 
@@ -24,7 +27,7 @@ non-English languages, those may be closed.
 
 ## Pull Request Guidelines
 
-- Make sure `yarn test` passes. (see [development setup](#development-setup))
+- Make sure `pnpm test` passes. (see [development setup](#development-setup))
 
 - If adding new feature:
 
@@ -54,33 +57,33 @@ non-English languages, those may be closed.
 
 ## Development Setup
 
-You will need [Node.js][#node] and [`yarn`][#yarn] and the code base is mainly written in [TypeScript][#ts]
+You will need [Node.js][#node] and [`pnpm`][#pnpm] and the code base is mainly written in [TypeScript][#ts]
 
 After cloning the repo, run:
 
 ```shell
-yarn install
+pnpm install
 ```
 
 ### Commonly used NPM scripts
 
 ```shell
-# watch and serve with hot reload examples
-$ yarn start
-
 # lint source codes
-$ yarn lint
+$ pnpm lint
 
-# run unit tests with Jest
-$ yarn test
+# run unit tests with vitest
+$ pnpm test
+
+# watch and run tests
+$ pnpm test:watch
 
 # build all dist files
-$ yarn build
+$ pnpm build
 ```
 
 There are some other scripts available in the `scripts` section of the `package.json` file.
 
 [#repo]: https://github.com/Demivan/fluent-vue
-[#yarn]: https://yarnpkg.com/
+[#pnpm]: https://pnpm.io
 [#node]: http://nodejs.org
-[#ts]: https://www.typescriptlang.org/
+[#ts]: https://www.typescriptlang.org

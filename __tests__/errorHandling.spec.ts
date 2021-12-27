@@ -1,6 +1,4 @@
-/**
- * @jest-environment jsdom
- */
+import { describe, it, spyOn, expect } from 'vitest'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
@@ -29,7 +27,8 @@ describe('vue integration', () => {
       template: "<div>{{ $t('message-not-found') }}</div>"
     }
 
-    const warn = jest.spyOn(console, 'warn').mockImplementation()
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    const warn = spyOn(console, 'warn').mockImplementation(() => {})
 
     // Act
     const mounted = mountWithFluent(fluent, component)
@@ -55,7 +54,8 @@ describe('vue integration', () => {
       template: "<div>{{ $t('message') }}</div>"
     }
 
-    const warn = jest.spyOn(console, 'warn').mockImplementation()
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    const warn = spyOn(console, 'warn').mockImplementation(() => {})
 
     // Act
     const mounted = mountWithFluent(fluent, component)

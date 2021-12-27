@@ -1,6 +1,5 @@
-const fs = require('fs')
-const path = require('path')
-const execa = require('execa')
+import { readFileSync, writeFileSync } from 'fs'
+import { execa } from 'execa'
 
 const vue3packages = {
   'vue': 'npm:vue@^3.2.20',
@@ -15,8 +14,9 @@ const vue2packages = {
   '@vue/composition-api': '^1.0.2'
 }
 
-const packageFile = path.join(__dirname, '../packages/fluent-vue/package.json')
-const packageData = require(packageFile)
+const packageFile = './package.json'
+const packageFileData = readFileSync(packageFile).toString()
+const packageData = JSON.parse(packageFileData)
 
 async function switchPackages (fromPackages, toPackages) {
   Object.keys(fromPackages).forEach((key) => delete packageData.devDependencies[key])
@@ -26,10 +26,10 @@ async function switchPackages (fromPackages, toPackages) {
   }
 
   const packageString = JSON.stringify(packageData, null, 2)
-  fs.writeFileSync(packageFile, packageString + '\n')
+  writeFileSync(packageFile, packageString + '\n')
 
-  await execa('yarn', [], { stdio: 'inherit' })
-  await execa('yarn', ['vue-demi-fix'], { stdio: 'inherit' })
+  await execa('pnpm', ['i', '--no-frozen-lockfile'], { stdio: 'inherit' })
+  await execa('pnpm', ['vue-demi-fix'], { stdio: 'inherit' })
 
   console.log(`Swiched from vue ${fromPackages.vue} to ${toPackages.vue}`)
 }
