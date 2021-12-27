@@ -40,4 +40,4 @@ declare module '@vue/runtime-core' {
 }
 // #endregion
 
-export * from './dist/fluent-vue'
+export * from './dist'

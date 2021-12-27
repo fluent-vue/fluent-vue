@@ -4,6 +4,7 @@
     "index.d.ts",
     "src",
     "__tests__",
-    "vitest.config.ts"
+    "vitest.config.ts",
+    "tsup.config.ts"
   ]
 }
