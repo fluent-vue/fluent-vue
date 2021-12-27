@@ -27,7 +27,6 @@
   },
   "scripts": {
     "build": "tsup src/index.ts",
-    "size": "node scripts/build.js fluent-vue -p -f global",
     "lint": "eslint .",
     "ls-lint": "ls-lint",
     "test": "node scripts/swap-vue.mjs 3 && vitest run",

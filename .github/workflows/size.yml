@@ -21,9 +21,7 @@ jobs:
           version: 6.x.x
           run_install: true
 
-      - name: Check build size
-        uses: posva/size-check-action@v1.1.2
+      - name: Export size
+        uses: antfu/export-size-action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          build_script: build
-          files: dist/prod/index.global.js
