@@ -2,11 +2,12 @@ import { defineConfig } from 'tsup'
 import GlobalsPlugin from 'esbuild-plugin-globals'
 
 export default defineConfig([{
-  entry: ['src/index.ts'],
+  entry: ['src/index.ts', 'src/composition.ts', 'src/TranslationContext.ts'],
   format: ['esm', 'cjs', 'iife'],
   globalName: 'FluentVue',
   outDir: 'dist/',
   dts: true,
+  splitting: true,
   env: {
     NODE_ENV: 'development'
   },
@@ -19,10 +20,11 @@ export default defineConfig([{
   external: ['vue-demi', '@fluent/bundle']
 },
 {
-  entry: ['src/index.ts'],
+  entry: ['src/index.ts', 'src/composition.ts', 'src/TranslationContext.ts'],
   format: ['esm', 'cjs', 'iife'],
   globalName: 'FluentVue',
   outDir: 'dist/prod',
+  splitting: true,
   env: {
     NODE_ENV: 'production'
   },
