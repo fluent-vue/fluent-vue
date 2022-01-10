@@ -32,8 +32,7 @@
     "test": "node scripts/swap-vue.mjs 3 && vitest run",
     "test:watch": "node scripts/swap-vue.mjs 3 && vitest",
     "test:2": "node scripts/swap-vue.mjs 2 && vitest run",
-    "test:3": "node scripts/swap-vue.mjs 3 && vitest run",
-    "release": "shipjs prepare"
+    "test:3": "node scripts/swap-vue.mjs 3 && vitest run"
   },
   "main": "dist/index.js",
   "module": "dist/index.mjs",

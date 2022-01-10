@@ -1,4 +1,8 @@
 {
+  "hooks": {
+    "before:init": ["pnpm lint", "pnpm ls-lint", "pnpm test:2", "pnpm test:3", "git reset --hard"],
+    "after:bump": "pnpm build"
+  },
   "github": {
     "release": true
   },
