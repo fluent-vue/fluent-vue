@@ -8,6 +8,7 @@ export default defineConfig([{
   outDir: 'dist/',
   dts: true,
   splitting: true,
+  clean: true,
   env: {
     NODE_ENV: 'development'
   },
