@@ -2,9 +2,9 @@ import { readFileSync, writeFileSync } from 'fs'
 import { execa } from 'execa'
 
 const vue3packages = {
-  'vue': 'npm:vue@^3.2.20',
-  '@vue/compiler-sfc': '^3.2.20',
-  '@vue/test-utils': '^2.0.0-rc.16'
+  'vue': 'npm:vue@^3.2.26',
+  '@vue/compiler-sfc': '^3.2.26',
+  '@vue/test-utils': '^2.0.0-rc.18'
 }
 
 const vue2packages = {
@@ -20,10 +20,7 @@ const packageData = JSON.parse(packageFileData)
 
 async function switchPackages (fromPackages, toPackages) {
   Object.keys(fromPackages).forEach((key) => delete packageData.devDependencies[key])
-  packageData.devDependencies = {
-    ...packageData.devDependencies,
-    ...toPackages
-  }
+  Object.assign(packageData.devDependencies, toPackages)
 
   const packageString = JSON.stringify(packageData, null, 2)
   writeFileSync(packageFile, packageString + '\n')
