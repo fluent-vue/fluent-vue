@@ -106,6 +106,7 @@
     "@vue/compiler-sfc": "^3.2.26",
     "@vue/test-utils": "^2.0.0-rc.18",
     "c8": "^7.11.0",
+    "esbuild-plugin-globals": "^0.1.1",
     "eslint": "^8.6.0",
     "execa": "^6.0.0",
     "husky": "^7.0.4",

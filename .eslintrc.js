@@ -6,6 +6,7 @@ module.exports = {
     'node_modules/',
     'dist/',
     'coverage/',
+    'pnpm-lock.yaml',
     '*.js'
   ]
 }
