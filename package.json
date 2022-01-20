@@ -32,7 +32,8 @@
     "test": "node scripts/swap-vue.mjs 3 && vitest run",
     "test:watch": "node scripts/swap-vue.mjs 3 && vitest",
     "test:2": "node scripts/swap-vue.mjs 2 && vitest run",
-    "test:3": "node scripts/swap-vue.mjs 3 && vitest run"
+    "test:3": "node scripts/swap-vue.mjs 3 && vitest run",
+    "prepare": "husky install"
   },
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -58,9 +59,6 @@
     "dist",
     "README.md"
   ],
-  "gitHooks": {
-    "pre-commit": "ls-lint && lint-staged"
-  },
   "lint-staged": {
     "*.js": "eslint --fix",
     "*.ts?(x)": "eslint --fix"
@@ -99,6 +97,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.0",
     "execa": "^6.0.0",
+    "husky": "^7.0.4",
     "jsdom": "^19.0.0",
     "lint-staged": "^12.1.7",
     "release-it": "*",
@@ -109,8 +108,7 @@
     "vitest": "^0.1.16",
     "vue": "npm:vue@^3.2.26",
     "vue-2": "npm:vue@^2.6.14",
-    "vue-3": "npm:vue@^3.2.26",
-    "yorkie": "^2.0.0"
+    "vue-3": "npm:vue@^3.2.26"
   },
   "dependencies": {
     "@fluent/sequence": "^0.7.0",
