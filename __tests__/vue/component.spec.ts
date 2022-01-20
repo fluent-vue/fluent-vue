@@ -1,11 +1,12 @@
-import { describe, beforeEach, it, spyOn, expect } from 'vitest'
+import { beforeEach, describe, expect, it, spyOn } from 'vitest'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
 import { mountWithFluent } from '../utils'
 
-import { createFluentVue, FluentVue } from '../../src'
+import type { FluentVue } from '../../src'
+import { createFluentVue } from '../../src'
 
 describe('component', () => {
   let fluent: FluentVue
@@ -15,7 +16,7 @@ describe('component', () => {
     bundle = new FluentBundle('en-US')
 
     fluent = createFluentVue({
-      bundles: [bundle]
+      bundles: [bundle],
     })
   })
 
@@ -24,11 +25,11 @@ describe('component', () => {
     bundle.addResource(
       new FluentResource(ftl`
       key = Inner data
-      `)
+      `),
     )
 
     const component = {
-      template: '<i18n path="key"></i18n>'
+      template: '<i18n path="key"></i18n>',
     }
 
     // Act
@@ -43,11 +44,11 @@ describe('component', () => {
     bundle.addResource(
       new FluentResource(ftl`
       key = Inner data
-      `)
+      `),
     )
 
     const component = {
-      template: '<i18n path="key" class="component"></i18n>'
+      template: '<i18n path="key" class="component"></i18n>',
     }
 
     // Act
@@ -62,18 +63,18 @@ describe('component', () => {
     bundle.addResource(
       new FluentResource(ftl`
       key = Inner data
-      `)
+      `),
     )
 
     const child = {
-      template: '<b><slot /></b>'
+      template: '<b><slot /></b>',
     }
 
     const component = {
       components: {
-        child
+        child,
       },
-      template: '<div><child><i18n path="key"></i18n></child></div>'
+      template: '<div><child><i18n path="key"></i18n></child></div>',
     }
 
     // Act
@@ -86,19 +87,19 @@ describe('component', () => {
   it('works with local component messages', () => {
     // Arrange
     const child = {
-      template: '<b><slot /></b>'
+      template: '<b><slot /></b>',
     }
 
     const component = {
       components: {
-        child
+        child,
       },
       template: '<div><child><i18n path="i18n-key"></i18n></child></div>',
       fluent: {
         'en-US': new FluentResource(ftl`
         i18n-key = Inner data
-        `)
-      }
+        `),
+      },
     }
 
     // Act
@@ -113,7 +114,7 @@ describe('component', () => {
     bundle.addResource(
       new FluentResource(ftl`
       key = Inner data {$child} test
-      `)
+      `),
     )
 
     const component = {
@@ -122,7 +123,7 @@ describe('component', () => {
           <template #child>
             <b>Inner text</b>
           </template>
-        </i18n>`
+        </i18n>`,
     }
 
     // Act
@@ -138,7 +139,7 @@ describe('component', () => {
       new FluentResource(ftl`
       key = Inner data {$child} test
         .kebab-attr1 = Attribute: {$extra}
-      `)
+      `),
     )
 
     const component = {
@@ -147,7 +148,7 @@ describe('component', () => {
           <template #child="{ kebabAttr1 }">
             <b>Inner text, {{ kebabAttr1 }}</b>
           </template>
-        </i18n>`
+        </i18n>`,
     }
 
     // Act
@@ -155,7 +156,7 @@ describe('component', () => {
 
     // Assert
     expect(mounted.html()).toEqual(
-      '<span>Inner data ⁨<b>Inner text, Attribute: ⁨Extra⁩</b>⁩ test</span>'
+      '<span>Inner data ⁨<b>Inner text, Attribute: ⁨Extra⁩</b>⁩ test</span>',
     )
   })
 
@@ -164,7 +165,7 @@ describe('component', () => {
     bundle.addResource(
       new FluentResource(ftl`
       key = Inner data {$child} test
-      `)
+      `),
     )
 
     // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -176,7 +177,7 @@ describe('component', () => {
           <template #child>
             <b>Inner text</b>
           </template>
-        </i18n>`
+        </i18n>`,
     }
 
     // Act
@@ -186,7 +187,7 @@ describe('component', () => {
     expect(mounted.html()).toEqual('<span>missing-key</span>')
     expect(warn).toHaveBeenCalledTimes(1)
     expect(warn).toHaveBeenCalledWith(
-      '[fluent-vue] Could not find translation for key [missing-key]'
+      '[fluent-vue] Could not find translation for key [missing-key]',
     )
 
     // Cleanup
@@ -198,13 +199,13 @@ describe('component', () => {
     bundle.addResource(
       new FluentResource(ftl`
       key = Hello {$name} {$child} test
-      `)
+      `),
     )
 
     const component = {
-      data () {
+      data() {
         return {
-          name: 'John'
+          name: 'John',
         }
       },
       template: `
@@ -212,7 +213,7 @@ describe('component', () => {
           <template #child>
             <b>Inner text</b>
           </template>
-        </i18n>`
+        </i18n>`,
     }
 
     // Act
@@ -222,18 +223,18 @@ describe('component', () => {
     expect(mounted.html()).toEqual('<span>Hello ⁨John⁩ ⁨<b>Inner text</b>⁩ test</span>')
   })
 
-  it('updates on parameter change', async () => {
+  it('updates on parameter change', async() => {
     // Arrange
     bundle.addResource(
       new FluentResource(ftl`
       key = Hello {$name} {$child} test
-      `)
+      `),
     )
 
     const component = {
-      data () {
+      data() {
         return {
-          name: 'John'
+          name: 'John',
         }
       },
       template: `
@@ -241,7 +242,7 @@ describe('component', () => {
           <template #child>
             <b>Inner text</b>
           </template>
-        </i18n>`
+        </i18n>`,
     }
 
     const mounted = mountWithFluent(fluent, component)

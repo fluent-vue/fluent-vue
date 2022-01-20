@@ -1,11 +1,11 @@
+import { getCurrentInstance, inject } from 'vue-demi'
 import type { TranslationContext } from './TranslationContext'
 
-import { getCurrentInstance, inject } from 'vue-demi'
 import { assert } from './util/warn'
 import { RootContextSymbol } from './symbols'
 import { getContext } from './getContext'
 
-export function useFluent (): TranslationContext {
+export function useFluent(): TranslationContext {
   const instance = getCurrentInstance()
   assert(instance != null, 'useFluent called outside of setup')
 

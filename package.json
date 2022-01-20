@@ -19,29 +19,17 @@
     "Project Fluent"
   ],
   "license": "MIT",
-  "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
-  "homepage": "https://fluent-vue.demivan.me",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/demivan/fluent-vue.git"
   },
-  "scripts": {
-    "build": "tsup",
-    "lint": "eslint .",
-    "ls-lint": "ls-lint",
-    "test": "node scripts/swap-vue.mjs 3 && vitest run",
-    "test:watch": "node scripts/swap-vue.mjs 3 && vitest",
-    "test:2": "node scripts/swap-vue.mjs 2 && vitest run",
-    "test:3": "node scripts/swap-vue.mjs 3 && vitest run",
-    "preinstall": "npx only-allow pnpm",
-    "prepare": "husky install"
-  },
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "browser": "dist/prod/index.global.js",
-  "unpkg": "dist/prod/index.global.js",
-  "jsdelivr": "dist/prod/index.global.js",
-  "types": "index.d.ts",
+  "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
+  "homepage": "https://fluent-vue.demivan.me",
+  "files": [
+    "index.d.ts",
+    "dist",
+    "README.md"
+  ],
   "exports": {
     "script": {
       "development": "./dist/index.global.js",
@@ -54,12 +42,24 @@
     "require": "./dist/index.js",
     "import": "./dist/index.mjs"
   },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "unpkg": "dist/prod/index.global.js",
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint .",
+    "ls-lint": "ls-lint",
+    "test": "node scripts/swap-vue.mjs 3 && vitest run",
+    "test:watch": "node scripts/swap-vue.mjs 3 && vitest",
+    "test:2": "node scripts/swap-vue.mjs 2 && vitest run",
+    "test:3": "node scripts/swap-vue.mjs 3 && vitest run",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky install"
+  },
+  "browser": "dist/prod/index.global.js",
+  "jsdelivr": "dist/prod/index.global.js",
+  "types": "index.d.ts",
   "sideEffects": false,
-  "files": [
-    "index.d.ts",
-    "dist",
-    "README.md"
-  ],
   "lint-staged": {
     "*.js": "eslint --fix",
     "*.ts?(x)": "eslint --fix"
@@ -80,6 +80,22 @@
       "Type: A11y": ":wheelchair: Accessibility",
       "Type: Documentation": ":pencil: Documentation"
     }
+  },
+  "peerDependencies": {
+    "@fluent/bundle": ">=0.17.0",
+    "@vue/composition-api": ">=1.0.0-rc.1",
+    "vue": "^2.6.11 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@fluent/sequence": "^0.7.0",
+    "cached-iterable": "^0.3.0",
+    "tslib": "^2.2.0",
+    "vue-demi": "latest"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.16.0",
@@ -104,21 +120,5 @@
     "vue": "npm:vue@^3.2.26",
     "vue-2": "npm:vue@^2.6.14",
     "vue-3": "npm:vue@^3.2.26"
-  },
-  "dependencies": {
-    "@fluent/sequence": "^0.7.0",
-    "cached-iterable": "^0.3.0",
-    "tslib": "^2.2.0",
-    "vue-demi": "latest"
-  },
-  "peerDependencies": {
-    "@fluent/bundle": ">=0.17.0",
-    "@vue/composition-api": ">=1.0.0-rc.1",
-    "vue": "^2.6.11 || >=3.0.0"
-  },
-  "peerDependenciesMeta": {
-    "@vue/composition-api": {
-      "optional": true
-    }
   }
 }

@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
@@ -14,11 +14,11 @@ describe('vue integration', () => {
     new FluentResource(ftl`
     message = Hello, { $name }!
     sub-message = Hi, { $name }
-    `)
+    `),
   )
 
   const fluent = createFluentVue({
-    bundles: [bundle]
+    bundles: [bundle],
   })
 
   it('translates messages in a component', () => {
@@ -26,14 +26,14 @@ describe('vue integration', () => {
     bundle.addResource(
       new FluentResource(ftl`
       message = Hello, { $name }!
-      `)
+      `),
     )
 
     const component = {
       data: () => ({
-        name: 'John'
+        name: 'John',
       }),
-      template: "<div>{{ $t('message', { name }) }}</div>"
+      template: '<div>{{ $t(\'message\', { name }) }}</div>',
     }
 
     // Act
@@ -47,19 +47,19 @@ describe('vue integration', () => {
     // Arrange
     const child = {
       data: () => ({
-        name: 'Alice'
+        name: 'Alice',
       }),
-      template: "<div>{{ $t('sub-message', { name }) }}</div>"
+      template: '<div>{{ $t(\'sub-message\', { name }) }}</div>',
     }
 
     const component = {
       components: {
-        child
+        child,
       },
       data: () => ({
-        name: 'John'
+        name: 'John',
       }),
-      template: "<div>{{ $t('message', { name }) }}<child /></div>"
+      template: '<div>{{ $t(\'message\', { name }) }}<child /></div>',
     }
 
     // Act
@@ -73,24 +73,24 @@ describe('vue integration', () => {
     // Arrange
     const child = {
       data: () => ({
-        name: 'Alice'
+        name: 'Alice',
       }),
       fluent: {
         'en-US': new FluentResource(ftl`
         sub-message = Hello from child component, { $name }
-        `)
+        `),
       },
-      template: "<div>{{ $t('sub-message', { name }) }}</div>"
+      template: '<div>{{ $t(\'sub-message\', { name }) }}</div>',
     }
 
     const component = {
       components: {
-        child
+        child,
       },
       data: () => ({
-        name: 'John'
+        name: 'John',
       }),
-      template: "<div>{{ $t('message', { name }) }}<child /></div>"
+      template: '<div>{{ $t(\'message\', { name }) }}<child /></div>',
     }
 
     // Act
@@ -98,7 +98,7 @@ describe('vue integration', () => {
 
     // Assert
     expect(mounted.html()).toEqual(
-      '<div>Hello, ⁨John⁩!<div>Hello from child component, ⁨Alice⁩</div>\n</div>'
+      '<div>Hello, ⁨John⁩!<div>Hello from child component, ⁨Alice⁩</div>\n</div>',
     )
   })
 })

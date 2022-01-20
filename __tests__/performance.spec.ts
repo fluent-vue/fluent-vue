@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
 import { isReactive } from 'vue-demi'
 import { FluentBundle } from '@fluent/bundle'
@@ -12,12 +12,11 @@ describe('performance checks', () => {
 
     // Act
     const fluent = createFluentVue({
-      bundles: [bundle]
+      bundles: [bundle],
     })
 
     // Assert
-    for (const bundle of fluent.bundles) {
+    for (const bundle of fluent.bundles)
       expect(isReactive(bundle)).toEqual(false)
-    }
   })
 })

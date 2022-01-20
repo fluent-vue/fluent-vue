@@ -1,4 +1,4 @@
-import { InjectionKey } from 'vue-demi'
-import { TranslationContext } from './TranslationContext'
+import type { InjectionKey } from 'vue-demi'
+import type { TranslationContext } from './TranslationContext'
 
 export const RootContextSymbol: InjectionKey<TranslationContext> = Symbol('root-context')

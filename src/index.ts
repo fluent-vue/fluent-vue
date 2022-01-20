@@ -1,8 +1,9 @@
-import type { InstallFunction, Vue, Vue2, Vue3, Vue3Component } from './types/typesCompat'
 import type { FluentBundle, FluentVariable } from '@fluent/bundle'
 
-import { isVue3, shallowRef, provide } from 'vue-demi'
-import { TranslationContext, TranslationWithAttrs } from './TranslationContext'
+import { isVue3, provide, shallowRef } from 'vue-demi'
+import type { InstallFunction, Vue, Vue2, Vue3, Vue3Component } from './types/typesCompat'
+import type { TranslationWithAttrs } from './TranslationContext'
+import { TranslationContext } from './TranslationContext'
 import { createVue2Directive, createVue3Directive } from './vue/directive'
 import component from './vue/component'
 import { getContext } from './getContext'
@@ -33,16 +34,16 @@ export interface FluentVue {
  *
  * @param options - {@link FluentVueOptions}
  */
-export function createFluentVue (options: FluentVueOptions): FluentVue {
+export function createFluentVue(options: FluentVueOptions): FluentVue {
   const bundles = shallowRef(options.bundles)
 
   const rootContext = new TranslationContext(bundles)
 
   return {
-    get bundles () {
+    get bundles() {
       return bundles.value
     },
-    set bundles (value) {
+    set bundles(value) {
       bundles.value = value
     },
 
@@ -50,46 +51,47 @@ export function createFluentVue (options: FluentVueOptions): FluentVue {
     formatAttrs: rootContext.formatAttrs.bind(rootContext),
     formatWithAttrs: rootContext.formatWithAttrs.bind(rootContext),
 
-    install (vue) {
+    install(vue) {
       if (isVue3) {
         const vue3 = vue as Vue3
 
         vue3.provide(RootContextSymbol, rootContext)
 
-        vue3.config.globalProperties.$t = function (
+        vue3.config.globalProperties.$t = function(
           key: string,
-          value?: Record<string, FluentVariable>
+          value?: Record<string, FluentVariable>,
         ) {
           return getContext(rootContext, this as Vue3Component).format(key, value)
         }
-        vue3.config.globalProperties.$ta = function (
+        vue3.config.globalProperties.$ta = function(
           key: string,
-          value?: Record<string, FluentVariable>
+          value?: Record<string, FluentVariable>,
         ) {
           return getContext(rootContext, this as Vue3Component).formatAttrs(key, value)
         }
 
         vue3.directive('t', createVue3Directive(rootContext))
-      } else {
+      }
+      else {
         const vue2 = vue as Vue2
 
         vue2.mixin({
-          setup () {
+          setup() {
             provide(RootContextSymbol, rootContext)
-          }
+          },
         })
 
-        vue2.prototype.$t = function (key: string, value?: Record<string, FluentVariable>) {
+        vue2.prototype.$t = function(key: string, value?: Record<string, FluentVariable>) {
           return getContext(rootContext, this).format(key, value)
         }
-        vue2.prototype.$ta = function (key: string, value?: Record<string, FluentVariable>) {
+        vue2.prototype.$ta = function(key: string, value?: Record<string, FluentVariable>) {
           return getContext(rootContext, this).formatAttrs(key, value)
         }
 
         vue2.directive('t', createVue2Directive(rootContext))
       }
 
-      (vue as Vue).component('i18n', component)
-    }
+      (vue as Vue).component('I18n', component)
+    },
   }
 }

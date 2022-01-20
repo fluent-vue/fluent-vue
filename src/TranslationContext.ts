@@ -14,15 +14,15 @@ export interface TranslationWithAttrs {
 export class TranslationContext {
   bundles: Ref<Iterable<FluentBundle>>
 
-  constructor (bundles: Ref<Iterable<FluentBundle>>) {
+  constructor(bundles: Ref<Iterable<FluentBundle>>) {
     this.bundles = bundles
   }
 
-  getBundle (key: string): FluentBundle | null {
+  getBundle(key: string): FluentBundle | null {
     return mapBundleSync(this.bundles.value, key)
   }
 
-  getMessage (bundle: FluentBundle | null, key: string): Message | null {
+  getMessage(bundle: FluentBundle | null, key: string): Message | null {
     const message = bundle?.getMessage(key)
 
     if (message === undefined) {
@@ -33,29 +33,27 @@ export class TranslationContext {
     return message
   }
 
-  formatPattern (
+  formatPattern(
     bundle: FluentBundle,
     message: Pattern,
-    value?: Record<string, FluentVariable>
+    value?: Record<string, FluentVariable>,
   ): string {
     const errors: Error[] = []
     const formatted = bundle.formatPattern(message, value, errors)
 
-    for (const error of errors) {
+    for (const error of errors)
       warn('Error when formatting', error)
-    }
 
     return formatted
   }
 
-  private _format (
+  private _format(
     context: FluentBundle | null,
     message: Message | null,
-    value?: Record<string, FluentVariable>
+    value?: Record<string, FluentVariable>,
   ): string | null {
-    if (context === null || message === null || message.value === null) {
+    if (context === null || message === null || message.value === null)
       return null
-    }
 
     return this.formatPattern(context, message.value, value)
   }
@@ -66,19 +64,17 @@ export class TranslationContext {
     return this._format(context, message, value) ?? key
   }
 
-  private _formatAttrs (
+  private _formatAttrs(
     context: FluentBundle | null,
     message: Message | null,
-    value?: Record<string, FluentVariable>
+    value?: Record<string, FluentVariable>,
   ): Record<string, string> | null {
-    if (context === null || message === null) {
+    if (context === null || message === null)
       return null
-    }
 
     const result: Record<string, string> = {}
-    for (const [attrName, attrValue] of Object.entries(message.attributes)) {
+    for (const [attrName, attrValue] of Object.entries(message.attributes))
       result[attrName] = this.formatPattern(context, attrValue, value)
-    }
 
     return result
   }
@@ -98,7 +94,7 @@ export class TranslationContext {
     return {
       value: formatValue ?? key,
       attributes: this._formatAttrs(context, message, value) ?? {},
-      hasValue: formatValue !== null
+      hasValue: formatValue !== null,
     }
   }
 

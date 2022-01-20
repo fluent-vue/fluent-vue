@@ -1,4 +1,4 @@
-import { describe, beforeEach, it, expect } from 'vitest'
+import { beforeEach, describe, expect, it } from 'vitest'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
@@ -6,7 +6,8 @@ import ftl from '@fluent/dedent'
 import { nextTick } from 'vue-demi'
 
 import { mountWithFluent } from '../utils'
-import { createFluentVue, FluentVue } from '../../src'
+import type { FluentVue } from '../../src'
+import { createFluentVue } from '../../src'
 
 describe('message override', () => {
   let fluent: FluentVue
@@ -21,22 +22,22 @@ describe('message override', () => {
       new FluentResource(ftl`
       link = link text
       other-link = other link text
-      `)
+      `),
     )
 
     bundleUk.addResource(
       new FluentResource(ftl`
       link = текст посилання
       other-link = інший текст посилання
-      `)
+      `),
     )
 
     fluent = createFluentVue({
-      bundles: [bundleUk, bundleEn]
+      bundles: [bundleUk, bundleEn],
     })
   })
 
-  it('can override one locale from a bundle with multiple locales', async () => {
+  it('can override one locale from a bundle with multiple locales', async() => {
     // Arrange
     const component = {
       template: `
@@ -47,8 +48,8 @@ describe('message override', () => {
       fluent: {
         uk: new FluentResource(ftl`
         link = текст посилання 2
-        `)
-      }
+        `),
+      },
     }
 
     // Act
@@ -63,7 +64,7 @@ describe('message override', () => {
     expect(mounted.html()).toEqual('<div><a href="/foo">link text</a><a href="/other-foo">other link text</a></div>')
   })
 
-  it('can override both locales from a bundle with multiple locales', async () => {
+  it('can override both locales from a bundle with multiple locales', async() => {
     // Arrange
     const component = {
       template: `
@@ -74,8 +75,8 @@ describe('message override', () => {
       fluent: {
         'uk uk-UA': new FluentResource(ftl`
         link = текст посилання 2
-        `)
-      }
+        `),
+      },
     }
 
     // Act
@@ -90,7 +91,7 @@ describe('message override', () => {
     expect(mounted.html()).toEqual('<div><a href="/foo">link text</a><a href="/other-foo">other link text</a></div>')
   })
 
-  it('can override messages from different bundles', async () => {
+  it('can override messages from different bundles', async() => {
     // Arrange
     const component = {
       template: `
@@ -101,8 +102,8 @@ describe('message override', () => {
       fluent: {
         'uk en': new FluentResource(ftl`
         link = Generic link text
-        `)
-      }
+        `),
+      },
     }
 
     // Act
@@ -125,14 +126,14 @@ describe('message override', () => {
     expect(mounted.html()).toEqual('<div><a href="/foo">Generic link text</a><a href="/other-foo">other link text</a></div>')
   })
 
-  it('can override messages from different bundles', async () => {
+  it('can override messages from different bundles', async() => {
     // Arrange
     const bundleUa = new FluentBundle(['uk-UA'])
     bundleUa.addResource(
       new FluentResource(ftl`
       link = текст посилання ua
       other-link = інший текст посилання ua
-      `)
+      `),
     )
 
     const component = {
@@ -144,8 +145,8 @@ describe('message override', () => {
       fluent: {
         'uk en': new FluentResource(ftl`
         link = Generic link text
-        `)
-      }
+        `),
+      },
     }
 
     // Act

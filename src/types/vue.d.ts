@@ -5,7 +5,7 @@ import type { FluentVue } from '../index'
 declare module 'vue-2/types/options' {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface ComponentOptions<V extends Vue> {
-    fluent?: { [locale: string]: FluentResource }
+    fluent?: Record<string, FluentResource>
 
     /** @private */
     _fluent?: FluentVue
@@ -20,6 +20,6 @@ declare module 'vue-2/types/options' {
 
 declare module '@vue/runtime-core' {
   interface ComponentCustomOptions {
-    fluent?: { [locale: string]: FluentResource }
+    fluent?: Record<string, FluentResource>
   }
 }

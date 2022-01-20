@@ -1,12 +1,12 @@
-import { describe, beforeEach, it, expect } from 'vitest'
+import { beforeEach, describe, expect, it } from 'vitest'
 
 import { nextTick } from 'vue-demi'
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
+import type { FluentVue } from '../src'
+import { createFluentVue } from '../src'
 import { mountWithFluent } from './utils'
-
-import { createFluentVue, FluentVue } from '../src'
 
 describe('language change', () => {
   let fluent: FluentVue
@@ -18,7 +18,7 @@ describe('language change', () => {
     bundleUk = new FluentBundle('uk-UA')
 
     fluent = createFluentVue({
-      bundles: [bundleUk, bundleEn]
+      bundles: [bundleUk, bundleEn],
     })
   })
 
@@ -27,17 +27,17 @@ describe('language change', () => {
     bundleEn.addResource(
       new FluentResource(ftl`
       link = link text
-      `)
+      `),
     )
 
     bundleUk.addResource(
       new FluentResource(ftl`
       link = текст посилання
-      `)
+      `),
     )
 
     const component = {
-      template: '<a v-t:link href="/foo">Fallback text</a>'
+      template: '<a v-t:link href="/foo">Fallback text</a>',
     }
 
     // Act
@@ -52,11 +52,11 @@ describe('language change', () => {
     bundleEn.addResource(
       new FluentResource(ftl`
       link = link text
-      `)
+      `),
     )
 
     const component = {
-      template: '<a v-t:link href="/foo">Fallback text</a>'
+      template: '<a v-t:link href="/foo">Fallback text</a>',
     }
 
     // Act
@@ -66,29 +66,29 @@ describe('language change', () => {
     expect(mounted.html()).toEqual('<a href="/foo">link text</a>')
   })
 
-  it('updates when changing current locale', async () => {
+  it('updates when changing current locale', async() => {
     // Arrange
     bundleEn = new FluentBundle('en-US')
     bundleUk = new FluentBundle('uk-UA')
 
     const fluent = createFluentVue({
-      bundles: [bundleUk]
+      bundles: [bundleUk],
     })
 
     bundleEn.addResource(
       new FluentResource(ftl`
       link = link text
-      `)
+      `),
     )
 
     bundleUk.addResource(
       new FluentResource(ftl`
       link = текст посилання
-      `)
+      `),
     )
 
     const component = {
-      template: '<a v-t:link href="/foo">Fallback text</a>'
+      template: '<a v-t:link href="/foo">Fallback text</a>',
     }
 
     // Act
@@ -104,29 +104,29 @@ describe('language change', () => {
     expect(mounted.html()).toEqual('<a href="/foo">link text</a>')
   })
 
-  it('works when dynamically adding bundles', async () => {
+  it('works when dynamically adding bundles', async() => {
     // Arrange
     bundleEn = new FluentBundle('en-US')
 
     const fluent = createFluentVue({
-      bundles: [bundleEn]
+      bundles: [bundleEn],
     })
 
     bundleEn.addResource(
       new FluentResource(ftl`
       link = link text
-      `)
+      `),
     )
 
     bundleUk = new FluentBundle('uk-UA')
     bundleUk.addResource(
       new FluentResource(ftl`
       link = текст посилання
-      `)
+      `),
     )
 
     const component = {
-      template: '<a v-t:link href="/foo">Fallback text</a>'
+      template: '<a v-t:link href="/foo">Fallback text</a>',
     }
 
     const mounted = mountWithFluent(fluent, component)
@@ -141,25 +141,25 @@ describe('language change', () => {
     expect(mounted.html()).toEqual('<a href="/foo">текст посилання</a>')
   })
 
-  it('updates child components with overrides', async () => {
+  it('updates child components with overrides', async() => {
     // Arrange
     bundleEn = new FluentBundle('en-US')
     bundleUk = new FluentBundle('uk-UA')
 
     const fluent = createFluentVue({
-      bundles: [bundleUk, bundleEn]
+      bundles: [bundleUk, bundleEn],
     })
 
     bundleEn.addResource(
       new FluentResource(ftl`
       link = link text
-      `)
+      `),
     )
 
     bundleUk.addResource(
       new FluentResource(ftl`
       link = текст посилання
-      `)
+      `),
     )
 
     const child = {
@@ -170,21 +170,21 @@ describe('language change', () => {
         `),
         'en-US': new FluentResource(ftl`
         child = Child message
-        `)
-      }
+        `),
+      },
     }
     const component = {
       components: {
-        child
+        child,
       },
-      template: '<div><span>{{ $t(\'link\') }}</span><child /></div>'
+      template: '<div><span>{{ $t(\'link\') }}</span><child /></div>',
     }
 
     // Act
     const mounted = mountWithFluent(fluent, component)
 
     expect(mounted.html()).toEqual(
-      '<div><span>текст посилання</span><span>Повідомлення</span></div>'
+      '<div><span>текст посилання</span><span>Повідомлення</span></div>',
     )
 
     fluent.bundles = [bundleEn]
