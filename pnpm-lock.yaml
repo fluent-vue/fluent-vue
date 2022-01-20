@@ -6,7 +6,7 @@ specifiers:
   '@fluent/dedent': ~0.4.0
   '@fluent/sequence': ^0.7.0
   '@ls-lint/ls-lint': ^1.10.0
-  '@types/node': 15.0.3
+  '@types/node': ^17.0.10
   '@vue/compiler-sfc': ^3.2.26
   '@vue/test-utils': ^2.0.0-rc.18
   c8: ^7.11.0
@@ -40,7 +40,7 @@ devDependencies:
   '@fluent/bundle': 0.17.1
   '@fluent/dedent': 0.4.0
   '@ls-lint/ls-lint': 1.10.0
-  '@types/node': 15.0.3
+  '@types/node': 17.0.10
   '@vue/compiler-sfc': 3.2.26
   '@vue/test-utils': 2.0.0-rc.18_vue@3.2.26
   c8: 7.11.0
@@ -482,6 +482,10 @@ packages:
 
   /@types/node/15.0.3:
     resolution: {integrity: sha512-/WbxFeBU+0F79z9RdEOXH4CsDga+ibi5M8uEYr91u3CkT/pdWcV8MCook+4wDPnZBexRdwWS+PiVZ2xJviAzcQ==}
+    dev: true
+
+  /@types/node/17.0.10:
+    resolution: {integrity: sha512-S/3xB4KzyFxYGCppyDt68yzBU9ysL88lSdIah4D6cptdcltc4NCPCAMc0+PCpg/lLIyC7IPvj2Z52OJWeIUkog==}
     dev: true
 
   /@types/normalize-package-data/2.4.1:
