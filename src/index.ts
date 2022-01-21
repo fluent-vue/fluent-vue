@@ -91,7 +91,7 @@ export function createFluentVue(options: FluentVueOptions): FluentVue {
         vue2.directive('t', createVue2Directive(rootContext))
       }
 
-      (vue as Vue).component('I18n', component)
+      (vue as Vue).component('i18n', component)
     },
   }
 }

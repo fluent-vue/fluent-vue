@@ -19,7 +19,7 @@ function getParentWithFluent(
 }
 
 export default defineComponent({
-  name: 'I18n',
+  name: 'i18n',
   props: {
     path: { type: String, required: true },
     tag: { type: String, default: 'span' },

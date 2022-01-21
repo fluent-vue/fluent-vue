@@ -8,5 +8,8 @@ module.exports = {
     'coverage/',
     'pnpm-lock.yaml',
     '*.js'
-  ]
+  ],
+  rules: {
+    "vue/component-definition-name-casing": ["error", "kebab-case"]
+  }
 }
