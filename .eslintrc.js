@@ -1,15 +1,15 @@
 module.exports = {
-  root: true,
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    project: './tsconfig.eslint.json'
-  },
-  plugins: ['@typescript-eslint'],
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended',
-    'standard-with-typescript'
+  'extends': [
+    '@antfu'
   ],
-  ignorePatterns: ['node_modules/', 'dist/', '*.js']
+  ignorePatterns: [
+    'node_modules/',
+    'dist/',
+    'coverage/',
+    'pnpm-lock.yaml',
+    '*.js'
+  ],
+  rules: {
+    "vue/component-definition-name-casing": ["error", "kebab-case"]
+  }
 }

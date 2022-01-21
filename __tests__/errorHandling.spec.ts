@@ -1,11 +1,10 @@
-import { describe, it, spyOn, expect } from 'vitest'
+import { describe, expect, it, spyOn } from 'vitest'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
-import { mountWithFluent } from './utils'
-
 import { createFluentVue } from '../src'
+import { mountWithFluent } from './utils'
 
 describe('vue integration', () => {
   const bundle = new FluentBundle('en-US')
@@ -14,17 +13,17 @@ describe('vue integration', () => {
     new FluentResource(ftl`
     message = Hello, { $name }!
     sub-message = Hi, { $name }
-  `)
+  `),
   )
 
   const fluent = createFluentVue({
-    bundles: [bundle]
+    bundles: [bundle],
   })
 
   it('warns about missing translation', () => {
     // Arrange
     const component = {
-      template: "<div>{{ $t('message-not-found') }}</div>"
+      template: '<div>{{ $t("message-not-found") }}</div>',
     }
 
     // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -47,11 +46,11 @@ describe('vue integration', () => {
     bundle.addResource(
       new FluentResource(ftl`
       message = { NUMBER($arg) }
-      `)
+      `),
     )
 
     const component = {
-      template: "<div>{{ $t('message') }}</div>"
+      template: '<div>{{ $t("message") }}</div>',
     }
 
     // eslint-disable-next-line @typescript-eslint/no-empty-function

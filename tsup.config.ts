@@ -10,15 +10,15 @@ export default defineConfig([{
   splitting: true,
   clean: true,
   env: {
-    NODE_ENV: 'development'
+    NODE_ENV: 'development',
   },
   esbuildPlugins: [
     GlobalsPlugin({
       'vue-demi': 'VueDemi',
-      '@fluent/bundle': 'FluentBundle'
-    })
+      '@fluent/bundle': 'FluentBundle',
+    }),
   ],
-  external: ['vue-demi', '@fluent/bundle']
+  external: ['vue-demi', '@fluent/bundle'],
 },
 {
   entry: ['src/index.ts', 'src/composition.ts'],
@@ -27,15 +27,15 @@ export default defineConfig([{
   outDir: 'dist/prod',
   splitting: true,
   env: {
-    NODE_ENV: 'production'
+    NODE_ENV: 'production',
   },
   sourcemap: true,
   minify: true,
   esbuildPlugins: [
     GlobalsPlugin({
       'vue-demi': 'VueDemi',
-      '@fluent/bundle': 'FluentBundle'
-    })
+      '@fluent/bundle': 'FluentBundle',
+    }),
   ],
-  external: ['vue-demi', '@fluent/bundle']
+  external: ['vue-demi', '@fluent/bundle'],
 }])

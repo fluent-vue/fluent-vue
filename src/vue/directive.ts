@@ -1,12 +1,12 @@
+import { watchEffect } from 'vue-demi'
 import type { Vue2Directive, Vue3Directive, VueDirectiveBinding } from '../types/typesCompat'
 import type { TranslationContext } from '../TranslationContext'
 
-import { watchEffect } from 'vue-demi'
 import { warn } from '../util/warn'
 import { getContext } from '../getContext'
 
 // Copied from fluent-dom library
-const LOCALIZABLE_ATTRIBUTES: { [tag: string]: string[] } = {
+const LOCALIZABLE_ATTRIBUTES: Record<string, string[]> = {
   global: ['title', 'aria-label', 'aria-valuetext', 'aria-moz-hint'],
   a: ['download'],
   area: ['download', 'alt'],
@@ -19,7 +19,7 @@ const LOCALIZABLE_ATTRIBUTES: { [tag: string]: string[] } = {
   track: ['label'],
   img: ['alt'],
   textarea: ['placeholder'],
-  th: ['abbr']
+  th: ['abbr'],
 }
 
 /**
@@ -34,53 +34,47 @@ const LOCALIZABLE_ATTRIBUTES: { [tag: string]: string[] } = {
  *
  * @private
  */
-function isAttrNameLocalizable (
+function isAttrNameLocalizable(
   name: string,
   element: HTMLElement,
-  explicitlyAllowed: string[]
+  explicitlyAllowed: string[],
 ): boolean {
-  if (explicitlyAllowed.includes(name)) {
+  if (explicitlyAllowed.includes(name))
     return true
-  }
 
-  if (element.namespaceURI === null) {
+  if (element.namespaceURI === null)
     return false
-  }
 
   const attrName = name.toLowerCase()
   const elemName = element.localName
 
   // Is it a globally safe attribute?
-  if (LOCALIZABLE_ATTRIBUTES.global.includes(attrName)) {
+  if (LOCALIZABLE_ATTRIBUTES.global.includes(attrName))
     return true
-  }
 
   // Are there no allowed attributes for this element?
-  if (LOCALIZABLE_ATTRIBUTES[elemName] == null) {
+  if (LOCALIZABLE_ATTRIBUTES[elemName] == null)
     return false
-  }
 
   // Is it allowed on this element?
-  if (LOCALIZABLE_ATTRIBUTES[elemName].includes(attrName)) {
+  if (LOCALIZABLE_ATTRIBUTES[elemName].includes(attrName))
     return true
-  }
 
   // Special case for value on HTML inputs with type button, reset, submit
   if (
-    element.namespaceURI === 'http://www.w3.org/1999/xhtml' &&
-    elemName === 'input' &&
-    attrName === 'value'
+    element.namespaceURI === 'http://www.w3.org/1999/xhtml'
+    && elemName === 'input'
+    && attrName === 'value'
   ) {
     const type = (element as HTMLInputElement).type.toLowerCase()
-    if (type === 'submit' || type === 'button' || type === 'reset') {
+    if (type === 'submit' || type === 'button' || type === 'reset')
       return true
-    }
   }
 
   return false
 }
 
-function translate (el: HTMLElement, fluent: TranslationContext, binding: VueDirectiveBinding): void {
+function translate(el: HTMLElement, fluent: TranslationContext, binding: VueDirectiveBinding): void {
   const key = binding.arg
 
   if (key === undefined) {
@@ -90,44 +84,42 @@ function translate (el: HTMLElement, fluent: TranslationContext, binding: VueDir
 
   const translation = fluent.formatWithAttrs(key, binding.value)
 
-  if (translation.hasValue) {
+  if (translation.hasValue)
     el.textContent = translation.value
-  }
 
   const allowedAttrs = Object.keys(binding.modifiers)
   for (const [attr, attrValue] of Object.entries(translation.attributes)) {
-    if (isAttrNameLocalizable(attr, el, allowedAttrs)) {
+    if (isAttrNameLocalizable(attr, el, allowedAttrs))
       el.setAttribute(attr, attrValue)
-    }
   }
 }
 
-export function createVue3Directive (rootContext: TranslationContext): Vue3Directive {
+export function createVue3Directive(rootContext: TranslationContext): Vue3Directive {
   return {
-    mounted (el, binding) {
+    mounted(el, binding) {
       watchEffect(() => {
         const context = getContext(rootContext, binding.instance)
         translate(el, context, binding)
       })
     },
 
-    updated (el, binding) {
+    updated(el, binding) {
       const context = getContext(rootContext, binding.instance)
       translate(el, context, binding)
-    }
+    },
   }
 }
 
-export function createVue2Directive (rootContext: TranslationContext): Vue2Directive {
+export function createVue2Directive(rootContext: TranslationContext): Vue2Directive {
   return {
-    bind (el, binding, vnode) {
+    bind(el, binding, vnode) {
       const context = getContext(rootContext, vnode.context)
       translate(el, context, binding)
     },
 
-    update (el, binding, vnode) {
+    update(el, binding, vnode) {
       const context = getContext(rootContext, vnode.context)
       translate(el, context, binding)
-    }
+    },
   }
 }

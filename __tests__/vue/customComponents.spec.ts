@@ -1,11 +1,12 @@
-import { describe, beforeEach, it, spyOn, expect } from 'vitest'
+import { beforeEach, describe, expect, it, spyOn } from 'vitest'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
 import { mountWithFluent } from '../utils'
 
-import { createFluentVue, FluentVue } from '../../src'
+import type { FluentVue } from '../../src'
+import { createFluentVue } from '../../src'
 
 describe('method', () => {
   let fluent: FluentVue
@@ -15,7 +16,7 @@ describe('method', () => {
     bundle = new FluentBundle('en-US')
 
     fluent = createFluentVue({
-      bundles: [bundle]
+      bundles: [bundle],
     })
   })
 
@@ -25,22 +26,22 @@ describe('method', () => {
       new FluentResource(ftl`
       key = Inner data
         .attr = Attr value
-      `)
+      `),
     )
 
     const child = {
       props: {
         text: { type: String },
-        attrs: { type: Object }
+        attrs: { type: Object },
       },
-      template: '<div :attr="attrs.attr">{{ text }}</div>'
+      template: '<div :attr="attrs.attr">{{ text }}</div>',
     }
 
     const component = {
       components: {
-        child
+        child,
       },
-      template: '<child :text="$t(\'key\')" :attrs="$ta(\'key\')"></child>'
+      template: '<child :text="$t(\'key\')" :attrs="$ta(\'key\')"></child>',
     }
 
     // Act
@@ -56,11 +57,11 @@ describe('method', () => {
       new FluentResource(ftl`
       key =
         .attr = Attr value
-      `)
+      `),
     )
 
     const component = {
-      template: '<div v-bind="$ta(\'key\')"></div>'
+      template: '<div v-bind="$ta(\'key\')"></div>',
     }
 
     // Act
@@ -76,11 +77,11 @@ describe('method', () => {
       new FluentResource(ftl`
       key =
         .kebab-attr = Attr value
-      `)
+      `),
     )
 
     const component = {
-      template: '<div v-bind="$ta(\'key\')"></div>'
+      template: '<div v-bind="$ta(\'key\')"></div>',
     }
 
     // Act
@@ -96,14 +97,14 @@ describe('method', () => {
       new FluentResource(ftl`
       key =
         .attr = Attr value
-      `)
+      `),
     )
 
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     const warn = spyOn(console, 'warn').mockImplementation(() => {})
 
     const component = {
-      template: '<div v-bind="$ta(\'missing-key\')"></div>'
+      template: '<div v-bind="$ta(\'missing-key\')"></div>',
     }
 
     // Act
@@ -113,7 +114,7 @@ describe('method', () => {
     expect(mounted.html()).toEqual('<div></div>')
     expect(warn).toHaveBeenCalledTimes(1)
     expect(warn).toHaveBeenCalledWith(
-      '[fluent-vue] Could not find translation for key [missing-key]'
+      '[fluent-vue] Could not find translation for key [missing-key]',
     )
 
     // Cleanup

@@ -19,27 +19,17 @@
     "Project Fluent"
   ],
   "license": "MIT",
-  "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
-  "homepage": "https://fluent-vue.demivan.me",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/demivan/fluent-vue.git"
   },
-  "scripts": {
-    "build": "tsup",
-    "lint": "eslint .",
-    "ls-lint": "ls-lint",
-    "test": "node scripts/swap-vue.mjs 3 && vitest run",
-    "test:watch": "node scripts/swap-vue.mjs 3 && vitest",
-    "test:2": "node scripts/swap-vue.mjs 2 && vitest run",
-    "test:3": "node scripts/swap-vue.mjs 3 && vitest run"
-  },
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "browser": "dist/prod/index.global.js",
-  "unpkg": "dist/prod/index.global.js",
-  "jsdelivr": "dist/prod/index.global.js",
-  "types": "index.d.ts",
+  "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
+  "homepage": "https://fluent-vue.demivan.me",
+  "files": [
+    "index.d.ts",
+    "dist",
+    "README.md"
+  ],
   "exports": {
     "script": {
       "development": "./dist/index.global.js",
@@ -52,15 +42,24 @@
     "require": "./dist/index.js",
     "import": "./dist/index.mjs"
   },
-  "sideEffects": false,
-  "files": [
-    "index.d.ts",
-    "dist",
-    "README.md"
-  ],
-  "gitHooks": {
-    "pre-commit": "ls-lint && lint-staged"
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "unpkg": "dist/prod/index.global.js",
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint .",
+    "ls-lint": "ls-lint",
+    "test": "node scripts/swap-vue.mjs 3 && vitest run",
+    "test:watch": "node scripts/swap-vue.mjs 3 && vitest",
+    "test:2": "node scripts/swap-vue.mjs 2 && vitest run",
+    "test:3": "node scripts/swap-vue.mjs 3 && vitest run",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky install"
   },
+  "browser": "dist/prod/index.global.js",
+  "jsdelivr": "dist/prod/index.global.js",
+  "types": "index.d.ts",
+  "sideEffects": false,
   "lint-staged": {
     "*.js": "eslint --fix",
     "*.ts?(x)": "eslint --fix"
@@ -82,42 +81,6 @@
       "Type: Documentation": ":pencil: Documentation"
     }
   },
-  "devDependencies": {
-    "@fluent/bundle": "~0.17.1",
-    "@fluent/dedent": "~0.4.0",
-    "@ls-lint/ls-lint": "^1.10.0",
-    "@types/node": "15.0.3",
-    "@typescript-eslint/eslint-plugin": "^5.9.1",
-    "@typescript-eslint/parser": "^5.9.1",
-    "@vue/compiler-sfc": "^3.2.26",
-    "@vue/test-utils": "^2.0.0-rc.18",
-    "c8": "^7.11.0",
-    "esbuild-plugin-globals": "^0.1.1",
-    "eslint": "^8.6.0",
-    "eslint-config-standard-with-typescript": "^21.0.1",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.0.0",
-    "execa": "^6.0.0",
-    "jsdom": "^19.0.0",
-    "lint-staged": "^12.1.7",
-    "release-it": "*",
-    "release-it-lerna-changelog": "^4.0.1",
-    "tsup": "^5.11.11",
-    "typescript": "^4.5.4",
-    "vite": "^2.7.12",
-    "vitest": "^0.1.16",
-    "vue": "npm:vue@^3.2.26",
-    "vue-2": "npm:vue@^2.6.14",
-    "vue-3": "npm:vue@^3.2.26",
-    "yorkie": "^2.0.0"
-  },
-  "dependencies": {
-    "@fluent/sequence": "^0.7.0",
-    "cached-iterable": "^0.3.0",
-    "tslib": "^2.2.0",
-    "vue-demi": "latest"
-  },
   "peerDependencies": {
     "@fluent/bundle": ">=0.17.0",
     "@vue/composition-api": ">=1.0.0-rc.1",
@@ -127,5 +90,36 @@
     "@vue/composition-api": {
       "optional": true
     }
+  },
+  "dependencies": {
+    "@fluent/sequence": "^0.7.0",
+    "cached-iterable": "^0.3.0",
+    "tslib": "^2.2.0",
+    "vue-demi": "latest"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.16.0",
+    "@fluent/bundle": "~0.17.1",
+    "@fluent/dedent": "~0.4.0",
+    "@ls-lint/ls-lint": "^1.10.0",
+    "@types/node": "^17.0.10",
+    "@vue/compiler-sfc": "^3.2.26",
+    "@vue/test-utils": "^2.0.0-rc.18",
+    "c8": "^7.11.0",
+    "esbuild-plugin-globals": "^0.1.1",
+    "eslint": "^8.6.0",
+    "execa": "^6.0.0",
+    "happy-dom": "^2.28.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.7",
+    "release-it": "*",
+    "release-it-lerna-changelog": "^4.0.1",
+    "tsup": "^5.11.11",
+    "typescript": "^4.5.4",
+    "vite": "^2.7.12",
+    "vitest": "^0.1.16",
+    "vue": "npm:vue@^3.2.26",
+    "vue-2": "npm:vue@^2.6.14",
+    "vue-3": "npm:vue@^3.2.26"
   }
 }

@@ -1,20 +1,19 @@
+import { computed, defineComponent, getCurrentInstance, h, inject } from 'vue-demi'
 import type { VueComponent } from '../types/typesCompat'
 
-import { defineComponent, h, getCurrentInstance, inject, computed } from 'vue-demi'
 import { camelize } from '../util/camelize'
 import { getContext } from '../getContext'
 import { RootContextSymbol } from '../symbols'
 import { assert } from '../util/warn'
 
-function getParentWithFluent (
-  instance: VueComponent | null | undefined
+function getParentWithFluent(
+  instance: VueComponent | null | undefined,
 ): VueComponent | null | undefined {
   const parent = instance?.$parent
   const target = parent?.$options
 
-  if (target != null && target.fluent == null) {
+  if (target != null && target.fluent == null)
     return getParentWithFluent(parent)
-  }
 
   return parent
 }
@@ -24,9 +23,9 @@ export default defineComponent({
   props: {
     path: { type: String, required: true },
     tag: { type: String, default: 'span' },
-    args: { type: Object, default: () => ({}) }
+    args: { type: Object, default: () => ({}) },
   },
-  setup (props, { slots, attrs }) {
+  setup(props, { slots, attrs }) {
     const rootContext = inject(RootContextSymbol)
     assert(rootContext != null, 'i18n component used without instaling plugin')
     const instance = getCurrentInstance()
@@ -37,10 +36,10 @@ export default defineComponent({
       Object.assign(
         {},
         props.args,
-        ...Object.keys(slots).map((key) => ({
-          [key]: `\uFFFF\uFFFE${key}\uFFFF`
-        }))
-      )
+        ...Object.keys(slots).map(key => ({
+          [key]: `\uFFFF\uFFFE${key}\uFFFF`,
+        })),
+      ),
     )
 
     const translation = computed(() => {
@@ -49,23 +48,23 @@ export default defineComponent({
 
     const camelizedAttrs = computed(() =>
       Object.fromEntries(
-        Object.entries(translation.value.attributes).map(([key, value]) => [camelize(key), value])
-      )
+        Object.entries(translation.value.attributes).map(([key, value]) => [camelize(key), value]),
+      ),
     )
 
     return () =>
       h(
         props.tag,
         {
-          ...attrs
+          ...attrs,
         },
         translation.value.value
           .split('\uFFFF')
-          .map((text) =>
+          .map(text =>
             text.startsWith('\uFFFE')
               ? slots[text.replace('\uFFFE', '')]?.(camelizedAttrs.value)
-              : text
-          )
+              : text,
+          ),
       )
-  }
+  },
 })

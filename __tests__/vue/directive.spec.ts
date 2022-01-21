@@ -1,11 +1,12 @@
-import { describe, beforeEach, it, spyOn, expect } from 'vitest'
+import { beforeEach, describe, expect, it, spyOn } from 'vitest'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
 import { mountWithFluent } from '../utils'
 
-import { createFluentVue, FluentVue } from '../../src'
+import type { FluentVue } from '../../src'
+import { createFluentVue } from '../../src'
 
 describe('directive', () => {
   let fluent: FluentVue
@@ -15,7 +16,7 @@ describe('directive', () => {
     bundle = new FluentBundle('en-US')
 
     fluent = createFluentVue({
-      bundles: [bundle]
+      bundles: [bundle],
     })
   })
 
@@ -24,14 +25,14 @@ describe('directive', () => {
     bundle.addResource(
       new FluentResource(ftl`
       link = Link text
-      `)
+      `),
     )
 
     const component = {
       data: () => ({
-        name: 'John'
+        name: 'John',
       }),
-      template: '<a v-t:link href="/foo">Fallback text</a>'
+      template: '<a v-t:link href="/foo">Fallback text</a>',
     }
 
     // Act
@@ -44,7 +45,7 @@ describe('directive', () => {
   it('warns about missing key arg', () => {
     // Arrange
     const component = {
-      template: '<a v-t href="/foo">Fallback text</a>'
+      template: '<a v-t href="/foo">Fallback text</a>',
     }
 
     // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -57,7 +58,7 @@ describe('directive', () => {
     expect(mounted.html()).toEqual('<a href="/foo">Fallback text</a>')
     expect(warn).toHaveBeenCalledTimes(1)
     expect(warn).toHaveBeenCalledWith(
-      '[fluent-vue] v-t directive is missing arg with translation key'
+      '[fluent-vue] v-t directive is missing arg with translation key',
     )
 
     // Cleanup
@@ -67,7 +68,7 @@ describe('directive', () => {
   it('warns about missing translation', () => {
     // Arrange
     const component = {
-      template: '<a v-t:missing-key href="/foo">Fallback text</a>'
+      template: '<a v-t:missing-key href="/foo">Fallback text</a>',
     }
 
     // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -80,7 +81,7 @@ describe('directive', () => {
     expect(mounted.html()).toEqual('<a href="/foo">Fallback text</a>')
     expect(warn).toHaveBeenCalledTimes(1)
     expect(warn).toHaveBeenCalledWith(
-      '[fluent-vue] Could not find translation for key [missing-key]'
+      '[fluent-vue] Could not find translation for key [missing-key]',
     )
 
     // Cleanup
@@ -92,21 +93,21 @@ describe('directive', () => {
     bundle.addResource(
       new FluentResource(ftl`
       link = Hello {$name}
-      `)
+      `),
     )
 
     const component = {
       data: () => ({
-        name: 'John'
+        name: 'John',
       }),
-      template: '<a v-t:link="{ name }" href="/foo">Fallback text</a>'
+      template: '<a v-t:link="{ name }" href="/foo">Fallback text</a>',
     }
 
     // Act
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual('<a href="/foo">Hello ⁨John⁩</a>')
+    expect(mounted.html()).toEqual('<a href="/foo">Hello \u{2068}John\u{2069}</a>')
   })
 
   it('can translate DOM attributes', () => {
@@ -115,21 +116,21 @@ describe('directive', () => {
       new FluentResource(ftl`
       link = Hello {$name}
         .aria-label = Localized aria
-      `)
+      `),
     )
 
     const component = {
       data: () => ({
-        name: 'John'
+        name: 'John',
       }),
-      template: '<a v-t:link.aria-label="{ name }" href="/foo" aria-label="Fallback aria">Fallback text</a>'
+      template: '<a v-t:link.aria-label="{ name }" href="/foo" aria-label="Fallback aria">Fallback text</a>',
     }
 
     // Act
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual('<a href="/foo" aria-label="Localized aria">Hello ⁨John⁩</a>')
+    expect(mounted.html()).toEqual('<a href="/foo" aria-label="Localized aria">Hello \u{2068}John\u{2069}</a>')
   })
 
   it('automatically binds whitelisted attrs', () => {
@@ -139,21 +140,21 @@ describe('directive', () => {
       link = Text
         .aria-label = Hello {$name}
         .not-allowed = Not allowed attrs value
-      `)
+      `),
     )
 
     const component = {
       data: () => ({
-        name: 'John'
+        name: 'John',
       }),
-      template: '<a v-t:link="{ name }">Fallback</a>'
+      template: '<a v-t:link="{ name }">Fallback</a>',
     }
 
     // Act
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual('<a aria-label="Hello ⁨John⁩">Text</a>')
+    expect(mounted.html()).toEqual('<a aria-label="Hello \u{2068}John\u{2069}">Text</a>')
   })
 
   it('works without fallbacks', () => {
@@ -162,76 +163,76 @@ describe('directive', () => {
       new FluentResource(ftl`
       link = Hello {$name}
         .aria-label = Localized aria
-      `)
-    )
-
-    const component = {
-      data: () => ({
-        name: 'John'
-      }),
-      template: '<a v-t:link.aria-label="{ name }"></a>'
-    }
-
-    // Act
-    const mounted = mountWithFluent(fluent, component)
-
-    // Assert
-    expect(mounted.html()).toEqual('<a aria-label="Localized aria">Hello ⁨John⁩</a>')
-  })
-
-  it('updates translations on component update', async () => {
-    // Arrange
-    bundle.addResource(
-      new FluentResource(ftl`
-      link = Hello {$name}
-        .aria-label = Localized aria
-      `)
-    )
-
-    const component = {
-      data: () => ({
-        name: 'John'
-      }),
-      template: '<a v-t:link.aria-label="{ name }"></a>'
-    }
-
-    const mounted = mountWithFluent(fluent, component)
-
-    expect(mounted.html()).toEqual('<a aria-label="Localized aria">Hello ⁨John⁩</a>')
-
-    // Act
-    await mounted.setData({ name: 'Anna' })
-
-    // Assert
-    expect(mounted.html()).toEqual('<a aria-label="Localized aria">Hello ⁨Anna⁩</a>')
-  })
-
-  it('preserves translations on component update', async () => {
-    // Arrange
-    bundle.addResource(
-      new FluentResource(ftl`
-      link =
-        .aria-label = Hello {$name}
-      `)
+      `),
     )
 
     const component = {
       data: () => ({
         name: 'John',
-        otherName: 'Anna'
       }),
-      template: '<a v-t:link.aria-label="{ name }">{{ otherName }}</a>'
+      template: '<a v-t:link.aria-label="{ name }"></a>',
+    }
+
+    // Act
+    const mounted = mountWithFluent(fluent, component)
+
+    // Assert
+    expect(mounted.html()).toEqual('<a aria-label="Localized aria">Hello \u{2068}John\u{2069}</a>')
+  })
+
+  it('updates translations on component update', async() => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      link = Hello {$name}
+        .aria-label = Localized aria
+      `),
+    )
+
+    const component = {
+      data: () => ({
+        name: 'John',
+      }),
+      template: '<a v-t:link.aria-label="{ name }"></a>',
     }
 
     const mounted = mountWithFluent(fluent, component)
 
-    expect(mounted.html()).toEqual('<a aria-label="Hello ⁨John⁩">Anna</a>')
+    expect(mounted.html()).toEqual('<a aria-label="Localized aria">Hello \u{2068}John\u{2069}</a>')
+
+    // Act
+    await mounted.setData({ name: 'Anna' })
+
+    // Assert
+    expect(mounted.html()).toEqual('<a aria-label="Localized aria">Hello \u{2068}Anna\u{2069}</a>')
+  })
+
+  it('preserves translations on component update', async() => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      link =
+        .aria-label = Hello {$name}
+      `),
+    )
+
+    const component = {
+      data: () => ({
+        name: 'John',
+        otherName: 'Anna',
+      }),
+      template: '<a v-t:link.aria-label="{ name }">{{ otherName }}</a>',
+    }
+
+    const mounted = mountWithFluent(fluent, component)
+
+    expect(mounted.html()).toEqual('<a aria-label="Hello \u{2068}John\u{2069}">Anna</a>')
 
     // Act
     await mounted.setData({ otherName: 'Test' })
 
     // Assert
-    expect(mounted.html()).toEqual('<a aria-label="Hello ⁨John⁩">Test</a>')
+    expect(mounted.html()).toEqual('<a aria-label="Hello \u{2068}John\u{2069}">Test</a>')
   })
 
   it('works with multiple attributes', () => {
@@ -241,14 +242,14 @@ describe('directive', () => {
       link = Text
         .aria-label = Hello {$name}
         .placeholder = Placeholder
-      `)
+      `),
     )
 
     const component = {
       data: () => ({
-        name: 'John'
+        name: 'John',
       }),
-      template: '<a v-t:link.aria-label.placeholder="{ name }">Fallback</a>'
+      template: '<a v-t:link.aria-label.placeholder="{ name }">Fallback</a>',
     }
 
     // Act
@@ -256,7 +257,7 @@ describe('directive', () => {
 
     // Assert
     expect(mounted.html()).toEqual(
-      '<a aria-label="Hello ⁨John⁩" placeholder="Placeholder">Text</a>'
+      '<a aria-label="Hello \u{2068}John\u{2069}" placeholder="Placeholder">Text</a>',
     )
   })
 })
