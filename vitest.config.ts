@@ -5,6 +5,6 @@ export default defineConfig({
     coverage: {
       reporter: ['text', 'lcovonly'],
     },
-    environment: 'jsdom',
+    environment: 'happy-dom',
   },
 })
