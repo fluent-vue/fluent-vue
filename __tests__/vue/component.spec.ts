@@ -130,7 +130,7 @@ describe('component', () => {
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual('<span>Inner data ⁨<b>Inner text</b>⁩ test</span>')
+    expect(mounted.html()).toEqual('<span>Inner data \u{2068}<b>Inner text</b>\u{2069} test</span>')
   })
 
   it('interpolates components and provide camelized translation attributes', () => {
@@ -156,7 +156,7 @@ describe('component', () => {
 
     // Assert
     expect(mounted.html()).toEqual(
-      '<span>Inner data ⁨<b>Inner text, Attribute: ⁨Extra⁩</b>⁩ test</span>',
+      '<span>Inner data \u{2068}<b>Inner text, Attribute: \u{2068}Extra\u{2069}</b>\u{2069} test</span>',
     )
   })
 
@@ -220,7 +220,7 @@ describe('component', () => {
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual('<span>Hello ⁨John⁩ ⁨<b>Inner text</b>⁩ test</span>')
+    expect(mounted.html()).toEqual('<span>Hello \u{2068}John\u{2069} \u{2068}<b>Inner text</b>\u{2069} test</span>')
   })
 
   it('updates on parameter change', async() => {
@@ -246,12 +246,12 @@ describe('component', () => {
     }
 
     const mounted = mountWithFluent(fluent, component)
-    expect(mounted.html()).toEqual('<span>Hello ⁨John⁩ ⁨<b>Inner text</b>⁩ test</span>')
+    expect(mounted.html()).toEqual('<span>Hello \u{2068}John\u{2069} \u{2068}<b>Inner text</b>\u{2069} test</span>')
 
     // Act
     await mounted.setData({ name: 'Alice' })
 
     // Assert
-    expect(mounted.html()).toEqual('<span>Hello ⁨Alice⁩ ⁨<b>Inner text</b>⁩ test</span>')
+    expect(mounted.html()).toEqual('<span>Hello \u{2068}Alice\u{2069} \u{2068}<b>Inner text</b>\u{2069} test</span>')
   })
 })

@@ -40,7 +40,7 @@ describe('vue integration', () => {
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual('<div>Hello, ⁨John⁩!</div>')
+    expect(mounted.html()).toEqual('<div>Hello, \u{2068}John\u{2069}!</div>')
   })
 
   it('translates messages in sub-component', () => {
@@ -66,7 +66,7 @@ describe('vue integration', () => {
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual('<div>Hello, ⁨John⁩!<div>Hi, ⁨Alice⁩</div>\n</div>')
+    expect(mounted.html()).toEqual('<div>Hello, \u{2068}John\u{2069}!<div>Hi, \u{2068}Alice\u{2069}</div>\n</div>')
   })
 
   it('allows to override messages in sub-component', () => {
@@ -98,7 +98,7 @@ describe('vue integration', () => {
 
     // Assert
     expect(mounted.html()).toEqual(
-      '<div>Hello, ⁨John⁩!<div>Hello from child component, ⁨Alice⁩</div>\n</div>',
+      '<div>Hello, \u{2068}John\u{2069}!<div>Hello from child component, \u{2068}Alice\u{2069}</div>\n</div>',
     )
   })
 })

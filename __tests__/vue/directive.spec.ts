@@ -107,7 +107,7 @@ describe('directive', () => {
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual('<a href="/foo">Hello ⁨John⁩</a>')
+    expect(mounted.html()).toEqual('<a href="/foo">Hello \u{2068}John\u{2069}</a>')
   })
 
   it('can translate DOM attributes', () => {
@@ -130,7 +130,7 @@ describe('directive', () => {
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual('<a href="/foo" aria-label="Localized aria">Hello ⁨John⁩</a>')
+    expect(mounted.html()).toEqual('<a href="/foo" aria-label="Localized aria">Hello \u{2068}John\u{2069}</a>')
   })
 
   it('automatically binds whitelisted attrs', () => {
@@ -154,7 +154,7 @@ describe('directive', () => {
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual('<a aria-label="Hello ⁨John⁩">Text</a>')
+    expect(mounted.html()).toEqual('<a aria-label="Hello \u{2068}John\u{2069}">Text</a>')
   })
 
   it('works without fallbacks', () => {
@@ -177,7 +177,7 @@ describe('directive', () => {
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toEqual('<a aria-label="Localized aria">Hello ⁨John⁩</a>')
+    expect(mounted.html()).toEqual('<a aria-label="Localized aria">Hello \u{2068}John\u{2069}</a>')
   })
 
   it('updates translations on component update', async() => {
@@ -198,13 +198,13 @@ describe('directive', () => {
 
     const mounted = mountWithFluent(fluent, component)
 
-    expect(mounted.html()).toEqual('<a aria-label="Localized aria">Hello ⁨John⁩</a>')
+    expect(mounted.html()).toEqual('<a aria-label="Localized aria">Hello \u{2068}John\u{2069}</a>')
 
     // Act
     await mounted.setData({ name: 'Anna' })
 
     // Assert
-    expect(mounted.html()).toEqual('<a aria-label="Localized aria">Hello ⁨Anna⁩</a>')
+    expect(mounted.html()).toEqual('<a aria-label="Localized aria">Hello \u{2068}Anna\u{2069}</a>')
   })
 
   it('preserves translations on component update', async() => {
@@ -226,13 +226,13 @@ describe('directive', () => {
 
     const mounted = mountWithFluent(fluent, component)
 
-    expect(mounted.html()).toEqual('<a aria-label="Hello ⁨John⁩">Anna</a>')
+    expect(mounted.html()).toEqual('<a aria-label="Hello \u{2068}John\u{2069}">Anna</a>')
 
     // Act
     await mounted.setData({ otherName: 'Test' })
 
     // Assert
-    expect(mounted.html()).toEqual('<a aria-label="Hello ⁨John⁩">Test</a>')
+    expect(mounted.html()).toEqual('<a aria-label="Hello \u{2068}John\u{2069}">Test</a>')
   })
 
   it('works with multiple attributes', () => {
@@ -257,7 +257,7 @@ describe('directive', () => {
 
     // Assert
     expect(mounted.html()).toEqual(
-      '<a aria-label="Hello ⁨John⁩" placeholder="Placeholder">Text</a>',
+      '<a aria-label="Hello \u{2068}John\u{2069}" placeholder="Placeholder">Text</a>',
     )
   })
 })
