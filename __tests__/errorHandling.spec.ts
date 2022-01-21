@@ -23,7 +23,7 @@ describe('vue integration', () => {
   it('warns about missing translation', () => {
     // Arrange
     const component = {
-      template: '<div>{{ $t(\'message-not-found\') }}</div>',
+      template: '<div>{{ $t("message-not-found") }}</div>',
     }
 
     // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -50,7 +50,7 @@ describe('vue integration', () => {
     )
 
     const component = {
-      template: '<div>{{ $t(\'message\') }}</div>',
+      template: '<div>{{ $t("message") }}</div>',
     }
 
     // eslint-disable-next-line @typescript-eslint/no-empty-function

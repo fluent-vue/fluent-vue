@@ -163,7 +163,7 @@ describe('language change', () => {
     )
 
     const child = {
-      template: '<span>{{ $t(\'child\') }}</span>',
+      template: '<span>{{ $t("child") }}</span>',
       fluent: {
         'uk-UA': new FluentResource(ftl`
         child = Повідомлення
@@ -177,7 +177,7 @@ describe('language change', () => {
       components: {
         child,
       },
-      template: '<div><span>{{ $t(\'link\') }}</span><child /></div>',
+      template: '<div><span>{{ $t("link") }}</span><child /></div>',
     }
 
     // Act

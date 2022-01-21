@@ -33,7 +33,7 @@ describe('vue integration', () => {
       data: () => ({
         name: 'John',
       }),
-      template: '<div>{{ $t(\'message\', { name }) }}</div>',
+      template: '<div>{{ $t("message", { name }) }}</div>',
     }
 
     // Act
@@ -49,7 +49,7 @@ describe('vue integration', () => {
       data: () => ({
         name: 'Alice',
       }),
-      template: '<div>{{ $t(\'sub-message\', { name }) }}</div>',
+      template: '<div>{{ $t("sub-message", { name }) }}</div>',
     }
 
     const component = {
@@ -59,7 +59,7 @@ describe('vue integration', () => {
       data: () => ({
         name: 'John',
       }),
-      template: '<div>{{ $t(\'message\', { name }) }}<child /></div>',
+      template: '<div>{{ $t("message", { name }) }}<child /></div>',
     }
 
     // Act
@@ -80,7 +80,7 @@ describe('vue integration', () => {
         sub-message = Hello from child component, { $name }
         `),
       },
-      template: '<div>{{ $t(\'sub-message\', { name }) }}</div>',
+      template: '<div>{{ $t("sub-message", { name }) }}</div>',
     }
 
     const component = {
@@ -90,7 +90,7 @@ describe('vue integration', () => {
       data: () => ({
         name: 'John',
       }),
-      template: '<div>{{ $t(\'message\', { name }) }}<child /></div>',
+      template: '<div>{{ $t("message", { name }) }}<child /></div>',
     }
 
     // Act
