@@ -25,7 +25,7 @@ specifiers:
   vite: ^2.8.1
   vitest: ^0.3.4
   vue: npm:vue@^3.2.31
-  vue-2: npm:vue@^2.6.14
+  vue-2: npm:vue@^3.2.31
   vue-3: npm:vue@^3.2.31
   vue-demi: latest
 
@@ -57,7 +57,7 @@ devDependencies:
   vite: 2.8.1
   vitest: 0.3.4_c8@7.11.0+happy-dom@2.31.1
   vue: 3.2.31
-  vue-2: /vue/2.6.14
+  vue-2: /vue/3.2.31
   vue-3: /vue/3.2.31
 
 packages:
@@ -5286,10 +5286,6 @@ packages:
       semver: 7.3.5
     transitivePeerDependencies:
       - supports-color
-    dev: true
-
-  /vue/2.6.14:
-    resolution: {integrity: sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ==}
     dev: true
 
   /vue/3.2.31:
