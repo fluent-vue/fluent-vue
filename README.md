@@ -61,7 +61,6 @@ shared-photos =
     *[other] their stream
   }.
 </fluent>
-
 ```
 
 ## 📖 Documentation
