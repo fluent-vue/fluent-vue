@@ -19,7 +19,7 @@ jobs:
       - uses: pnpm/action-setup@v2.2.1
         with:
           version: 6.x.x
-        
+
       - uses: antfu/export-size-action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

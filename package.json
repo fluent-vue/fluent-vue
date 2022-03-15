@@ -19,17 +19,17 @@
     "Project Fluent"
   ],
   "license": "MIT",
+  "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/demivan/fluent-vue.git"
   },
-  "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
   "homepage": "https://fluent-vue.demivan.me",
-  "files": [
-    "index.d.ts",
-    "dist",
-    "README.md"
-  ],
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "index.d.ts",
+  "unpkg": "dist/prod/index.global.js",
+  "jsdelivr": "dist/prod/index.global.js",
   "exports": {
     "script": {
       "development": "./dist/index.global.js",
@@ -42,9 +42,12 @@
     "require": "./dist/index.js",
     "import": "./dist/index.mjs"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "unpkg": "dist/prod/index.global.js",
+  "files": [
+    "index.d.ts",
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
   "scripts": {
     "build": "tsup",
     "lint": "eslint .",
@@ -57,30 +60,6 @@
     "prepare": "husky install"
   },
   "browser": "dist/prod/index.global.js",
-  "jsdelivr": "dist/prod/index.global.js",
-  "types": "index.d.ts",
-  "sideEffects": false,
-  "lint-staged": {
-    "*.js": "eslint --fix",
-    "*.ts?(x)": "eslint --fix"
-  },
-  "engines": {
-    "node": ">=12.0.0"
-  },
-  "changelog": {
-    "labels": {
-      "Type: Feature": ":star: New Features",
-      "Type: Bug": ":bug: Bug Fixes",
-      "Type: Security": ":lock: Security Fixes",
-      "Type: Performance": ":chart_with_upwards_trend: Performance Fixes",
-      "Type: Improvement": ":zap: Improved Features",
-      "Type: Breaking": ":boom: Breaking Change",
-      "Type: Deprecated": ":warning: Deprecated Features",
-      "Type: I18n": ":globe_with_meridians: Internationalization",
-      "Type: A11y": ":wheelchair: Accessibility",
-      "Type: Documentation": ":pencil: Documentation"
-    }
-  },
   "peerDependencies": {
     "@fluent/bundle": ">=0.17.0",
     "@vue/composition-api": ">=1.0.0-rc.1",
@@ -121,5 +100,26 @@
     "vue": "npm:vue@^3.2.31",
     "vue-2": "npm:vue@^2.6.14",
     "vue-3": "npm:vue@^3.2.31"
+  },
+  "lint-staged": {
+    "*.js": "eslint --fix",
+    "*.ts?(x)": "eslint --fix"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "changelog": {
+    "labels": {
+      "Type: Feature": ":star: New Features",
+      "Type: Bug": ":bug: Bug Fixes",
+      "Type: Security": ":lock: Security Fixes",
+      "Type: Performance": ":chart_with_upwards_trend: Performance Fixes",
+      "Type: Improvement": ":zap: Improved Features",
+      "Type: Breaking": ":boom: Breaking Change",
+      "Type: Deprecated": ":warning: Deprecated Features",
+      "Type: I18n": ":globe_with_meridians: Internationalization",
+      "Type: A11y": ":wheelchair: Accessibility",
+      "Type: Documentation": ":pencil: Documentation"
+    }
   }
 }
