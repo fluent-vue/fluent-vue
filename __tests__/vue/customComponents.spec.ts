@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, spyOn } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
@@ -100,8 +100,7 @@ describe('method', () => {
       `),
     )
 
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    const warn = spyOn(console, 'warn').mockImplementation(() => {})
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
 
     const component = {
       template: '<div v-bind="$ta(\'missing-key\')"></div>',

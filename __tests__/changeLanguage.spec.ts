@@ -66,7 +66,7 @@ describe('language change', () => {
     expect(mounted.html()).toEqual('<a href="/foo">link text</a>')
   })
 
-  it('updates when changing current locale', async() => {
+  it('updates when changing current locale', async () => {
     // Arrange
     bundleEn = new FluentBundle('en-US')
     bundleUk = new FluentBundle('uk-UA')
@@ -104,7 +104,7 @@ describe('language change', () => {
     expect(mounted.html()).toEqual('<a href="/foo">link text</a>')
   })
 
-  it('works when dynamically adding bundles', async() => {
+  it('works when dynamically adding bundles', async () => {
     // Arrange
     bundleEn = new FluentBundle('en-US')
 
@@ -141,7 +141,7 @@ describe('language change', () => {
     expect(mounted.html()).toEqual('<a href="/foo">текст посилання</a>')
   })
 
-  it('updates child components with overrides', async() => {
+  it('updates child components with overrides', async () => {
     // Arrange
     bundleEn = new FluentBundle('en-US')
     bundleUk = new FluentBundle('uk-UA')

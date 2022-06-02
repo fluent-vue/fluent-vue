@@ -1,4 +1,3 @@
-
 import { computed } from 'vue-demi'
 import { CachedSyncIterable } from 'cached-iterable'
 import type { VueComponent } from './types/typesCompat'

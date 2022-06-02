@@ -2,6 +2,13 @@
   "name": "fluent-vue",
   "version": "3.0.1",
   "description": "Internationalization plugin for Vue.js. Project Fluent bindings for Vue.js",
+  "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://fluent-vue.demivan.me",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/demivan/fluent-vue.git"
+  },
   "keywords": [
     "localization",
     "internationalization",
@@ -18,18 +25,7 @@
     "ProjectFluent",
     "Project Fluent"
   ],
-  "license": "MIT",
-  "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/demivan/fluent-vue.git"
-  },
-  "homepage": "https://fluent-vue.demivan.me",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "index.d.ts",
-  "unpkg": "dist/prod/index.global.js",
-  "jsdelivr": "dist/prod/index.global.js",
+  "sideEffects": false,
   "exports": {
     "script": {
       "development": "./dist/index.global.js",
@@ -42,12 +38,19 @@
     "require": "./dist/index.js",
     "import": "./dist/index.mjs"
   },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "unpkg": "dist/prod/index.global.js",
+  "jsdelivr": "dist/prod/index.global.js",
+  "types": "index.d.ts",
   "files": [
     "index.d.ts",
     "dist",
     "README.md"
   ],
-  "sideEffects": false,
+  "engines": {
+    "node": ">=12.0.0"
+  },
   "scripts": {
     "build": "tsup",
     "lint": "eslint .",
@@ -77,36 +80,33 @@
     "vue-demi": "latest"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.18.9",
+    "@antfu/eslint-config": "^0.25.0",
     "@fluent/bundle": "~0.17.1",
     "@fluent/dedent": "~0.4.0",
-    "@ls-lint/ls-lint": "^1.11.0",
+    "@ls-lint/ls-lint": "^1.11.2",
     "@types/node": "^17.0.10",
-    "@vue/compiler-sfc": "^3.2.31",
-    "@vue/test-utils": "^2.0.0-rc.18",
-    "c8": "^7.11.0",
+    "@vue/compiler-sfc": "^3.2.36",
+    "@vue/test-utils": "^2.0.0",
+    "c8": "^7.11.3",
     "esbuild-plugin-globals": "^0.1.1",
-    "eslint": "^8.12.0",
+    "eslint": "^8.16.0",
     "execa": "^6.1.0",
     "happy-dom": "^5.0.0",
     "husky": "^8.0.1",
-    "lint-staged": "^12.3.7",
+    "lint-staged": "^12.5.0",
     "release-it": "*",
     "release-it-lerna-changelog": "^4.0.1",
     "tsup": "^6.0.1",
-    "typescript": "^4.6.3",
-    "vite": "^2.8.6",
-    "vitest": "^0.7.11",
-    "vue": "npm:vue@^3.2.31",
+    "typescript": "^4.7.2",
+    "vite": "^2.9.9",
+    "vitest": "^0.13.1",
+    "vue": "npm:vue@^3.2.36",
     "vue-2": "npm:vue@^2.6.14",
-    "vue-3": "npm:vue@^3.2.31"
+    "vue-3": "npm:vue@^3.2.36"
   },
   "lint-staged": {
     "*.js": "eslint --fix",
     "*.ts?(x)": "eslint --fix"
-  },
-  "engines": {
-    "node": ">=12.0.0"
   },
   "changelog": {
     "labels": {

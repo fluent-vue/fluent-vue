@@ -37,7 +37,7 @@ describe('message override', () => {
     })
   })
 
-  it('can override one locale from a bundle with multiple locales', async() => {
+  it('can override one locale from a bundle with multiple locales', async () => {
     // Arrange
     const component = {
       template: `
@@ -64,7 +64,7 @@ describe('message override', () => {
     expect(mounted.html()).toEqual('<div><a href="/foo">link text</a><a href="/other-foo">other link text</a></div>')
   })
 
-  it('can override both locales from a bundle with multiple locales', async() => {
+  it('can override both locales from a bundle with multiple locales', async () => {
     // Arrange
     const component = {
       template: `
@@ -91,7 +91,7 @@ describe('message override', () => {
     expect(mounted.html()).toEqual('<div><a href="/foo">link text</a><a href="/other-foo">other link text</a></div>')
   })
 
-  it('can override messages from different bundles', async() => {
+  it('can override messages from different bundles', async () => {
     // Arrange
     const component = {
       template: `
@@ -126,7 +126,7 @@ describe('message override', () => {
     expect(mounted.html()).toEqual('<div><a href="/foo">Generic link text</a><a href="/other-foo">other link text</a></div>')
   })
 
-  it('can override messages from different bundles', async() => {
+  it('can override messages from different bundles', async () => {
     // Arrange
     const bundleUa = new FluentBundle(['uk-UA'])
     bundleUa.addResource(
