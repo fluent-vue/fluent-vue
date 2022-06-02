@@ -93,7 +93,7 @@
     "execa": "^6.1.0",
     "happy-dom": "^5.0.0",
     "husky": "^8.0.1",
-    "lint-staged": "^12.5.0",
+    "lint-staged": "^13.0.0",
     "release-it": "*",
     "release-it-lerna-changelog": "^4.0.1",
     "tsup": "^6.0.1",
