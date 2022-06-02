@@ -57,13 +57,13 @@ export function createFluentVue(options: FluentVueOptions): FluentVue {
 
         vue3.provide(RootContextSymbol, rootContext)
 
-        vue3.config.globalProperties.$t = function(
+        vue3.config.globalProperties.$t = function (
           key: string,
           value?: Record<string, FluentVariable>,
         ) {
           return getContext(rootContext, this as Vue3Component).format(key, value)
         }
-        vue3.config.globalProperties.$ta = function(
+        vue3.config.globalProperties.$ta = function (
           key: string,
           value?: Record<string, FluentVariable>,
         ) {
@@ -81,10 +81,10 @@ export function createFluentVue(options: FluentVueOptions): FluentVue {
           },
         })
 
-        vue2.prototype.$t = function(key: string, value?: Record<string, FluentVariable>) {
+        vue2.prototype.$t = function (key: string, value?: Record<string, FluentVariable>) {
           return getContext(rootContext, this).format(key, value)
         }
-        vue2.prototype.$ta = function(key: string, value?: Record<string, FluentVariable>) {
+        vue2.prototype.$ta = function (key: string, value?: Record<string, FluentVariable>) {
           return getContext(rootContext, this).formatAttrs(key, value)
         }
 

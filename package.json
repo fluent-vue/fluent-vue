@@ -2,6 +2,13 @@
   "name": "fluent-vue",
   "version": "3.0.1",
   "description": "Internationalization plugin for Vue.js. Project Fluent bindings for Vue.js",
+  "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://fluent-vue.demivan.me",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/demivan/fluent-vue.git"
+  },
   "keywords": [
     "localization",
     "internationalization",
@@ -18,18 +25,7 @@
     "ProjectFluent",
     "Project Fluent"
   ],
-  "license": "MIT",
-  "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/demivan/fluent-vue.git"
-  },
-  "homepage": "https://fluent-vue.demivan.me",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "index.d.ts",
-  "unpkg": "dist/prod/index.global.js",
-  "jsdelivr": "dist/prod/index.global.js",
+  "sideEffects": false,
   "exports": {
     "script": {
       "development": "./dist/index.global.js",
@@ -42,12 +38,19 @@
     "require": "./dist/index.js",
     "import": "./dist/index.mjs"
   },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "unpkg": "dist/prod/index.global.js",
+  "jsdelivr": "dist/prod/index.global.js",
+  "types": "index.d.ts",
   "files": [
     "index.d.ts",
     "dist",
     "README.md"
   ],
-  "sideEffects": false,
+  "engines": {
+    "node": ">=12.0.0"
+  },
   "scripts": {
     "build": "tsup",
     "lint": "eslint .",
@@ -104,9 +107,6 @@
   "lint-staged": {
     "*.js": "eslint --fix",
     "*.ts?(x)": "eslint --fix"
-  },
-  "engines": {
-    "node": ">=12.0.0"
   },
   "changelog": {
     "labels": {
