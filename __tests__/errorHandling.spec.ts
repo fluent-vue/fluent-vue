@@ -1,4 +1,4 @@
-import { describe, expect, it, spyOn } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
@@ -26,8 +26,7 @@ describe('vue integration', () => {
       template: '<div>{{ $t("message-not-found") }}</div>',
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    const warn = spyOn(console, 'warn').mockImplementation(() => {})
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
 
     // Act
     const mounted = mountWithFluent(fluent, component)
@@ -53,8 +52,7 @@ describe('vue integration', () => {
       template: '<div>{{ $t("message") }}</div>',
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    const warn = spyOn(console, 'warn').mockImplementation(() => {})
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
 
     // Act
     const mounted = mountWithFluent(fluent, component)

@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, spyOn } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
@@ -48,8 +48,7 @@ describe('directive', () => {
       template: '<a v-t href="/foo">Fallback text</a>',
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    const warn = spyOn(console, 'warn').mockImplementation(() => {})
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
 
     // Act
     const mounted = mountWithFluent(fluent, component)
@@ -71,8 +70,7 @@ describe('directive', () => {
       template: '<a v-t:missing-key href="/foo">Fallback text</a>',
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    const warn = spyOn(console, 'warn').mockImplementation(() => {})
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
 
     // Act
     const mounted = mountWithFluent(fluent, component)
@@ -180,7 +178,7 @@ describe('directive', () => {
     expect(mounted.html()).toEqual('<a aria-label="Localized aria">Hello \u{2068}John\u{2069}</a>')
   })
 
-  it('updates translations on component update', async() => {
+  it('updates translations on component update', async () => {
     // Arrange
     bundle.addResource(
       new FluentResource(ftl`
@@ -207,7 +205,7 @@ describe('directive', () => {
     expect(mounted.html()).toEqual('<a aria-label="Localized aria">Hello \u{2068}Anna\u{2069}</a>')
   })
 
-  it('preserves translations on component update', async() => {
+  it('preserves translations on component update', async () => {
     // Arrange
     bundle.addResource(
       new FluentResource(ftl`

@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, spyOn } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
@@ -168,8 +168,7 @@ describe('component', () => {
       `),
     )
 
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    const warn = spyOn(console, 'warn').mockImplementation(() => {})
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
 
     const component = {
       template: `
@@ -223,7 +222,7 @@ describe('component', () => {
     expect(mounted.html()).toEqual('<span>Hello \u{2068}John\u{2069} \u{2068}<b>Inner text</b>\u{2069} test</span>')
   })
 
-  it('updates on parameter change', async() => {
+  it('updates on parameter change', async () => {
     // Arrange
     bundle.addResource(
       new FluentResource(ftl`
