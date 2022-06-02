@@ -93,7 +93,7 @@
     "lint-staged": "^12.3.7",
     "release-it": "*",
     "release-it-lerna-changelog": "^4.0.1",
-    "tsup": "^5.12.1",
+    "tsup": "^6.0.1",
     "typescript": "^4.6.3",
     "vite": "^2.8.6",
     "vitest": "^0.7.11",
