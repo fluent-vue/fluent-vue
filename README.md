@@ -1,7 +1,7 @@
 [![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct-single.svg)](https://vshymanskyy.github.io/StandWithUkraine)
 
 <h1 align="center">
-  <img src="https://raw.githubusercontent.com/fluent-vue/docs/HEAD/src/assets/logo.svg" alt="fluent-vue logo" />
+  <img src="https://raw.githubusercontent.com/fluent-vue/docs/HEAD/src/public/assets/logo.svg" alt="fluent-vue logo" />
 </h1>
 
 <p align="center">
