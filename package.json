@@ -7,7 +7,7 @@
   "homepage": "https://fluent-vue.demivan.me",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/demivan/fluent-vue.git"
+    "url": "git+https://github.com/fluent-vue/fluent-vue.git"
   },
   "keywords": [
     "localization",
