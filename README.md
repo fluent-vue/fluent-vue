@@ -77,7 +77,7 @@ Changes for each release are documented in the [CHANGELOG.md](https://github.com
 
 | Project | NPM | Repo |
 | ------- | --- | ---- |
-| fluent-vue | [![fluent-vue](https://img.shields.io/npm/v/fluent-vue.svg)](https://www.npmjs.com/package/fluent-vue) | [demivan/fluent-vue](https://github.com/Demivan/fluent-vue)
+| fluent-vue | [![fluent-vue](https://img.shields.io/npm/v/fluent-vue.svg)](https://www.npmjs.com/package/fluent-vue) | [fluent-vue/fluent-vue](https://github.com/fluent-vue/fluent-vue)
 | Webpack loader | [![fluent-vue-loader](https://img.shields.io/npm/v/fluent-vue-loader.svg)](https://www.npmjs.com/package/fluent-vue-loader) | [fluent-vue/fluent-vue-loader](https://github.com/fluent-vue/fluent-vue-loader)
 | Rollup/Vite plugin | [![frollup-plugin-fluent-vue](https://img.shields.io/npm/v/rollup-plugin-fluent-vue.svg)](https://www.npmjs.com/package/rollup-plugin-fluent-vue) | [fluent-vue/rollup-plugin-fluent-vue](https://github.com/fluent-vue/rollup-plugin-fluent-vue)
 
