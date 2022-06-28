@@ -76,9 +76,11 @@ export function createFluentVue(options: FluentVueOptions): FluentVue {
         const vue2 = vue as Vue2
 
         vue2.mixin({
-          setup() {
-            provide(RootContextSymbol, rootContext)
-          },
+          provide () {
+            return {
+              [RootContextSymbol as symbol]: rootContext
+            }
+          }
         })
 
         vue2.prototype.$t = function (key: string, value?: Record<string, FluentVariable>) {
