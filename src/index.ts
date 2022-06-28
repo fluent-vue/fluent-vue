@@ -1,6 +1,6 @@
 import type { FluentBundle, FluentVariable } from '@fluent/bundle'
 
-import { isVue3, provide, shallowRef } from 'vue-demi'
+import { isVue3, shallowRef } from 'vue-demi'
 import type { InstallFunction, Vue, Vue2, Vue3, Vue3Component } from './types/typesCompat'
 import type { TranslationWithAttrs } from './TranslationContext'
 import { TranslationContext } from './TranslationContext'
@@ -76,8 +76,10 @@ export function createFluentVue(options: FluentVueOptions): FluentVue {
         const vue2 = vue as Vue2
 
         vue2.mixin({
-          setup() {
-            provide(RootContextSymbol, rootContext)
+          provide() {
+            return {
+              [RootContextSymbol as symbol]: rootContext,
+            }
           },
         })
 
