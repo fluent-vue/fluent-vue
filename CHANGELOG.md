@@ -1,4 +1,18 @@
 
+
+## 3.0.2 (2022-06-28)
+
+#### :bug: Bug Fixes
+* [#776](https://github.com/fluent-vue/fluent-vue/pull/776) Fix Vue 2 context injection ([@nachodd](https://github.com/nachodd))
+
+#### :pencil: Documentation
+* [#753](https://github.com/fluent-vue/fluent-vue/pull/753) Fix typo ([@samuelstroschein](https://github.com/samuelstroschein))
+
+#### Committers: 3
+- Ignacio Durand ([@nachodd](https://github.com/nachodd))
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+- Samuel Stroschein ([@samuelstroschein](https://github.com/samuelstroschein))
+
 ## 3.0.1 (2022-01-10)
 
 #### :bug: Bug Fixes
