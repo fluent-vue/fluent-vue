@@ -1,5 +1,14 @@
 
 
+
+## 3.0.3 (2022-06-29)
+
+#### :bug: Bug Fixes
+* [#778](https://github.com/fluent-vue/fluent-vue/pull/778) Remove preinstall script ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
 ## 3.0.2 (2022-06-28)
 
 #### :bug: Bug Fixes
