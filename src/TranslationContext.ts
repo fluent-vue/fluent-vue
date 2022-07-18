@@ -14,7 +14,7 @@ export interface TranslationWithAttrs {
 export class TranslationContext {
   bundles: Ref<Iterable<FluentBundle>>
 
-  constructor(bundles: Ref<Iterable<FluentBundle>>) {
+  constructor(bundles: Ref<Iterable<FluentBundle>>, public warnMissing: (key: string) => void) {
     this.bundles = bundles
   }
 
@@ -26,7 +26,7 @@ export class TranslationContext {
     const message = bundle?.getMessage(key)
 
     if (message === undefined) {
-      warn(`Could not find translation for key [${key}]`)
+      this.warnMissing(key)
       return null
     }
 

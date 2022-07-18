@@ -4,6 +4,7 @@ import type { VueComponent } from './types/typesCompat'
 
 import { TranslationContext } from './TranslationContext'
 import { inheritBundle } from './inheritBundle'
+import type { FluentVue } from './index'
 
 function * flatMap<T, TR>(iterable: Iterable<T>, mapper: (element: T) => TR[]): IterableIterator<TR> {
   for (const item of iterable)
@@ -19,7 +20,7 @@ export function getContext(
 
   const options = instance.$options
 
-  const fluent = options.fluent
+  const fluent: FluentVue = options.fluent
   if (fluent == null)
     return rootContext
 
@@ -48,7 +49,7 @@ export function getContext(
     ),
   )
 
-  const context = new TranslationContext(overriddenBundles)
+  const context = new TranslationContext(overriddenBundles, rootContext.warnMissing)
 
   options._fluent = context
 

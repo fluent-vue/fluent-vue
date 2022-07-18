@@ -7,3 +7,7 @@ export function warn(message: string, ...args: unknown[]): void {
   if (process.env.NODE_ENV !== 'production')
     console.warn(`[fluent-vue] ${message}`, ...args)
 }
+
+export function warnMissingDefault(key: string) {
+  warn(`Missing translation for key: [${key}]`)
+}
