@@ -43,7 +43,7 @@ export class TranslationContext {
     const formatted = bundle.formatPattern(message, value, errors)
 
     for (const error of errors)
-      warn(`Error when formatting message with key: [${key}]`, error)
+      warn(`Error when formatting message with key [${key}]`, error)
 
     return formatted
   }

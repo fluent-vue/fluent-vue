@@ -44,12 +44,12 @@ describe('vue integration', () => {
     // Arrange
     bundle.addResource(
       new FluentResource(ftl`
-      message = { NUMBER($arg) }
+      message-with-error = { NUMBER($arg) }
       `),
     )
 
     const component = {
-      template: '<div>{{ $t("message") }}</div>',
+      template: '<div>{{ $t("message-with-error") }}</div>',
     }
 
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
@@ -60,7 +60,7 @@ describe('vue integration', () => {
     // Assert
     expect(mounted.html()).toEqual('<div>{NUMBER($arg)}</div>')
     expect(warn).toHaveBeenCalledTimes(1)
-    expect(warn).toHaveBeenCalledWith('[fluent-vue] Error when formatting', new Error('Unknown variable: $arg'))
+    expect(warn).toHaveBeenCalledWith('[fluent-vue] Error when formatting message with key [message-with-error]', new Error('Unknown variable: $arg'))
 
     // Cleanup
     warn.mockRestore()

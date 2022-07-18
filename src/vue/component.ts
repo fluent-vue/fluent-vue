@@ -27,7 +27,7 @@ export default defineComponent({
   },
   setup(props, { slots, attrs }) {
     const rootContext = inject(RootContextSymbol)
-    assert(rootContext != null, 'i18n component used without instaling plugin')
+    assert(rootContext != null, 'i18n component used without installing plugin')
     const instance = getCurrentInstance()
     const parent = getParentWithFluent(instance?.proxy)
     const fluent = getContext(rootContext, parent)

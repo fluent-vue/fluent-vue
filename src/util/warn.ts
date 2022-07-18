@@ -9,5 +9,5 @@ export function warn(message: string, ...args: unknown[]): void {
 }
 
 export function warnMissingDefault(key: string) {
-  warn(`Missing translation for key: [${key}]`)
+  warn(`Could not find translation for key [${key}]`)
 }
