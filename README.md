@@ -9,11 +9,11 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Demivan/fluent-vue/actions">
-    <img src="https://img.shields.io/github/workflow/status/demivan/fluent-vue/Test" alt="GitHub Workflow Status">
+  <a href="https://github.com/fluent-vue/fluent-vue/actions">
+    <img src="https://img.shields.io/github/workflow/status/fluent-vue/fluent-vue/Test" alt="GitHub Workflow Status">
   </a>
-  <a href="https://codecov.io/gh/Demivan/fluent-vue">
-    <img src="https://codecov.io/gh/Demivan/fluent-vue/branch/main/graph/badge.svg?token=0JSSE94EGJ" alt="codecov">
+  <a href="https://codecov.io/gh/fluent-vue/fluent-vue">
+    <img src="https://codecov.io/gh/fluent-vue/fluent-vue/branch/main/graph/badge.svg?token=0JSSE94EGJ" alt="codecov">
   </a>
   <a href="https://bundlephobia.com/result?p=fluent-vue">
     <img src="https://img.shields.io/bundlephobia/min/fluent-vue" alt="npm bundle size">
@@ -21,8 +21,8 @@
   <a href="https://standardjs.com">
     <img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="Standard - JavaScript Style Guide">
   </a>
-  <a href="https://github.com/Demivan/fluent-vue/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/demivan/fluent-vue" alt="GitHub license">
+  <a href="https://github.com/fluent-vue/fluent-vue/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/fluent-vue/fluent-vue" alt="GitHub license">
   </a>
 </p>
 
@@ -83,4 +83,4 @@ Changes for each release are documented in the [CHANGELOG.md](https://github.com
 
 ## 📄 License
 
-[MIT License](https://github.com/demivan/fluent-vue/blob/main/LICENSE) © 2020-present [Ivan Demchuk](https://github.com/demivan)
+[MIT License](https://github.com/fluent-vue/fluent-vue/blob/main/LICENSE) © 2020-present [Ivan Demchuk](https://github.com/demivan)
