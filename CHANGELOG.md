@@ -1,6 +1,15 @@
 
 
 
+
+## 3.1.0 (2022-07-18)
+
+#### :star: New Features
+* [#780](https://github.com/fluent-vue/fluent-vue/pull/780) Allow to change function for warning about missing translations ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
 ## 3.0.3 (2022-06-29)
 
 #### :bug: Bug Fixes
