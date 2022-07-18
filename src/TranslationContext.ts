@@ -35,6 +35,7 @@ export class TranslationContext {
 
   formatPattern(
     bundle: FluentBundle,
+    key: string,
     message: Pattern,
     value?: Record<string, FluentVariable>,
   ): string {
@@ -42,7 +43,7 @@ export class TranslationContext {
     const formatted = bundle.formatPattern(message, value, errors)
 
     for (const error of errors)
-      warn('Error when formatting', error)
+      warn(`Error when formatting message with key: [${key}]`, error)
 
     return formatted
   }
@@ -55,7 +56,7 @@ export class TranslationContext {
     if (context === null || message === null || message.value === null)
       return null
 
-    return this.formatPattern(context, message.value, value)
+    return this.formatPattern(context, message.id, message.value, value)
   }
 
   format = (key: string, value?: Record<string, FluentVariable>): string => {
@@ -74,7 +75,7 @@ export class TranslationContext {
 
     const result: Record<string, string> = {}
     for (const [attrName, attrValue] of Object.entries(message.attributes))
-      result[attrName] = this.formatPattern(context, attrValue, value)
+      result[attrName] = this.formatPattern(context, message.id, attrValue, value)
 
     return result
   }
