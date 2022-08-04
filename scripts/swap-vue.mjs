@@ -8,8 +8,8 @@ const vue3packages = {
 }
 
 const vue2packages = {
-  'vue': 'npm:vue@^2.7.7',
-  'vue-template-compiler': '^2.7.7',
+  'vue': 'npm:vue@^2.7.8',
+  'vue-template-compiler': '^2.7.8',
   '@vue/test-utils': '^1.3.0',
   '@vue/composition-api': '^1.7.0'
 }
