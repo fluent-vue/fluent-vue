@@ -15,8 +15,8 @@
   <a href="https://codecov.io/gh/fluent-vue/fluent-vue">
     <img src="https://codecov.io/gh/fluent-vue/fluent-vue/branch/main/graph/badge.svg?token=0JSSE94EGJ" alt="codecov">
   </a>
-  <a href="https://bundlephobia.com/result?p=fluent-vue">
-    <img src="https://img.shields.io/bundlephobia/min/fluent-vue" alt="npm bundle size">
+  <a href="https://bundlejs.com?q=fluent-vue&config={%22esbuild%22:{%22format%22:%22esm%22,%22minify%22:true,%22treeShaking%22:true,%22external%22:[%22vue%22]}}">
+    <img src="https://bundlejs.com/api/badge?q=fluent-vue&config={%22esbuild%22:{%22format%22:%22esm%22,%22minify%22:true,%22treeShaking%22:true,%22external%22:[%22vue%22]}}" alt="npm bundle size">
   </a>
   <a href="https://standardjs.com">
     <img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="Standard - JavaScript Style Guide">
