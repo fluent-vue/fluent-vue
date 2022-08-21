@@ -19,7 +19,6 @@ specifiers:
   lint-staged: ^13.0.0
   release-it: '*'
   release-it-lerna-changelog: ^4.0.1
-  tslib: ^2.2.0
   tsup: ^6.0.1
   typescript: ^4.7.2
   vite: ^2.9.9
@@ -32,8 +31,7 @@ specifiers:
 dependencies:
   '@fluent/sequence': 0.7.0_@fluent+bundle@0.17.1
   cached-iterable: 0.3.0
-  tslib: 2.3.1
-  vue-demi: 0.13.5_vue@3.2.37
+  vue-demi: 0.13.8_vue@3.2.37
 
 devDependencies:
   '@antfu/eslint-config': 0.25.1_xztl6dhthcahlo6akmb2bmjmle
@@ -5251,6 +5249,7 @@ packages:
 
   /tslib/2.3.1:
     resolution: {integrity: sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==}
+    dev: true
 
   /tsup/6.0.1_typescript@4.7.2:
     resolution: {integrity: sha512-2Pl1YkEEvzfg4aYgwUILaHV0wwZQKO7mNHMQChyzdCNlQqf11eug7gWk86XCb3CvRofCXBX87x73BTGjyS3cOQ==}
@@ -5540,8 +5539,8 @@ packages:
       - supports-color
     dev: true
 
-  /vue-demi/0.13.5_vue@3.2.37:
-    resolution: {integrity: sha512-tO3K2bML3AwiHmVHeKCq6HLef2st4zBXIV5aEkoJl6HZ+gJWxWv2O8wLH8qrA3SX3lDoTDHNghLX1xZg83MXvw==}
+  /vue-demi/0.13.8_vue@3.2.37:
+    resolution: {integrity: sha512-Vy1zbZhCOdsmvGR6tJhAvO5vhP7eiS8xkbYQSoVa7o6KlIy3W8Rc53ED4qI4qpeRDjv3mLfXSEpYU6Yq4pgXRg==}
     engines: {node: '>=12'}
     hasBin: true
     requiresBuild: true
