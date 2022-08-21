@@ -29,7 +29,6 @@ export default defineConfig([{
   env: {
     NODE_ENV: 'production',
   },
-  sourcemap: true,
   minify: true,
   esbuildPlugins: [
     GlobalsPlugin({
