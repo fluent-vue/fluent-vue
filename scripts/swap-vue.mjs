@@ -4,7 +4,7 @@ import { execa } from 'execa'
 const vue3packages = {
   'vue': 'npm:vue@^3.2.37',
   '@vue/compiler-sfc': '^3.2.37',
-  '@vue/test-utils': '^2.0.0'
+  '@vue/test-utils': '^2.0.1'
 }
 
 const vue2packages = {
