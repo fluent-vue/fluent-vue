@@ -9,16 +9,10 @@ declare module 'vue-2/types/options' {
 
     /** @private */
     _fluent?: FluentVue
-
-    /**
-     * Setup function from @vue/composition-api
-     * @private
-     */
-    setup?: () => void
   }
 }
 
-declare module '@vue/runtime-core' {
+declare module 'vue-3' {
   interface ComponentCustomOptions {
     fluent?: Record<string, FluentResource>
   }
