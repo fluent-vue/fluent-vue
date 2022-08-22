@@ -1,13 +1,13 @@
 {
   "name": "fluent-vue",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "Internationalization plugin for Vue.js. Project Fluent bindings for Vue.js",
   "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
   "license": "MIT",
   "homepage": "https://fluent-vue.demivan.me",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/demivan/fluent-vue.git"
+    "url": "git+https://github.com/fluent-vue/fluent-vue.git"
   },
   "keywords": [
     "localization",
@@ -55,11 +55,11 @@
     "build": "tsup",
     "lint": "eslint .",
     "ls-lint": "ls-lint",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
     "test": "node scripts/swap-vue.mjs 3 && vitest run",
     "test:watch": "node scripts/swap-vue.mjs 3 && vitest",
     "test:2": "node scripts/swap-vue.mjs 2 && vitest run",
     "test:3": "node scripts/swap-vue.mjs 3 && vitest run",
-    "preinstall": "npx only-allow pnpm",
     "prepare": "husky install"
   },
   "browser": "dist/prod/index.global.js",

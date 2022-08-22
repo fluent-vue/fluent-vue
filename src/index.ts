@@ -1,6 +1,6 @@
 import type { FluentBundle, FluentVariable } from '@fluent/bundle'
 
-import { isVue3, provide, shallowRef } from 'vue-demi'
+import { isVue3, shallowRef } from 'vue-demi'
 import type { InstallFunction, Vue, Vue2, Vue3, Vue3Component } from './types/typesCompat'
 import type { TranslationWithAttrs } from './TranslationContext'
 import { TranslationContext } from './TranslationContext'
@@ -8,12 +8,16 @@ import { createVue2Directive, createVue3Directive } from './vue/directive'
 import component from './vue/component'
 import { getContext } from './getContext'
 import { RootContextSymbol } from './symbols'
+import { warnMissingDefault } from './util/warn'
 
 export { useFluent } from './composition'
 
 export interface FluentVueOptions {
   /** Current negotiated fallback chain of languages */
   bundles: Iterable<FluentBundle>
+
+  /** Custom function for warning about missing translation */
+  warnMissing?: ((key: string) => void) | boolean
 }
 
 export interface FluentVue {
@@ -29,6 +33,15 @@ export interface FluentVue {
   install: InstallFunction<FluentVueOptions>
 }
 
+function getWarnMissing(options: FluentVueOptions) {
+  if (options.warnMissing === true || options.warnMissing == null)
+    return warnMissingDefault
+  else if (options.warnMissing === false)
+    return () => {}
+  else
+    return options.warnMissing
+}
+
 /**
  * Creates FluentVue instance that can be used on a Vue app.
  *
@@ -37,7 +50,9 @@ export interface FluentVue {
 export function createFluentVue(options: FluentVueOptions): FluentVue {
   const bundles = shallowRef(options.bundles)
 
-  const rootContext = new TranslationContext(bundles)
+  const warnMissing = getWarnMissing(options)
+
+  const rootContext = new TranslationContext(bundles, warnMissing)
 
   return {
     get bundles() {
@@ -76,8 +91,10 @@ export function createFluentVue(options: FluentVueOptions): FluentVue {
         const vue2 = vue as Vue2
 
         vue2.mixin({
-          setup() {
-            provide(RootContextSymbol, rootContext)
+          provide() {
+            return {
+              [RootContextSymbol as symbol]: rootContext,
+            }
           },
         })
 

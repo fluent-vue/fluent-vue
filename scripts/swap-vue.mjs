@@ -8,10 +8,10 @@ const vue3packages = {
 }
 
 const vue2packages = {
-  'vue': 'npm:vue@^2.6.14',
-  'vue-template-compiler': '^2.6.14',
-  '@vue/test-utils': '^1.2.1',
-  '@vue/composition-api': '^1.0.2'
+  'vue': 'npm:vue@^2.7.8',
+  'vue-template-compiler': '^2.7.8',
+  '@vue/test-utils': '^1.3.0',
+  '@vue/composition-api': '^1.7.0'
 }
 
 const packageFile = './package.json'
@@ -28,7 +28,7 @@ async function switchPackages (fromPackages, toPackages) {
   await execa('pnpm', ['i', '--no-frozen-lockfile'], { stdio: 'inherit' })
   await execa('pnpm', ['vue-demi-fix'], { stdio: 'inherit' })
 
-  console.log(`Swiched from vue ${fromPackages.vue} to ${toPackages.vue}`)
+  console.log(`Switched from vue ${fromPackages.vue} to ${toPackages.vue}`)
 }
 
 async function useVueVersion (version) {

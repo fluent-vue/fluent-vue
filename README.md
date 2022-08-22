@@ -1,7 +1,7 @@
 [![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct-single.svg)](https://vshymanskyy.github.io/StandWithUkraine)
 
 <h1 align="center">
-  <img src="https://raw.githubusercontent.com/fluent-vue/docs/HEAD/src/assets/logo.svg" alt="fluent-vue logo" />
+  <img src="https://raw.githubusercontent.com/fluent-vue/docs/HEAD/src/public/assets/logo.svg" alt="fluent-vue logo" height="150" />
 </h1>
 
 <p align="center">
@@ -9,20 +9,20 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Demivan/fluent-vue/actions">
-    <img src="https://img.shields.io/github/workflow/status/demivan/fluent-vue/Test" alt="GitHub Workflow Status">
+  <a href="https://github.com/fluent-vue/fluent-vue/actions">
+    <img src="https://img.shields.io/github/workflow/status/fluent-vue/fluent-vue/Test" alt="GitHub Workflow Status">
   </a>
-  <a href="https://codecov.io/gh/Demivan/fluent-vue">
-    <img src="https://codecov.io/gh/Demivan/fluent-vue/branch/main/graph/badge.svg?token=0JSSE94EGJ" alt="codecov">
+  <a href="https://codecov.io/gh/fluent-vue/fluent-vue">
+    <img src="https://codecov.io/gh/fluent-vue/fluent-vue/branch/main/graph/badge.svg?token=0JSSE94EGJ" alt="codecov">
   </a>
-  <a href="https://bundlephobia.com/result?p=fluent-vue">
-    <img src="https://img.shields.io/bundlephobia/min/fluent-vue" alt="npm bundle size">
+  <a href="https://bundlejs.com?q=fluent-vue&config={%22esbuild%22:{%22format%22:%22esm%22,%22minify%22:true,%22treeShaking%22:true,%22external%22:[%22vue%22]}}">
+    <img src="https://bundlejs.com/api/badge?q=fluent-vue&config={%22esbuild%22:{%22format%22:%22esm%22,%22minify%22:true,%22treeShaking%22:true,%22external%22:[%22vue%22]}}" alt="npm bundle size">
   </a>
   <a href="https://standardjs.com">
     <img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="Standard - JavaScript Style Guide">
   </a>
-  <a href="https://github.com/Demivan/fluent-vue/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/demivan/fluent-vue" alt="GitHub license">
+  <a href="https://github.com/fluent-vue/fluent-vue/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/fluent-vue/fluent-vue" alt="GitHub license">
   </a>
 </p>
 
@@ -77,10 +77,10 @@ Changes for each release are documented in the [CHANGELOG.md](https://github.com
 
 | Project | NPM | Repo |
 | ------- | --- | ---- |
-| fluent-vue | [![fluent-vue](https://img.shields.io/npm/v/fluent-vue.svg)](https://www.npmjs.com/package/fluent-vue) | [demivan/fluent-vue](https://github.com/Demivan/fluent-vue)
+| fluent-vue | [![fluent-vue](https://img.shields.io/npm/v/fluent-vue.svg)](https://www.npmjs.com/package/fluent-vue) | [fluent-vue/fluent-vue](https://github.com/fluent-vue/fluent-vue)
 | Webpack loader | [![fluent-vue-loader](https://img.shields.io/npm/v/fluent-vue-loader.svg)](https://www.npmjs.com/package/fluent-vue-loader) | [fluent-vue/fluent-vue-loader](https://github.com/fluent-vue/fluent-vue-loader)
 | Rollup/Vite plugin | [![frollup-plugin-fluent-vue](https://img.shields.io/npm/v/rollup-plugin-fluent-vue.svg)](https://www.npmjs.com/package/rollup-plugin-fluent-vue) | [fluent-vue/rollup-plugin-fluent-vue](https://github.com/fluent-vue/rollup-plugin-fluent-vue)
 
 ## 📄 License
 
-[MIT License](https://github.com/demivan/fluent-vue/blob/main/LICENSE) © 2020-present [Ivan Demchuk](https://github.com/demivan)
+[MIT License](https://github.com/fluent-vue/fluent-vue/blob/main/LICENSE) © 2020-present [Ivan Demchuk](https://github.com/demivan)

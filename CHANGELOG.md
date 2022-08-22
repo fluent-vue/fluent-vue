@@ -1,4 +1,36 @@
 
+
+
+
+## 3.1.0 (2022-07-18)
+
+#### :star: New Features
+* [#780](https://github.com/fluent-vue/fluent-vue/pull/780) Allow to change function for warning about missing translations ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
+## 3.0.3 (2022-06-29)
+
+#### :bug: Bug Fixes
+* [#778](https://github.com/fluent-vue/fluent-vue/pull/778) Remove preinstall script ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
+## 3.0.2 (2022-06-28)
+
+#### :bug: Bug Fixes
+* [#776](https://github.com/fluent-vue/fluent-vue/pull/776) Fix Vue 2 context injection ([@nachodd](https://github.com/nachodd))
+
+#### :pencil: Documentation
+* [#753](https://github.com/fluent-vue/fluent-vue/pull/753) Fix typo ([@samuelstroschein](https://github.com/samuelstroschein))
+
+#### Committers: 3
+- Ignacio Durand ([@nachodd](https://github.com/nachodd))
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+- Samuel Stroschein ([@samuelstroschein](https://github.com/samuelstroschein))
+
 ## 3.0.1 (2022-01-10)
 
 #### :bug: Bug Fixes
