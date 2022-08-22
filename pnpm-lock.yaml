@@ -33,7 +33,7 @@ dependencies:
   '@fluent/sequence': 0.7.0_@fluent+bundle@0.17.1
   cached-iterable: 0.3.0
   tslib: 2.3.1
-  vue-demi: 0.13.1_vue@3.2.37
+  vue-demi: 0.13.8_vue@3.2.37
 
 devDependencies:
   '@antfu/eslint-config': 0.25.1_ud6rd4xtew5bv4yhvkvu24pzm4
@@ -5529,8 +5529,8 @@ packages:
       - supports-color
     dev: true
 
-  /vue-demi/0.13.1_vue@3.2.37:
-    resolution: {integrity: sha512-xmkJ56koG3ptpLnpgmIzk9/4nFf4CqduSJbUM0OdPoU87NwRuZ6x49OLhjSa/fC15fV+5CbEnrxU4oyE022svg==}
+  /vue-demi/0.13.8_vue@3.2.37:
+    resolution: {integrity: sha512-Vy1zbZhCOdsmvGR6tJhAvO5vhP7eiS8xkbYQSoVa7o6KlIy3W8Rc53ED4qI4qpeRDjv3mLfXSEpYU6Yq4pgXRg==}
     engines: {node: '>=12'}
     hasBin: true
     requiresBuild: true
