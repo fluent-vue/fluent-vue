@@ -2,6 +2,16 @@
 
 
 
+
+## 3.1.1 (2022-08-22)
+
+#### :chart_with_upwards_trend: Performance Fixes
+* [#784](https://github.com/fluent-vue/fluent-vue/pull/784) Reduce npm package size ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
+
 ## 3.1.0 (2022-07-18)
 
 #### :star: New Features
