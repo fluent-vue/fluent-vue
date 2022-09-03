@@ -1,8 +1,7 @@
 {
   "extends": [
     "config:base",
-    "group:allNonMajor",
-    ":disableDependencyDashboard"
+    "group:allNonMajor"
   ],
   "ignorePresets": [":ignoreModulesAndTests"],
   "lockFileMaintenance": { "enabled": true },
