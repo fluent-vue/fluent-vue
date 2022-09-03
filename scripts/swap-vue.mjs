@@ -2,14 +2,14 @@ import { readFileSync, writeFileSync } from 'fs'
 import { execa } from 'execa'
 
 const vue3packages = {
-  'vue': 'npm:vue@^3.2.37',
-  '@vue/compiler-sfc': '^3.2.37',
-  '@vue/test-utils': '^2.0.1'
+  'vue': 'npm:vue@^3.2.38',
+  '@vue/compiler-sfc': '^3.2.38',
+  '@vue/test-utils': '^2.0.2'
 }
 
 const vue2packages = {
-  'vue': 'npm:vue@^2.7.8',
-  'vue-template-compiler': '^2.7.8',
+  'vue': 'npm:vue@^2.7.10',
+  'vue-template-compiler': '^2.7.10',
   '@vue/test-utils': '^1.3.0',
   '@vue/composition-api': '^1.7.0'
 }
