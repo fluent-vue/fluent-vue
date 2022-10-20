@@ -32,7 +32,8 @@
       "import": "./dist/prod/index.mjs"
     },
     "require": "./dist/index.js",
-    "import": "./dist/index.mjs"
+    "import": "./dist/index.mjs",
+    "default": "./dist/index.mjs"
   },
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -58,7 +59,6 @@
     "test:3": "node scripts/swap-vue.mjs 3 && vitest run",
     "prepare": "husky install"
   },
-  "browser": "dist/prod/index.global.js",
   "peerDependencies": {
     "@fluent/bundle": ">=0.17.0",
     "@vue/composition-api": ">=1.0.0-rc.1",
