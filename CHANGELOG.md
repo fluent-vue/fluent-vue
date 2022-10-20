@@ -3,6 +3,12 @@
 
 
 
+## 3.1.4 (2022-10-20)
+
+#### :bug: Bug Fixes
+* Fix node 12 support (990fd5f)
+
+
 ## 3.1.3 (2022-10-20)
 
 #### :bug: Bug Fixes
