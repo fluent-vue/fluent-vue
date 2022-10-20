@@ -27,10 +27,6 @@
   ],
   "sideEffects": false,
   "exports": {
-    "script": {
-      "development": "./dist/index.global.js",
-      "default": "./dist/prod/index.global.js"
-    },
     "production": {
       "require": "./dist/prod/index.js",
       "import": "./dist/prod/index.mjs"
