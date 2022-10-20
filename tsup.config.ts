@@ -2,8 +2,6 @@ import { defineConfig } from 'tsup'
 import GlobalsPlugin from 'esbuild-plugin-globals'
 
 const common = defineConfig({
-  entry: ['src/index.ts', 'src/composition.ts'],
-  format: ['esm', 'cjs', 'iife'],
   target: 'node12',
   outExtension: ({ format }) => {
     if (format === 'iife')
@@ -28,19 +26,43 @@ const common = defineConfig({
   external: ['vue-demi', '@fluent/bundle'],
 })
 
-export default defineConfig([{
-  ...common,
+const dev = defineConfig({
   outDir: 'dist/',
-  dts: true,
   env: {
     NODE_ENV: 'development',
   },
-},
-{
-  ...common,
+})
+
+const prod = defineConfig({
   outDir: 'dist/prod',
   env: {
     NODE_ENV: 'production',
   },
   minify: true,
+})
+
+export default defineConfig([{
+  ...common,
+  entry: ['src/index.ts', 'src/composition.ts'],
+  format: ['esm', 'cjs'],
+  dts: true,
+  ...dev,
+},
+{
+  ...common,
+  entry: ['src/index.ts', 'src/composition.ts'],
+  format: ['esm', 'cjs'],
+  ...prod,
+},
+{
+  ...common,
+  entry: ['src/index.ts'],
+  format: 'iife',
+  ...dev,
+},
+{
+  ...common,
+  entry: ['src/index.ts'],
+  format: 'iife',
+  ...prod,
 }])
