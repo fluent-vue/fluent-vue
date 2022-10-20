@@ -32,9 +32,9 @@
         "require": "./dist/prod/index.cjs",
         "import": "./dist/prod/index.mjs"
       },
+      "types": "./index.d.ts",
       "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs",
-      "types": "./index.d.ts"
+      "import": "./dist/index.mjs"
     }
   },
   "main": "dist/index.cjs",
