@@ -3,6 +3,12 @@
 
 
 
+## 3.1.2 (2022-10-20)
+
+#### :bug: Bug Fixes
+* Remove conditional export that interferes with Nuxt 2
+
+
 ## 3.1.1 (2022-08-22)
 
 #### :chart_with_upwards_trend: Performance Fixes
