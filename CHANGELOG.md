@@ -3,6 +3,12 @@
 
 
 
+## 3.1.3 (2022-10-20)
+
+#### :bug: Bug Fixes
+* Remove problematic browser field (0195b03)
+
+
 ## 3.1.2 (2022-10-20)
 
 #### :bug: Bug Fixes
