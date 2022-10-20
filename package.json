@@ -27,15 +27,17 @@
   ],
   "sideEffects": false,
   "exports": {
-    "production": {
-      "require": "./dist/prod/index.js",
-      "import": "./dist/prod/index.mjs"
-    },
-    "require": "./dist/index.js",
-    "import": "./dist/index.mjs",
-    "default": "./dist/index.mjs"
+    ".": {
+      "production": {
+        "require": "./dist/prod/index.cjs",
+        "import": "./dist/prod/index.mjs"
+      },
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./index.d.ts"
+    }
   },
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "unpkg": "dist/prod/index.global.js",
   "jsdelivr": "dist/prod/index.global.js",
@@ -49,7 +51,7 @@
     "node": ">=12.0.0"
   },
   "scripts": {
-    "build": "tsup",
+    "build": "rimraf dist && tsup",
     "lint": "eslint .",
     "ls-lint": "ls-lint",
     "typecheck": "tsc --noEmit -p tsconfig.json",
@@ -91,6 +93,7 @@
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "release-it": "*",
+    "rimraf": "^3.0.2",
     "tsup": "^6.2.3",
     "typescript": "^4.8.4",
     "vite": "^3.1.4",

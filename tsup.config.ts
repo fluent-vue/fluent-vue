@@ -1,17 +1,24 @@
 import { defineConfig } from 'tsup'
 import GlobalsPlugin from 'esbuild-plugin-globals'
 
-export default defineConfig([{
+const common = defineConfig({
   entry: ['src/index.ts', 'src/composition.ts'],
   format: ['esm', 'cjs', 'iife'],
-  globalName: 'FluentVue',
-  outDir: 'dist/',
-  dts: true,
-  splitting: true,
-  clean: true,
-  env: {
-    NODE_ENV: 'development',
+  target: 'node12',
+  outExtension: ({ format }) => {
+    if (format === 'iife')
+      return { js: '.global.js' }
+
+    if (format === 'cjs')
+      return { js: '.cjs' }
+
+    if (format === 'esm')
+      return { js: '.mjs' }
+
+    return { js: '.js' }
   },
+  globalName: 'FluentVue',
+  splitting: true,
   esbuildPlugins: [
     GlobalsPlugin({
       'vue-demi': 'VueDemi',
@@ -19,22 +26,21 @@ export default defineConfig([{
     }),
   ],
   external: ['vue-demi', '@fluent/bundle'],
+})
+
+export default defineConfig([{
+  ...common,
+  outDir: 'dist/',
+  dts: true,
+  env: {
+    NODE_ENV: 'development',
+  },
 },
 {
-  entry: ['src/index.ts', 'src/composition.ts'],
-  format: ['esm', 'cjs', 'iife'],
-  globalName: 'FluentVue',
+  ...common,
   outDir: 'dist/prod',
-  splitting: true,
   env: {
     NODE_ENV: 'production',
   },
   minify: true,
-  esbuildPlugins: [
-    GlobalsPlugin({
-      'vue-demi': 'VueDemi',
-      '@fluent/bundle': 'FluentBundle',
-    }),
-  ],
-  external: ['vue-demi', '@fluent/bundle'],
 }])
