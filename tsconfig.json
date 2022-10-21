@@ -14,7 +14,8 @@
     "jsx": "preserve",
     "lib": ["esnext", "dom"],
     "types": ["node"],
-    "rootDir": "."
+    "rootDir": ".",
+    "skipLibCheck": true
   },
   "include": [
     "src"
