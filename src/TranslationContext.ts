@@ -1,8 +1,9 @@
 import type { Message, Pattern } from '@fluent/bundle/esm/ast'
 import type { FluentBundle, FluentVariable } from '@fluent/bundle'
 import type { Ref } from 'vue-demi'
-
 import { mapBundleSync } from '@fluent/sequence'
+import type { TranslationContextOptions } from './types'
+
 import { warn } from './util/warn'
 
 export interface TranslationWithAttrs {
@@ -14,7 +15,7 @@ export interface TranslationWithAttrs {
 export class TranslationContext {
   bundles: Ref<Iterable<FluentBundle>>
 
-  constructor(bundles: Ref<Iterable<FluentBundle>>, public warnMissing: (key: string) => void) {
+  constructor(bundles: Ref<Iterable<FluentBundle>>, public options: TranslationContextOptions) {
     this.bundles = bundles
   }
 
@@ -26,7 +27,7 @@ export class TranslationContext {
     const message = bundle?.getMessage(key)
 
     if (message === undefined) {
-      this.warnMissing(key)
+      this.options.warnMissing(key)
       return null
     }
 

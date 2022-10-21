@@ -53,6 +53,8 @@ jobs:
 
       - name: Lint
         run: pnpm lint
+      - name: Type check
+        run: pnpm typecheck
 
   test-examples:
     runs-on: ubuntu-latest
