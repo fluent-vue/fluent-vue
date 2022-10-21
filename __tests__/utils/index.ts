@@ -7,16 +7,18 @@ import type { FluentVue } from '../../src'
 install()
 
 export function mountWithFluent<T>(
-  fluent: FluentVue,
+  fluent: FluentVue | null,
   component: ComponentOptions<T>,
 ): VueWrapper<ComponentPublicInstance<T>> {
   if (isVue3) {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const { mount } = require('@vue/test-utils')
 
+    const plugins = fluent ? [fluent] : []
+
     return mount(component, {
       global: {
-        plugins: [fluent],
+        plugins,
       },
     })
   }
@@ -25,7 +27,8 @@ export function mountWithFluent<T>(
     const { createLocalVue, mount } = require('@vue/test-utils')
 
     const localVue = createLocalVue()
-    localVue.use(fluent)
+    if (fluent)
+      localVue.use(fluent)
     return mount(component, {
       localVue,
     })
