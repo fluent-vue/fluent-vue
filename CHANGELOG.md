@@ -3,6 +3,15 @@
 
 
 
+
+## 3.2.0 (2022-10-21)
+
+#### :star: New Features
+* [#795](https://github.com/fluent-vue/fluent-vue/pull/795) Support html tags in i18n component ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
 ## 3.1.4 (2022-10-20)
 
 #### :bug: Bug Fixes
