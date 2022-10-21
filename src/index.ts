@@ -1,6 +1,7 @@
 import type { FluentBundle, FluentVariable } from '@fluent/bundle'
-
 import { isVue3, shallowRef } from 'vue-demi'
+import type { FluentVueOptions } from './types'
+
 import type { InstallFunction, Vue, Vue2, Vue3, Vue3Component } from './types/typesCompat'
 import type { TranslationWithAttrs } from './TranslationContext'
 import { TranslationContext } from './TranslationContext'
@@ -8,17 +9,9 @@ import { createVue2Directive, createVue3Directive } from './vue/directive'
 import component from './vue/component'
 import { getContext } from './getContext'
 import { RootContextSymbol } from './symbols'
-import { warnMissingDefault } from './util/warn'
+import { resolveOptions } from './util/options'
 
 export { useFluent } from './composition'
-
-export interface FluentVueOptions {
-  /** Current negotiated fallback chain of languages */
-  bundles: Iterable<FluentBundle>
-
-  /** Custom function for warning about missing translation */
-  warnMissing?: ((key: string) => void) | boolean
-}
 
 export interface FluentVue {
   /** Current negotiated fallback chain of languages */
@@ -33,15 +26,6 @@ export interface FluentVue {
   install: InstallFunction<FluentVueOptions>
 }
 
-function getWarnMissing(options: FluentVueOptions) {
-  if (options.warnMissing === true || options.warnMissing == null)
-    return warnMissingDefault
-  else if (options.warnMissing === false)
-    return () => {}
-  else
-    return options.warnMissing
-}
-
 /**
  * Creates FluentVue instance that can be used on a Vue app.
  *
@@ -50,9 +34,9 @@ function getWarnMissing(options: FluentVueOptions) {
 export function createFluentVue(options: FluentVueOptions): FluentVue {
   const bundles = shallowRef(options.bundles)
 
-  const warnMissing = getWarnMissing(options)
+  const resolvedOptions = resolveOptions(options)
 
-  const rootContext = new TranslationContext(bundles, warnMissing)
+  const rootContext = new TranslationContext(bundles, resolvedOptions)
 
   return {
     get bundles() {

@@ -48,7 +48,7 @@ export function getContext(
     ),
   )
 
-  const context = new TranslationContext(overriddenBundles, rootContext.warnMissing)
+  const context = new TranslationContext(overriddenBundles, rootContext.options)
 
   options._fluent = context
 

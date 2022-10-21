@@ -79,9 +79,7 @@ export default defineComponent({
         return insertSlots(translation.value.value)
 
       // Otherwise, parse the message value as HTML and convert it to an array of VNodes.
-      const parser = new DOMParser()
-      const doc = parser.parseFromString(translation.value.value, 'text/html')
-      const nodes = Array.from(doc.body.childNodes)
+      const nodes = fluent.options.parseMarkup(translation.value.value)
 
       const vnodes = nodes.map((node) => {
         if (node.nodeType === 3) { // Node.TEXT_NODE
@@ -100,7 +98,7 @@ export default defineComponent({
         }
 
         // Ignore other node types for now.
-        warn(`Unsupported node type: ${node.nodeType}. This is an internal bug of fluent-vue. Please report it.`)
+        warn(`Unsupported node type: ${(node as any).nodeType}. This is an internal bug of fluent-vue. Please report it.`)
         return []
       })
 
