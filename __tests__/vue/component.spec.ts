@@ -253,4 +253,48 @@ describe('component', () => {
     // Assert
     expect(mounted.html()).toEqual('<span>Hello \u{2068}Alice\u{2069} \u{2068}<b>Inner text</b>\u{2069} test</span>')
   })
+
+  it('supports html #760', async () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      general-pages-terms = Terms
+
+      general-register-info = Register here.<br> But respect <strong>our terms</strong> (see {$showTermsModalSpan}).
+        .general-pages-terms = { general-pages-terms }
+      `),
+    )
+
+    const click = vi.fn()
+
+    const component = {
+      methods: {
+        showModal(param: string) {
+          click(param)
+        },
+      },
+      template: `
+      <i18n path="general-register-info" tag="span" html>
+        <template #showTermsModalSpan="{ generalPagesTerms }">
+          <span class="underline cursor-pointer" @click.prevent="showModal('terms')">{{ generalPagesTerms }}</span>
+        </template>
+      </i18n>`,
+    }
+
+    // Act
+    const mounted = mountWithFluent(fluent, component)
+
+    // Assert
+    expect(mounted.get('br')).toBeTruthy()
+    expect(mounted.get('strong')).toBeTruthy()
+    expect(mounted.get('span.underline')).toBeTruthy()
+    expect(mounted.html()).toEqual('<span>Register here.<br> But respect <strong>our terms</strong> (see \u{2068}<span class="underline cursor-pointer">Terms</span>\u{2069}).</span>')
+
+    // Just in case check if the click handler is working
+    // Act
+    await mounted.find('.underline').trigger('click')
+
+    // Assert
+    expect(click).toHaveBeenCalledWith('terms')
+  })
 })
