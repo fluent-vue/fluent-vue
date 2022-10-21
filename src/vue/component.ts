@@ -98,7 +98,7 @@ export default defineComponent({
         }
 
         // Ignore other node types for now.
-        warn(`Unsupported node type: ${(node as any).nodeType}. This is an internal bug of fluent-vue. Please report it.`)
+        warn(`Unsupported node type: ${(node as any).nodeType}. If you need support for it, please, create an issue in fluent-vue repository.`)
         return []
       })
 

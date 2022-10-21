@@ -1,4 +1,4 @@
-import { beforeAll, describe, expect, it } from 'vitest'
+import { beforeAll, describe, expect, it, vi } from 'vitest'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
@@ -80,5 +80,48 @@ describe('component html support', () => {
 
     // Assert
     expect(mounted.html()).toMatchInlineSnapshot('"<span>Hello \u{2068}John\u{2069}<br>How are you?</span>"')
+  })
+
+  it('warn about not support markup', () => {
+    // Arrange
+    const bundle = new FluentBundle('en-US')
+    bundle.addResource(
+      new FluentResource(ftl`
+      key = Hello {$name}<br>How are you?<!-- this is a comment -->
+      `),
+    )
+
+    const fluent = createFluentVue({
+      bundles: [bundle],
+      parseMarkup: (markup: string) => {
+        const parser = new HappyDomParser()
+        const doc = parser.parseFromString(markup, 'text/html')
+        const nodes = Array.from(doc.body.childNodes)
+
+        return nodes
+      },
+    })
+
+    const component = {
+      data() {
+        return {
+          name: 'John',
+        }
+      },
+      template: `
+        <i18n path="key" :args="{ name }" html></i18n>`,
+    }
+
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+    // Act
+    const mounted = mountWithFluent(fluent, component)
+
+    // Assert
+    expect(mounted.html()).toMatchInlineSnapshot('"<span>Hello \u{2068}John\u{2069}<br>How are you?</span>"')
+    expect(warn).toHaveBeenCalledWith('[fluent-vue] Unsupported node type: 8. If you need support for it, please, create an issue in fluent-vue repository.')
+
+    // Cleanup
+    warn.mockRestore()
   })
 })
