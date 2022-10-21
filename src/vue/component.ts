@@ -1,6 +1,6 @@
 import { computed, defineComponent, getCurrentInstance, h, inject } from 'vue-demi'
-import type { VNodeArrayChildren } from 'vue-demi'
-import type { VueComponent } from '../types/typesCompat'
+import type { SimpleNode } from 'src/types'
+import type { VueComponent } from 'src/types/typesCompat'
 
 import { camelize } from '../util/camelize'
 import { getContext } from '../getContext'
@@ -61,48 +61,49 @@ export default defineComponent({
       }
     })
 
-    const insertSlots = (text: string | null): VNodeArrayChildren => {
+    const insertSlots = (text: string | null) => {
       if (text == null)
         return []
 
       return text.split('\uFFFF')
         .map(text =>
           text.startsWith('\uFFFE')
-            ? slots[text.replace('\uFFFE', '')]?.(translation.value.attributes)
+            ? slots[text.replace('\uFFFE', '')]!(translation.value.attributes)
             : text,
         )
     }
 
-    const children = computed<VNodeArrayChildren>(() => {
+    // No way to type this properly, so we'll just use `any` for now.
+    const processNode = (node: SimpleNode): any => {
+      if (node.nodeType === 3) { // Node.TEXT_NODE
+        return insertSlots(node.nodeValue)
+      }
+      else if (node.nodeType === 1) { // Node.ELEMENT_NODE
+        const el = node as Element
+
+        return h(
+          el.nodeName.toLowerCase(),
+          {
+            ...Object.fromEntries(
+              Array.from(el.attributes).map(attr => [attr.name, attr.value]),
+            ),
+          },
+          Array.from(el.childNodes).map(node => processNode(node)))
+      }
+
+      // Ignore other node types for now.
+      warn(`Unsupported node type: ${(node as any).nodeType}. If you need support for it, please, create an issue in fluent-vue repository.`)
+      return []
+    }
+
+    const children = computed(() => {
       // If the message value doesn't contain any markup nor any HTML entities, return it as-is.
       if (!props.html || !reMarkup.test(translation.value.value))
         return insertSlots(translation.value.value)
 
       // Otherwise, parse the message value as HTML and convert it to an array of VNodes.
       const nodes = fluent.options.parseMarkup(translation.value.value)
-
-      const vnodes = nodes.map((node) => {
-        if (node.nodeType === 3) { // Node.TEXT_NODE
-          return insertSlots(node.nodeValue)
-        }
-        else if (node.nodeType === 1) { // Node.ELEMENT_NODE
-          const el = node as Element
-          return h(
-            el.nodeName.toLowerCase(),
-            {
-              ...Object.fromEntries(
-                Array.from(el.attributes).map(attr => [attr.name, attr.value]),
-              ),
-            },
-            insertSlots(el.textContent))
-        }
-
-        // Ignore other node types for now.
-        warn(`Unsupported node type: ${(node as any).nodeType}. If you need support for it, please, create an issue in fluent-vue repository.`)
-        return []
-      })
-
-      return vnodes
+      return nodes.map(processNode)
     })
 
     return () => h(props.tag, { ...attrs }, children.value)

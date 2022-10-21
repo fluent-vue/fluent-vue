@@ -297,4 +297,25 @@ describe('component', () => {
     // Assert
     expect(click).toHaveBeenCalledWith('terms')
   })
+
+  it('supports nested html', async () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      key = <span>Test <span class="inner"> Inner <strong class="strong">strong</strong> </span></span>
+      `),
+    )
+
+    const component = {
+      template: '<i18n path="key" tag="span" html></i18n>',
+    }
+
+    // Act
+    const mounted = mountWithFluent(fluent, component)
+
+    // Assert
+    expect(mounted.get('span')).toBeTruthy()
+    expect(mounted.get('strong')).toBeTruthy()
+    expect(mounted.html()).toEqual('<span><span>Test <span class="inner"> Inner <strong class="strong">strong</strong> </span></span></span>')
+  })
 })
