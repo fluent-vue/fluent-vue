@@ -1,8 +1,8 @@
-import type { FluentVueOptions, TranslationContextOptions } from 'src/types'
+import type { FluentVueOptions, SimpleNode, TranslationContextOptions } from 'src/types'
 
 import { assert, warn } from './warn'
 
-function defaultMarkupParser(value: string): Node[] {
+function defaultMarkupParser(value: string): SimpleNode[] {
   assert(typeof DOMParser !== 'undefined', 'DOMParser is not available. Please provide a custom parseMarkup function.')
 
   const parser = new DOMParser()
