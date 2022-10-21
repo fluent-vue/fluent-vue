@@ -46,4 +46,29 @@ describe('composition api', () => {
     // Assert
     expect(mounted.html()).toEqual('<a href="/foo" aria-label="Aria label">link text</a>')
   })
+
+  it('thrpws when used outside of setup', () => {
+    // Arrange
+    // Act
+    const use = () => useFluent()
+
+    // Assert
+    expect(use).toThrowError('[fluent-vue] useFluent called outside of setup')
+  })
+
+  it('throws when used without installing plugin', () => {
+    // Arrange
+    const component = {
+      template: '<span></span>',
+      setup() {
+        useFluent()
+      },
+    }
+
+    // Act
+    const mount = () => mountWithFluent(null, component)
+
+    // Asser
+    expect(mount).toThrowError('[fluent-vue] useFluent called without installing plugin')
+  })
 })

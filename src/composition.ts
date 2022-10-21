@@ -10,7 +10,7 @@ export function useFluent(): TranslationContext {
   assert(instance != null, 'useFluent called outside of setup')
 
   const rootContext = inject(RootContextSymbol)
-  assert(rootContext != null, 'useFluent called without instaling plugin')
+  assert(rootContext != null, 'useFluent called without installing plugin')
 
   return getContext(rootContext, instance.proxy)
 }
