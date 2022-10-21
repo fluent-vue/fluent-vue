@@ -1,10 +1,11 @@
 import { computed, defineComponent, getCurrentInstance, h, inject } from 'vue-demi'
+import type { VNodeArrayChildren } from 'vue-demi'
 import type { VueComponent } from '../types/typesCompat'
 
 import { camelize } from '../util/camelize'
 import { getContext } from '../getContext'
 import { RootContextSymbol } from '../symbols'
-import { assert } from '../util/warn'
+import { assert, warn } from '../util/warn'
 
 function getParentWithFluent(
   instance: VueComponent | null | undefined,
@@ -18,12 +19,17 @@ function getParentWithFluent(
   return parent
 }
 
+// Match the opening angle bracket (<) in HTML tags, and HTML entities like
+// &amp;, &#0038;, &#x0026;.
+const reMarkup = /<|&#?\w+;/
+
 export default defineComponent({
   name: 'i18n',
   props: {
     path: { type: String, required: true },
     tag: { type: String, default: 'span' },
     args: { type: Object, default: () => ({}) },
+    html: { type: Boolean, default: false },
   },
   setup(props, { slots, attrs }) {
     const rootContext = inject(RootContextSymbol)
@@ -32,39 +38,75 @@ export default defineComponent({
     const parent = getParentWithFluent(instance?.proxy)
     const fluent = getContext(rootContext, parent)
 
-    const fluentParams = computed(() =>
-      Object.assign(
+    const translation = computed(() => {
+      const fluentParams = Object.assign(
         {},
         props.args,
+        // Create fake translation parameters for each slot.
+        // Later, we'll replace the parameters with the actual slot
         ...Object.keys(slots).map(key => ({
           [key]: `\uFFFF\uFFFE${key}\uFFFF`,
         })),
-      ),
-    )
+      )
 
-    const translation = computed(() => {
-      return fluent.formatWithAttrs(props.path, fluentParams.value)
+      const result = fluent.formatWithAttrs(props.path, fluentParams)
+
+      const camelizedAttrs = Object.fromEntries(
+        Object.entries(result.attributes).map(([key, value]) => [camelize(key), value]),
+      )
+
+      return {
+        value: result.value,
+        attributes: camelizedAttrs,
+      }
     })
 
-    const camelizedAttrs = computed(() =>
-      Object.fromEntries(
-        Object.entries(translation.value.attributes).map(([key, value]) => [camelize(key), value]),
-      ),
-    )
+    const insertSlots = (text: string | null): VNodeArrayChildren => {
+      if (text == null)
+        return []
 
-    return () =>
-      h(
-        props.tag,
-        {
-          ...attrs,
-        },
-        translation.value.value
-          .split('\uFFFF')
-          .map(text =>
-            text.startsWith('\uFFFE')
-              ? slots[text.replace('\uFFFE', '')]?.(camelizedAttrs.value)
-              : text,
-          ),
-      )
+      return text.split('\uFFFF')
+        .map(text =>
+          text.startsWith('\uFFFE')
+            ? slots[text.replace('\uFFFE', '')]?.(translation.value.attributes)
+            : text,
+        )
+    }
+
+    const children = computed<VNodeArrayChildren>(() => {
+      // If the message value doesn't contain any markup nor any HTML entities, return it as-is.
+      if (!props.html || !reMarkup.test(translation.value.value))
+        return insertSlots(translation.value.value)
+
+      // Otherwise, parse the message value as HTML and convert it to an array of VNodes.
+      const parser = new DOMParser()
+      const doc = parser.parseFromString(translation.value.value, 'text/html')
+      const nodes = Array.from(doc.body.childNodes)
+
+      const vnodes = nodes.map((node) => {
+        if (node.nodeType === 3) { // Node.TEXT_NODE
+          return insertSlots(node.nodeValue)
+        }
+        else if (node.nodeType === 1) { // Node.ELEMENT_NODE
+          const el = node as Element
+          return h(
+            el.nodeName.toLowerCase(),
+            {
+              ...Object.fromEntries(
+                Array.from(el.attributes).map(attr => [attr.name, attr.value]),
+              ),
+            },
+            insertSlots(el.textContent))
+        }
+
+        // Ignore other node types for now.
+        warn(`Unsupported node type: ${node.nodeType}. This is an internal bug of fluent-vue. Please report it.`)
+        return []
+      })
+
+      return vnodes
+    })
+
+    return () => h(props.tag, { ...attrs }, children.value)
   },
 })
