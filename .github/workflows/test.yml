@@ -20,12 +20,12 @@ jobs:
         vue: [2, 3]
     steps:
       - name: Checkout
-        uses: actions/checkout@v3.0.2
+        uses: actions/checkout@v3.1.0
       - name: Setup Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v3.5.0
+        uses: actions/setup-node@v3.5.1
         with:
           node-version: ${{ matrix.node }}
-      - uses: pnpm/action-setup@v2.2.2
+      - uses: pnpm/action-setup@v2.2.4
         with:
           version: 7.x.x
           run_install: true
@@ -43,10 +43,10 @@ jobs:
     name: Lint source code
     steps:
       - name: Checkout
-        uses: actions/checkout@v3.0.2
+        uses: actions/checkout@v3.1.0
       - name: Setup Node.js
-        uses: actions/setup-node@v3.5.0
-      - uses: pnpm/action-setup@v2.2.2
+        uses: actions/setup-node@v3.5.1
+      - uses: pnpm/action-setup@v2.2.4
         with:
           version: 7.x.x
           run_install: true
@@ -61,15 +61,15 @@ jobs:
     name: Test build of example projects
     steps:
       - name: Checkout fluent-vue
-        uses: actions/checkout@v3.0.2
+        uses: actions/checkout@v3.1.0
       - name: Checkout examples
-        uses: actions/checkout@v3.0.2
+        uses: actions/checkout@v3.1.0
         with:
           repository: fluent-vue/examples
           path: examples
       - name: Setup Node.js
-        uses: actions/setup-node@v3.5.0
-      - uses: pnpm/action-setup@v2.2.2
+        uses: actions/setup-node@v3.5.1
+      - uses: pnpm/action-setup@v2.2.4
         with:
           version: 7.x.x
           run_install: true
