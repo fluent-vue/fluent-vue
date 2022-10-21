@@ -62,10 +62,7 @@ export default defineComponent({
     })
 
     const insertSlots = (text: string | null) => {
-      if (text == null)
-        return []
-
-      return text.split('\uFFFF')
+      return text?.split('\uFFFF')
         .map(text =>
           text.startsWith('\uFFFE')
             ? slots[text.replace('\uFFFE', '')]!(translation.value.attributes)
