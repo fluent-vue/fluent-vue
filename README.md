@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://github.com/fluent-vue/fluent-vue/actions">
-    <img src="https://img.shields.io/github/workflow/status/fluent-vue/fluent-vue/Test" alt="GitHub Workflow Status">
+    <img src="https://img.shields.io/github/actions/workflow/status/fluent-vue/fluent-vue/test.yml" alt="GitHub Workflow Status">
   </a>
   <a href="https://codecov.io/gh/fluent-vue/fluent-vue">
     <img src="https://codecov.io/gh/fluent-vue/fluent-vue/branch/main/graph/badge.svg?token=0JSSE94EGJ" alt="codecov">
