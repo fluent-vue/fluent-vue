@@ -88,7 +88,7 @@
     "@vue/test-utils": "^2.2.6",
     "esbuild-plugin-globals": "^0.1.1",
     "eslint": "^8.30.0",
-    "execa": "^6.1.0",
+    "execa": "^7.0.0",
     "happy-dom": "^8.1.1",
     "husky": "^8.0.2",
     "lint-staged": "^13.1.0",
