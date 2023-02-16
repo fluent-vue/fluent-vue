@@ -28,11 +28,11 @@
   "sideEffects": false,
   "exports": {
     ".": {
+      "types": "./index.d.ts",
       "production": {
         "require": "./dist/prod/index.cjs",
         "import": "./dist/prod/index.mjs"
       },
-      "types": "./index.d.ts",
       "require": "./dist/index.cjs",
       "import": "./dist/index.mjs"
     }
