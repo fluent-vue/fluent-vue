@@ -4,6 +4,17 @@
 
 
 
+
+## 3.2.1 (2023-02-16)
+
+#### :bug: Bug Fixes
+* [#808](https://github.com/fluent-vue/fluent-vue/pull/808) Fix typing error which breaks app.use ([@hongquan](https://github.com/hongquan))
+* [#809](https://github.com/fluent-vue/fluent-vue/pull/809) Fix order of export fields in package.json ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 2
+- Nguyễn Hồng Quân ([@hongquan](https://github.com/hongquan))
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
 ## 3.2.0 (2022-10-21)
 
 #### :star: New Features
