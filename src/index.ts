@@ -23,7 +23,7 @@ export interface FluentVue {
 
   formatWithAttrs: (key: string, value?: Record<string, FluentVariable>) => TranslationWithAttrs
 
-  install: InstallFunction<FluentVueOptions>
+  install: InstallFunction
 }
 
 /**
