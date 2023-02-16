@@ -59,7 +59,8 @@
     "test:watch": "node scripts/swap-vue.mjs 3 && vitest",
     "test:2": "node scripts/swap-vue.mjs 2 && vitest run",
     "test:3": "node scripts/swap-vue.mjs 3 && vitest run",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release": "dotenv release-it"
   },
   "peerDependencies": {
     "@fluent/bundle": ">=0.17.0",
@@ -86,6 +87,7 @@
     "@vitest/coverage-istanbul": "^0.26.2",
     "@vue/compiler-sfc": "^3.2.45",
     "@vue/test-utils": "^2.2.6",
+    "dotenv-cli": "^7.0.0",
     "esbuild-plugin-globals": "^0.1.1",
     "eslint": "^8.30.0",
     "execa": "^7.0.0",
