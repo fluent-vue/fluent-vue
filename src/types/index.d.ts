@@ -10,7 +10,13 @@ export interface FluentVueOptions {
   warnMissing?: ((key: string) => void) | boolean
 
   /** Custom function for parsing markup */
-  parseMarkup?: (markup: string) => SimpleNode[]
+  parseMarkup?: (markup: string) => SimpleNode[],
+
+  /** Override the names of the global functions and directive to avoid conflicts */
+  globals?: {
+    t?: string;
+    ta?: string;
+  }
 }
 
 export interface TranslationContextOptions {
