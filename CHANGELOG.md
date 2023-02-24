@@ -5,6 +5,14 @@
 
 
 
+## 3.3.0 (2023-02-24)
+
+#### :star: New Features
+* [#811](https://github.com/fluent-vue/fluent-vue/pull/811) Allow global functions, directive and component to be renamed ([@Flambe](https://github.com/Flambe))
+
+#### Committers: 1
+- Steve Axtmann ([@Flambe](https://github.com/Flambe))
+
 ## 3.2.1 (2023-02-16)
 
 #### :bug: Bug Fixes
