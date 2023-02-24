@@ -51,25 +51,30 @@ export function createFluentVue(options: FluentVueOptions): FluentVue {
     formatWithAttrs: rootContext.formatWithAttrs.bind(rootContext),
 
     install(vue) {
+      const globalFormatName = options.globals?.functions?.format || '$t'
+      const globalFormatAttrsName = options.globals?.functions?.formatAttrs || '$ta'
+      const directiveName = options.globals?.directive || 't'
+      const componentName = options.globals?.component || 'i18n'
+
       if (isVue3) {
         const vue3 = vue as Vue3
 
         vue3.provide(RootContextSymbol, rootContext)
 
-        vue3.config.globalProperties.$t = function (
+        vue3.config.globalProperties[globalFormatName] = function (
           key: string,
           value?: Record<string, FluentVariable>,
         ) {
           return getContext(rootContext, this as Vue3Component).format(key, value)
         }
-        vue3.config.globalProperties.$ta = function (
+        vue3.config.globalProperties[globalFormatAttrsName] = function (
           key: string,
           value?: Record<string, FluentVariable>,
         ) {
           return getContext(rootContext, this as Vue3Component).formatAttrs(key, value)
         }
 
-        vue3.directive('t', createVue3Directive(rootContext))
+        vue3.directive(directiveName, createVue3Directive(rootContext))
       }
       else {
         const vue2 = vue as Vue2
@@ -82,17 +87,17 @@ export function createFluentVue(options: FluentVueOptions): FluentVue {
           },
         })
 
-        vue2.prototype.$t = function (key: string, value?: Record<string, FluentVariable>) {
+        vue2.prototype[globalFormatName] = function (key: string, value?: Record<string, FluentVariable>) {
           return getContext(rootContext, this).format(key, value)
         }
-        vue2.prototype.$ta = function (key: string, value?: Record<string, FluentVariable>) {
+        vue2.prototype[globalFormatAttrsName] = function (key: string, value?: Record<string, FluentVariable>) {
           return getContext(rootContext, this).formatAttrs(key, value)
         }
 
-        vue2.directive('t', createVue2Directive(rootContext))
+        vue2.directive(directiveName, createVue2Directive(rootContext))
       }
 
-      (vue as Vue).component('i18n', component)
+      (vue as Vue).component(componentName, component)
     },
   }
 }
