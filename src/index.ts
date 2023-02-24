@@ -54,7 +54,7 @@ export function createFluentVue(options: FluentVueOptions): FluentVue {
       const globalFormatName = options.globals?.functions?.format || '$t'
       const globalFormatAttrsName = options.globals?.functions?.formatAttrs || '$ta'
       const directiveName = options.globals?.directive || 't'
-      const componentName = options.globals?.component || 'i18n';
+      const componentName = options.globals?.component || 'i18n'
 
       if (isVue3) {
         const vue3 = vue as Vue3
