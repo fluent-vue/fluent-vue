@@ -18,7 +18,7 @@ describe('globals', () => {
     const fluent = createFluentVue({
       bundles: [bundle],
       globals: {
-        t: 'test',
+        directive: 'test',
       },
     })
 
@@ -44,7 +44,9 @@ describe('globals', () => {
     const fluent = createFluentVue({
       bundles: [bundle],
       globals: {
-        t: 'test',
+        functions: {
+          format: '$test',
+        },
       },
     })
 
@@ -73,7 +75,9 @@ describe('globals', () => {
     const fluent = createFluentVue({
       bundles: [bundle],
       globals: {
-        ta: 'test',
+        functions: {
+          formatAttrs: '$test',
+        },
       },
     })
 
@@ -94,5 +98,31 @@ describe('globals', () => {
 
     // Assert
     expect(mounted.html()).toEqual('<div attr="Attr value"></div>')
+  })
+
+  it('can rename component', () => {
+    const fluent = createFluentVue({
+      bundles: [bundle],
+      globals: {
+        component: 'test',
+      },
+    })
+
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      key = Inner data
+      `),
+    )
+
+    const component = {
+      template: '<test path="key"></test>',
+    }
+
+    // Act
+    const mounted = mountWithFluent(fluent, component)
+
+    // Assert
+    expect(mounted.html()).toEqual('<span>Inner data</span>')
   })
 })

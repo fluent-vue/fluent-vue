@@ -14,10 +14,13 @@ export interface FluentVueOptions {
 
   /** Override the names of the global functions and directive to avoid conflicts */
   globals?: {
-    t?: string;
-    ta?: string;
-  }
-}
+    functions?: {
+      format?: string
+      formatAttrs?: string
+    },
+    component?: string
+    directive?: string
+  }}
 
 export interface TranslationContextOptions {
   warnMissing: (key: string) => void
