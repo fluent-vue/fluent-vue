@@ -79,8 +79,6 @@ Changes for each release are documented in the [CHANGELOG.md](https://github.com
 | ------- | --- | ---- |
 | fluent-vue | [![fluent-vue](https://img.shields.io/npm/v/fluent-vue.svg)](https://www.npmjs.com/package/fluent-vue) | [fluent-vue/fluent-vue](https://github.com/fluent-vue/fluent-vue)
 | unplugin-fluent-vue | [![unplugin-fluent-vue](https://img.shields.io/npm/v/unplugin-fluent-vue.svg)](https://www.npmjs.com/package/unplugin-fluent-vue) | [fluent-vue/unplugin-fluent-vue](https://github.com/fluent-vue/unplugin-fluent-vue)
-| Webpack loader | [![fluent-vue-loader](https://img.shields.io/npm/v/fluent-vue-loader.svg)](https://www.npmjs.com/package/fluent-vue-loader) | [fluent-vue/fluent-vue-loader](https://github.com/fluent-vue/fluent-vue-loader) ![deprecated](https://img.shields.io/badge/-deprecated-important)
-| Rollup/Vite plugin | [![frollup-plugin-fluent-vue](https://img.shields.io/npm/v/rollup-plugin-fluent-vue.svg)](https://www.npmjs.com/package/rollup-plugin-fluent-vue) | [fluent-vue/rollup-plugin-fluent-vue](https://github.com/fluent-vue/rollup-plugin-fluent-vue) ![deprecated](https://img.shields.io/badge/-deprecated-important)
 
 ## 📄 License
 
