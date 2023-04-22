@@ -97,7 +97,7 @@
     "release-it": "*",
     "rimraf": "^5.0.0",
     "tsup": "^6.5.0",
-    "typescript": "^4.9.4",
+    "typescript": "^5.0.4",
     "vite": "^4.0.3",
     "vitest": "^0.26.2",
     "vue": "npm:vue@^3.2.47",
