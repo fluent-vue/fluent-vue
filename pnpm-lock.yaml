@@ -32,7 +32,7 @@ devDependencies:
     version: 18.11.18
   '@vitest/coverage-istanbul':
     specifier: ^0.26.2
-    version: 0.26.2(happy-dom@8.1.1)
+    version: 0.26.2(happy-dom@9.9.2)
   '@vue/compiler-sfc':
     specifier: ^3.2.47
     version: 3.2.47
@@ -52,8 +52,8 @@ devDependencies:
     specifier: ^7.0.0
     version: 7.0.0
   happy-dom:
-    specifier: ^8.1.1
-    version: 8.1.1
+    specifier: ^9.9.2
+    version: 9.9.2
   husky:
     specifier: ^8.0.2
     version: 8.0.2
@@ -77,7 +77,7 @@ devDependencies:
     version: 4.0.3(@types/node@18.11.18)
   vitest:
     specifier: ^0.26.2
-    version: 0.26.2(happy-dom@8.1.1)
+    version: 0.26.2(happy-dom@9.9.2)
   vue:
     specifier: npm:vue@^3.2.47
     version: 3.2.47
@@ -1114,7 +1114,7 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@vitest/coverage-istanbul@0.26.2(happy-dom@8.1.1):
+  /@vitest/coverage-istanbul@0.26.2(happy-dom@9.9.2):
     resolution: {integrity: sha512-3tU7vrgnPiGdIoX9VpIqR2geBuk5er4+2m0flO563R+1lV4guqO2bKbCNqEGpnIRcmnWJKQI1LeXndPexqIHtA==}
     dependencies:
       istanbul-lib-coverage: 3.2.0
@@ -1123,7 +1123,7 @@ packages:
       istanbul-lib-source-maps: 4.0.1
       istanbul-reports: 3.1.5
       test-exclude: 6.0.0
-      vitest: 0.26.2(happy-dom@8.1.1)
+      vitest: 0.26.2(happy-dom@9.9.2)
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitest/browser'
@@ -3193,17 +3193,15 @@ packages:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
     dev: true
 
-  /happy-dom@8.1.1:
-    resolution: {integrity: sha512-uI8NneN2B0D+vwIhjQVKtIUYOSh/zymfj61bU/fxkoAw+Aktn0ewG6dYKyFPOvyBoFLPg3S8fsn2OqSoYCqJeQ==}
+  /happy-dom@9.9.2:
+    resolution: {integrity: sha512-E+FouJ18tckCe04ky6mMtNEGGoXZrY+UFqHICNarQB+fCb4RtZeRbp2IOmoIYaQRjb5Iu3ChLNsLBnB8aA3vjA==}
     dependencies:
       css.escape: 1.5.1
       he: 1.2.0
-      node-fetch: 2.6.7
+      iconv-lite: 0.6.3
       webidl-conversions: 7.0.0
       whatwg-encoding: 2.0.0
       whatwg-mimetype: 3.0.0
-    transitivePeerDependencies:
-      - encoding
     dev: true
 
   /has-bigints@1.0.2:
@@ -6050,7 +6048,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitest@0.26.2(happy-dom@8.1.1):
+  /vitest@0.26.2(happy-dom@9.9.2):
     resolution: {integrity: sha512-Jvqxh6SDy9SsuslkDjts0iDewDIdq4rveEt69YgDuAb1tVDGV0lDepVaeAFraoySWqneJmOt4TngFFNhlw7GfA==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
@@ -6079,7 +6077,7 @@ packages:
       acorn-walk: 8.2.0
       chai: 4.3.7
       debug: 4.3.4
-      happy-dom: 8.1.1
+      happy-dom: 9.9.2
       local-pkg: 0.4.2
       source-map: 0.6.1
       strip-literal: 1.0.0
