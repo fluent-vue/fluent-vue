@@ -2,16 +2,18 @@ import { readFileSync, writeFileSync } from 'fs'
 import { execa } from 'execa'
 
 const vue3packages = {
-  'vue': 'npm:vue@^3.2.41',
-  '@vue/compiler-sfc': '^3.2.41',
-  '@vue/test-utils': '^2.1.0'
+  'vue': 'npm:vue@^3.2.47',
+  'vue-2': 'npm:vue@^2.7.14',
+  'vue-3': 'npm:vue@^3.2.47',
+  '@vue/compiler-sfc': '^3.2.47',
+  '@vue/test-utils': '^2.3.2',
 }
 
 const vue2packages = {
-  'vue': 'npm:vue@^2.7.13',
-  'vue-template-compiler': '^2.7.13',
-  '@vue/test-utils': '^1.3.0',
-  '@vue/composition-api': '^1.7.0'
+  'vue': 'npm:vue@^2.7.14',
+  'vue-template-compiler': '^2.7.14',
+  '@vue/test-utils': '^1.3.5',
+  '@vue/composition-api': '^1.7.0',
 }
 
 const packageFile = './package.json'
