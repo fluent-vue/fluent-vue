@@ -31,6 +31,7 @@ export function createComponent(options: ResolvedOptions) {
       tag: { type: [String, Boolean] as PropType<string | false>, default: options.tag },
       args: { type: Object, default: () => ({}) },
       html: { type: Boolean, default: false },
+      noTag: { type: Boolean, default: false },
     },
     setup(props, { slots, attrs }) {
       const rootContext = inject(RootContextSymbol)
@@ -104,7 +105,7 @@ export function createComponent(options: ResolvedOptions) {
         return nodes.map(processNode)
       })
 
-      return () => props.tag === false ? children.value : h(props.tag, { ...attrs }, children.value)
+      return () => props.tag === false || props.noTag ? children.value : h(props.tag, { ...attrs }, children.value)
     },
   })
 }
