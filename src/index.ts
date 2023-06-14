@@ -92,7 +92,7 @@ export function createFluentVue(options: FluentVueOptions): FluentVue {
         vue2.directive(resolvedOptions.directiveName, createVue2Directive(rootContext))
       }
 
-      (vue as Vue).component(resolvedOptions.componentName, createComponent(resolvedOptions))
+      (vue as Vue).component(resolvedOptions.componentName, createComponent(resolvedOptions, rootContext))
     },
   }
 }

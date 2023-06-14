@@ -4,7 +4,6 @@ import {
   defineComponent,
   getCurrentInstance,
   h,
-  inject,
   isVue2,
 } from 'vue-demi'
 import type { ResolvedOptions, SimpleNode } from 'src/types'
@@ -12,8 +11,8 @@ import type { VueComponent } from 'src/types/typesCompat'
 
 import { camelize } from '../util/camelize'
 import { getContext } from '../getContext'
-import { RootContextSymbol } from '../symbols'
-import { assert, warn } from '../util/warn'
+import { warn } from '../util/warn'
+import type { TranslationContext } from '../TranslationContext'
 
 function getParentWithFluent(
   instance: VueComponent | null | undefined,
@@ -31,7 +30,7 @@ function getParentWithFluent(
 // &amp;, &#0038;, &#x0026;.
 const reMarkup = /<|&#?\w+;/
 
-export function createComponent(options: ResolvedOptions) {
+export function createComponent(options: ResolvedOptions, rootContext: TranslationContext) {
   return defineComponent({
     name: options.componentName,
     props: {
@@ -42,8 +41,6 @@ export function createComponent(options: ResolvedOptions) {
       noTag: { type: Boolean, default: false },
     },
     setup(props, { slots, attrs }) {
-      const rootContext = inject(RootContextSymbol)
-      assert(rootContext != null, 'i18n component used without installing plugin')
       const instance = getCurrentInstance()
       const parent = getParentWithFluent(instance?.proxy)
       const fluent = getContext(rootContext, parent)
