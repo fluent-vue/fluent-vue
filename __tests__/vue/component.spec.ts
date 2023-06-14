@@ -318,4 +318,54 @@ describe('component', () => {
     expect(mounted.get('strong')).toBeTruthy()
     expect(mounted.html()).toEqual('<span><span>Test <span class="inner"> Inner <strong class="strong">strong</strong> </span></span></span>')
   })
+
+  it('can work with tag=false', async () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      key = Hello {$name}
+      `),
+    )
+
+    const component = {
+      data() {
+        return {
+          name: 'John',
+        }
+      },
+      template: `
+        <i18n path="key" :args="{ name }" :tag="false"></i18n>`,
+    }
+
+    // Act
+    const mounted = mountWithFluent(fluent, component)
+
+    // Assert
+    expect(mounted.html()).toEqual('Hello \u{2068}John\u{2069}')
+  })
+
+  it('can work with no-tag', async () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      key = Hello {$name}
+      `),
+    )
+
+    const component = {
+      data() {
+        return {
+          name: 'John',
+        }
+      },
+      template: `
+        <i18n path="key" :args="{ name }" no-tag></i18n>`,
+    }
+
+    // Act
+    const mounted = mountWithFluent(fluent, component)
+
+    // Assert
+    expect(mounted.html()).toEqual('Hello \u{2068}John\u{2069}')
+  })
 })
