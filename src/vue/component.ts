@@ -1,4 +1,12 @@
-import { type PropType, computed, defineComponent, getCurrentInstance, h, inject } from 'vue-demi'
+import {
+  type PropType,
+  computed,
+  defineComponent,
+  getCurrentInstance,
+  h,
+  inject,
+  isVue2,
+} from 'vue-demi'
 import type { ResolvedOptions, SimpleNode } from 'src/types'
 import type { VueComponent } from 'src/types/typesCompat'
 
@@ -104,6 +112,9 @@ export function createComponent(options: ResolvedOptions) {
         const nodes = fluent.options.parseMarkup(translation.value.value)
         return nodes.map(processNode)
       })
+
+      if (isVue2 && (props.tag === false || props.noTag))
+        warn('Vue 2 requires a root element when rendering components. Please, use `tag` prop to specify the root element.')
 
       return () => props.tag === false || props.noTag ? children.value : h(props.tag, { ...attrs }, children.value)
     },

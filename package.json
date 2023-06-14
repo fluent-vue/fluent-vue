@@ -56,7 +56,7 @@
     "ls-lint": "ls-lint",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "test": "node scripts/swap-vue.mjs 3 && vitest run",
-    "test:watch": "node scripts/swap-vue.mjs 3 && vitest",
+    "test:watch": "vitest",
     "test:2": "node scripts/swap-vue.mjs 2 && vitest run",
     "test:3": "node scripts/swap-vue.mjs 3 && vitest run",
     "prepare": "husky install",
