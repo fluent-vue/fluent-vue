@@ -82,4 +82,4 @@ Changes for each release are documented in the [CHANGELOG.md](https://github.com
 
 ## 📄 License
 
-[MIT License](https://github.com/fluent-vue/fluent-vue/blob/main/LICENSE) © 2020-present [Ivan Demchuk](https://github.com/demivan)
+[MIT License](https://github.com/fluent-vue/fluent-vue/blob/main/LICENSE) © 2020 [Ivan Demchuk](https://github.com/demivan)
