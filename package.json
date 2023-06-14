@@ -81,7 +81,7 @@
     "@antfu/eslint-config": "^0.38.5",
     "@fluent/bundle": "~0.18.0",
     "@fluent/dedent": "~0.5.0",
-    "@ls-lint/ls-lint": "^1.11.2",
+    "@ls-lint/ls-lint": "^2.0.0",
     "@release-it-plugins/lerna-changelog": "^5.0.0",
     "@types/node": "^18.15.13",
     "@vitest/coverage-istanbul": "^0.30.1",
