@@ -20,9 +20,25 @@ export interface FluentVueOptions {
     },
     component?: string
     directive?: string
-  }}
+  }
+
+  /**
+   * Tag name for the component.
+   * Set to `false` to disable wrapping the translation in a tag.
+   * @default 'span'
+   */
+  tag?: string | false
+}
 
 export interface TranslationContextOptions {
   warnMissing: (key: string) => void
   parseMarkup: (markup: string) => SimpleNode[]
+}
+
+export interface ResolvedOptions extends TranslationContextOptions {
+  globalFormatName: string
+  globalFormatAttrsName: string
+  directiveName: string
+  componentName: string
+  tag: string | false
 }

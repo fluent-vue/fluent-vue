@@ -1,4 +1,4 @@
-import type { FluentVueOptions, SimpleNode, TranslationContextOptions } from 'src/types'
+import type { FluentVueOptions, ResolvedOptions, SimpleNode } from 'src/types'
 
 import { assert, warn } from './warn'
 
@@ -25,9 +25,14 @@ function getWarnMissing(options: FluentVueOptions) {
     return options.warnMissing
 }
 
-export function resolveOptions(options: FluentVueOptions): TranslationContextOptions {
+export function resolveOptions(options: FluentVueOptions): ResolvedOptions {
   return {
     warnMissing: getWarnMissing(options),
     parseMarkup: options.parseMarkup ?? defaultMarkupParser,
+    globalFormatName: options.globals?.functions?.format ?? '$t',
+    globalFormatAttrsName: options.globals?.functions?.formatAttrs ?? '$ta',
+    directiveName: options.globals?.directive ?? 't',
+    componentName: options.globals?.component ?? 'i18n',
+    tag: options.tag ?? 'span',
   }
 }
