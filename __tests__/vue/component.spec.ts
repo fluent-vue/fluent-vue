@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { isVue2, isVue3 } from 'vue-demi'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
@@ -317,5 +318,87 @@ describe('component', () => {
     expect(mounted.get('span')).toBeTruthy()
     expect(mounted.get('strong')).toBeTruthy()
     expect(mounted.html()).toEqual('<span><span>Test <span class="inner"> Inner <strong class="strong">strong</strong> </span></span></span>')
+  })
+
+  it.runIf(isVue3)('can work with tag=false', async () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+    key = Hello {$name}
+    `),
+    )
+
+    const component = {
+      data() {
+        return {
+          name: 'John',
+        }
+      },
+      template: `
+        <i18n path="key" :args="{ name }" :tag="false"></i18n>`,
+    }
+
+    // Act
+    const mounted = mountWithFluent(fluent, component)
+
+    // Assert
+    expect(mounted.html()).toEqual('Hello \u{2068}John\u{2069}')
+  })
+
+  it.runIf(isVue3)('can work with no-tag', async () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+    key = Hello {$name}
+    `),
+    )
+
+    const component = {
+      data() {
+        return {
+          name: 'John',
+        }
+      },
+      template: `
+        <i18n path="key" :args="{ name }" no-tag></i18n>`,
+    }
+
+    // Act
+    const mounted = mountWithFluent(fluent, component)
+
+    // Assert
+    expect(mounted.html()).toEqual('Hello \u{2068}John\u{2069}')
+  })
+
+  it.runIf(isVue2)('warns when used with tag=false', async () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+    key = Hello {$name}
+    `),
+    )
+
+    const component = {
+      data() {
+        return {
+          name: 'John',
+        }
+      },
+      template: `
+        <i18n path="key" :args="{ name }" :tag="false"></i18n>`,
+    }
+
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+    // Act
+    const mounted = mountWithFluent(fluent, component)
+
+    // Assert
+    expect(mounted.html()).toEqual('')
+    expect(warn).toHaveBeenCalledTimes(1)
+    expect(warn).toHaveBeenCalledWith('[fluent-vue] Vue 2 requires a root element when rendering components. Please, use `tag` prop to specify the root element.')
+
+    // Cleanup
+    warn.mockRestore()
   })
 })

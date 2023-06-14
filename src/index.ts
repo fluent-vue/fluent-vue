@@ -6,7 +6,7 @@ import type { InstallFunction, Vue, Vue2, Vue3, Vue3Component } from './types/ty
 import type { TranslationWithAttrs } from './TranslationContext'
 import { TranslationContext } from './TranslationContext'
 import { createVue2Directive, createVue3Directive } from './vue/directive'
-import component from './vue/component'
+import { createComponent } from './vue/component'
 import { getContext } from './getContext'
 import { RootContextSymbol } from './symbols'
 import { resolveOptions } from './util/options'
@@ -51,30 +51,25 @@ export function createFluentVue(options: FluentVueOptions): FluentVue {
     formatWithAttrs: rootContext.formatWithAttrs.bind(rootContext),
 
     install(vue) {
-      const globalFormatName = options.globals?.functions?.format || '$t'
-      const globalFormatAttrsName = options.globals?.functions?.formatAttrs || '$ta'
-      const directiveName = options.globals?.directive || 't'
-      const componentName = options.globals?.component || 'i18n'
-
       if (isVue3) {
         const vue3 = vue as Vue3
 
         vue3.provide(RootContextSymbol, rootContext)
 
-        vue3.config.globalProperties[globalFormatName] = function (
+        vue3.config.globalProperties[resolvedOptions.globalFormatName] = function (
           key: string,
           value?: Record<string, FluentVariable>,
         ) {
           return getContext(rootContext, this as Vue3Component).format(key, value)
         }
-        vue3.config.globalProperties[globalFormatAttrsName] = function (
+        vue3.config.globalProperties[resolvedOptions.globalFormatAttrsName] = function (
           key: string,
           value?: Record<string, FluentVariable>,
         ) {
           return getContext(rootContext, this as Vue3Component).formatAttrs(key, value)
         }
 
-        vue3.directive(directiveName, createVue3Directive(rootContext))
+        vue3.directive(resolvedOptions.directiveName, createVue3Directive(rootContext))
       }
       else {
         const vue2 = vue as Vue2
@@ -87,17 +82,17 @@ export function createFluentVue(options: FluentVueOptions): FluentVue {
           },
         })
 
-        vue2.prototype[globalFormatName] = function (key: string, value?: Record<string, FluentVariable>) {
+        vue2.prototype[resolvedOptions.globalFormatName] = function (key: string, value?: Record<string, FluentVariable>) {
           return getContext(rootContext, this).format(key, value)
         }
-        vue2.prototype[globalFormatAttrsName] = function (key: string, value?: Record<string, FluentVariable>) {
+        vue2.prototype[resolvedOptions.globalFormatAttrsName] = function (key: string, value?: Record<string, FluentVariable>) {
           return getContext(rootContext, this).formatAttrs(key, value)
         }
 
-        vue2.directive(directiveName, createVue2Directive(rootContext))
+        vue2.directive(resolvedOptions.directiveName, createVue2Directive(rootContext))
       }
 
-      (vue as Vue).component(componentName, component)
+      (vue as Vue).component(resolvedOptions.componentName, createComponent(resolvedOptions, rootContext))
     },
   }
 }
