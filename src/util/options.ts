@@ -33,6 +33,6 @@ export function resolveOptions(options: FluentVueOptions): ResolvedOptions {
     globalFormatAttrsName: options.globals?.functions?.formatAttrs ?? '$ta',
     directiveName: options.globals?.directive ?? 't',
     componentName: options.globals?.component ?? 'i18n',
-    tag: options.tag ?? 'span',
+    componentTag: options.componentTag ?? 'span',
   }
 }

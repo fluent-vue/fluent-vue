@@ -36,7 +36,7 @@ export function createComponent(options: ResolvedOptions) {
     name: options.componentName,
     props: {
       path: { type: String, required: true },
-      tag: { type: [String, Boolean] as PropType<string | false>, default: options.tag },
+      tag: { type: [String, Boolean] as PropType<string | false>, default: options.componentTag },
       args: { type: Object, default: () => ({}) },
       html: { type: Boolean, default: false },
       noTag: { type: Boolean, default: false },

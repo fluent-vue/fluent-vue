@@ -23,11 +23,11 @@ export interface FluentVueOptions {
   }
 
   /**
-   * Tag name for the component.
+   * Tag name used in the `i18n` component.
    * Set to `false` to disable wrapping the translation in a tag.
    * @default 'span'
    */
-  tag?: string | false
+  componentTag?: string | false
 }
 
 export interface TranslationContextOptions {
@@ -40,5 +40,5 @@ export interface ResolvedOptions extends TranslationContextOptions {
   globalFormatAttrsName: string
   directiveName: string
   componentName: string
-  tag: string | false
+  componentTag: string | false
 }
