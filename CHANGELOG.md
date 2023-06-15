@@ -5,6 +5,18 @@
 
 
 
+
+## 3.4.0 (2023-06-15)
+
+#### :star: New Features
+* [#820](https://github.com/fluent-vue/fluent-vue/pull/820) Allow to not create wrapper element in i18n component ([@Demivan](https://github.com/Demivan))
+
+#### :bug: Bug Fixes
+* [#822](https://github.com/fluent-vue/fluent-vue/pull/822) Fix type definitions for `i18n` component and `v-t` directive ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
 ## 3.3.0 (2023-02-24)
 
 #### :star: New Features

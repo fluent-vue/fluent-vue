@@ -1,6 +1,6 @@
 {
   "name": "fluent-vue",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "Internationalization plugin for Vue.js. Project Fluent bindings for Vue.js",
   "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
   "license": "MIT",
