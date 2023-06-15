@@ -39,17 +39,23 @@ type ComponentType = DefineComponent<{
   }
 }>
 
-declare module 'vue' {
-  interface ComponentCustomProperties {
+// @ts-ignore: works on Vue 2, fails in Vue 3
+declare module 'vue/types/vue' {
+  export interface Vue {
     $t: (key: string, values?: Record<string, unknown>) => string
     $ta: (key: string, values?: Record<string, unknown>) => Record<string, string>
   }
+}
 
-  interface ComponentCustomProperties {
+// @ts-ignore: works on Vue 3, fails in Vue 2
+declare module '@vue/runtime-core' {
+  export interface ComponentCustomProperties {
+    $t: (key: string, values?: Record<string, unknown>) => string
+    $ta: (key: string, values?: Record<string, unknown>) => Record<string, string>
     vT: FunctionDirective<HTMLElement, Record<string, FluentVariable>>
   }
 
-  interface GlobalComponents {
+  export interface GlobalComponents {
     i18n: ComponentType
   }
 }
