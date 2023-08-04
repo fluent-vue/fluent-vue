@@ -16,16 +16,16 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-        node: [16, 17]
+        node: [16, 18, 20]
         vue: [2, 3]
     steps:
       - name: Checkout
         uses: actions/checkout@v3.5.3
       - name: Setup Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v3.6.0
+        uses: actions/setup-node@v3.7.0
         with:
           node-version: ${{ matrix.node }}
-      - uses: pnpm/action-setup@v2.2.4
+      - uses: pnpm/action-setup@v2.4.0
         with:
           version: 8.x.x
           run_install: true
@@ -45,8 +45,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3.5.3
       - name: Setup Node.js
-        uses: actions/setup-node@v3.6.0
-      - uses: pnpm/action-setup@v2.2.4
+        uses: actions/setup-node@v3.7.0
+      - uses: pnpm/action-setup@v2.4.0
         with:
           version: 7.x.x
           run_install: true
@@ -68,8 +68,8 @@ jobs:
           repository: fluent-vue/examples
           path: examples
       - name: Setup Node.js
-        uses: actions/setup-node@v3.6.0
-      - uses: pnpm/action-setup@v2.2.4
+        uses: actions/setup-node@v3.7.0
+      - uses: pnpm/action-setup@v2.4.0
         with:
           version: 7.x.x
           run_install: true

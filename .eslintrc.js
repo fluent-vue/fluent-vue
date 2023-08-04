@@ -10,6 +10,7 @@ module.exports = {
     '*.js'
   ],
   rules: {
-    "vue/component-definition-name-casing": ["error", "kebab-case"]
+    "vue/component-definition-name-casing": ["error", "kebab-case"],
+    "n/prefer-global/process": 0
   }
 }

@@ -7,7 +7,7 @@ import type { FluentVue } from '../../src'
 
 install()
 
-export function mountWithFluent<T extends {}>(
+export function mountWithFluent<T extends object>(
   fluent: FluentVue | null,
   component: ComponentOptions<T>,
 ): VueWrapper<ComponentPublicInstance<T>> {
