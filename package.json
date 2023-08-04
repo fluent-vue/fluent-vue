@@ -30,11 +30,11 @@
     ".": {
       "types": "./index.d.ts",
       "production": {
-        "require": "./dist/prod/index.cjs",
-        "import": "./dist/prod/index.mjs"
+        "import": "./dist/prod/index.mjs",
+        "require": "./dist/prod/index.cjs"
       },
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
     }
   },
   "main": "dist/index.cjs",
