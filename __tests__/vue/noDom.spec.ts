@@ -3,7 +3,7 @@ import { beforeAll, describe, expect, it, vi } from 'vitest'
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
-import { DOMParser as HappyDomParser } from 'happy-dom'
+import { Window } from 'happy-dom'
 
 import { createFluentVue } from '../../src'
 import { mountWithFluent } from '../utils'
@@ -57,7 +57,8 @@ describe('component html support', () => {
     const fluent = createFluentVue({
       bundles: [bundle],
       parseMarkup: (markup: string) => {
-        const parser = new HappyDomParser()
+        const window = new Window()
+        const parser = new window.DOMParser()
         const doc = parser.parseFromString(markup, 'text/html')
         const nodes = Array.from(doc.body.childNodes)
 
@@ -94,7 +95,8 @@ describe('component html support', () => {
     const fluent = createFluentVue({
       bundles: [bundle],
       parseMarkup: (markup: string) => {
-        const parser = new HappyDomParser()
+        const window = new Window()
+        const parser = new window.DOMParser()
         const doc = parser.parseFromString(markup, 'text/html')
         const nodes = Array.from(doc.body.childNodes)
 
