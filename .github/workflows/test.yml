@@ -48,7 +48,7 @@ jobs:
         uses: actions/setup-node@v3.7.0
       - uses: pnpm/action-setup@v2.4.0
         with:
-          version: 7.x.x
+          version: 8.x.x
           run_install: true
 
       - name: Lint
@@ -71,7 +71,7 @@ jobs:
         uses: actions/setup-node@v3.7.0
       - uses: pnpm/action-setup@v2.4.0
         with:
-          version: 7.x.x
+          version: 8.x.x
           run_install: true
 
       - name: Test
