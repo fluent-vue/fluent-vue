@@ -4,6 +4,5 @@ export function assert(condition: boolean, message: string): asserts condition {
 }
 
 export function warn(message: string, ...args: unknown[]): void {
-  if (process.env.NODE_ENV !== 'production')
-    console.warn(`[fluent-vue] ${message}`, ...args)
+  console.warn(`[fluent-vue] ${message}`, ...args)
 }
