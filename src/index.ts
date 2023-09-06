@@ -1,3 +1,4 @@
+import './types/volar'
 import type { FluentBundle, FluentVariable } from '@fluent/bundle'
 import { isVue3, shallowRef } from 'vue-demi'
 import type { FluentVueOptions } from './types'

@@ -1,5 +1,6 @@
 {
   "name": "fluent-vue",
+  "type": "module",
   "version": "3.4.0",
   "description": "Internationalization plugin for Vue.js. Project Fluent bindings for Vue.js",
   "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
@@ -28,30 +29,21 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./index.d.ts",
-      "production": {
-        "import": "./dist/prod/index.mjs",
-        "require": "./dist/prod/index.cjs"
-      },
-      "import": "./dist/index.mjs",
+      "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     }
   },
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "unpkg": "dist/prod/index.global.js",
-  "jsdelivr": "dist/prod/index.global.js",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "unpkg": "dist/index.global.js",
+  "jsdelivr": "dist/index.global.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "index.d.ts",
     "dist",
     "README.md"
   ],
-  "engines": {
-    "node": ">=12.0.0"
-  },
   "scripts": {
-    "build": "rimraf dist && tsup",
+    "build": "tsup",
     "lint": "eslint .",
     "ls-lint": "ls-lint",
     "typecheck": "tsc --noEmit -p tsconfig.json",
