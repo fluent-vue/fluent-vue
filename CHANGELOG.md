@@ -6,6 +6,18 @@
 
 
 
+
+## 3.5.0 (2023-09-06)
+
+#### :star: New Features
+* [#835](https://github.com/fluent-vue/fluent-vue/pull/835) Simplify and update package.json ([@Demivan](https://github.com/Demivan))
+
+#### :bug: Bug Fixes
+* [#836](https://github.com/fluent-vue/fluent-vue/pull/836) Fix stale translations on locale change ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
 ## 3.4.0 (2023-06-15)
 
 #### :star: New Features
