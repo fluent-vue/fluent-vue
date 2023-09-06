@@ -13,6 +13,7 @@ function * flatMap<T, TR>(iterable: Iterable<T>, mapper: (element: T) => TR[]): 
 export function getContext(
   rootContext: TranslationContext,
   instance: VueComponent | null | undefined,
+  fromSetup = false,
 ): TranslationContext {
   if (instance == null)
     return rootContext
@@ -50,7 +51,10 @@ export function getContext(
 
   const context = new TranslationContext(overriddenBundles, rootContext.options)
 
-  options._fluent = context
+  // If we are in script setup, we cannot cache the context
+  // because after component is unmounted, computed will not be updated
+  if (!fromSetup)
+    options._fluent = context
 
   return context
 }

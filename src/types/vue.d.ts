@@ -1,6 +1,6 @@
 import type Vue from 'vue-2'
 import type { FluentResource } from '@fluent/bundle'
-import type { FluentVue } from '../index'
+import type { TranslationContext } from '../TranslationContext'
 
 declare module 'vue-2/types/options' {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -8,7 +8,10 @@ declare module 'vue-2/types/options' {
     fluent?: Record<string, FluentResource>
 
     /** @private */
-    _fluent?: FluentVue
+    _fluent?: TranslationContext
+
+    /** @private */
+    _fluentSetup?: TranslationContext
   }
 }
 
