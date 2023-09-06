@@ -1,11 +1,11 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 
-import { nextTick } from 'vue-demi'
+import { isVue3, nextTick } from 'vue-demi'
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
 import type { FluentVue } from '../src'
-import { createFluentVue } from '../src'
+import { createFluentVue, useFluent } from '../src'
 import { mountWithFluent } from './utils'
 
 describe('language change', () => {
@@ -102,6 +102,111 @@ describe('language change', () => {
 
     // Assert
     expect(mounted.html()).toEqual('<a href="/foo">link text</a>')
+  })
+
+  it('updates locale even if component is unmounted github.com/orgs/fluent-vue/discussions/834', async () => {
+    // Arrange
+    bundleEn = new FluentBundle('en-US')
+    bundleUk = new FluentBundle('uk-UA')
+
+    const fluent = createFluentVue({
+      bundles: [bundleUk],
+    })
+
+    const child = {
+      template: '<span>{{ $t("child") }}</span>',
+      fluent: {
+        'en-US': new FluentResource(ftl`
+        child = Child message
+        `),
+        'uk-UA': new FluentResource(ftl`
+        child = Повідомлення
+        `),
+      },
+    }
+
+    const component = {
+      components: {
+        child,
+      },
+      data: () => ({
+        show: true,
+      }),
+      template: '<child v-if="show" />',
+    }
+
+    // Act
+    const mounted = mountWithFluent(fluent, component)
+
+    expect(mounted.html()).toEqual('<span>Повідомлення</span>')
+
+    await mounted.setData({ show: false })
+
+    if (isVue3)
+      expect(mounted.html()).toEqual('<!--v-if-->')
+    else
+      expect(mounted.html()).toEqual('')
+
+    fluent.bundles = [bundleEn]
+
+    await mounted.setData({ show: true })
+
+    // Assert
+    expect(mounted.html()).toEqual('<span>Child message</span>')
+  })
+
+  it('useFluent updates locale even if component is unmounted github.com/orgs/fluent-vue/discussions/834', async () => {
+    // Arrange
+    bundleEn = new FluentBundle('en-US')
+    bundleUk = new FluentBundle('uk-UA')
+
+    const fluent = createFluentVue({
+      bundles: [bundleUk],
+    })
+
+    const child = {
+      setup() {
+        useFluent()
+      },
+      template: '<span>{{ $t("child") }}</span>',
+      fluent: {
+        'en-US': new FluentResource(ftl`
+        child = Child message
+        `),
+        'uk-UA': new FluentResource(ftl`
+        child = Повідомлення
+        `),
+      },
+    }
+
+    const component = {
+      components: {
+        child,
+      },
+      data: () => ({
+        show: true,
+      }),
+      template: '<child v-if="show" />',
+    }
+
+    // Act
+    const mounted = mountWithFluent(fluent, component)
+
+    expect(mounted.html()).toEqual('<span>Повідомлення</span>')
+
+    await mounted.setData({ show: false })
+
+    if (isVue3)
+      expect(mounted.html()).toEqual('<!--v-if-->')
+    else
+      expect(mounted.html()).toEqual('')
+
+    fluent.bundles = [bundleEn]
+
+    await mounted.setData({ show: true })
+
+    // Assert
+    expect(mounted.html()).toEqual('<span>Child message</span>')
   })
 
   it('works when dynamically adding bundles', async () => {

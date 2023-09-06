@@ -12,5 +12,5 @@ export function useFluent(): TranslationContext {
   const rootContext = inject(RootContextSymbol)
   assert(rootContext != null, 'useFluent called without installing plugin')
 
-  return getContext(rootContext, instance.proxy)
+  return getContext(rootContext, instance.proxy, true)
 }
