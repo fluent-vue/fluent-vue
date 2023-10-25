@@ -83,7 +83,7 @@
     "esbuild-plugin-globals": "^0.2.0",
     "eslint": "^8.48.0",
     "execa": "^8.0.1",
-    "happy-dom": "^11.2.0",
+    "happy-dom": "^12.9.1",
     "husky": "^8.0.3",
     "lint-staged": "^15.0.2",
     "release-it": "*",
