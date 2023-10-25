@@ -18,6 +18,10 @@
     {
       "matchDepTypes": ["peerDependencies"],
       "rangeStrategy": "widen"
+    },
+    {
+      "matchPackageNames": ["eslint", "@antfu/eslint-config"],
+      "groupName": "eslint packages"
     }
   ]
 }
