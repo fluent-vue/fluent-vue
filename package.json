@@ -85,7 +85,7 @@
     "execa": "^8.0.1",
     "happy-dom": "^11.2.0",
     "husky": "^8.0.3",
-    "lint-staged": "^14.0.1",
+    "lint-staged": "^15.0.2",
     "release-it": "*",
     "rimraf": "^5.0.5",
     "tsup": "^7.2.0",
