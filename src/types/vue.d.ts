@@ -3,7 +3,6 @@ import type { FluentResource } from '@fluent/bundle'
 import type { TranslationContext } from '../TranslationContext'
 
 declare module 'vue-2/types/options' {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface ComponentOptions<V extends Vue> {
     fluent?: Record<string, FluentResource>
 

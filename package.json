@@ -39,8 +39,8 @@
   "jsdelivr": "dist/index.global.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist",
-    "README.md"
+    "README.md",
+    "dist"
   ],
   "scripts": {
     "build": "tsup",
@@ -70,7 +70,7 @@
     "vue-demi": "latest"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.41.0",
+    "@antfu/eslint-config": "^2.6.2",
     "@fluent/bundle": "~0.18.0",
     "@fluent/dedent": "~0.5.0",
     "@ls-lint/ls-lint": "^2.2.2",
