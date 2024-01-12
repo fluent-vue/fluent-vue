@@ -12,6 +12,9 @@ export default defineConfig({
     coverage: {
       provider: 'istanbul',
       reporter: ['text', 'lcovonly'],
+      include: [
+        'src/**',
+      ],
     },
     environment: 'happy-dom',
   },
