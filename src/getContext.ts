@@ -44,8 +44,7 @@ export function getContext(
           bundle.addResource(resources, { allowOverrides: true })
 
           return bundle
-        }),
-      ),
+        })),
     ),
   )
 

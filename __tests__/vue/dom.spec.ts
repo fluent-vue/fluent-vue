@@ -21,7 +21,7 @@ describe('isAttrNameLocalizable', () => {
     expect(result).toBe(true)
   })
 
-  it('returns false for non-localizable attributes', () => {
+  it('returns false for non-localizable attributes (<img src="">)', () => {
     // Arrange Act
     const result = isAttrNameLocalizable('src', createElement('img'))
 
@@ -29,7 +29,7 @@ describe('isAttrNameLocalizable', () => {
     expect(result).toBe(false)
   })
 
-  it('returns false for non-localizable attributes', () => {
+  it('returns false for non-localizable attributes (<div alt="">)', () => {
     // Arrange Act
     const result = isAttrNameLocalizable('alt', createElement('div'))
 

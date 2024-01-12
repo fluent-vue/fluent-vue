@@ -1,5 +1,5 @@
 ls:
-  "{src,__tests__}":
+  '{src,__tests__}':
     .js: kebab-case
     .ts: camelCase | PascalCase
     .d.ts: camelCase

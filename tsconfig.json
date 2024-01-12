@@ -1,20 +1,20 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "outDir": "dist",
-    "sourceMap": true,
     "target": "ES2019",
+    "jsx": "preserve",
+    "lib": ["esnext", "dom"],
+    "baseUrl": ".",
+    "rootDir": ".",
     "module": "esnext",
     "moduleResolution": "node",
+    "types": ["node"],
     "allowJs": false,
     "strict": true,
     "noUnusedLocals": true,
-    "esModuleInterop": true,
+    "outDir": "dist",
     "removeComments": false,
-    "jsx": "preserve",
-    "lib": ["esnext", "dom"],
-    "types": ["node"],
-    "rootDir": ".",
+    "sourceMap": true,
+    "esModuleInterop": true,
     "skipLibCheck": true
   },
   "include": [

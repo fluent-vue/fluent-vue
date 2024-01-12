@@ -92,7 +92,8 @@ export function createComponent(options: ResolvedOptions, rootContext: Translati
                 Array.from(el.attributes).map(attr => [attr.name, attr.value]),
               ),
             },
-            Array.from(el.childNodes).map(node => processNode(node)))
+            Array.from(el.childNodes).map(node => processNode(node)),
+          )
         }
 
         // Ignore other node types for now.
