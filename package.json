@@ -51,7 +51,7 @@
     "test:watch": "vitest",
     "test:2": "node scripts/swap-vue.mjs 2 && vitest run",
     "test:3": "node scripts/swap-vue.mjs 3 && vitest run",
-    "prepare": "husky install",
+    "prepare": "husky",
     "release": "dotenv release-it"
   },
   "peerDependencies": {
@@ -84,7 +84,7 @@
     "eslint": "^8.56.0",
     "execa": "^8.0.1",
     "happy-dom": "^13.0.2",
-    "husky": "^8.0.3",
+    "husky": "^9.0.9",
     "lint-staged": "^15.2.0",
     "release-it": "*",
     "rimraf": "^5.0.5",
