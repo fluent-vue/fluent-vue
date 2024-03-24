@@ -22,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.1.1
       - name: Setup Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v4.0.1
+        uses: actions/setup-node@v4.0.2
         with:
           node-version: ${{ matrix.node }}
       - uses: pnpm/action-setup@v3.0.0
@@ -45,7 +45,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.1.1
       - name: Setup Node.js
-        uses: actions/setup-node@v4.0.1
+        uses: actions/setup-node@v4.0.2
       - uses: pnpm/action-setup@v3.0.0
         with:
           version: 8.x.x
@@ -68,7 +68,7 @@ jobs:
           repository: fluent-vue/examples
           path: examples
       - name: Setup Node.js
-        uses: actions/setup-node@v4.0.1
+        uses: actions/setup-node@v4.0.2
       - uses: pnpm/action-setup@v3.0.0
         with:
           version: 8.x.x
