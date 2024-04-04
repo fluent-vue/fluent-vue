@@ -7,6 +7,15 @@
 
 
 
+
+## 3.5.1 (2024-04-04)
+
+#### :star: New Features
+* [#869](https://github.com/fluent-vue/fluent-vue/pull/869) Add support for binding SSR props in Vue 3 directive ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
 ## 3.5.0 (2023-09-06)
 
 #### :star: New Features
