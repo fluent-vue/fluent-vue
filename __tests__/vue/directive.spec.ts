@@ -141,6 +141,8 @@ describe('directive', () => {
       `),
     )
 
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
     const component = {
       data: () => ({
         name: 'John',
@@ -153,6 +155,10 @@ describe('directive', () => {
 
     // Assert
     expect(mounted.html()).toEqual('<a aria-label="Hello \u{2068}John\u{2069}">Text</a>')
+    expect(warn).toHaveBeenCalledTimes(1)
+    expect(warn).toHaveBeenCalledWith(
+      '[fluent-vue] Attribute \'not-allowed\' on element <a> is not localizable. Remove it from the translation. Translation key: link',
+    )
   })
 
   it('works without fallbacks', () => {
