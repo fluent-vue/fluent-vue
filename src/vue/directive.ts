@@ -63,6 +63,7 @@ export function createVue3Directive(rootContext: TranslationContext): Vue3Direct
           attrs[attr] = attrValue
       }
 
+      // TODO: Include textContent when https://github.com/vuejs/core/issues/8112 is resolved
       return attrs
     },
   }
