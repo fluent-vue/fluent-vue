@@ -3,11 +3,11 @@ import process from 'node:process'
 import { execa } from 'execa'
 
 const vue3packages = {
-  'vue': 'npm:vue@^3.4.11',
+  'vue': 'npm:vue@^3.4.21',
   'vue-2': 'npm:vue@^2.7.16',
-  'vue-3': 'npm:vue@^3.4.11',
-  '@vue/compiler-sfc': '^3.4.11',
-  '@vue/test-utils': '^2.4.3',
+  'vue-3': 'npm:vue@^3.4.21',
+  '@vue/compiler-sfc': '^3.4.21',
+  '@vue/test-utils': '^2.4.5',
 }
 
 const vue2packages = {
