@@ -23,6 +23,8 @@ function translate(el: HTMLElement, fluent: TranslationContext, binding: VueDire
   for (const [attr, attrValue] of Object.entries(translation.attributes)) {
     if (isAttrNameLocalizable(attr, el, allowedAttrs))
       el.setAttribute(attr, attrValue)
+    else
+      warn(`Attribute '${attr}' on element <${el.tagName.toLowerCase()}> is not localizable. Remove it from the translation. Translation key: ${key}`)
   }
 }
 
@@ -38,6 +40,30 @@ export function createVue3Directive(rootContext: TranslationContext): Vue3Direct
     updated(el, binding) {
       const context = getContext(rootContext, binding.instance)
       translate(el, context, binding)
+    },
+
+    getSSRProps(binding) {
+      const context = getContext(rootContext, binding.instance)
+      const key = binding.arg
+      if (key === void 0) {
+        warn('v-t directive is missing arg with translation key')
+        return {}
+      }
+      const translation = context.formatWithAttrs(key, binding.value)
+      const allowedAttrs = Object.keys(binding.modifiers)
+      const attrs: Record<string, string> = {}
+      for (const [attr, attrValue] of Object.entries(translation.attributes)) {
+        // Vue 3 does not expose the element in the binding object
+        // so we can't check if the attribute is allowed
+        // we assume that all attributes are allowed
+        // this could lead to SSR hydration mismatches if translation
+        // contains attributes that are not allowed
+        // There is a runtime warning in the browser console in case translation contains not allowed attributes
+        if (isAttrNameLocalizable(attr, {} as HTMLElement, allowedAttrs))
+          attrs[attr] = attrValue
+      }
+
+      return attrs
     },
   }
 }
