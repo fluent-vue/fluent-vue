@@ -52,7 +52,9 @@ export function getContext(
 
   // If we are in script setup, we cannot cache the context
   // because after component is unmounted, computed will not be updated
-  if (!fromSetup)
+  // Additionally we cannot cache on the server, because server is not reactive
+  const isServer = typeof window === 'undefined'
+  if (!fromSetup && !isServer)
     options._fluent = context
 
   return context
