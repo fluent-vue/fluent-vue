@@ -8,6 +8,15 @@
 
 
 
+
+## 3.5.2 (2024-04-05)
+
+#### :bug: Bug Fixes
+* [#871](https://github.com/fluent-vue/fluent-vue/pull/871) Fix caching issue during SSR ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
 ## 3.5.1 (2024-04-04)
 
 #### :star: New Features
