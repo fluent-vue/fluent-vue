@@ -1,5 +1,5 @@
 import './types/volar'
-import type { FluentBundle, FluentVariable } from '@fluent/bundle'
+import type { FluentBundle, FluentResource, FluentVariable } from '@fluent/bundle'
 import { isVue3, shallowRef } from 'vue-demi'
 import type { FluentVueOptions } from './types'
 
@@ -8,7 +8,7 @@ import type { TranslationWithAttrs } from './TranslationContext'
 import { TranslationContext } from './TranslationContext'
 import { createVue2Directive, createVue3Directive } from './vue/directive'
 import { createComponent } from './vue/component'
-import { getContext } from './getContext'
+import { getContext, getMergedContext } from './getContext'
 import { RootContextSymbol } from './symbols'
 import { resolveOptions } from './util/options'
 
@@ -23,6 +23,11 @@ export interface FluentVue {
   formatAttrs: (key: string, value?: Record<string, FluentVariable>) => Record<string, string>
 
   formatWithAttrs: (key: string, value?: Record<string, FluentVariable>) => TranslationWithAttrs
+
+  mergedWith: (extraTranslations?: Record<string, FluentResource>) => TranslationContext
+
+  $t: (key: string, value?: Record<string, FluentVariable>) => string
+  $ta: (key: string, value?: Record<string, FluentVariable>) => Record<string, string>
 
   install: InstallFunction
 }
@@ -47,9 +52,16 @@ export function createFluentVue(options: FluentVueOptions): FluentVue {
       bundles.value = value
     },
 
+    mergedWith: (extraTranslations?: Record<string, FluentResource>) => {
+      return getMergedContext(rootContext, extraTranslations)
+    },
+
     format: rootContext.format.bind(rootContext),
     formatAttrs: rootContext.formatAttrs.bind(rootContext),
     formatWithAttrs: rootContext.formatWithAttrs.bind(rootContext),
+
+    $t: rootContext.format.bind(rootContext),
+    $ta: rootContext.formatAttrs.bind(rootContext),
 
     install(vue) {
       if (isVue3) {
