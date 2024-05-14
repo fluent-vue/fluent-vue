@@ -9,6 +9,15 @@
 
 
 
+
+## 3.6.0 (2024-05-14)
+
+#### :star: New Features
+* [#877](https://github.com/fluent-vue/fluent-vue/pull/877) Implement mergedWith helper method for global translations ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
 ## 3.5.2 (2024-04-05)
 
 #### :bug: Bug Fixes
