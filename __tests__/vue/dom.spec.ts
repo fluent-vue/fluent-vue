@@ -60,4 +60,12 @@ describe('isAttrNameLocalizable', () => {
     // Assert
     expect(result).toBe(true)
   })
+
+  it('value attribute is not localizable on other input types', () => {
+    // Arrange Act
+    const result = isAttrNameLocalizable('value', createElement('input', { type: 'checkbox' }))
+
+    // Assert
+    expect(result).toBe(false)
+  })
 })
