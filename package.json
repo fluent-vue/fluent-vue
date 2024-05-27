@@ -75,7 +75,7 @@
     "@fluent/bundle": "~0.18.0",
     "@fluent/dedent": "~0.5.0",
     "@ls-lint/ls-lint": "^2.2.3",
-    "@release-it-plugins/lerna-changelog": "^6.1.0",
+    "@release-it-plugins/lerna-changelog": "^7.0.0",
     "@types/node": "^20.12.12",
     "@vitest/coverage-istanbul": "^1.6.0",
     "@vue/compiler-sfc": "^3.4.27",
