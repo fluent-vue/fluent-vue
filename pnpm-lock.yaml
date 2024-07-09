@@ -34,13 +34,13 @@ importers:
         specifier: ^7.0.0
         version: 7.0.0(release-it@17.5.0(typescript@5.5.3))
       '@types/node':
-        specifier: ^20.12.12
+        specifier: ^20.14.10
         version: 20.14.10
       '@vitest/coverage-istanbul':
         specifier: ^2.0.1
         version: 2.0.1(vitest@2.0.1(@types/node@20.14.10)(happy-dom@14.12.3))
       '@vue/compiler-sfc':
-        specifier: ^3.4.27
+        specifier: ^3.4.31
         version: 3.4.31
       '@vue/test-utils':
         specifier: ^2.4.6
@@ -55,16 +55,16 @@ importers:
         specifier: ^9.6.0
         version: 9.6.0
       execa:
-        specifier: ^9.1.0
+        specifier: ^9.3.0
         version: 9.3.0
       happy-dom:
-        specifier: ^14.11.1
+        specifier: ^14.12.3
         version: 14.12.3
       husky:
         specifier: ^9.0.11
         version: 9.0.11
       lint-staged:
-        specifier: ^15.2.5
+        specifier: ^15.2.7
         version: 15.2.7
       release-it:
         specifier: '*'
@@ -73,25 +73,25 @@ importers:
         specifier: ^6.0.0
         version: 6.0.0
       tsup:
-        specifier: ^8.0.2
+        specifier: ^8.1.0
         version: 8.1.0(postcss@8.4.39)(typescript@5.5.3)
       typescript:
-        specifier: ^5.4.5
+        specifier: ^5.5.3
         version: 5.5.3
       vite:
-        specifier: ^5.2.11
+        specifier: ^5.3.3
         version: 5.3.3(@types/node@20.14.10)
       vitest:
         specifier: ^2.0.1
         version: 2.0.1(@types/node@20.14.10)(happy-dom@14.12.3)
       vue:
-        specifier: npm:vue@^3.4.27
+        specifier: npm:vue@^3.4.31
         version: 3.4.31(typescript@5.5.3)
       vue-2:
         specifier: npm:vue@^2.7.16
         version: vue@2.7.16
       vue-3:
-        specifier: npm:vue@^3.4.27
+        specifier: npm:vue@^3.4.31
         version: vue@3.4.31(typescript@5.5.3)
 
 packages:
