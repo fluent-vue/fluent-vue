@@ -16,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.1.7
       - name: Setup Node.js
-        uses: actions/setup-node@v4.0.2
+        uses: actions/setup-node@v4.0.3
       - uses: pnpm/action-setup@v4.0.0
 
       - uses: antfu/export-size-action@v1
