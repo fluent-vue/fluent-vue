@@ -13,13 +13,13 @@ function * flatMap<T, TR>(iterable: Iterable<T>, mapper: (element: T) => TR[]): 
 
 export function getContext(
   rootContext: TranslationContext,
-  instance: VueComponent | null | undefined,
+  instance: Record<string, any> | null | undefined,
   fromSetup = false,
 ): TranslationContext {
   if (instance == null)
     return rootContext
 
-  const options = instance.$options
+  const options = (instance as VueComponent).$options
 
   if (options._fluent != null)
     return options._fluent
