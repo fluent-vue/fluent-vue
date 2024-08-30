@@ -47,13 +47,11 @@ describe('composition api', () => {
     expect(mounted.html()).toEqual('<a href="/foo" aria-label="Aria label">link text</a>')
   })
 
-  it('thrpws when used outside of setup', () => {
+  it('throws when used outside of setup', () => {
     // Arrange
     // Act
-    const use = () => useFluent()
-
     // Assert
-    expect(use).toThrowError('[fluent-vue] useFluent called outside of setup')
+    expect(() => useFluent()).toThrowError('[fluent-vue] useFluent called outside of setup')
   })
 
   it('throws when used without installing plugin', () => {

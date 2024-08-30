@@ -9,15 +9,12 @@ import { inheritBundle } from '../src/inheritBundle'
 describe('inheritBundle', () => {
   it('gets options from parent', () => {
     // Arrange
-    const functions = {
-      test: () => '',
-    }
-    const transform = (): string => ''
-
     const parent = new FluentBundle('en', {
       useIsolating: false,
-      functions,
-      transform,
+      functions: {
+        test: () => '',
+      },
+      transform: (): string => '',
     })
 
     // Act

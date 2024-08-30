@@ -39,7 +39,7 @@ type ComponentType = DefineComponent<{
   }
 }>
 
-// eslint-disable-next-line ts/prefer-ts-expect-error
+// eslint-disable-next-line ts/ban-ts-comment
 // @ts-ignore: works on Vue 2, fails in Vue 3
 declare module 'vue/types/vue' {
   export interface Vue {
@@ -48,7 +48,7 @@ declare module 'vue/types/vue' {
   }
 }
 
-// eslint-disable-next-line ts/prefer-ts-expect-error
+// eslint-disable-next-line ts/ban-ts-comment
 // @ts-ignore: works on Vue 3, fails in Vue 2
 declare module '@vue/runtime-core' {
   export interface ComponentCustomProperties {
