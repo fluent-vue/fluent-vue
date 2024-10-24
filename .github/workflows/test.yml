@@ -20,9 +20,9 @@ jobs:
         vue: [2, 3]
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@v4.2.2
       - name: Setup Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v4.0.3
+        uses: actions/setup-node@v4.1.0
         with:
           node-version: ${{ matrix.node }}
       - uses: pnpm/action-setup@v4.0.0
@@ -43,9 +43,9 @@ jobs:
     name: Lint source code
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@v4.2.2
       - name: Setup Node.js
-        uses: actions/setup-node@v4.0.3
+        uses: actions/setup-node@v4.1.0
       - uses: pnpm/action-setup@v4.0.0
         with:
           run_install: true
@@ -60,14 +60,14 @@ jobs:
     name: Test build of example projects
     steps:
       - name: Checkout fluent-vue
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@v4.2.2
       - name: Checkout examples
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@v4.2.2
         with:
           repository: fluent-vue/examples
           path: examples
       - name: Setup Node.js
-        uses: actions/setup-node@v4.0.3
+        uses: actions/setup-node@v4.1.0
       - uses: pnpm/action-setup@v4.0.0
 
       - name: Test
