@@ -33,7 +33,7 @@ jobs:
         run: pnpm test:${{ matrix.vue }} --coverage
 
       - name: Upload code coverage
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v5
         with:
           flags: vue-${{matrix.vue}}
           token: ${{ secrets.CODECOV_TOKEN }}
