@@ -80,7 +80,7 @@
     "@vitest/coverage-istanbul": "^2.0.5",
     "@vue/compiler-sfc": "^3.4.38",
     "@vue/test-utils": "^2.4.6",
-    "dotenv-cli": "^7.4.2",
+    "dotenv-cli": "^8.0.0",
     "esbuild-plugin-globals": "^0.2.0",
     "eslint": "^9.9.1",
     "execa": "^9.3.1",
