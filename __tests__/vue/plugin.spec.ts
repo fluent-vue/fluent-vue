@@ -1,11 +1,11 @@
+import { FluentBundle, FluentResource } from '@fluent/bundle'
+
+import ftl from '@fluent/dedent'
 import { describe, expect, it } from 'vitest'
 
-import { FluentBundle, FluentResource } from '@fluent/bundle'
-import ftl from '@fluent/dedent'
+import { createFluentVue } from '../../src'
 
 import { mountWithFluent } from '../utils'
-
-import { createFluentVue } from '../../src'
 
 describe('vue integration', () => {
   const bundle = new FluentBundle('en-US')

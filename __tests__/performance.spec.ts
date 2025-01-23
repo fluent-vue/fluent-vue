@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest'
-
-import { isReactive } from 'vue-demi'
 import { FluentBundle } from '@fluent/bundle'
+
+import { describe, expect, it } from 'vitest'
+import { isReactive } from 'vue-demi'
 
 import { createFluentVue } from '../src'
 

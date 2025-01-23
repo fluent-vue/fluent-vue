@@ -1,8 +1,8 @@
 import type {
   ObjectDirective as Vue2DirectiveOptions,
 } from 'vue-2'
-import type { Vue as Vue2Type } from 'vue-2/types/vue'
 import type { DirectiveBinding as Vue2DirectiveBinding } from 'vue-2/types/options'
+import type { Vue as Vue2Type } from 'vue-2/types/vue'
 import type {
   ComponentPublicInstance as Vue3ComponentType,
   DirectiveBinding as Vue3DirectiveBinding,

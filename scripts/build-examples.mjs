@@ -1,5 +1,5 @@
-import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { spawn } from 'node:child_process'
+import { existsSync, readdirSync, readFileSync } from 'node:fs'
 
 function exec(command, params, ops) {
   const p = spawn(command, params, ops)

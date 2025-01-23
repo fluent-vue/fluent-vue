@@ -1,9 +1,9 @@
-import { watchEffect } from 'vue-demi'
-import type { Vue2Directive, Vue3Directive, VueDirectiveBinding } from '../types/typesCompat'
 import type { TranslationContext } from '../TranslationContext'
+import type { Vue2Directive, Vue3Directive, VueDirectiveBinding } from '../types/typesCompat'
+import { watchEffect } from 'vue-demi'
 
-import { warn } from '../util/warn'
 import { getContext } from '../getContext'
+import { warn } from '../util/warn'
 import { isAttrNameLocalizable } from './dom'
 
 function translate(el: HTMLElement, fluent: TranslationContext, binding: VueDirectiveBinding): void {

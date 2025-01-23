@@ -1,8 +1,8 @@
-import type { Message, Pattern } from '@fluent/bundle/esm/ast'
 import type { FluentBundle, FluentVariable } from '@fluent/bundle'
+import type { Message, Pattern } from '@fluent/bundle/esm/ast'
 import type { Ref } from 'vue-demi'
-import { mapBundleSync } from '@fluent/sequence'
 import type { TranslationContextOptions } from './types'
+import { mapBundleSync } from '@fluent/sequence'
 
 import { warn } from './util/warn'
 

@@ -1,8 +1,8 @@
-import { beforeEach, describe, expect, it } from 'vitest'
+import type { FluentVue } from '../src'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 
-import type { FluentVue } from '../src'
+import { beforeEach, describe, expect, it } from 'vitest'
 import { createFluentVue } from '../src'
 
 describe('mergedWith', () => {

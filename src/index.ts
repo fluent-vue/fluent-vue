@@ -1,16 +1,16 @@
-import './types/volar'
 import type { FluentBundle, FluentResource, FluentVariable } from '@fluent/bundle'
-import { isVue3, shallowRef } from 'vue-demi'
-import type { FluentVueOptions } from './types'
-
-import type { InstallFunction, Vue, Vue2, Vue3, Vue3Component } from './types/typesCompat'
 import type { TranslationWithAttrs } from './TranslationContext'
-import { TranslationContext } from './TranslationContext'
-import { createVue2Directive, createVue3Directive } from './vue/directive'
-import { createComponent } from './vue/component'
+import type { FluentVueOptions } from './types'
+import type { InstallFunction, Vue, Vue2, Vue3, Vue3Component } from './types/typesCompat'
+
+import { isVue3, shallowRef } from 'vue-demi'
 import { getContext, getMergedContext } from './getContext'
 import { RootContextSymbol } from './symbols'
+import { TranslationContext } from './TranslationContext'
 import { resolveOptions } from './util/options'
+import { createComponent } from './vue/component'
+import { createVue2Directive, createVue3Directive } from './vue/directive'
+import './types/volar'
 
 export { useFluent } from './composition'
 

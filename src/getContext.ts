@@ -1,10 +1,10 @@
-import { computed } from 'vue-demi'
-import { CachedSyncIterable } from 'cached-iterable'
 import type { FluentResource } from '@fluent/bundle'
 import type { VueComponent } from './types/typesCompat'
+import { CachedSyncIterable } from 'cached-iterable'
+import { computed } from 'vue-demi'
 
-import { TranslationContext } from './TranslationContext'
 import { inheritBundle } from './inheritBundle'
+import { TranslationContext } from './TranslationContext'
 
 function * flatMap<T, TR>(iterable: Iterable<T>, mapper: (element: T) => TR[]): IterableIterator<TR> {
   for (const item of iterable)

@@ -1,9 +1,9 @@
-import { beforeAll, describe, expect, it, vi } from 'vitest'
-
 import { FluentBundle, FluentResource } from '@fluent/bundle'
-import ftl from '@fluent/dedent'
 
+import ftl from '@fluent/dedent'
 import { Window } from 'happy-dom'
+
+import { beforeAll, describe, expect, it, vi } from 'vitest'
 
 import { createFluentVue } from '../../src'
 import { mountWithFluent } from '../utils'

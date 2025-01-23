@@ -1,5 +1,5 @@
-import type Vue from 'vue-2'
 import type { FluentResource } from '@fluent/bundle'
+import type Vue from 'vue-2'
 import type { TranslationContext } from '../TranslationContext'
 
 declare module 'vue-2/types/options' {

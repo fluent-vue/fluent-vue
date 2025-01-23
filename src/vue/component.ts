@@ -1,18 +1,18 @@
+import type { ResolvedOptions, SimpleNode } from 'src/types'
+import type { VueComponent } from 'src/types/typesCompat'
+import type { TranslationContext } from '../TranslationContext'
+
 import {
-  type PropType,
   computed,
   defineComponent,
   getCurrentInstance,
   h,
   isVue2,
+  type PropType,
 } from 'vue-demi'
-import type { ResolvedOptions, SimpleNode } from 'src/types'
-import type { VueComponent } from 'src/types/typesCompat'
-
-import { camelize } from '../util/camelize'
 import { getContext } from '../getContext'
+import { camelize } from '../util/camelize'
 import { warn } from '../util/warn'
-import type { TranslationContext } from '../TranslationContext'
 
 function getParentWithFluent(
   instance: VueComponent | null | undefined,

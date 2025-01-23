@@ -1,5 +1,5 @@
-import type { DefineComponent, FunctionDirective, PropType } from 'vue-demi'
 import type { FluentVariable } from '@fluent/bundle'
+import type { DefineComponent, FunctionDirective, PropType } from 'vue-demi'
 
 type ComponentType = DefineComponent<{
   /**
