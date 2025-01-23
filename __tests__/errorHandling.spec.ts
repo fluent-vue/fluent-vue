@@ -40,7 +40,7 @@ describe('vue integration', () => {
     // Assert
     expect(mounted.html()).toEqual('<div>{NUMBER($arg)}</div>')
     expect(warn).toHaveBeenCalledTimes(1)
-    expect(warn).toHaveBeenCalledWith('[fluent-vue] Error when formatting message with key [message-with-error]', new Error('Unknown variable: $arg'))
+    expect(warn).toHaveBeenCalledWith('[fluent-vue] Error when formatting message with key [message-with-error]', new ReferenceError('Unknown variable: $arg'))
 
     // Cleanup
     warn.mockRestore()
