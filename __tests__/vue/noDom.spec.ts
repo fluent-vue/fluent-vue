@@ -83,24 +83,23 @@ describe('component html support', () => {
     expect(mounted.html()).toMatchInlineSnapshot('"<span>Hello \u{2068}John\u{2069}<br>How are you?</span>"')
   })
 
-  it('warn about not support markup', () => {
+  it('warn about not supported markup', () => {
     // Arrange
     const bundle = new FluentBundle('en-US')
     bundle.addResource(
       new FluentResource(ftl`
-      key = Hello {$name}<br>How are you?<!-- this is a comment -->
+      key = Hello {$name}<br>How are you?
       `),
     )
 
     const fluent = createFluentVue({
       bundles: [bundle],
       parseMarkup: (markup: string) => {
-        const window = new Window()
-        const parser = new window.DOMParser()
-        const doc = parser.parseFromString(markup, 'text/html')
-        const nodes = Array.from(doc.body.childNodes)
-
-        return nodes
+        return [{
+          nodeType: 8,
+          textContent: markup,
+          nodeValue: markup,
+        }]
       },
     })
 
@@ -120,7 +119,7 @@ describe('component html support', () => {
     const mounted = mountWithFluent(fluent, component)
 
     // Assert
-    expect(mounted.html()).toMatchInlineSnapshot('"<span>Hello \u{2068}John\u{2069}<br>How are you?</span>"')
+    expect(mounted.html()).toMatchInlineSnapshot('"<span></span>"')
     expect(warn).toHaveBeenCalledWith('[fluent-vue] Unsupported node type: 8. If you need support for it, please, create an issue in fluent-vue repository.')
 
     // Cleanup
