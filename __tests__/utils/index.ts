@@ -1,9 +1,9 @@
 import type { VueWrapper } from '@vue/test-utils'
-import * as TestUtils from '@vue/test-utils'
 import type { ComponentOptions, ComponentPublicInstance } from 'vue-3'
-import { install, isVue3 } from 'vue-demi'
-
 import type { FluentVue } from '../../src'
+import * as TestUtils from '@vue/test-utils'
+
+import { install, isVue3 } from 'vue-demi'
 
 install()
 

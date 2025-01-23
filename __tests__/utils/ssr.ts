@@ -1,8 +1,8 @@
-import * as TestUtils from '@vue/test-utils'
 import type { ComponentOptions } from 'vue-3'
-import { install } from 'vue-demi'
-
 import type { FluentVue } from '../../src'
+import * as TestUtils from '@vue/test-utils'
+
+import { install } from 'vue-demi'
 
 install()
 

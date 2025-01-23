@@ -1,13 +1,13 @@
-import { beforeEach, describe, expect, it } from 'vitest'
+import type { FluentVue } from '../../src'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
-import { nextTick } from 'vue-demi'
+import { beforeEach, describe, expect, it } from 'vitest'
 
-import { mountWithFluent } from '../utils'
-import type { FluentVue } from '../../src'
+import { nextTick } from 'vue-demi'
 import { createFluentVue } from '../../src'
+import { mountWithFluent } from '../utils'
 
 describe('message override', () => {
   let fluent: FluentVue

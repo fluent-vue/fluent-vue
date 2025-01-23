@@ -1,11 +1,11 @@
+import { FluentBundle, FluentResource } from '@fluent/bundle'
+
+import ftl from '@fluent/dedent'
 import { beforeEach, describe, expect, it } from 'vitest'
 
-import { FluentBundle, FluentResource } from '@fluent/bundle'
-import ftl from '@fluent/dedent'
+import { createFluentVue } from '../../src'
 
 import { mountWithFluent } from '../utils'
-
-import { createFluentVue } from '../../src'
 
 describe('globals', () => {
   let bundle: FluentBundle

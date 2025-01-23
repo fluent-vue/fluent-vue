@@ -1,12 +1,12 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest'
+import type { FluentVue } from '../../src'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 
-import { mountWithFluent } from '../utils'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { FluentVue } from '../../src'
 import { createFluentVue } from '../../src'
+import { mountWithFluent } from '../utils'
 
 describe('directive', () => {
   let fluent: FluentVue

@@ -1,8 +1,8 @@
-import { describe, expect, it } from 'vitest'
+import type { Pattern } from '@fluent/bundle/esm/ast'
 
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
-import type { Pattern } from '@fluent/bundle/esm/ast'
+import { describe, expect, it } from 'vitest'
 
 import { inheritBundle } from '../src/inheritBundle'
 

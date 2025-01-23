@@ -1,13 +1,13 @@
+import type { FluentVue } from '../../src'
+import { FluentBundle, FluentResource } from '@fluent/bundle'
+
+import ftl from '@fluent/dedent'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
+
 import { isVue2, isVue3 } from 'vue-demi'
 
-import { FluentBundle, FluentResource } from '@fluent/bundle'
-import ftl from '@fluent/dedent'
-
-import { mountWithFluent } from '../utils'
-
-import type { FluentVue } from '../../src'
 import { createFluentVue } from '../../src'
+import { mountWithFluent } from '../utils'
 
 describe('component', () => {
   let fluent: FluentVue

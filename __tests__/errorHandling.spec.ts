@@ -1,7 +1,7 @@
-import { describe, expect, it, vi } from 'vitest'
-
 import { FluentBundle, FluentResource } from '@fluent/bundle'
+
 import ftl from '@fluent/dedent'
+import { describe, expect, it, vi } from 'vitest'
 
 import { createFluentVue } from '../src'
 import { mountWithFluent } from './utils'
