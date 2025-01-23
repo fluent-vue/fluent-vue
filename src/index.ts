@@ -1,7 +1,7 @@
 import type { FluentBundle, FluentResource, FluentVariable } from '@fluent/bundle'
 import type { TranslationWithAttrs } from './TranslationContext'
 import type { FluentVueOptions } from './types'
-import type { InstallFunction, Vue, Vue2, Vue3, Vue3Component } from './types/typesCompat'
+import type { InstallFunction, Vue2, Vue3, Vue3Component } from './types/typesCompat'
 
 import { isVue3, shallowRef } from 'vue-demi'
 import { getContext, getMergedContext } from './getContext'
@@ -105,7 +105,7 @@ export function createFluentVue(options: FluentVueOptions): FluentVue {
         vue2.directive(resolvedOptions.directiveName, createVue2Directive(rootContext))
       }
 
-      (vue as Vue).component(resolvedOptions.componentName, createComponent(resolvedOptions, rootContext))
+      (vue as Vue3).component(resolvedOptions.componentName, createComponent(resolvedOptions, rootContext))
     },
   }
 }
