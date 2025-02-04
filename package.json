@@ -82,7 +82,7 @@
     "@vue/test-utils": "^2.4.6",
     "dotenv-cli": "^8.0.0",
     "esbuild-plugin-globals": "^0.2.0",
-    "eslint": "^9.18.0",
+    "eslint": "^9.19.0",
     "execa": "^9.5.2",
     "happy-dom": "^16.7.2",
     "husky": "^9.1.7",
