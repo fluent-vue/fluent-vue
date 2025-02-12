@@ -59,16 +59,25 @@ export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fl
     componentStateTypes: ['fluent-vue'],
     app,
     settings: {
+      components: {
+        label: 'Components',
+      } as any, // Use option as a header
       showLocalized: {
         defaultValue: true,
-        label: 'Mark localized components',
+        label: 'Mark localized',
         description: 'Mark localized components in component tree',
         type: 'boolean',
       },
       showI18n: {
         defaultValue: true,
-        label: 'Mark i18n components',
+        label: 'Mark i18n',
         description: 'Mark i18n components in component tree',
+        type: 'boolean',
+      },
+      markMissing: {
+        defaultValue: true,
+        label: 'Mark missing',
+        description: 'Mark missing translations in component tree',
         type: 'boolean',
       },
       pseudo: {
@@ -120,7 +129,7 @@ export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fl
       }
 
       const missing = missingTranslations.get(componentInstance)
-      if (missing != null && missing.size > 0) {
+      if (settings.markMissing && missing != null && missing.size > 0) {
         treeNode.tags.push({
           label: 'missing translations',
           textColor: 0xFFFFFF,
