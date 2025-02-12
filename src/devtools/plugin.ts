@@ -202,14 +202,14 @@ export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fl
       if (payload.inspectorId === 'fluent-vue-inspector') {
         payload.rootNodes = [
           {
-            id: 'root',
+            id: 'global',
             label: `Global translations`,
-            children: [...fluent.bundles].map(bundle => ({
+            children: cleanBundles.value.map(bundle => ({
               id: bundle.locales.join(','),
               label: bundle.locales.join(','),
               children: [...bundle._messages.entries()].map(([_, message]) => ({
                 id: message.id,
-                label: message.id,
+                label: `${message.id}: ${message.value ? bundle.formatPattern(message.value, {}, []) : ''}`,
               })),
             })),
           },
