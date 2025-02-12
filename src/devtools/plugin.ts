@@ -82,16 +82,16 @@ export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fl
         description: 'Mark localized components in component tree',
         type: 'boolean',
       },
-      showI18n: {
-        defaultValue: true,
-        label: 'Mark i18n',
-        description: 'Mark i18n components in component tree',
-        type: 'boolean',
-      },
       markMissing: {
         defaultValue: true,
         label: 'Mark missing',
         description: 'Mark missing translations in component tree',
+        type: 'boolean',
+      },
+      showI18n: {
+        defaultValue: true,
+        label: 'Mark i18n',
+        description: 'Mark i18n components in component tree',
         type: 'boolean',
       },
       pseudo: {
