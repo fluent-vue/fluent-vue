@@ -2,8 +2,10 @@ import type { FluentBundle, FluentResource, FluentVariable } from '@fluent/bundl
 import type { TranslationWithAttrs } from './TranslationContext'
 import type { FluentVueOptions } from './types'
 import type { InstallFunction, Vue2, Vue3, Vue3Component } from './types/typesCompat'
-
 import { isVue3, shallowRef } from 'vue-demi'
+
+import { registerFluentVueDevtools } from './devtools'
+
 import { getContext, getMergedContext } from './getContext'
 import { RootContextSymbol } from './symbols'
 import { TranslationContext } from './TranslationContext'
@@ -66,6 +68,10 @@ export function createFluentVue(options: FluentVueOptions): FluentVue {
     install(vue) {
       if (isVue3) {
         const vue3 = vue as Vue3
+
+        // eslint-disable-next-line node/prefer-global/process
+        if (process.env.NODE_ENV !== 'production')
+          registerFluentVueDevtools(vue3, resolvedOptions, this)
 
         vue3.provide(RootContextSymbol, rootContext)
 
