@@ -1,10 +1,11 @@
-import type { FluentBundle } from '@fluent/bundle'
-
+import type { FluentResource } from '@fluent/bundle'
 import type { FluentVue } from 'src'
+
 import type { App, ComponentInternalInstance } from 'vue-demi'
 import type { ResolvedOptions } from '../types'
+import { FluentBundle } from '@fluent/bundle'
 import { setupDevToolsPlugin } from '@vue/devtools-api'
-import { getCurrentInstance, watchEffect } from 'vue-demi'
+import { computed, getCurrentInstance, watchEffect } from 'vue-demi'
 import pseudoLocalize from './pseudoLocalize'
 
 export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fluent: FluentVue) {
@@ -49,6 +50,14 @@ export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fl
       hookedBundles.add(bundle)
     }
   }, { flush: 'sync' })
+
+  const cleanBundles = computed(() => {
+    return [...fluent.bundles]
+      .map(bundle => new FluentBundle(bundle.locales, {
+        functions: bundle._functions,
+        useIsolating: bundle._useIsolating,
+      }))
+  })
 
   setupDevToolsPlugin({
     id: 'fluent-vue',
@@ -139,24 +148,45 @@ export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fl
     })
 
     api.on.inspectComponent(({ componentInstance, instanceData }) => {
-      if (!componentInstance?.proxy?.$options.fluent)
+      const missing = missingTranslations.get(componentInstance)
+      if (missing) {
+        for (const key of missing.values()) {
+          instanceData.state.push({
+            type: 'Missing translations',
+            key,
+            editable: false,
+            value: '',
+          })
+        }
+      }
+
+      const componentFluent = componentInstance?.proxy?.$options.fluent as Record<string, FluentResource>
+      if (!componentFluent)
         return
 
-      const missing = missingTranslations.get(componentInstance)
+      const bundles = cleanBundles.value
+      for (const [locale, messages] of Object.entries(componentFluent)) {
+        const bundle = bundles.find(bundle => bundle.locales.includes(locale))
 
-      if (missing) {
-        instanceData.state.push({
-          type: 'fluent-vue',
-          key: 'missingTranslations',
-          editable: false,
-          value: {
-            _custom: {
-              type: 'set',
-              value: [...missing.values()],
-              display: JSON.stringify([...missing.values()]),
+        for (const message of messages.body) {
+          const overridesGlobal = bundle?.hasMessage(message.id) ?? false
+
+          instanceData.state.push({
+            type: `Component translations (${locale})`,
+            key: message.id,
+            editable: false,
+            value: {
+              _custom: {
+                type: 'custom',
+                display:
+                  message.value
+                    ? bundle?.formatPattern(message.value, {}, [])
+                    : `${
+                      overridesGlobal ? '&nbsp;<span style="color:#ffa726">Global</span>' : ''}`,
+              },
             },
-          },
-        })
+          })
+        }
       }
     })
 
