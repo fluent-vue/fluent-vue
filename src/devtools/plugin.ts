@@ -160,6 +160,25 @@ export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fl
       }
     })
 
+    api.on.getInspectorTree((payload) => {
+      if (payload.inspectorId === 'fluent-vue-inspector') {
+        payload.rootNodes = [
+          {
+            id: 'root',
+            label: `Global translations`,
+            children: [...fluent.bundles].map(bundle => ({
+              id: bundle.locales.join(','),
+              label: bundle.locales.join(','),
+              children: [...bundle._messages.entries()].map(([_, message]) => ({
+                id: message.id,
+                label: message.id,
+              })),
+            })),
+          },
+        ]
+      }
+    })
+
     function handleSettingsChange(settings: {
       pseudoEnable: boolean
       pseudoType: string
