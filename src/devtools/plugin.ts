@@ -8,9 +8,9 @@ import { watchEffect } from 'vue-demi'
 import pseudoLocalize from './pseudoLocalize'
 
 export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fluent: FluentVue) {
-  // Hook into bundle tranform
   let currentPseudoLocalize: ((str: string) => string) | undefined
 
+  // Hook into bundle tranform
   const hookedBundles = new WeakSet<FluentBundle>()
 
   watchEffect(() => {
@@ -44,6 +44,18 @@ export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fl
     componentStateTypes: ['fluent-vue'],
     app,
     settings: {
+      showLocalized: {
+        defaultValue: true,
+        label: 'Mark localized components',
+        description: 'Mark localized components in component tree',
+        type: 'boolean',
+      },
+      showI18n: {
+        defaultValue: true,
+        label: 'Mark i18n components',
+        description: 'Mark i18n components in component tree',
+        type: 'boolean',
+      },
       pseudo: {
         label: 'Pseudolocalization',
       } as any, // Use option as a header
@@ -73,10 +85,20 @@ export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fl
       },
     },
   }, (api) => {
-    api.on.visitComponentTree(({ treeNode }) => {
-      if (treeNode.name === options.componentName) {
+    api.on.visitComponentTree(({ treeNode, componentInstance }) => {
+      const settings = api.getSettings()
+
+      if (settings.showI18n && treeNode.name === options.componentName) {
         treeNode.tags.push({
           label: 'fluent-vue',
+          textColor: 0x000000,
+          backgroundColor: 0x41B883,
+        })
+      }
+
+      if (settings.showLocalized && componentInstance?.proxy?.$options.fluent != null) {
+        treeNode.tags.push({
+          label: 'localized',
           textColor: 0x000000,
           backgroundColor: 0x41B883,
         })
