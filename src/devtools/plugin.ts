@@ -53,10 +53,15 @@ export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fl
 
   const cleanBundles = computed(() => {
     return [...fluent.bundles]
-      .map(bundle => new FluentBundle(bundle.locales, {
-        functions: bundle._functions,
-        useIsolating: bundle._useIsolating,
-      }))
+      .map((bundle) => {
+        const newBundle = new FluentBundle(bundle.locales, {
+          functions: bundle._functions,
+          useIsolating: bundle._useIsolating,
+        })
+        newBundle._terms = bundle._terms
+        newBundle._messages = bundle._messages
+        return newBundle
+      })
   })
 
   setupDevToolsPlugin({
@@ -184,10 +189,8 @@ export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fl
               _custom: {
                 type: 'custom',
                 display:
-                  message.value
-                    ? bundle?.formatPattern(message.value, {}, [])
-                    : `${
-                      overridesGlobal ? '&nbsp;<span style="color:#ffa726">Global</span>' : ''}`,
+                  (message.value ? bundle?.formatPattern(message.value, {}, []) : '')
+                  + (overridesGlobal ? '&nbsp;<span style="color:#ffa726">Global</span>' : ''),
               },
             },
           })
