@@ -11,7 +11,7 @@ export default defineConfig({
       '@fluent/bundle': 'FluentBundle',
     }),
   ],
-  external: ['vue-demi', '@fluent/bundle'],
+  external: ['vue-demi', '@fluent/bundle', '@vue/devtools-api'],
   entry: ['src/index.ts', 'src/composition.ts'],
   format: ['esm', 'cjs', 'iife'],
   dts: true,
