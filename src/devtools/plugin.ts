@@ -155,7 +155,12 @@ export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fl
             type: 'Missing translations',
             key,
             editable: false,
-            value: '',
+            value: {
+              _custom: {
+                type: 'custom',
+                display: '<span style="color:#B00020">Missing</span>',
+              },
+            },
           })
         }
       }
