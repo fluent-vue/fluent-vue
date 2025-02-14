@@ -10,7 +10,7 @@ import pseudoLocalize from './pseudoLocalize'
 
 export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fluent: FluentVue) {
   let currentPseudoLocalize: ((str: string) => string) | undefined
-  const missingTranslations: WeakMap<ComponentInternalInstance, Set<string>> = new WeakMap()
+  const missingTranslations: Map<ComponentInternalInstance, Set<string>> = new Map()
 
   // Hook into options and app
   const oldWarnMissing = options.warnMissing
@@ -203,7 +203,11 @@ export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fl
         payload.rootNodes = [
           {
             id: 'global',
-            label: `Global translations`,
+            label: 'Global translations',
+          },
+          {
+            id: 'missing',
+            label: 'Missing translations',
           },
         ]
       }
@@ -218,6 +222,22 @@ export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fl
               key: message.id,
               value: message.value ? bundle.formatPattern(message.value, {}, []) : '',
             }))
+          }
+        }
+
+        if (payload.nodeId === 'missing') {
+          payload.state = {}
+          for (const bundle of cleanBundles.value) {
+            payload.state[bundle.locales.join(',')] = [...missingTranslations.entries()]
+              .flatMap(([component, translations]) => [...translations.keys()].map(key => ({
+                key,
+                value: {
+                  _custom: {
+                    type: 'component',
+                    value: component.proxy,
+                  },
+                },
+              })))
           }
         }
       }
