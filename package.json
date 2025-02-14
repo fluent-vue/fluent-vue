@@ -30,8 +30,18 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": {
+        "types": "./dist/index.d.ts",
+        "production:": "./dist/prod/index.js",
+        "development:": "./dist/index.js",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "production:": "./dist/prod/index.cjs",
+        "development:": "./dist/index.cjs",
+        "default": "./dist/index.cjs"
+      }
     }
   },
   "main": "dist/index.js",
