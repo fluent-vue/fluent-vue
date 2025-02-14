@@ -101,4 +101,28 @@ describe('vue integration', () => {
       '<div>Hello, \u{2068}John\u{2069}!<div>Hello from child component, \u{2068}Alice\u{2069}</div>\n</div>',
     )
   })
+
+  it('allows specifying custom variable mapping function', () => {
+    // Arrange
+    const fluent = createFluentVue({
+      bundles: [bundle],
+      mapVariable: (variable) => {
+        if (typeof variable === 'string')
+          return variable.toUpperCase()
+      },
+    })
+
+    const component = {
+      data: () => ({
+        name: 'John',
+      }),
+      template: '<div>{{ $t("message", { name }) }}</div>',
+    }
+
+    // Act
+    const mounted = mountWithFluent(fluent, component)
+
+    // Assert
+    expect(mounted.html()).toEqual('<div>Hello, \u{2068}JOHN\u{2069}!</div>')
+  })
 })
