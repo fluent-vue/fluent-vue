@@ -44,6 +44,29 @@ describe.skipIf(!isVue3)('ssr directive', () => {
     expect(rendered).toEqual('<a href="/foo" aria-label="Link aria label">Link text</a>')
   })
 
+  it('skips text content if not specified', async () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      link =
+        .aria-label = Link aria label
+      `),
+    )
+
+    const component = {
+      data: () => ({
+        name: 'John',
+      }),
+      template: '<a v-t:link href="/foo">Test</a>',
+    }
+
+    // Act
+    const rendered = await renderSSR(fluent, component)
+
+    // Assert
+    expect(rendered).toEqual('<a href="/foo" aria-label="Link aria label">Test</a>')
+  })
+
   it('warns when missing translation key', async () => {
     // Arrange
     const warnSpy = vi.spyOn(console, 'warn')
