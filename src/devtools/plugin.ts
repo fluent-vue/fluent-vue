@@ -216,7 +216,9 @@ export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fl
       }
     })
 
-    api.on.getInspectorState((payload) => {
+    const highlightedComponents = new Set<ComponentInternalInstance>()
+
+    api.on.getInspectorState(async (payload) => {
       if (payload.inspectorId === 'fluent-vue-inspector') {
         if (payload.nodeId === 'global') {
           payload.state = {}
@@ -231,16 +233,46 @@ export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fl
         if (payload.nodeId === 'missing') {
           payload.state = {}
           for (const bundle of cleanBundles.value) {
-            payload.state[bundle.locales.join(',')] = [...missingTranslations.entries()]
-              .flatMap(([component, translations]) => [...translations.keys()].map(key => ({
-                key,
-                value: {
-                  _custom: {
-                    type: 'component',
-                    value: component.proxy,
+            const locale = bundle.locales.join(',')
+
+            for (const [component, translations] of missingTranslations.entries()) {
+              for (const key of translations) {
+                payload.state[locale] = payload.state[locale] ?? []
+                payload.state[locale].push({
+                  key,
+                  editable: true,
+                  value: {
+                    _custom: {
+                      type: 'component',
+                      value: highlightedComponents.has(component),
+                      display: await api.getComponentName(component),
+                    },
                   },
-                },
-              })))
+                })
+              }
+            }
+          }
+        }
+      }
+    })
+
+    api.on.editInspectorState((payload) => {
+      if (payload.inspectorId === 'fluent-vue-inspector') {
+        if (payload.nodeId === 'missing') {
+          const key = payload.path[0]
+          const [component] = missingTranslations.entries()
+            .find(([_, translations]) => translations.has(key))
+            ?? []
+
+          if (component != null) {
+            if (payload.state.value) {
+              highlightedComponents.add(component)
+              api.highlightElement(component)
+            }
+            else {
+              highlightedComponents.delete(component)
+              api.unhighlightElement()
+            }
           }
         }
       }
