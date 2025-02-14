@@ -1,4 +1,5 @@
-import type { FluentBundle } from '@fluent/bundle'
+import type { FluentBundle, FluentVariable } from '@fluent/bundle'
+import type { TypesConfig } from 'src'
 
 type SimpleNode = Pick<Node, 'nodeType' | 'textContent' | 'nodeValue'>
 
@@ -28,11 +29,18 @@ export interface FluentVueOptions {
    * @default 'span'
    */
   componentTag?: string | false
+
+  /**
+   * Function that converts a custom value to a FluentVariable.
+   * This is useful for adding support for types that are not supported by fluent.js.
+   */
+  mapVariable?: (value: TypesConfig['customTypes'] | FluentVariable) => FluentVariable | undefined
 }
 
 export interface TranslationContextOptions {
   warnMissing: (key: string) => void
   parseMarkup: (markup: string) => SimpleNode[]
+  mapVariable?: (value: TypesConfig['customTypes'] | FluentVariable) => FluentVariable | undefined
 }
 
 export interface ResolvedOptions extends TranslationContextOptions {
