@@ -44,26 +44,26 @@ export function createVue3Directive(rootContext: TranslationContext): Vue3Direct
 
     getSSRProps(binding) {
       const context = getContext(rootContext, binding.instance)
-      const key = binding.arg
-      if (key === void 0) {
+      if (binding.arg === void 0) {
         warn('v-t directive is missing arg with translation key')
         return {}
       }
-      const translation = context.formatWithAttrs(key, binding.value)
-      const allowedAttrs = Object.keys(binding.modifiers)
-      const attrs: Record<string, string> = {}
-      for (const [attr, attrValue] of Object.entries(translation.attributes)) {
-        // Vue 3 does not expose the element in the binding object
-        // so we can't check if the attribute is allowed
-        // we assume that all attributes are allowed
-        // this could lead to SSR hydration mismatches if translation
-        // contains attributes that are not allowed
-        // There is a runtime warning in the browser console in case translation contains not allowed attributes
-        if (isAttrNameLocalizable(attr, {} as HTMLElement, allowedAttrs))
-          attrs[attr] = attrValue
+
+      const translation = context.formatWithAttrs(binding.arg, binding.value)
+
+      // Vue 3 does not expose the element in the binding object during SSR.
+      // So we can't check if the attribute is allowed.
+      // We assume that all attributes are allowed.
+      // This could lead to SSR hydration mismatches if translation
+      // contains attributes that are not allowed.
+      // There is a runtime warning in the browser console in case translation
+      // contains not allowed attributes, this should catch this case.
+      const attrs = translation.attributes
+
+      if (translation.hasValue) {
+        attrs.textContent = translation.value
       }
 
-      // TODO: Include textContent when https://github.com/vuejs/core/issues/8112 is resolved
       return attrs
     },
   }
