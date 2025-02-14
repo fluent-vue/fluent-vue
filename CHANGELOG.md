@@ -10,6 +10,19 @@
 
 
 
+
+## 3.7.0 (2025-02-14)
+
+#### :star: New Features
+* [#920](https://github.com/fluent-vue/fluent-vue/pull/920) Add support for mapping translation parameters ([@Demivan](https://github.com/Demivan))
+* [#918](https://github.com/fluent-vue/fluent-vue/pull/918) Add devtools integration ([@Demivan](https://github.com/Demivan))
+
+#### :zap: Improved Features
+* [#921](https://github.com/fluent-vue/fluent-vue/pull/921) Improve directive SSR ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
 ## 3.6.0 (2024-05-14)
 
 #### :star: New Features
