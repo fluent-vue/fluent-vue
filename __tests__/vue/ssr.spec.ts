@@ -34,16 +34,14 @@ describe.skipIf(!isVue3)('ssr directive', () => {
       data: () => ({
         name: 'John',
       }),
-      template: '<a v-t:link href="/foo">Fallback text</a>',
+      template: '<a v-t:link href="/foo"></a>',
     }
 
     // Act
     const rendered = await renderSSR(fluent, component)
 
     // Assert
-    // This has fallback text because the textContent is not supported by Vue getSSRProps
-    // Text will be translated using directive transform
-    expect(rendered).toEqual('<a href="/foo" aria-label="Link aria label">Fallback text</a>')
+    expect(rendered).toEqual('<a href="/foo" aria-label="Link aria label">Link text</a>')
   })
 
   it('warns when missing translation key', async () => {
@@ -51,14 +49,38 @@ describe.skipIf(!isVue3)('ssr directive', () => {
     const warnSpy = vi.spyOn(console, 'warn')
 
     const component = {
-      template: '<a v-t href="/foo">Fallback text</a>',
+      template: '<a v-t href="/foo"></a>',
     }
 
     // Act
     const rendered = await renderSSR(fluent, component)
 
     // Assert
-    expect(rendered).toEqual('<a href="/foo">Fallback text</a>')
+    expect(rendered).toEqual('<a href="/foo"></a>')
     expect(warnSpy).toHaveBeenCalledWith('[fluent-vue] v-t directive is missing arg with translation key')
+  })
+
+  it('only allows certain attributes', async () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      message = Hello, { $name }!
+        .aria-label = Link aria label
+        .href = Link href
+      `),
+    )
+
+    const component = {
+      data: () => ({
+        name: 'John',
+      }),
+      template: '<a v-t:message="{ name }"></a>',
+    }
+
+    // Act
+    const rendered = await renderSSR(fluent, component)
+
+    // Assert
+    expect(rendered).toEqual('<a aria-label="Link aria label" href="Link href">Hello, \u{2068}John\u{2069}!</a>')
   })
 })
