@@ -77,6 +77,7 @@
   },
   "dependencies": {
     "@fluent/sequence": "^0.8.0",
+    "@vue/devtools-api": "^7.7.1",
     "cached-iterable": "^0.3.0",
     "vue-demi": "latest"
   },
@@ -89,7 +90,6 @@
     "@types/node": "^22.13.1",
     "@vitest/coverage-istanbul": "^3.0.5",
     "@vue/compiler-sfc": "^3.5.13",
-    "@vue/devtools-api": "^7.7.1",
     "@vue/test-utils": "^2.4.6",
     "dotenv-cli": "^8.0.0",
     "esbuild-plugin-globals": "^0.2.0",

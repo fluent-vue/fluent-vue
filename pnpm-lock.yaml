@@ -11,6 +11,9 @@ importers:
       '@fluent/sequence':
         specifier: ^0.8.0
         version: 0.8.0(@fluent/bundle@0.18.0)
+      '@vue/devtools-api':
+        specifier: ^7.7.1
+        version: 7.7.1
       cached-iterable:
         specifier: ^0.3.0
         version: 0.3.0
@@ -42,9 +45,6 @@ importers:
       '@vue/compiler-sfc':
         specifier: ^3.5.13
         version: 3.5.13
-      '@vue/devtools-api':
-        specifier: ^7.7.1
-        version: 7.7.1
       '@vue/test-utils':
         specifier: ^2.4.6
         version: 2.4.6
