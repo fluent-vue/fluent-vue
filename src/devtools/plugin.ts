@@ -1,4 +1,3 @@
-/* istanbul ignore file */
 import type { FluentResource } from '@fluent/bundle'
 import type { FluentVue } from 'src'
 
