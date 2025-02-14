@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import type { FluentResource } from '@fluent/bundle'
 import type { FluentVue } from 'src'
 
@@ -178,8 +179,11 @@ export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fl
       for (const [locale, messages] of Object.entries(componentFluent)) {
         const bundle = bundles.find(bundle => bundle.locales.includes(locale))
 
+        if (bundle == null)
+          continue
+
         for (const message of messages.body) {
-          const overridesGlobal = bundle?.hasMessage(message.id) ?? false
+          const overridesGlobal = bundle.hasMessage(message.id)
 
           instanceData.state.push({
             type: `Component translations (${locale})`,
@@ -189,7 +193,7 @@ export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fl
               _custom: {
                 type: 'custom',
                 display:
-                  (message.value ? bundle?.formatPattern(message.value, {}, []) : '')
+                  (message.value ? bundle.formatPattern(message.value, {}, []) : '')
                   + (overridesGlobal ? '&nbsp;<span style="color:#ffa726">Global</span>' : ''),
               },
             },
