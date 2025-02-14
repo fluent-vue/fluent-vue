@@ -29,6 +29,7 @@ export function resolveOptions(options: FluentVueOptions): ResolvedOptions {
   return {
     warnMissing: getWarnMissing(options),
     parseMarkup: options.parseMarkup ?? defaultMarkupParser,
+    mapVariable: options.mapVariable,
     globalFormatName: options.globals?.functions?.format ?? '$t',
     globalFormatAttrsName: options.globals?.functions?.formatAttrs ?? '$ta',
     directiveName: options.globals?.directive ?? 't',

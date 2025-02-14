@@ -16,20 +16,24 @@ import './types/volar'
 
 export { useFluent } from './composition'
 
+export interface TypesConfig {
+  customVariableTypes: never
+}
+
 export interface FluentVue {
   /** Current negotiated fallback chain of languages */
   bundles: Iterable<FluentBundle>
 
-  format: (key: string, value?: Record<string, FluentVariable>) => string
+  format: (key: string, value?: Record<string, FluentVariable | TypesConfig['customVariableTypes']>) => string
 
-  formatAttrs: (key: string, value?: Record<string, FluentVariable>) => Record<string, string>
+  formatAttrs: (key: string, value?: Record<string, FluentVariable | TypesConfig['customVariableTypes']>) => Record<string, string>
 
-  formatWithAttrs: (key: string, value?: Record<string, FluentVariable>) => TranslationWithAttrs
+  formatWithAttrs: (key: string, value?: Record<string, FluentVariable | TypesConfig['customVariableTypes']>) => TranslationWithAttrs
 
   mergedWith: (extraTranslations?: Record<string, FluentResource>) => TranslationContext
 
-  $t: (key: string, value?: Record<string, FluentVariable>) => string
-  $ta: (key: string, value?: Record<string, FluentVariable>) => Record<string, string>
+  $t: (key: string, value?: Record<string, FluentVariable | TypesConfig['customVariableTypes']>) => string
+  $ta: (key: string, value?: Record<string, FluentVariable | TypesConfig['customVariableTypes']>) => Record<string, string>
 
   install: InstallFunction
 }
