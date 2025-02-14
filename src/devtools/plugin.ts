@@ -204,16 +204,22 @@ export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fl
           {
             id: 'global',
             label: `Global translations`,
-            children: cleanBundles.value.map(bundle => ({
-              id: bundle.locales.join(','),
-              label: bundle.locales.join(','),
-              children: [...bundle._messages.entries()].map(([_, message]) => ({
-                id: message.id,
-                label: `${message.id}: ${message.value ? bundle.formatPattern(message.value, {}, []) : ''}`,
-              })),
-            })),
           },
         ]
+      }
+    })
+
+    api.on.getInspectorState((payload) => {
+      if (payload.inspectorId === 'fluent-vue-inspector') {
+        if (payload.nodeId === 'global') {
+          payload.state = {}
+          for (const bundle of cleanBundles.value) {
+            payload.state[bundle.locales.join(',')] = [...bundle._messages.entries()].map(([_, message]) => ({
+              key: message.id,
+              value: message.value ? bundle.formatPattern(message.value, {}, []) : '',
+            }))
+          }
+        }
       }
     })
 
