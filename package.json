@@ -2,7 +2,7 @@
   "name": "fluent-vue",
   "type": "module",
   "version": "3.6.0",
-  "packageManager": "pnpm@10.3.0",
+  "packageManager": "pnpm@10.3.0+sha512.ee592eda8815a8a293c206bb0917c4bb0ff274c50def7cbc17be05ec641fc2d1b02490ce660061356bd0d126a4d7eb2ec8830e6959fb8a447571c631d5a2442d",
   "description": "Internationalization plugin for Vue.js. Project Fluent bindings for Vue.js",
   "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
   "license": "MIT",
@@ -30,8 +30,18 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": {
+        "types": "./dist/index.d.ts",
+        "production:": "./dist/prod/index.js",
+        "development:": "./dist/index.js",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "production:": "./dist/prod/index.cjs",
+        "development:": "./dist/index.cjs",
+        "default": "./dist/index.cjs"
+      }
     }
   },
   "main": "dist/index.js",
@@ -67,6 +77,7 @@
   },
   "dependencies": {
     "@fluent/sequence": "^0.8.0",
+    "@vue/devtools-api": "^7.7.1",
     "cached-iterable": "^0.3.0",
     "vue-demi": "latest"
   },
@@ -87,7 +98,7 @@
     "happy-dom": "^17.1.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
-    "release-it": "*",
+    "release-it": "^18.1.2",
     "rimraf": "^6.0.1",
     "tsup": "^8.3.6",
     "typescript": "^5.7.3",

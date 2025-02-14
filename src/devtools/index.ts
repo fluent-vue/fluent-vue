@@ -1,0 +1,1 @@
+export { registerFluentVueDevtools } from './plugin'
