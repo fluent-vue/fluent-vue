@@ -3,3 +3,5 @@ coverage:
     project:
       default:
         informational: true
+ignore:
+  - src/devtools
