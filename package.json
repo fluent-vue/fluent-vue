@@ -82,7 +82,7 @@
     "vue-demi": "latest"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.2.0",
+    "@antfu/eslint-config": "^4.10.1",
     "@fluent/bundle": "~0.18.0",
     "@fluent/dedent": "~0.5.0",
     "@ls-lint/ls-lint": "^2.2.3",
@@ -93,7 +93,7 @@
     "@vue/test-utils": "^2.4.6",
     "dotenv-cli": "^8.0.0",
     "esbuild-plugin-globals": "^0.2.0",
-    "eslint": "^9.20.1",
+    "eslint": "^9.22.0",
     "execa": "^9.5.2",
     "happy-dom": "^17.1.0",
     "husky": "^9.1.7",
