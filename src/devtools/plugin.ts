@@ -103,6 +103,21 @@ export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fl
         description: 'Enable pseudolocalization',
         type: 'boolean',
       },
+      pseudoLength: {
+        defaultValue: 1,
+        label: 'Length',
+        description: 'Pseudolocalization length',
+        type: 'choice',
+        options: [
+          { label: '100%', value: 1 },
+          { label: '125%', value: 1.25 },
+          { label: '150%', value: 1.5 },
+          { label: '175%', value: 1.75 },
+          { label: '200%', value: 2 },
+          { label: '250%', value: 2.5 },
+          { label: '300%', value: 3 },
+        ],
+      },
       pseudoAccents: {
         defaultValue: true,
         label: 'Accents',
@@ -281,15 +296,17 @@ export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fl
     function handleSettingsChange(settings: {
       pseudoEnable: boolean
       pseudoType: string
+      pseudoLength: number
       pseudoPrefix: string
       pseudoSuffix: string
       pseudoAccents: boolean
     }) {
       if (settings.pseudoEnable) {
         currentPseudoLocalize = str => pseudoLocalize(str, {
-          prefix: settings.pseudoPrefix ?? undefined,
-          suffix: settings.pseudoSuffix ?? undefined,
+          prefix: settings.pseudoPrefix ?? '',
+          suffix: settings.pseudoSuffix ?? '',
           accents: settings.pseudoAccents ?? false,
+          expand: settings.pseudoLength ?? 1,
         })
       }
       else {

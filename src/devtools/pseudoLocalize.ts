@@ -5,25 +5,20 @@ interface PseudolocalizationOptions {
   prefix: string
   suffix: string
   accents: boolean
+  expand: number
 }
 
 export default function pseudoLocalize(str: string, options: PseudolocalizationOptions): string {
-  let finalString = ''
-
-  if (options.prefix)
-    finalString += options.prefix
-
-  for (let i = 0; i < str.length; i++) {
-    const character = str[i]
+  let pseudoString = ''
+  for (let i = 0; i < str.length * options.expand; i++) {
+    const index = Math.floor(i / options.expand)
+    const character = str[index]
     const convertedCharacter = options.accents
       ? ACCENTED_ASCII[ASCII.indexOf(character)] ?? character
       : character
 
-    finalString += convertedCharacter
+    pseudoString += convertedCharacter
   }
 
-  if (options.suffix)
-    finalString += options.suffix
-
-  return finalString
+  return options.prefix + pseudoString + options.suffix
 }
