@@ -6,9 +6,9 @@ import { computed } from 'vue-demi'
 import { inheritBundle } from './inheritBundle'
 import { TranslationContext } from './TranslationContext'
 
-function * flatMap<T, TR>(iterable: Iterable<T>, mapper: (element: T) => TR[]): IterableIterator<TR> {
+function* flatMap<T, TR>(iterable: Iterable<T>, mapper: (element: T) => TR[]): IterableIterator<TR> {
   for (const item of iterable)
-    yield * mapper(item)
+    yield* mapper(item)
 }
 
 export function getContext(
