@@ -11,6 +11,15 @@
 
 
 
+
+## 3.7.1 (2025-03-15)
+
+#### :zap: Improved Features
+* [#926](https://github.com/fluent-vue/fluent-vue/pull/926) Add an option to make text longer in pseudolocalization ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
 ## 3.7.0 (2025-02-14)
 
 #### :star: New Features
