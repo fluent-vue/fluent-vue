@@ -13,19 +13,8 @@ jobs:
       CI_JOB_NUMBER: 1
       COREPACK_ENABLE_STRICT: 0
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4.2.2
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4.1.0
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4.4.0
-        with:
-          cache: pnpm
-
-      - name: Install dependencies
-        run: pnpm install
+      - name: Setup
+        uses: ./.github/actions/setup
 
       - name: Check size changes
         uses: antfu/export-size-action@v1

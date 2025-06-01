@@ -19,20 +19,10 @@ jobs:
         node: [22, 24]
         vue: [2, 3]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4.2.2
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4.1.0
-
-      - name: Setup Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v4.4.0
+      - name: Setup
+        uses: ./.github/actions/setup
         with:
           node-version: ${{ matrix.node }}
-          cache: pnpm
-
-      - name: Install dependencies
-        run: pnpm install
 
       - name: Test
         run: pnpm test:${{ matrix.vue }} --coverage
@@ -47,19 +37,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Lint source code
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4.2.2
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4.1.0
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4.4.0
-        with:
-          cache: pnpm
-
-      - name: Install dependencies
-        run: pnpm install
+      - name: Setup
+        uses: ./.github/actions/setup
 
       - name: Lint
         run: pnpm lint
@@ -70,19 +49,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Publish test build to pkg.pr.new
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4.2.2
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4.1.0
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4.4.0
-        with:
-          cache: pnpm
-
-      - name: Install dependencies
-        run: pnpm install
+      - name: Setup
+        uses: ./.github/actions/setup
 
       - name: Build
         run: pnpm build
@@ -93,22 +61,14 @@ jobs:
     runs-on: ubuntu-latest
     name: Test build of example projects
     steps:
-      - name: Checkout fluent-vue
-        uses: actions/checkout@v4.2.2
+      - name: Setup
+        uses: ./.github/actions/setup
 
       - name: Checkout examples
         uses: actions/checkout@v4.2.2
         with:
           repository: fluent-vue/examples
           path: examples
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4.1.0
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4.4.0
-        with:
-          cache: pnpm
 
       - name: Test
         run: node scripts/build-examples.mjs
