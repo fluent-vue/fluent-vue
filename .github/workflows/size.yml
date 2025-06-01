@@ -15,10 +15,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4.1.0
+
       - name: Setup Node.js
         uses: actions/setup-node@v4.4.0
-      - uses: pnpm/action-setup@v4.1.0
+        with:
+          cache: 'pnpm'
 
-      - uses: antfu/export-size-action@v1
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Check size changes
+        uses: antfu/export-size-action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

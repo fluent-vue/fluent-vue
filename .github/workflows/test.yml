@@ -21,13 +21,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4.1.0
+
       - name: Setup Node.js ${{ matrix.node }}
         uses: actions/setup-node@v4.4.0
         with:
           node-version: ${{ matrix.node }}
-      - uses: pnpm/action-setup@v4.1.0
-        with:
-          run_install: true
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Test
         run: pnpm test:${{ matrix.vue }} --coverage
@@ -44,11 +49,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
-      - name: Setup Node.js
-        uses: actions/setup-node@v4.4.0
-      - uses: pnpm/action-setup@v4.1.0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
         with:
-          run_install: true
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Lint
         run: pnpm lint
@@ -61,11 +72,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
-      - name: Setup Node.js
-        uses: actions/setup-node@v4.4.0
       - uses: pnpm/action-setup@v4.1.0
         with:
           run_install: true
+      - uses: actions/setup-node@v4.4.0
+        with:
+          cache: 'pnpm'
 
       - name: Build
         run: pnpm build
@@ -83,9 +95,10 @@ jobs:
         with:
           repository: fluent-vue/examples
           path: examples
-      - name: Setup Node.js
-        uses: actions/setup-node@v4.4.0
       - uses: pnpm/action-setup@v4.1.0
+      - uses: actions/setup-node@v4.4.0
+        with:
+          cache: 'pnpm'
 
       - name: Test
         run: node scripts/build-examples.mjs
