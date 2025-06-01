@@ -37,3 +37,7 @@ jobs:
           # For lerna-changelog
           IGNORE_PEER_DEPENDENCIES: release-it
           GITHUB_AUTH: ${{ secrets.GITHUB_TOKEN }}
+
+permissions:
+  contents: write
+  id-token: write
