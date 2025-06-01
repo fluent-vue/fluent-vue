@@ -24,10 +24,15 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
 
-      - name: git config
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - name: Import GPG key
+        id: import-gpg
+        uses: crazy-max/ghaction-import-gpg@v4
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          git_user_signingkey: true
+          git_commit_gpgsign: true
+
       - run: pnpm run release --increment ${{github.event.inputs.increment}} --ci
         env:
           # For release-it
