@@ -1,0 +1,23 @@
+name: Setup
+description: Setup Node.js and install dependencies
+inputs:
+  node-version:
+    description: Node version
+    required: false
+    default: '24'
+
+runs:
+  using: composite
+  steps:
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4.1.0
+
+    - name: Setup Node.js ${{ inputs.node-version }}
+      uses: actions/setup-node@v4.4.0
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: pnpm
+
+    - name: Install dependencies
+      run: pnpm install
+      shell: bash

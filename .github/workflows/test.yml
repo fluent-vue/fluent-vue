@@ -16,18 +16,15 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-        node: [20, 22]
+        node: [22, 24]
         vue: [2, 3]
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
-      - name: Setup Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v4.4.0
+      - name: Setup
+        uses: ./.github/actions/setup
         with:
           node-version: ${{ matrix.node }}
-      - uses: pnpm/action-setup@v4.1.0
-        with:
-          run_install: true
 
       - name: Test
         run: pnpm test:${{ matrix.vue }} --coverage
@@ -44,11 +41,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
-      - name: Setup Node.js
-        uses: actions/setup-node@v4.4.0
-      - uses: pnpm/action-setup@v4.1.0
-        with:
-          run_install: true
+      - name: Setup
+        uses: ./.github/actions/setup
 
       - name: Lint
         run: pnpm lint
@@ -61,11 +55,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
-      - name: Setup Node.js
-        uses: actions/setup-node@v4.4.0
-      - uses: pnpm/action-setup@v4.1.0
-        with:
-          run_install: true
+      - name: Setup
+        uses: ./.github/actions/setup
 
       - name: Build
         run: pnpm build
@@ -76,16 +67,16 @@ jobs:
     runs-on: ubuntu-latest
     name: Test build of example projects
     steps:
-      - name: Checkout fluent-vue
+      - name: Checkout
         uses: actions/checkout@v4.2.2
+      - name: Setup
+        uses: ./.github/actions/setup
+
       - name: Checkout examples
         uses: actions/checkout@v4.2.2
         with:
           repository: fluent-vue/examples
           path: examples
-      - name: Setup Node.js
-        uses: actions/setup-node@v4.4.0
-      - uses: pnpm/action-setup@v4.1.0
 
       - name: Test
         run: node scripts/build-examples.mjs
