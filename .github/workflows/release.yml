@@ -19,6 +19,8 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
       - name: Setup
         uses: ./.github/actions/setup
 
