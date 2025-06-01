@@ -12,6 +12,15 @@
 
 
 
+
+## 3.7.2 (2025-06-01)
+
+#### :star: New Features
+* [#945](https://github.com/fluent-vue/fluent-vue/pull/945) Set up release workflow and NPM provenance ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
 ## 3.7.1 (2025-03-15)
 
 #### :zap: Improved Features
