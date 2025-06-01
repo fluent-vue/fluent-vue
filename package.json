@@ -109,7 +109,10 @@
   },
   "lint-staged": {
     "*.js": "eslint --fix",
-    "*.ts?(x)": "eslint --fix"
+    "*.ts?(x)": "eslint --fix",
+    "*.md": "eslint --fix",
+    "*.json": "eslint --fix",
+    "*.yml": "eslint --fix"
   },
   "changelog": {
     "labels": {
