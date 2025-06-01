@@ -30,5 +30,6 @@ jobs:
           # For release-it
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
           # For lerna-changelog
           GITHUB_AUTH: ${{ secrets.GITHUB_TOKEN }}
