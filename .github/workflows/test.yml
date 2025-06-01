@@ -51,10 +51,10 @@ jobs:
         uses: actions/checkout@v4.2.2
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v4.1.0
 
       - name: Install Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4.4.0
         with:
           cache: pnpm
 
@@ -72,12 +72,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
-      - uses: pnpm/action-setup@v4.1.0
-        with:
-          run_install: true
-      - uses: actions/setup-node@v4.4.0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4.1.0
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4.4.0
         with:
           cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Build
         run: pnpm build
@@ -90,13 +95,18 @@ jobs:
     steps:
       - name: Checkout fluent-vue
         uses: actions/checkout@v4.2.2
+
       - name: Checkout examples
         uses: actions/checkout@v4.2.2
         with:
           repository: fluent-vue/examples
           path: examples
-      - uses: pnpm/action-setup@v4.1.0
-      - uses: actions/setup-node@v4.4.0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4.1.0
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4.4.0
         with:
           cache: pnpm
 
