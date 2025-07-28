@@ -69,7 +69,7 @@ describe.skipIf(!isVue3)('ssr directive', () => {
 
   it('warns when missing translation key', async () => {
     // Arrange
-    const warnSpy = vi.spyOn(console, 'warn')
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {})
 
     const component = {
       template: '<a v-t href="/foo"></a>',
