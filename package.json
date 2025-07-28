@@ -71,9 +71,7 @@
     "vue": "^2.6.11 || >=3.0.0"
   },
   "peerDependenciesMeta": {
-    "@vue/composition-api": {
-      "optional": true
-    }
+    "@vue/composition-api": { "optional": true }
   },
   "dependencies": {
     "@fluent/sequence": "^0.8.0",
@@ -89,10 +87,10 @@
     "@release-it-plugins/lerna-changelog": "^8.0.1",
     "@types/node": "^22.15.27",
     "@vitest/coverage-istanbul": "^3.1.4",
-    "@vue/compiler-sfc": "^3.5.16",
+    "@vue/compiler-sfc": "^3.5.13",
     "@vue/test-utils": "^2.4.6",
     "esbuild-plugin-globals": "^0.2.0",
-    "eslint": "^9.27.0",
+    "eslint": "^9.32.0",
     "execa": "^9.6.0",
     "happy-dom": "^18.0.1",
     "husky": "^9.1.7",
@@ -103,9 +101,9 @@
     "typescript": "^5.8.3",
     "vite": "^7.0.2",
     "vitest": "^3.1.4",
-    "vue": "npm:vue@^3.5.16",
+    "vue": "npm:vue@^3.5.13",
     "vue-2": "npm:vue@^2.7.16",
-    "vue-3": "npm:vue@^3.5.16"
+    "vue-3": "npm:vue@^3.5.13"
   },
   "lint-staged": {
     "*.js": "eslint --fix",
