@@ -4,6 +4,24 @@ settings:
   autoInstallPeers: false
   excludeLinksFromLockfile: false
 
+catalogs:
+  vue3:
+    '@vue/compiler-sfc':
+      specifier: ^3.5.16
+      version: 3.5.16
+    '@vue/test-utils':
+      specifier: ^2.4.6
+      version: 2.4.6
+    vue:
+      specifier: npm:vue@^3.5.16
+      version: 3.5.16
+    vue-2:
+      specifier: npm:vue@^2.7.16
+      version: 2.7.16
+    vue-3:
+      specifier: npm:vue@^3.5.16
+      version: 3.5.16
+
 importers:
 
   .:
@@ -43,10 +61,10 @@ importers:
         specifier: ^3.1.4
         version: 3.1.4(vitest@3.1.4(@types/debug@4.1.12)(@types/node@22.15.27)(happy-dom@18.0.1)(jiti@2.4.2)(yaml@2.8.0))
       '@vue/compiler-sfc':
-        specifier: ^3.5.13
+        specifier: catalog:vue3
         version: 3.5.16
       '@vue/test-utils':
-        specifier: ^2.4.6
+        specifier: catalog:vue3
         version: 2.4.6
       esbuild-plugin-globals:
         specifier: ^0.2.0
@@ -85,13 +103,13 @@ importers:
         specifier: ^3.1.4
         version: 3.1.4(@types/debug@4.1.12)(@types/node@22.15.27)(happy-dom@18.0.1)(jiti@2.4.2)(yaml@2.8.0)
       vue:
-        specifier: npm:vue@^3.5.13
+        specifier: catalog:vue3
         version: 3.5.16(typescript@5.8.3)
       vue-2:
-        specifier: npm:vue@^2.7.16
+        specifier: catalog:vue3
         version: vue@2.7.16
       vue-3:
-        specifier: npm:vue@^3.5.13
+        specifier: catalog:vue3
         version: vue@3.5.16(typescript@5.8.3)
 
 packages:

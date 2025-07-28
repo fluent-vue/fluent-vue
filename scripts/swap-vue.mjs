@@ -3,18 +3,18 @@ import process from 'node:process'
 import { execa } from 'execa'
 
 const vue3packages = {
-  'vue': 'npm:vue@^3.5.13',
-  'vue-2': 'npm:vue@^2.7.16',
-  'vue-3': 'npm:vue@^3.5.13',
-  '@vue/compiler-sfc': '^3.5.13',
-  '@vue/test-utils': '^2.4.6',
+  'vue': 'catalog:vue3',
+  'vue-2': 'catalog:vue3',
+  'vue-3': 'catalog:vue3',
+  '@vue/compiler-sfc': 'catalog:vue3',
+  '@vue/test-utils': 'catalog:vue3',
 }
 
 const vue2packages = {
-  'vue': 'npm:vue@^2.7.16',
-  'vue-template-compiler': '^2.7.16',
-  '@vue/test-utils': '^1.3.5',
-  '@vue/composition-api': '^1.7.0',
+  'vue': 'catalog:vue2',
+  'vue-template-compiler': 'catalog:vue2',
+  '@vue/test-utils': 'catalog:vue2',
+  '@vue/composition-api': 'catalog:vue2',
 }
 
 const packageFile = './package.json'
