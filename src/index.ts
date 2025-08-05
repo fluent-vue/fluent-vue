@@ -1,8 +1,8 @@
 import type { FluentBundle, FluentResource, FluentVariable } from '@fluent/bundle'
 import type { TranslationWithAttrs } from './TranslationContext'
 import type { FluentVueOptions } from './types'
-import type { InstallFunction, Vue2, Vue3, Vue3Component } from './types/typesCompat'
-import { isVue3, shallowRef } from 'vue-demi'
+import type { InstallFunction, Vue2, Vue3 } from './types/typesCompat'
+import { getCurrentInstance, isVue3, shallowRef } from 'vue-demi'
 
 import { registerFluentVueDevtools } from './devtools'
 
@@ -83,13 +83,15 @@ export function createFluentVue(options: FluentVueOptions): FluentVue {
           key: string,
           value?: Record<string, FluentVariable>,
         ) {
-          return getContext(rootContext, this as Vue3Component).format(key, value)
+          const instance = getCurrentInstance()
+          return getContext(rootContext, instance?.proxy).format(key, value)
         }
         vue3.config.globalProperties[resolvedOptions.globalFormatAttrsName] = function (
           key: string,
           value?: Record<string, FluentVariable>,
         ) {
-          return getContext(rootContext, this as Vue3Component).formatAttrs(key, value)
+          const instance = getCurrentInstance()
+          return getContext(rootContext, instance?.proxy).formatAttrs(key, value)
         }
 
         vue3.directive(resolvedOptions.directiveName, createVue3Directive(rootContext))
