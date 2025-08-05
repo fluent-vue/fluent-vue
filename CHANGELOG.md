@@ -13,6 +13,15 @@
 
 
 
+
+## 3.7.3 (2025-08-05)
+
+#### :bug: Bug Fixes
+* [#955](https://github.com/fluent-vue/fluent-vue/pull/955) Improve compatibility with @nuxt/test-utils ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
 ## 3.7.2 (2025-06-01)
 
 #### :star: New Features
