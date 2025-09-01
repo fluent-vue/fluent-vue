@@ -14,6 +14,15 @@
 
 
 
+
+## 3.7.4 (2025-09-01)
+
+#### :bug: Bug Fixes
+* [#961](https://github.com/fluent-vue/fluent-vue/pull/961) Fix type augmentation with Vue 3 ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
 ## 3.7.3 (2025-08-05)
 
 #### :bug: Bug Fixes
