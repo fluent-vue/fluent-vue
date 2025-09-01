@@ -50,7 +50,7 @@ declare module 'vue/types/vue' {
 
 // eslint-disable-next-line ts/ban-ts-comment
 // @ts-ignore: works on Vue 3, fails in Vue 2
-declare module '@vue/runtime-core' {
+declare module 'vue' {
   export interface ComponentCustomProperties {
     $t: (key: string, values?: Record<string, unknown>) => string
     $ta: (key: string, values?: Record<string, unknown>) => Record<string, string>
