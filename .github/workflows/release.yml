@@ -15,6 +15,10 @@ on:
           - premajor
         default: patch
 
+permissions:
+  contents: write
+  id-token: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -39,13 +43,7 @@ jobs:
       - run: pnpm run release --increment ${{github.event.inputs.increment}} --ci
         env:
           # For release-it
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_CONFIG_PROVENANCE: true
           # For lerna-changelog
           IGNORE_PEER_DEPENDENCIES: release-it
           GITHUB_AUTH: ${{ secrets.GITHUB_TOKEN }}
-
-permissions:
-  contents: write
-  id-token: write
