@@ -82,7 +82,7 @@
     "vue-demi": "latest"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^5.4.1",
+    "@antfu/eslint-config": "^6.2.0",
     "@fluent/bundle": "~0.19.1",
     "@fluent/dedent": "~0.5.0",
     "@ls-lint/ls-lint": "^2.3.1",
