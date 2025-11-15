@@ -438,4 +438,242 @@ describe('component', () => {
     // The translation should come from SomeComponent, not OtherComponent
     expect(mounted.html()).toEqual('<div class="other"><span data-test="i18n">This should be used: \u{2068}value\u{2069}</span></div>')
   })
+
+  it('uses correct context with named slots', () => {
+    // Arrange
+    const slotRenderer = {
+      template: '<div><slot name="header" /></div>',
+      fluent: {
+        'en-US': new FluentResource(ftl`
+        greeting = Wrong translation
+        `),
+      },
+    }
+
+    const slotOwner = {
+      components: {
+        SlotRenderer: slotRenderer,
+      },
+      template: `
+        <SlotRenderer>
+          <template #header>
+            <i18n path="greeting"></i18n>
+          </template>
+        </SlotRenderer>
+      `,
+      fluent: {
+        'en-US': new FluentResource(ftl`
+        greeting = Correct translation
+        `),
+      },
+    }
+
+    // Act
+    const mounted = mountWithFluent(fluent, slotOwner)
+
+    // Assert
+    expect(mounted.html()).toEqual('<div><span>Correct translation</span></div>')
+  })
+
+  it('uses correct context with nested slots', () => {
+    // Arrange
+    // This tests a complex scenario:
+    // InnerSlotRenderer renders a slot inside OuterSlotRenderer
+    // OuterSlotRenderer forwards its slot to InnerSlotRenderer
+    // The actual slot content (<i18n>) is provided by slotOwner
+
+    const innerSlotRenderer = {
+      template: '<div class="inner"><slot /></div>',
+      fluent: {
+        'en-US': new FluentResource(ftl`
+        message = Inner component message
+        `),
+      },
+    }
+
+    const outerSlotRenderer = {
+      components: {
+        InnerSlotRenderer: innerSlotRenderer,
+      },
+      // OuterSlotRenderer receives slot content and passes it to InnerSlotRenderer
+      // The <slot/> here is re-rendered in outer's context
+      template: `
+        <div class="outer">
+          <InnerSlotRenderer>
+            <slot />
+          </InnerSlotRenderer>
+        </div>
+      `,
+      fluent: {
+        'en-US': new FluentResource(ftl`
+        message = Outer component message
+        `),
+      },
+    }
+
+    const slotOwner = {
+      components: {
+        OuterSlotRenderer: outerSlotRenderer,
+      },
+      template: `
+        <OuterSlotRenderer>
+          <i18n path="message"></i18n>
+        </OuterSlotRenderer>
+      `,
+      fluent: {
+        'en-US': new FluentResource(ftl`
+        message = Owner component message
+        `),
+      },
+    }
+
+    // Act
+    const mounted = mountWithFluent(fluent, slotOwner)
+
+    // Assert
+    expect(mounted.html()).toContain('<span>Owner component message</span>')
+  })
+
+  it('uses global translations when no parent has fluent in slot', () => {
+    // Arrange
+    bundle.addResource(
+      new FluentResource(ftl`
+      global-key = Global translation
+      `),
+    )
+
+    const slotRenderer = {
+      template: '<div><slot /></div>',
+      // No fluent
+    }
+
+    const slotOwner = {
+      components: {
+        SlotRenderer: slotRenderer,
+      },
+      template: `
+        <SlotRenderer>
+          <i18n path="global-key"></i18n>
+        </SlotRenderer>
+      `,
+      // No fluent
+    }
+
+    // Act
+    const mounted = mountWithFluent(fluent, slotOwner)
+
+    // Assert
+    expect(mounted.html()).toEqual('<div><span>Global translation</span></div>')
+  })
+
+  it('works with multiple i18n components in same slot', () => {
+    // Arrange
+    const slotRenderer = {
+      template: '<div><slot /></div>',
+      fluent: {
+        'en-US': new FluentResource(ftl`
+        msg1 = Renderer msg1
+        msg2 = Renderer msg2
+        `),
+      },
+    }
+
+    const slotOwner = {
+      components: {
+        SlotRenderer: slotRenderer,
+      },
+      template: `
+        <SlotRenderer>
+          <i18n path="msg1"></i18n><i18n path="msg2"></i18n>
+        </SlotRenderer>
+      `,
+      fluent: {
+        'en-US': new FluentResource(ftl`
+        msg1 = Owner msg1
+        msg2 = Owner msg2
+        `),
+      },
+    }
+
+    // Act
+    const mounted = mountWithFluent(fluent, slotOwner)
+
+    // Assert
+    expect(mounted.html()).toEqual('<div><span>Owner msg1</span><span>Owner msg2</span></div>')
+  })
+
+  it('uses correct scope when i18n is in a component without fluent that is slotted', () => {
+    // Arrange
+    // This verifies that when a component has no fluent translations,
+    // it falls back to global translations (not parent's translations)
+    bundle.addResource(
+      new FluentResource(ftl`
+      scope-test = Global translation
+      `),
+    )
+
+    const slotRenderer = {
+      name: 'SlotRenderer',
+      template: '<div><slot /></div>',
+      fluent: {
+        'en-US': new FluentResource(ftl`
+        scope-test = Wrong: Renderer
+        `),
+      },
+    }
+
+    const wrapper = {
+      name: 'Wrapper',
+      template: '<i18n path="scope-test"></i18n>',
+      // No fluent here - should use global translations
+    }
+
+    const parent = {
+      name: 'Parent',
+      components: { SlotRenderer: slotRenderer, Wrapper: wrapper },
+      template: '<SlotRenderer><Wrapper /></SlotRenderer>',
+      fluent: {
+        'en-US': new FluentResource(ftl`
+        scope-test = Wrong: Parent
+        `),
+      },
+    }
+
+    // Act
+    const mounted = mountWithFluent(fluent, parent)
+
+    // Assert
+    expect(mounted.html()).toEqual('<div><span>Global translation</span></div>')
+  })
+
+  it('handles i18n in slot with dynamic component rendering', () => {
+    // Arrange
+    // Ensures $vnode.context works with dynamic :is components
+    const dynamicSlot = {
+      name: 'DynamicSlot',
+      template: '<div><slot /></div>',
+      fluent: {
+        'en-US': new FluentResource(ftl`
+        dynamic-test = Wrong: Dynamic Slot
+        `),
+      },
+    }
+
+    const owner = {
+      name: 'Owner',
+      components: { DynamicSlot: dynamicSlot },
+      template: '<DynamicSlot><i18n path="dynamic-test"></i18n></DynamicSlot>',
+      fluent: {
+        'en-US': new FluentResource(ftl`
+        dynamic-test = Correct: Owner
+        `),
+      },
+    }
+
+    // Act
+    const mounted = mountWithFluent(fluent, owner)
+
+    // Assert
+    expect(mounted.html()).toEqual('<div><span>Correct: Owner</span></div>')
+  })
 })
