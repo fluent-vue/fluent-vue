@@ -401,4 +401,41 @@ describe('component', () => {
     // Cleanup
     warn.mockRestore()
   })
+
+  it('uses correct translation context when inside slot (#980)', () => {
+    // Arrange
+    // OtherComponent.vue - component that receives slot
+    const otherComponent = {
+      template: '<div class="other"><slot /></div>',
+      fluent: {
+        'en-US': new FluentResource(ftl`
+        test = … but this one is used: { $placeholder }
+        `),
+      },
+    }
+
+    // SomeComponent.vue - component that passes slot content
+    const someComponent = {
+      components: {
+        OtherComponent: otherComponent,
+      },
+      template: `
+        <OtherComponent>
+          <i18n path="test" :args="{ placeholder: 'value' }" data-test="i18n"></i18n>
+        </OtherComponent>
+      `,
+      fluent: {
+        'en-US': new FluentResource(ftl`
+        test = This should be used: { $placeholder }
+        `),
+      },
+    }
+
+    // Act
+    const mounted = mountWithFluent(fluent, someComponent)
+
+    // Assert
+    // The translation should come from SomeComponent, not OtherComponent
+    expect(mounted.html()).toEqual('<div class="other"><span data-test="i18n">This should be used: \u{2068}value\u{2069}</span></div>')
+  })
 })
