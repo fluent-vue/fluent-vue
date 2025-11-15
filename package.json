@@ -88,7 +88,7 @@
     "@ls-lint/ls-lint": "^2.3.1",
     "@release-it-plugins/lerna-changelog": "^8.0.1",
     "@types/node": "^24.10.1",
-    "@vitest/coverage-istanbul": "^3.2.4",
+    "@vitest/coverage-istanbul": "^4.0.9",
     "@vue/compiler-sfc": "catalog:vue3",
     "@vue/test-utils": "catalog:vue3",
     "esbuild-plugin-globals": "^0.2.0",
@@ -102,7 +102,7 @@
     "tsup": "^8.5.0",
     "typescript": "^5.9.3",
     "vite": "^7.1.9",
-    "vitest": "^3.2.4",
+    "vitest": "^4.0.9",
     "vue": "catalog:vue3",
     "vue-2": "catalog:vue3",
     "vue-3": "catalog:vue3"
