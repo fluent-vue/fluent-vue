@@ -87,7 +87,7 @@
     "@fluent/dedent": "~0.5.0",
     "@ls-lint/ls-lint": "^2.3.1",
     "@release-it-plugins/lerna-changelog": "^8.0.1",
-    "@types/node": "^22.18.9",
+    "@types/node": "^24.10.1",
     "@vitest/coverage-istanbul": "^3.2.4",
     "@vue/compiler-sfc": "catalog:vue3",
     "@vue/test-utils": "catalog:vue3",
