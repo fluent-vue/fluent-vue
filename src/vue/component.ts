@@ -1,7 +1,6 @@
 import type { ResolvedOptions, SimpleNode } from 'src/types'
-import type { VueComponent } from 'src/types/typesCompat'
-import type { PropType } from 'vue-demi'
 
+import type { PropType } from 'vue-demi'
 import type { TranslationContext } from '../TranslationContext'
 import {
   computed,
@@ -9,23 +8,10 @@ import {
   getCurrentInstance,
   h,
   isVue2,
-
 } from 'vue-demi'
 import { getContext } from '../getContext'
 import { camelize } from '../util/camelize'
 import { warn } from '../util/warn'
-
-function getParentWithFluent(
-  instance: VueComponent | null | undefined,
-): VueComponent | null | undefined {
-  const parent = instance?.$parent
-  const target = parent?.$options
-
-  if (target != null && target.fluent == null)
-    return getParentWithFluent(parent)
-
-  return parent
-}
 
 // Match the opening angle bracket (<) in HTML tags, and HTML entities like
 // &amp;, &#0038;, &#x0026;.
@@ -43,8 +29,12 @@ export function createComponent(options: ResolvedOptions, rootContext: Translati
     },
     setup(props, { slots, attrs }) {
       const instance = getCurrentInstance()
-      const parent = getParentWithFluent(instance?.proxy)
-      const fluent = getContext(rootContext, parent)
+
+      const fluent = getContext(
+        rootContext,
+        // @ts-expect-error This is internal Vue feature added in https://github.com/vuejs/core/commit/11214eedd2699e15106c44927f4d1206b111fbd3
+        instance?.vnode?.ctx /* Vue 3 */ ?? instance?.proxy?.$vnode?.context /* Vue 2 */,
+      )
 
       const translation = computed(() => {
         const fluentParams = Object.assign(

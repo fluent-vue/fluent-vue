@@ -1,5 +1,4 @@
 import type { FluentResource } from '@fluent/bundle'
-import type { VueComponent } from './types/typesCompat'
 import { CachedSyncIterable } from 'cached-iterable'
 import { computed } from 'vue-demi'
 
@@ -19,7 +18,7 @@ export function getContext(
   if (instance == null)
     return rootContext
 
-  const options = (instance as VueComponent).$options
+  const options = instance.$options ?? instance.type
 
   if (options._fluent != null)
     return options._fluent
