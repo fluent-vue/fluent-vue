@@ -15,6 +15,19 @@
 
 
 
+
+## 3.8.0 (2025-11-16)
+
+#### :bug: Bug Fixes
+* [#982](https://github.com/fluent-vue/fluent-vue/pull/982) Improve and fix custom variable types support ([@Demivan](https://github.com/Demivan))
+* [#981](https://github.com/fluent-vue/fluent-vue/pull/981) Fix i18n component using wrong translations when inside slot ([@Demivan](https://github.com/Demivan))
+
+#### :boom: Breaking Change
+* [#981](https://github.com/fluent-vue/fluent-vue/pull/981) Fix i18n component using wrong translations when inside slot ([@Demivan](https://github.com/Demivan))
+
+#### Committers: 1
+- Ivan Demchuk ([@Demivan](https://github.com/Demivan))
+
 ## 3.7.5 (2025-10-11)
 
 ## 3.7.5-0 (2025-10-11)
