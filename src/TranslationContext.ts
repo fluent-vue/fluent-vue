@@ -1,6 +1,6 @@
 import type { FluentBundle, FluentVariable } from '@fluent/bundle'
 import type { Message, Pattern } from '@fluent/bundle/esm/ast'
-import type { TypesConfig } from 'src'
+import type { CustomVariableTypes } from 'src'
 import type { Ref } from 'vue-demi'
 import type { TranslationContextOptions } from './types'
 import { mapBundleSync } from '@fluent/sequence'
@@ -39,7 +39,7 @@ export class TranslationContext {
     bundle: FluentBundle,
     key: string,
     message: Pattern,
-    value?: Record<string, FluentVariable | TypesConfig['customVariableTypes']>,
+    value?: Record<string, FluentVariable | CustomVariableTypes>,
   ): string {
     const errors: Error[] = []
 
@@ -63,7 +63,7 @@ export class TranslationContext {
   private _format(
     context: FluentBundle | null,
     message: Message | null,
-    value?: Record<string, FluentVariable | TypesConfig['customVariableTypes']>,
+    value?: Record<string, FluentVariable | CustomVariableTypes>,
   ): string | null {
     if (context === null || message === null || message.value === null)
       return null
@@ -71,7 +71,7 @@ export class TranslationContext {
     return this.formatPattern(context, message.id, message.value, value)
   }
 
-  format = (key: string, value?: Record<string, FluentVariable | TypesConfig['customVariableTypes']>): string => {
+  format = (key: string, value?: Record<string, FluentVariable | CustomVariableTypes>): string => {
     const context = this.getBundle(key)
     const message = this.getMessage(context, key)
     return this._format(context, message, value) ?? key
@@ -80,7 +80,7 @@ export class TranslationContext {
   private _formatAttrs(
     context: FluentBundle | null,
     message: Message | null,
-    value?: Record<string, FluentVariable | TypesConfig['customVariableTypes']>,
+    value?: Record<string, FluentVariable | CustomVariableTypes>,
   ): Record<string, string> | null {
     if (context === null || message === null)
       return null
@@ -92,13 +92,13 @@ export class TranslationContext {
     return result
   }
 
-  formatAttrs = (key: string, value?: Record<string, FluentVariable | TypesConfig['customVariableTypes']>): Record<string, string> => {
+  formatAttrs = (key: string, value?: Record<string, FluentVariable | CustomVariableTypes>): Record<string, string> => {
     const context = this.getBundle(key)
     const message = this.getMessage(context, key)
     return this._formatAttrs(context, message, value) ?? {}
   }
 
-  formatWithAttrs = (key: string, value?: Record<string, FluentVariable | TypesConfig['customVariableTypes']>): TranslationWithAttrs => {
+  formatWithAttrs = (key: string, value?: Record<string, FluentVariable | CustomVariableTypes>): TranslationWithAttrs => {
     const context = this.getBundle(key)
     const message = this.getMessage(context, key)
 

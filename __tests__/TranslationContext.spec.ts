@@ -22,18 +22,22 @@ describe('translationContext', () => {
     expect(context.format('hello', { name: 'John' })).toBe('Hello John!')
   })
 
-  it('should format a message with a value and custom types', () => {
+  it('should format a message with custom types', () => {
     const bundle = new FluentBundle('en-US', { useIsolating: false })
-    bundle.addResource(new FluentResource('hello = Hello {$name} it is {$date}!'))
+    bundle.addResource(new FluentResource('hello = Hello {$name} you have {$count} items'))
+
+    class CustomCounter {
+      constructor(public count: number) {}
+    }
 
     const context = new TranslationContext(ref([bundle]), {
       warnMissing: vi.fn(),
       parseMarkup: vi.fn(),
       mapVariable: (variable) => {
-        if (variable instanceof Date)
-          return variable.toLocaleDateString('en-UK')
+        if (variable instanceof CustomCounter)
+          return variable.count
       },
     })
-    expect(context.format('hello', { name: 'John', date: new Date(0) })).toBe('Hello John it is 01/01/1970!')
+    expect(context.format('hello', { name: 'John', count: new CustomCounter(5) })).toBe('Hello John you have 5 items')
   })
 })

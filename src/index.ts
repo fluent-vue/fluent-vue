@@ -16,24 +16,33 @@ import './types/volar'
 
 export { useFluent } from './composition'
 
-export interface TypesConfig {
-  customVariableTypes: never
-}
+/*
+* Used for extending list of types that are supported by formatting functions.
+* You still need to add `mapVariable` option to `createFluent` to support custom variable types.
+*
+* Add customVariableTypes property to this type.
+*/
+export interface TypesConfig { }
+
+export type CustomVariableTypes
+  = TypesConfig extends Record<'customVariableTypes', infer CustomVariables>
+    ? CustomVariables
+    : never
 
 export interface FluentVue {
   /** Current negotiated fallback chain of languages */
   bundles: Iterable<FluentBundle>
 
-  format: (key: string, value?: Record<string, FluentVariable | TypesConfig['customVariableTypes']>) => string
+  format: (key: string, value?: Record<string, FluentVariable | CustomVariableTypes>) => string
 
-  formatAttrs: (key: string, value?: Record<string, FluentVariable | TypesConfig['customVariableTypes']>) => Record<string, string>
+  formatAttrs: (key: string, value?: Record<string, FluentVariable | CustomVariableTypes>) => Record<string, string>
 
-  formatWithAttrs: (key: string, value?: Record<string, FluentVariable | TypesConfig['customVariableTypes']>) => TranslationWithAttrs
+  formatWithAttrs: (key: string, value?: Record<string, FluentVariable | CustomVariableTypes>) => TranslationWithAttrs
 
   mergedWith: (extraTranslations?: Record<string, FluentResource>) => TranslationContext
 
-  $t: (key: string, value?: Record<string, FluentVariable | TypesConfig['customVariableTypes']>) => string
-  $ta: (key: string, value?: Record<string, FluentVariable | TypesConfig['customVariableTypes']>) => Record<string, string>
+  $t: (key: string, value?: Record<string, FluentVariable | CustomVariableTypes>) => string
+  $ta: (key: string, value?: Record<string, FluentVariable | CustomVariableTypes>) => Record<string, string>
 
   install: InstallFunction
 }
