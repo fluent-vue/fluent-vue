@@ -26,7 +26,7 @@ async function buildExamples() {
   for (const example of examples) {
     console.log(`building ${example.folder}...`)
     await exec('pnpm', ['add', 'file:../../'], { stdio: 'inherit', cwd: example.folder })
-    await exec('pnpm', ['i'], { stdio: 'inherit', cwd: example.folder })
+    await exec('pnpm', ['install', '--ignore-workspace'], { stdio: 'inherit', cwd: example.folder })
     await exec('pnpm', ['build'], { stdio: 'inherit', cwd: example.folder })
   }
 
