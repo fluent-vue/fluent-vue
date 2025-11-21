@@ -20,7 +20,7 @@ type ComponentType = DefineComponent<{
    * The tag to use as a root element.
    */
   tag: {
-    type: StringConstructor
+    type: StringConstructor | BooleanConstructor
     default: 'span'
   }
   /**
