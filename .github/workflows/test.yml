@@ -20,7 +20,7 @@ jobs:
         vue: [2, 3]
     steps:
       - name: Checkout
-        uses: actions/checkout@v5.0.0
+        uses: actions/checkout@v6.0.0
       - name: Setup
         uses: ./.github/actions/setup
         with:
@@ -40,7 +40,7 @@ jobs:
     name: Lint source code
     steps:
       - name: Checkout
-        uses: actions/checkout@v5.0.0
+        uses: actions/checkout@v6.0.0
       - name: Setup
         uses: ./.github/actions/setup
 
@@ -54,7 +54,7 @@ jobs:
     name: Publish test build to pkg.pr.new
     steps:
       - name: Checkout
-        uses: actions/checkout@v5.0.0
+        uses: actions/checkout@v6.0.0
       - name: Setup
         uses: ./.github/actions/setup
 
@@ -68,12 +68,12 @@ jobs:
     name: Test build of example projects
     steps:
       - name: Checkout
-        uses: actions/checkout@v5.0.0
+        uses: actions/checkout@v6.0.0
       - name: Setup
         uses: ./.github/actions/setup
 
       - name: Checkout examples
-        uses: actions/checkout@v5.0.0
+        uses: actions/checkout@v6.0.0
         with:
           repository: fluent-vue/examples
           path: examples
