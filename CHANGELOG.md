@@ -16,6 +16,15 @@
 
 
 
+
+## 3.8.1 (2025-11-25)
+
+#### :bug: Bug Fixes
+* [#987](https://github.com/fluent-vue/fluent-vue/pull/987) Fix types: i18n component ‘tag’ prop can also be boolean ‘false’ ([@wbolster](https://github.com/wbolster))
+
+#### Committers: 1
+- wouter bolsterlee ([@wbolster](https://github.com/wbolster))
+
 ## 3.8.0 (2025-11-16)
 
 #### :bug: Bug Fixes
