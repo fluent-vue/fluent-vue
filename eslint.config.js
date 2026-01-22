@@ -4,4 +4,7 @@ export default antfu({
   ignores: [
     'README.md',
   ],
+  pnpm: {
+    catalogs: false
+  },
 })
