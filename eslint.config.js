@@ -5,6 +5,13 @@ export default antfu({
     'README.md',
   ],
   pnpm: {
-    catalogs: false
+    catalogs: false,
+  },
+}, {
+  // TODO: Remove when Vue 2 support is dropped
+  files: ['pnpm-workspace.yaml'],
+  rules: {
+    'pnpm/yaml-no-duplicate-catalog-item': 'off',
+    'pnpm/yaml-no-unused-catalog-item': 'off',
   },
 })
