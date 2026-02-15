@@ -8,9 +8,8 @@ export default defineConfig({
     include: [
       '__tests__/**/*.spec.ts',
     ],
-    experimentalVmThreads: true,
     coverage: {
-      provider: 'istanbul',
+      provider: 'v8',
       reporter: ['text', 'lcovonly'],
       include: [
         'src/**',
