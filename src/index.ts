@@ -29,6 +29,8 @@ export type CustomVariableTypes
     ? CustomVariables
     : never
 
+export type { FluentVueOptions }
+
 export interface FluentVue {
   /** Current negotiated fallback chain of languages */
   bundles: Iterable<FluentBundle>
