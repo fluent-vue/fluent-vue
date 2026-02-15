@@ -99,7 +99,6 @@
     "happy-dom": "^20.6.1",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
-    "rimraf": "^6.1.2",
     "tsdown": "^0.20.3",
     "typescript": "^5.9.3",
     "vite": "^7.3.1",

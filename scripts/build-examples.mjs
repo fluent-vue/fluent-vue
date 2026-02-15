@@ -21,7 +21,7 @@ const examples = readdirSync('examples')
 async function buildExamples() {
   await exec('pnpm', ['i'], { stdio: 'inherit' })
   await exec('pnpm', ['build'], { stdio: 'inherit' })
-  await exec('pnpm', ['rimraf', 'node_modules'], { stdio: 'inherit' })
+  await exec('pnpm', ['exec', 'rm', '-rf', 'node_modules'], { stdio: 'inherit' })
 
   for (const example of examples) {
     console.log(`building ${example.folder}...`)
