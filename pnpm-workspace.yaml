@@ -1,4 +1,6 @@
 shellEmulator: true
+strictPeerDependencies: false
+autoInstallPeers: false # Why pnpm? Why?
 
 trustPolicy: no-downgrade
 

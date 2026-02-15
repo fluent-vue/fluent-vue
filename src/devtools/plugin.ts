@@ -8,7 +8,7 @@ import { setupDevToolsPlugin } from '@vue/devtools-api'
 import { computed, getCurrentInstance, watchEffect } from 'vue-demi'
 import pseudoLocalize from './pseudoLocalize'
 
-export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fluent: FluentVue) {
+export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fluent: FluentVue): void {
   let currentPseudoLocalize: ((str: string) => string) | undefined
   const missingTranslations: Map<ComponentInternalInstance, Set<string>> = new Map()
 
