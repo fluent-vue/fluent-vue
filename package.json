@@ -63,7 +63,9 @@
     "test:2": "node scripts/swap-vue.mjs 2 && vitest run",
     "test:3": "node scripts/swap-vue.mjs 3 && vitest run",
     "prepare": "husky",
-    "release": "release-it"
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "pnpm build && changeset publish --provenance"
   },
   "peerDependencies": {
     "@fluent/bundle": ">=0.17.0",
@@ -83,10 +85,11 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^7.2.0",
+    "@changesets/changelog-github": "^0.5.2",
+    "@changesets/cli": "^2.29.4",
     "@fluent/bundle": "~0.19.1",
     "@fluent/dedent": "~0.5.0",
     "@ls-lint/ls-lint": "^2.3.1",
-    "@release-it-plugins/lerna-changelog": "^8.0.1",
     "@types/node": "^24.10.1",
     "@vitest/coverage-v8": "^4.0.8",
     "@vue/compiler-sfc": "catalog:vue3",
@@ -97,7 +100,6 @@
     "happy-dom": "^20.0.10",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
-    "release-it": "^19.0.6",
     "rimraf": "^6.1.2",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3",
@@ -113,19 +115,5 @@
     "*.md": "eslint --fix",
     "*.json": "eslint --fix",
     "*.yml": "eslint --fix"
-  },
-  "changelog": {
-    "labels": {
-      "Type: Feature": ":star: New Features",
-      "Type: Bug": ":bug: Bug Fixes",
-      "Type: Security": ":lock: Security Fixes",
-      "Type: Performance": ":chart_with_upwards_trend: Performance Fixes",
-      "Type: Improvement": ":zap: Improved Features",
-      "Type: Breaking": ":boom: Breaking Change",
-      "Type: Deprecated": ":warning: Deprecated Features",
-      "Type: I18n": ":globe_with_meridians: Internationalization",
-      "Type: A11y": ":wheelchair: Accessibility",
-      "Type: Documentation": ":pencil: Documentation"
-    }
   }
 }
