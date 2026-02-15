@@ -2,9 +2,10 @@ import type { UserConfig } from 'tsdown'
 import { defineConfig } from 'tsdown'
 
 const shared: UserConfig = {
-  target: 'node16',
+  target: 'node22',
   external: ['vue-demi', '@fluent/bundle', '@vue/devtools-api'],
   skipNodeModulesBundle: true,
+  outDir: 'dist',
 }
 
 export default defineConfig([
@@ -13,9 +14,7 @@ export default defineConfig([
     ...shared,
     entry: ['src/index.ts', 'src/composition.ts'],
     format: ['esm', 'cjs'],
-    clean: true,
     dts: true,
-    outDir: 'dist',
   },
   // Prod: ESM + CJS
   {
@@ -29,12 +28,12 @@ export default defineConfig([
   },
   // Prod: IIFE (browser bundle)
   {
-    target: 'node16',
+    ...shared,
     entry: ['src/index.ts'],
     format: ['iife'],
     globalName: 'FluentVue',
-    external: ['vue-demi', '@fluent/bundle'],
-    noExternal: ['@vue/devtools-api', '@fluent/sequence', 'cached-iterable'],
+    skipNodeModulesBundle: false,
+    noExternal: ['@fluent/sequence', 'cached-iterable'],
     inlineOnly: false,
     outputOptions: {
       globals: {
@@ -45,6 +44,5 @@ export default defineConfig([
     env: {
       NODE_ENV: 'production',
     },
-    outDir: 'dist',
   },
 ])
