@@ -2,4 +2,4 @@
 "fluent-vue": patch
 ---
 
-Build changes: switch to changesets, v8 coverage
+Switch to v8 for collecting coverage
