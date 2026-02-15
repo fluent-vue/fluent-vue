@@ -111,6 +111,6 @@ export class TranslationContext {
     }
   }
 
-  $t = this.format
-  $ta = this.formatAttrs
+  $t: (key: string, value?: Record<string, FluentVariable | CustomVariableTypes>) => string = this.format
+  $ta: (key: string, value?: Record<string, FluentVariable | CustomVariableTypes>) => Record<string, string> = this.formatAttrs
 }

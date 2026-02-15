@@ -11,10 +11,12 @@
     "allowJs": false,
     "strict": true,
     "noUnusedLocals": true,
+    "declaration": true,
     "outDir": "dist",
     "removeComments": false,
     "sourceMap": true,
     "esModuleInterop": true,
+    "isolatedDeclarations": true,
     "skipLibCheck": true
   },
   "include": [

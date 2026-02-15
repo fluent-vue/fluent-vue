@@ -17,7 +17,7 @@ import { warn } from '../util/warn'
 // &amp;, &#0038;, &#x0026;.
 const reMarkup = /<|&#?\w+;/
 
-export function createComponent(options: ResolvedOptions, rootContext: TranslationContext) {
+export function createComponent(options: ResolvedOptions, rootContext: TranslationContext): ReturnType<typeof defineComponent> {
   return defineComponent({
     name: options.componentName,
     props: {
