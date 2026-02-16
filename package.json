@@ -85,8 +85,8 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^7.4.3",
-    "@changesets/changelog-github": "^0.5.2",
     "@changesets/cli": "^2.29.8",
+    "@changesets/get-github-info": "^0.7.0",
     "@fluent/bundle": "~0.19.1",
     "@fluent/dedent": "~0.5.0",
     "@ls-lint/ls-lint": "^2.3.1",
