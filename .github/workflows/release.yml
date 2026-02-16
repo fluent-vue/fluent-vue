@@ -28,5 +28,7 @@ jobs:
         with:
           publish: pnpm run release
           version: pnpm run version
+          commit: Release new version
+          title: Release new version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
