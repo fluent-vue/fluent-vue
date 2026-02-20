@@ -94,7 +94,7 @@
     "@vitest/coverage-v8": "^4.0.18",
     "@vue/compiler-sfc": "catalog:vue3",
     "@vue/test-utils": "catalog:vue3",
-    "eslint": "^10.0.0",
+    "eslint": "^10.0.1",
     "execa": "^9.6.1",
     "happy-dom": "^20.6.1",
     "husky": "^9.1.7",
