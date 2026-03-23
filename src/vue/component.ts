@@ -1,7 +1,7 @@
-import type { ResolvedOptions, SimpleNode } from 'src/types'
-
 import type { PropType } from 'vue-demi'
+
 import type { TranslationContext } from '../TranslationContext'
+import type { ResolvedOptions, SimpleNode } from '../types'
 import {
   computed,
   defineComponent,
