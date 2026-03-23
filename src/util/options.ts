@@ -1,4 +1,4 @@
-import type { FluentVueOptions, ResolvedOptions, SimpleNode } from 'src/types'
+import type { FluentVueOptions, ResolvedOptions, SimpleNode } from '../types'
 
 import { assert, warn } from './warn'
 

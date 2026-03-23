@@ -1,7 +1,7 @@
 import type { FluentResource } from '@fluent/bundle'
-import type { FluentVue } from 'src'
-
 import type { App, ComponentInternalInstance } from 'vue-demi'
+
+import type { FluentVue } from '../'
 import type { ResolvedOptions } from '../types'
 import { FluentBundle } from '@fluent/bundle'
 import { setupDevToolsPlugin } from '@vue/devtools-api'
