@@ -1,5 +1,9 @@
 # `$t` and `$ta` instance methods
 
+::: tip Note
+The `$t` and `$ta` function names can be customized via the `globals.functions` option in `createFluentVue` to avoid naming conflicts. See [Installation](/installation#customizing-global-names) for details.
+:::
+
 ## `$t` method
 
 Formats message  with `key` identifier. `args` is used to resolve references to variables passed as arguments to the translation.

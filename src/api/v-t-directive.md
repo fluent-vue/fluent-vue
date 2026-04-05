@@ -3,6 +3,10 @@
 Combines `$t` and `$ta` methods binding message and its attributes to `innerText` and HTML attributes of a HTML element.
 
 ::: tip Note
+The directive name can be customized via the `globals.directive` option in `createFluentVue` to avoid naming conflicts. See [Installation](/installation#customizing-global-names) for details.
+:::
+
+::: tip Note
 By default only localizable HTML attributes are bound (aria-label, title, alt, etc). Directive modifiers allow specifying additional attributes to bind.
 :::
 

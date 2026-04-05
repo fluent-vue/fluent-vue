@@ -4,6 +4,10 @@ description: i18n component allows localizing text that contains HTML elements o
 
 # `i18n` component
 
+::: tip Note
+The component name can be customized via the `globals.component` option in `createFluentVue` to avoid naming conflicts. See [Installation](/installation#customizing-global-names) for details.
+:::
+
 A common problem when localizing web apps is text containing HTML elements or components. Consider this example:
 
 ```vue-html

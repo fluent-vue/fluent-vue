@@ -54,6 +54,7 @@ pnpm add @vue/composition-api
 ```
 
 </code-group-item>
+
 <code-group-item title="YARN">
 
 ```shell
@@ -126,6 +127,80 @@ const fluent = createFluentVue({
 })
 
 // Install Vue plugin
+Vue.use(fluent)
+```
+
+</code-group-item>
+
+</code-group>
+
+## Customizing global names
+
+You can override the default names of the global functions, directive, and component to avoid naming conflicts with other libraries or to better suit your project's naming conventions.
+
+The `globals` option allows you to customize:
+
+- `functions.format` - The global translation function name (default: `$t`)
+- `functions.formatAttrs` - The global attributes function name (default: `$ta`)
+- `component` - The component name (default: `i18n`)
+- `directive` - The directive name (default: `v-t`)
+
+<code-group>
+<code-group-item title="Vue 3" active>
+
+```js
+import { createApp } from 'vue'
+import { FluentBundle, FluentResource } from '@fluent/bundle'
+
+import { createFluentVue } from 'fluent-vue'
+
+import App from './App'
+
+const enBundle = new FluentBundle('en')
+
+enBundle.addResource(new FluentResource('key = World'))
+
+const fluent = createFluentVue({
+  bundles: [enBundle],
+  globals: {
+    functions: {
+      format: '$t',
+      formatAttrs: '$ta'
+    },
+    component: 'i18n',
+    directive: 'v-t'
+  }
+})
+
+createApp(App)
+  .use(fluent)
+```
+</code-group-item>
+
+<code-group-item title="Vue 2">
+
+```js
+import Vue from 'vue'
+import { FluentBundle, FluentResource } from '@fluent/bundle'
+
+import { createFluentVue } from 'fluent-vue'
+
+const enBundle = new FluentBundle('en')
+
+enBundle.addResource(new FluentResource('key = World'))
+
+const fluent = createFluentVue({
+  bundles: [enBundle],
+  globals: {
+    functions: {
+      format: '$t',
+      formatAttrs: '$ta'
+    },
+    component: 'i18n',
+    directive: 'v-t'
+  }
+})
+
 Vue.use(fluent)
 ```
 
