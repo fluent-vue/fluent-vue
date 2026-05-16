@@ -71,7 +71,7 @@ Examples for different Vue.js versions and build systems can be found [here](htt
 
 ## 📜 Changelog
 
-Changes for each release are documented in the [CHANGELOG.md](https://github.com/demivan/fluent-vue/blob/main/CHANGELOG.md).
+Changes for each release are documented in the [CHANGELOG.md](./CHANGELOG.md).
 
 ## 📦 Packages
 
