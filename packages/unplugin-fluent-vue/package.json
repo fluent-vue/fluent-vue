@@ -115,14 +115,14 @@
     "@types/node": "24.10.9",
     "@vitejs/plugin-vue": "6.0.3",
     "@vitest/coverage-v8": "^4.0.18",
-    "@vue/compiler-sfc": "3.5.27",
+    "@vue/compiler-sfc": "catalog:vue3",
     "execa": "9.6.1",
     "memfs": "4.56.9",
     "tsdown": "^0.20.3",
     "typescript": "6.0.3",
     "vite": "8.0.13",
     "vitest": "4.0.18",
-    "vue": "3.5.27",
+    "vue": "catalog:vue3",
     "vue-loader": "17.4.2",
     "webpack": "5.104.1"
   }
