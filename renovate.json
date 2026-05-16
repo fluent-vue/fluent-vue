@@ -6,6 +6,7 @@
     ":disableDependencyDashboard"
   ],
   "ignorePresets": [":ignoreModulesAndTests"],
+  "semanticCommits": "disabled",
   "lockFileMaintenance": { "enabled": true },
   "packageRules": [
     {
