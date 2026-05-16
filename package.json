@@ -15,7 +15,7 @@
     "release": "pnpm build && changeset publish --provenance"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^8.2.0",
+    "@antfu/eslint-config": "^9.0.0",
     "@changesets/cli": "^2.29.8",
     "@changesets/get-github-info": "^0.7.0",
     "eslint": "^10.3.0",
