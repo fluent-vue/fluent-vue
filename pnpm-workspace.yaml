@@ -4,6 +4,10 @@ autoInstallPeers: false # Why pnpm? Why?
 
 trustPolicy: no-downgrade
 
+allowBuilds:
+  esbuild: true
+  vue-demi: true
+
 packages:
   - 'packages/*'
 
