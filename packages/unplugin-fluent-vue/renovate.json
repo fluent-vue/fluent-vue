@@ -1,0 +1,28 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    "group:allNonMajor",
+    ":disableDependencyDashboard"
+  ],
+  "ignorePresets": [":ignoreModulesAndTests"],
+  "lockFileMaintenance": { "enabled": true },
+  "packageRules": [
+    {
+      "matchDepTypes": ["dependencies"],
+      "rangeStrategy": "replace"
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "rangeStrategy": "bump"
+    },
+    {
+      "matchDepTypes": ["peerDependencies"],
+      "rangeStrategy": "widen"
+    },
+    {
+      "matchPackageNames": ["eslint", "@antfu/eslint-config"],
+      "groupName": "eslint packages"
+    }
+  ]
+}

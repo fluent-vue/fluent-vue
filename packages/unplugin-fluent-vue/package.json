@@ -1,0 +1,157 @@
+{
+  "name": "unplugin-fluent-vue",
+  "type": "module",
+  "version": "1.4.1",
+  "packageManager": "pnpm@10.28.1",
+  "description": "unplugin for fluent-vue. Adds support for custom blocks in Vue SFC and external ftl files.",
+  "author": {
+    "name": "Ivan Demchuk",
+    "email": "ivan.demchuk@gmail.com",
+    "url": "https://demivan.me"
+  },
+  "license": "MIT",
+  "homepage": "https://fluent-vue.demivan.me/integrations/unplugin.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fluent-vue/unplugin-fluent-vue.git"
+  },
+  "keywords": [
+    "unplugin",
+    "vue",
+    "fluent-vue",
+    "ftl",
+    "fluent",
+    "webpack",
+    "vite",
+    "i18n",
+    "plural"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./*": "./*",
+    "./rollup": {
+      "import": {
+        "types": "./dist/rollup.d.ts",
+        "default": "./dist/rollup.js"
+      },
+      "require": {
+        "types": "./dist/rollup.d.cts",
+        "default": "./dist/rollup.cjs"
+      }
+    },
+    "./vite": {
+      "import": {
+        "types": "./dist/vite.d.ts",
+        "default": "./dist/vite.js"
+      },
+      "require": {
+        "types": "./dist/vite.d.cts",
+        "default": "./dist/vite.cjs"
+      }
+    },
+    "./webpack": {
+      "import": {
+        "types": "./dist/webpack.d.ts",
+        "default": "./dist/webpack.js"
+      },
+      "require": {
+        "types": "./dist/webpack.d.cts",
+        "default": "./dist/webpack.cjs"
+      }
+    },
+    "./nuxt": {
+      "import": {
+        "types": "./dist/nuxt.d.ts",
+        "default": "./dist/nuxt.js"
+      },
+      "require": {
+        "types": "./dist/nuxt.d.cts",
+        "default": "./dist/nuxt.cjs"
+      }
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "vitest",
+    "test:coverage": "vitest  --coverage",
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "prepare": "husky",
+    "release": "release-it"
+  },
+  "peerDependencies": {
+    "@fluent/bundle": "*",
+    "@nuxt/kit": "^3 || ^4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@nuxt/kit": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@fluent/syntax": "^0.19.0",
+    "@rollup/pluginutils": "^5.0.0",
+    "@vue/compiler-core": "^3.4.21",
+    "magic-string": "^0.30.0",
+    "unplugin": "^3.0.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^7.2.0",
+    "@fluent/bundle": "^0.19.1",
+    "@nuxt/kit": "^4.2.2",
+    "@nuxt/schema": "^4.2.2",
+    "@release-it-plugins/lerna-changelog": "8.0.1",
+    "@types/node": "24.10.9",
+    "@vitejs/plugin-vue": "6.0.3",
+    "@vitest/coverage-istanbul": "^4.0.18",
+    "@vue/compiler-sfc": "3.5.27",
+    "eslint": "9.39.2",
+    "execa": "9.6.1",
+    "husky": "9.1.7",
+    "lint-staged": "16.2.7",
+    "memfs": "4.56.9",
+    "release-it": "19.2.4",
+    "tsup": "8.5.1",
+    "typescript": "5.9.3",
+    "vite": "7.3.1",
+    "vitest": "4.0.18",
+    "vue": "3.5.27",
+    "vue-loader": "17.4.2",
+    "webpack": "5.104.1"
+  },
+  "lint-staged": {
+    "*.js": "eslint --fix",
+    "*.ts?(x)": "eslint --fix",
+    "*.json": "eslint --fix",
+    "*.md": "eslint --fix"
+  },
+  "changelog": {
+    "labels": {
+      "Type: Feature": ":star: New Features",
+      "Type: Bug": ":bug: Bug Fixes",
+      "Type: Security": ":lock: Security Fixes",
+      "Type: Performance": ":chart_with_upwards_trend: Performance Fixes",
+      "Type: Improvement": ":zap: Improved Features",
+      "Type: Breaking": ":boom: Breaking Change",
+      "Type: Deprecated": ":warning: Deprecated Features",
+      "Type: I18n": ":globe_with_meridians: Internationalization",
+      "Type: A11y": ":wheelchair: Accessibility",
+      "Type: Documentation": ":pencil: Documentation"
+    }
+  }
+}
