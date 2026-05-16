@@ -24,6 +24,18 @@
     {
       "matchPackageNames": ["eslint", "@antfu/eslint-config"],
       "groupName": "eslint packages"
+    },
+    {
+      "description": "vue2 pnpm catalog tracks the Vue 2 line; never propose major bumps (e.g. @vue/test-utils v1 → v2 is a Vue 3 release).",
+      "matchDepTypes": ["pnpm.catalog.vue2"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    },
+    {
+      "description": "vue-2 alias in the vue3 catalog is the Vue 2 peer used for cross-version tests; pin to the v2 major.",
+      "matchDepNames": ["vue-2"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
     }
   ]
 }
