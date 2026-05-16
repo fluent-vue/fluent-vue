@@ -1,4 +1,4 @@
-import { defineConfig } from 'tsup'
+import { defineConfig } from 'tsdown'
 
 export default defineConfig({
   entry: [
@@ -10,9 +10,8 @@ export default defineConfig({
   ],
   external: ['@nuxt/schema'],
   format: ['esm', 'cjs'],
-  outDir: 'dist/',
+  outDir: 'dist',
   dts: true,
-  splitting: true,
   clean: true,
   sourcemap: true,
 })

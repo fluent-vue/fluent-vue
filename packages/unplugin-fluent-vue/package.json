@@ -2,7 +2,6 @@
   "name": "unplugin-fluent-vue",
   "type": "module",
   "version": "1.4.1",
-  "packageManager": "pnpm@10.28.1",
   "description": "unplugin for fluent-vue. Adds support for custom blocks in Vue SFC and external ftl files.",
   "author": {
     "name": "Ivan Demchuk",
@@ -13,7 +12,8 @@
   "homepage": "https://fluent-vue.demivan.me/integrations/unplugin.html",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fluent-vue/unplugin-fluent-vue.git"
+    "url": "git+https://github.com/fluent-vue/fluent-vue.git",
+    "directory": "packages/unplugin-fluent-vue"
   },
   "keywords": [
     "unplugin",
@@ -86,13 +86,11 @@
     "dist"
   ],
   "scripts": {
-    "test": "vitest",
-    "test:coverage": "vitest  --coverage",
-    "build": "tsup",
-    "typecheck": "tsc --noEmit",
-    "lint": "eslint .",
-    "prepare": "husky",
-    "release": "release-it"
+    "build": "tsdown",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest --coverage",
+    "lint": "eslint ."
   },
   "peerDependencies": {
     "@fluent/bundle": "*",
@@ -111,47 +109,21 @@
     "unplugin": "^3.0.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^7.2.0",
     "@fluent/bundle": "^0.19.1",
     "@nuxt/kit": "^4.2.2",
     "@nuxt/schema": "^4.2.2",
-    "@release-it-plugins/lerna-changelog": "8.0.1",
     "@types/node": "24.10.9",
     "@vitejs/plugin-vue": "6.0.3",
-    "@vitest/coverage-istanbul": "^4.0.18",
+    "@vitest/coverage-v8": "^4.0.18",
     "@vue/compiler-sfc": "3.5.27",
-    "eslint": "9.39.2",
     "execa": "9.6.1",
-    "husky": "9.1.7",
-    "lint-staged": "16.2.7",
     "memfs": "4.56.9",
-    "release-it": "19.2.4",
-    "tsup": "8.5.1",
+    "tsdown": "^0.20.3",
     "typescript": "5.9.3",
     "vite": "7.3.1",
     "vitest": "4.0.18",
     "vue": "3.5.27",
     "vue-loader": "17.4.2",
     "webpack": "5.104.1"
-  },
-  "lint-staged": {
-    "*.js": "eslint --fix",
-    "*.ts?(x)": "eslint --fix",
-    "*.json": "eslint --fix",
-    "*.md": "eslint --fix"
-  },
-  "changelog": {
-    "labels": {
-      "Type: Feature": ":star: New Features",
-      "Type: Bug": ":bug: Bug Fixes",
-      "Type: Security": ":lock: Security Fixes",
-      "Type: Performance": ":chart_with_upwards_trend: Performance Fixes",
-      "Type: Improvement": ":zap: Improved Features",
-      "Type: Breaking": ":boom: Breaking Change",
-      "Type: Deprecated": ":warning: Deprecated Features",
-      "Type: I18n": ":globe_with_meridians: Internationalization",
-      "Type: A11y": ":wheelchair: Accessibility",
-      "Type: Documentation": ":pencil: Documentation"
-    }
   }
 }
