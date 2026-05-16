@@ -4,6 +4,9 @@ autoInstallPeers: false # Why pnpm? Why?
 
 trustPolicy: no-downgrade
 
+packages:
+  - 'packages/*'
+
 catalogs:
   vue2:
     '@vue/composition-api': ^1.7.0

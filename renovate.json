@@ -1,10 +1,12 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base",
+    "config:recommended",
     "group:allNonMajor",
     ":disableDependencyDashboard"
   ],
   "ignorePresets": [":ignoreModulesAndTests"],
+  "semanticCommits": "disabled",
   "lockFileMaintenance": { "enabled": true },
   "packageRules": [
     {

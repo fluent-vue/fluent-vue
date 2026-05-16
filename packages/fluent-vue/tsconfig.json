@@ -1,4 +1,5 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "target": "ES2019",
     "jsx": "preserve",
@@ -6,19 +7,12 @@
     "rootDir": ".",
     "module": "esnext",
     "moduleResolution": "bundler",
-    "types": ["node"],
     "allowJs": false,
-    "strict": true,
     "noUnusedLocals": true,
     "declaration": true,
     "outDir": "dist",
     "removeComments": false,
-    "sourceMap": true,
-    "esModuleInterop": true,
-    "isolatedDeclarations": true,
-    "skipLibCheck": true
+    "isolatedDeclarations": true
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }

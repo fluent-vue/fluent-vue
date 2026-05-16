@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "baseUrl": ".",
+    "moduleResolution": "node"
+  },
+  "exclude": ["node_modules"]
+}

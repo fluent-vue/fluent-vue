@@ -1,0 +1,129 @@
+{
+  "name": "unplugin-fluent-vue",
+  "type": "module",
+  "version": "1.4.1",
+  "description": "unplugin for fluent-vue. Adds support for custom blocks in Vue SFC and external ftl files.",
+  "author": {
+    "name": "Ivan Demchuk",
+    "email": "ivan.demchuk@gmail.com",
+    "url": "https://demivan.me"
+  },
+  "license": "MIT",
+  "homepage": "https://fluent-vue.demivan.me/integrations/unplugin.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fluent-vue/fluent-vue.git",
+    "directory": "packages/unplugin-fluent-vue"
+  },
+  "keywords": [
+    "unplugin",
+    "vue",
+    "fluent-vue",
+    "ftl",
+    "fluent",
+    "webpack",
+    "vite",
+    "i18n",
+    "plural"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./*": "./*",
+    "./rollup": {
+      "import": {
+        "types": "./dist/rollup.d.ts",
+        "default": "./dist/rollup.js"
+      },
+      "require": {
+        "types": "./dist/rollup.d.cts",
+        "default": "./dist/rollup.cjs"
+      }
+    },
+    "./vite": {
+      "import": {
+        "types": "./dist/vite.d.ts",
+        "default": "./dist/vite.js"
+      },
+      "require": {
+        "types": "./dist/vite.d.cts",
+        "default": "./dist/vite.cjs"
+      }
+    },
+    "./webpack": {
+      "import": {
+        "types": "./dist/webpack.d.ts",
+        "default": "./dist/webpack.js"
+      },
+      "require": {
+        "types": "./dist/webpack.d.cts",
+        "default": "./dist/webpack.cjs"
+      }
+    },
+    "./nuxt": {
+      "import": {
+        "types": "./dist/nuxt.d.ts",
+        "default": "./dist/nuxt.js"
+      },
+      "require": {
+        "types": "./dist/nuxt.d.cts",
+        "default": "./dist/nuxt.cjs"
+      }
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest --coverage",
+    "lint": "eslint ."
+  },
+  "peerDependencies": {
+    "@fluent/bundle": "*",
+    "@nuxt/kit": "^3 || ^4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@nuxt/kit": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@fluent/syntax": "^0.19.0",
+    "@rollup/pluginutils": "^5.0.0",
+    "@vue/compiler-core": "^3.4.21",
+    "magic-string": "^0.30.0",
+    "unplugin": "^3.0.0"
+  },
+  "devDependencies": {
+    "@fluent/bundle": "^0.19.1",
+    "@nuxt/kit": "^4.2.2",
+    "@nuxt/schema": "^4.2.2",
+    "@types/node": "24.10.9",
+    "@vitejs/plugin-vue": "6.0.3",
+    "@vitest/coverage-v8": "^4.0.18",
+    "@vue/compiler-sfc": "3.5.27",
+    "execa": "9.6.1",
+    "memfs": "4.56.9",
+    "tsdown": "^0.20.3",
+    "typescript": "5.9.3",
+    "vite": "7.3.1",
+    "vitest": "4.0.18",
+    "vue": "3.5.27",
+    "vue-loader": "17.4.2",
+    "webpack": "5.104.1"
+  }
+}

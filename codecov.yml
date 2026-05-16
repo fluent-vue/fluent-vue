@@ -4,4 +4,4 @@ coverage:
       default:
         informational: true
 ignore:
-  - src/devtools
+  - packages/fluent-vue/src/devtools

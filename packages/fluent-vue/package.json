@@ -1,0 +1,100 @@
+{
+  "name": "fluent-vue",
+  "type": "module",
+  "version": "3.8.2",
+  "description": "Internationalization plugin for Vue.js. Project Fluent bindings for Vue.js",
+  "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://fluent-vue.demivan.me",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fluent-vue/fluent-vue.git",
+    "directory": "packages/fluent-vue"
+  },
+  "keywords": [
+    "localization",
+    "internationalization",
+    "i18n",
+    "ftl",
+    "locale",
+    "formatting",
+    "translate",
+    "translation",
+    "format",
+    "vue",
+    "vuejs",
+    "vue.js",
+    "ProjectFluent",
+    "Project Fluent"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "production:": "./dist/prod/index.mjs",
+        "development:": "./dist/index.mjs",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "production:": "./dist/prod/index.cjs",
+        "development:": "./dist/index.cjs",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "main": "dist/index.mjs",
+  "module": "dist/index.mjs",
+  "unpkg": "dist/index.iife.js",
+  "jsdelivr": "dist/index.iife.js",
+  "types": "dist/index.d.mts",
+  "files": [
+    "README.md",
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "lint": "eslint .",
+    "ls-lint": "ls-lint",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "node scripts/swap-vue.mjs 3 && vitest run",
+    "test:watch": "vitest",
+    "test:2": "node scripts/swap-vue.mjs 2 && vitest run",
+    "test:3": "node scripts/swap-vue.mjs 3 && vitest run"
+  },
+  "peerDependencies": {
+    "@fluent/bundle": ">=0.17.0",
+    "@vue/composition-api": ">=1.0.0-rc.1",
+    "vue": "^2.6.11 || >=3.2.45"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@fluent/sequence": "^0.8.0",
+    "@vue/devtools-api": "^8.0.0",
+    "cached-iterable": "^0.3.0",
+    "vue-demi": "latest"
+  },
+  "devDependencies": {
+    "@fluent/bundle": "~0.19.1",
+    "@fluent/dedent": "~0.5.0",
+    "@ls-lint/ls-lint": "^2.3.1",
+    "@types/node": "^24.10.13",
+    "@vitest/coverage-v8": "^4.0.18",
+    "@vue/compiler-sfc": "catalog:vue3",
+    "@vue/test-utils": "catalog:vue3",
+    "execa": "^9.6.1",
+    "happy-dom": "^20.6.1",
+    "tsdown": "^0.20.3",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.3",
+    "vitest": "^4.0.18",
+    "vue": "catalog:vue3",
+    "vue-2": "catalog:vue3",
+    "vue-3": "catalog:vue3"
+  }
+}

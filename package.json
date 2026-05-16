@@ -1,111 +1,26 @@
 {
-  "name": "fluent-vue",
+  "name": "fluent-vue-monorepo",
   "type": "module",
-  "version": "3.8.2",
+  "private": true,
   "packageManager": "pnpm@10.29.3+sha512.498e1fb4cca5aa06c1dcf2611e6fafc50972ffe7189998c409e90de74566444298ffe43e6cd2acdc775ba1aa7cc5e092a8b7054c811ba8c5770f84693d33d2dc",
-  "description": "Internationalization plugin for Vue.js. Project Fluent bindings for Vue.js",
-  "author": "Ivan Demchuk <ivan.demchuk@gmail.com>",
-  "license": "MIT",
-  "homepage": "https://fluent-vue.demivan.me",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fluent-vue/fluent-vue.git"
-  },
-  "keywords": [
-    "localization",
-    "internationalization",
-    "i18n",
-    "ftl",
-    "locale",
-    "formatting",
-    "translate",
-    "translation",
-    "format",
-    "vue",
-    "vuejs",
-    "vue.js",
-    "ProjectFluent",
-    "Project Fluent"
-  ],
-  "sideEffects": false,
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/index.d.mts",
-        "production:": "./dist/prod/index.mjs",
-        "development:": "./dist/index.mjs",
-        "default": "./dist/index.mjs"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "production:": "./dist/prod/index.cjs",
-        "development:": "./dist/index.cjs",
-        "default": "./dist/index.cjs"
-      }
-    }
-  },
-  "main": "dist/index.mjs",
-  "module": "dist/index.mjs",
-  "unpkg": "dist/index.iife.js",
-  "jsdelivr": "dist/index.iife.js",
-  "types": "dist/index.d.mts",
-  "files": [
-    "README.md",
-    "dist"
-  ],
   "scripts": {
-    "build": "tsdown",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck",
     "lint": "eslint .",
-    "ls-lint": "ls-lint",
-    "typecheck": "tsc --noEmit -p tsconfig.json",
-    "test": "node scripts/swap-vue.mjs 3 && vitest run",
-    "test:watch": "vitest",
-    "test:2": "node scripts/swap-vue.mjs 2 && vitest run",
-    "test:3": "node scripts/swap-vue.mjs 3 && vitest run",
+    "ls-lint": "pnpm -r ls-lint",
     "prepare": "husky",
     "changeset": "changeset",
     "version": "changeset version",
     "release": "pnpm build && changeset publish --provenance"
   },
-  "peerDependencies": {
-    "@fluent/bundle": ">=0.17.0",
-    "@vue/composition-api": ">=1.0.0-rc.1",
-    "vue": "^2.6.11 || >=3.2.45"
-  },
-  "peerDependenciesMeta": {
-    "@vue/composition-api": {
-      "optional": true
-    }
-  },
-  "dependencies": {
-    "@fluent/sequence": "^0.8.0",
-    "@vue/devtools-api": "^8.0.0",
-    "cached-iterable": "^0.3.0",
-    "vue-demi": "latest"
-  },
   "devDependencies": {
     "@antfu/eslint-config": "^8.2.0",
     "@changesets/cli": "^2.29.8",
     "@changesets/get-github-info": "^0.7.0",
-    "@fluent/bundle": "~0.19.1",
-    "@fluent/dedent": "~0.5.0",
-    "@ls-lint/ls-lint": "^2.3.1",
-    "@types/node": "^24.10.13",
-    "@vitest/coverage-v8": "^4.0.18",
-    "@vue/compiler-sfc": "catalog:vue3",
-    "@vue/test-utils": "catalog:vue3",
     "eslint": "^10.3.0",
-    "execa": "^9.6.1",
-    "happy-dom": "^20.6.1",
     "husky": "^9.1.7",
-    "lint-staged": "^17.0.3",
-    "tsdown": "^0.20.3",
-    "typescript": "^6.0.2",
-    "vite": "^8.0.3",
-    "vitest": "^4.0.18",
-    "vue": "catalog:vue3",
-    "vue-2": "catalog:vue3",
-    "vue-3": "catalog:vue3"
+    "lint-staged": "^17.0.3"
   },
   "lint-staged": {
     "*.js": "eslint --fix",
