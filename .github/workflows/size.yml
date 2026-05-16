@@ -3,6 +3,10 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - packages/fluent-vue/**
+      - pnpm-lock.yaml
+      - .github/workflows/size.yml
 env:
   CI: true
 
@@ -22,3 +26,5 @@ jobs:
         uses: antfu/export-size-action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          paths: packages/fluent-vue
+          build_script: build
