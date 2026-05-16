@@ -9,6 +9,9 @@ on:
 env:
   CI: true
 
+permissions:
+  contents: read
+
 jobs:
   test-fluent-vue:
     name: 'fluent-vue: Node.js ${{ matrix.node }} / OS: ${{ matrix.os }} / Vue: ${{ matrix.vue }}'
