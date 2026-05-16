@@ -16,8 +16,8 @@ catalogs:
       specifier: npm:vue@^3.5.16
       version: 3.5.28
     vue-2:
-      specifier: npm:vue@^2.7.16
-      version: 2.7.16
+      specifier: npm:vue@^3.0.0
+      version: 3.5.28
     vue-3:
       specifier: npm:vue@^3.5.16
       version: 3.5.28
@@ -104,7 +104,7 @@ importers:
         version: 3.5.28(typescript@6.0.2)
       vue-2:
         specifier: catalog:vue3
-        version: vue@2.7.16
+        version: vue@3.5.28(typescript@6.0.2)
       vue-3:
         specifier: catalog:vue3
         version: vue@3.5.28(typescript@6.0.2)
@@ -1544,9 +1544,6 @@ packages:
 
   '@vue/compiler-dom@3.5.28':
     resolution: {integrity: sha512-/1ZepxAb159jKR1btkefDP+J2xuWL5V3WtleRmxaT+K2Aqiek/Ab/+Ebrw2pPj0sdHO8ViAyyJWfhXXOP/+LQA==}
-
-  '@vue/compiler-sfc@2.7.16':
-    resolution: {integrity: sha512-KWhJ9k5nXuNtygPU7+t1rX6baZeqOYLEforUPjgNDBnLicfHCoi48H87Q8XyLZOrNNsmhuwKqtpDQWjEFe6Ekg==}
 
   '@vue/compiler-sfc@3.5.28':
     resolution: {integrity: sha512-6TnKMiNkd6u6VeVDhZn/07KhEZuBSn43Wd2No5zaP5s3xm8IqFTHBj84HJah4UepSUJTro5SoqqlOY22FKY96g==}
@@ -3821,10 +3818,6 @@ packages:
       vue:
         optional: true
 
-  vue@2.7.16:
-    resolution: {integrity: sha512-4gCtFXaAA3zYZdTp5s4Hl2sozuySsgz4jy1EnpBHNfpMa9dK1ZCG7viqBPCwXtmgc8nHqUsAu3G4gtmXkkY3Sw==}
-    deprecated: Vue 2 has reached EOL and is no longer actively maintained. See https://v2.vuejs.org/eol/ for more details.
-
   vue@3.5.28:
     resolution: {integrity: sha512-BRdrNfeoccSoIZeIhyPBfvWSLFP4q8J3u8Ju8Ug5vu3LdD+yTM13Sg4sKtljxozbnuMu1NB1X5HBHRYUzFocKg==}
     peerDependencies:
@@ -5234,14 +5227,6 @@ snapshots:
     dependencies:
       '@vue/compiler-core': 3.5.28
       '@vue/shared': 3.5.28
-
-  '@vue/compiler-sfc@2.7.16':
-    dependencies:
-      '@babel/parser': 7.29.0
-      postcss: 8.5.8
-      source-map: 0.6.1
-    optionalDependencies:
-      prettier: 2.8.8
 
   '@vue/compiler-sfc@3.5.28':
     dependencies:
@@ -7755,11 +7740,6 @@ snapshots:
     optionalDependencies:
       '@vue/compiler-sfc': 3.5.28
       vue: 3.5.28(typescript@6.0.3)
-
-  vue@2.7.16:
-    dependencies:
-      '@vue/compiler-sfc': 2.7.16
-      csstype: 3.2.3
 
   vue@3.5.28(typescript@6.0.2):
     dependencies:
