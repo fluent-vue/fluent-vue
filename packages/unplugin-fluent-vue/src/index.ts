@@ -1,3 +1,3 @@
-export { directiveTransform } from './directive-transform'
-export { unplugin as FTLFluentPlugin } from './plugins/external-plugin'
-export { unplugin as SFCFluentPlugin } from './plugins/sfc-plugin'
+export { directiveTransform } from './directiveTransform'
+export { unplugin as FTLFluentPlugin } from './plugins/externalPlugin'
+export { unplugin as SFCFluentPlugin } from './plugins/sfcPlugin'

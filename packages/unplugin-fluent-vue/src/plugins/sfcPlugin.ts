@@ -3,7 +3,7 @@ import type { SFCPluginOptions } from '../types'
 
 import { createUnplugin } from 'unplugin'
 
-import { isCustomBlock, parseVueRequest } from '../loader-query'
+import { isCustomBlock, parseVueRequest } from '../loaderQuery'
 import { getInjectFtl } from './ftl/inject'
 
 export const unplugin = createUnplugin((options: SFCPluginOptions, meta) => {

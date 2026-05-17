@@ -56,7 +56,6 @@
   "scripts": {
     "build": "tsdown",
     "lint": "eslint .",
-    "ls-lint": "ls-lint",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "test": "node scripts/swap-vue.mjs 3 && vitest run",
     "test:watch": "vitest",
@@ -82,7 +81,6 @@
   "devDependencies": {
     "@fluent/bundle": "~0.19.1",
     "@fluent/dedent": "~0.5.0",
-    "@ls-lint/ls-lint": "^2.3.1",
     "@types/node": "^24.12.4",
     "@vitest/coverage-v8": "^4.1.6",
     "@vue/compiler-sfc": "catalog:vue3",
