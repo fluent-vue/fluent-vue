@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 
 import { compile } from './util'
 
-describe('Webpack SFC', () => {
+describe('webpack SFC', () => {
   it('generates custom block code', async () => {
     // Arrange
     // Act

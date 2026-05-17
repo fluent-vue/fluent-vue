@@ -9,7 +9,7 @@ import { compile } from './util'
 
 const baseDir = resolve(__dirname, '../..')
 
-describe('Vite external', () => {
+describe('vite external', () => {
   it('works', async () => {
     // Arrange
     // Act
