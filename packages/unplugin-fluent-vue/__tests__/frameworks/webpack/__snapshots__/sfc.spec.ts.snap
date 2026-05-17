@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Webpack SFC > generates custom block code 1`] = `
+exports[`webpack SFC > generates custom block code 1`] = `
 [
   "
 import { FluentResource } from '@fluent/bundle'
@@ -14,7 +14,7 @@ export default function (Component) {
 ]
 `;
 
-exports[`Webpack SFC > includes HMR code only when HMR is enabled 1`] = `
+exports[`webpack SFC > includes HMR code only when HMR is enabled 1`] = `
 [
   "
 import { FluentResource } from '@fluent/bundle'

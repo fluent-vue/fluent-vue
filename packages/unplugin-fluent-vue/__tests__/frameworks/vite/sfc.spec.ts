@@ -6,7 +6,7 @@ import { describe, expect, it } from 'vitest'
 import { SFCFluentPlugin } from '../../../src/vite'
 import { compile } from './util'
 
-describe('Vite SFC', () => {
+describe('vite SFC', () => {
   it('generates custom block code', async () => {
     // Arrange
     // Act
