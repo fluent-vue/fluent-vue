@@ -12,7 +12,7 @@
     "prepare": "husky",
     "changeset": "changeset",
     "version": "changeset version",
-    "release": "pnpm build && changeset publish --provenance"
+    "release": "pnpm build && changeset publish"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^9.0.0",
