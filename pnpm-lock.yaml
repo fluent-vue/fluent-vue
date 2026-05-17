@@ -35,6 +35,9 @@ importers:
       '@changesets/get-github-info':
         specifier: ^0.8.0
         version: 0.8.0
+      '@ls-lint/ls-lint':
+        specifier: ^2.3.1
+        version: 2.3.1
       eslint:
         specifier: ^10.4.0
         version: 10.4.0(jiti@2.7.0)
@@ -66,9 +69,6 @@ importers:
       '@fluent/dedent':
         specifier: ~0.5.0
         version: 0.5.0
-      '@ls-lint/ls-lint':
-        specifier: ^2.3.1
-        version: 2.3.1
       '@types/node':
         specifier: ^24.12.4
         version: 24.12.4

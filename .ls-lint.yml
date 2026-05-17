@@ -1,0 +1,11 @@
+ls:
+  packages/*/{src,__tests__}:
+    .ts: camelCase | PascalCase
+    .js: kebab-case
+    .d.ts: camelCase
+    .spec.ts: camelCase | PascalCase
+    .mock.ts: camelCase
+
+ignore:
+  - packages/*/__tests__/fixtures
+  - packages/*/__tests__/**/__snapshots__

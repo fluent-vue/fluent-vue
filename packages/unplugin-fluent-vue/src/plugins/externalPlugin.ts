@@ -6,7 +6,7 @@ import { createFilter, makeLegalIdentifier } from '@rollup/pluginutils'
 import MagicString from 'magic-string'
 
 import { createUnplugin } from 'unplugin'
-import { isCustomBlock, parseVueRequest } from '../loader-query'
+import { isCustomBlock, parseVueRequest } from '../loaderQuery'
 import { getInjectFtl } from './ftl/inject'
 
 const isVue = createFilter(['**/*.vue'])
