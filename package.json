@@ -16,11 +16,11 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^9.0.0",
-    "@changesets/cli": "^2.29.8",
-    "@changesets/get-github-info": "^0.7.0",
+    "@changesets/cli": "^2.31.0",
+    "@changesets/get-github-info": "^0.8.0",
     "eslint": "^10.4.0",
     "husky": "^9.1.7",
-    "lint-staged": "^17.0.3"
+    "lint-staged": "^17.0.5"
   },
   "lint-staged": {
     "*.js": "eslint --fix",
