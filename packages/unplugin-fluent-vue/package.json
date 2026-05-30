@@ -110,20 +110,20 @@
   },
   "devDependencies": {
     "@fluent/bundle": "^0.19.1",
-    "@nuxt/kit": "^4.4.5",
-    "@nuxt/schema": "^4.4.5",
+    "@nuxt/kit": "^4.4.6",
+    "@nuxt/schema": "^4.4.6",
     "@types/node": "24.12.4",
     "@vitejs/plugin-vue": "6.0.7",
-    "@vitest/coverage-v8": "^4.1.6",
+    "@vitest/coverage-v8": "^4.1.7",
     "@vue/compiler-sfc": "catalog:vue3",
     "execa": "9.6.1",
-    "memfs": "4.57.2",
-    "tsdown": "^0.22.0",
+    "memfs": "4.57.3",
+    "tsdown": "^0.22.1",
     "typescript": "6.0.3",
-    "vite": "8.0.13",
-    "vitest": "4.1.6",
+    "vite": "8.0.14",
+    "vitest": "4.1.7",
     "vue": "catalog:vue3",
     "vue-loader": "17.4.2",
-    "webpack": "5.106.2"
+    "webpack": "5.107.2"
   }
 }

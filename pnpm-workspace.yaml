@@ -18,8 +18,8 @@ catalogs:
     vue: npm:vue@2.7.16
     vue-template-compiler: 2.7.16
   vue3:
-    '@vue/compiler-sfc': 3.5.34
+    '@vue/compiler-sfc': 3.5.35
     '@vue/test-utils': 2.4.10
-    vue: npm:vue@3.5.34
+    vue: npm:vue@3.5.35
     vue-2: npm:vue@2.7.16
-    vue-3: npm:vue@3.5.34
+    vue-3: npm:vue@3.5.35
