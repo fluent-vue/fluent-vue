@@ -120,7 +120,7 @@
     "memfs": "4.57.2",
     "tsdown": "^0.22.0",
     "typescript": "6.0.3",
-    "vite": "8.0.13",
+    "vite": "8.0.16",
     "vitest": "4.1.6",
     "vue": "catalog:vue3",
     "vue-loader": "17.4.2",
