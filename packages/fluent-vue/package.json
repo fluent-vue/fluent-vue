@@ -85,7 +85,7 @@
     "@vitest/coverage-v8": "^4.1.6",
     "@vue/compiler-sfc": "catalog:vue3",
     "@vue/test-utils": "catalog:vue3",
-    "execa": "^9.6.1",
+    "execa": "^10.0.0",
     "happy-dom": "^20.9.0",
     "tsdown": "^0.22.0",
     "typescript": "^6.0.3",
