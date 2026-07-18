@@ -33,7 +33,7 @@ jobs:
         run: pnpm -C packages/fluent-vue test:${{ matrix.vue }} --coverage
 
       - name: Upload code coverage
-        uses: codecov/codecov-action@v6
+        uses: codecov/codecov-action@v7
         with:
           flags: fluent-vue-vue${{ matrix.vue }}
           token: ${{ secrets.CODECOV_TOKEN }}
@@ -57,7 +57,7 @@ jobs:
         run: pnpm -C packages/unplugin-fluent-vue test:coverage
 
       - name: Upload code coverage
-        uses: codecov/codecov-action@v6
+        uses: codecov/codecov-action@v7
         with:
           flags: unplugin-fluent-vue
           token: ${{ secrets.CODECOV_TOKEN }}
