@@ -1,3 +1,5 @@
+minimumReleaseAge: 1440 # minutes = 1 day
+
 shellEmulator: true
 strictPeerDependencies: false
 autoInstallPeers: false # Why pnpm? Why?
