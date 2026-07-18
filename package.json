@@ -2,7 +2,7 @@
   "name": "fluent-vue-monorepo",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@11.1.2",
+  "packageManager": "pnpm@11.13.1",
   "scripts": {
     "build": "pnpm -r build",
     "test": "pnpm -r test",
@@ -16,12 +16,12 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^9.1.0",
-    "@changesets/cli": "^2.31.0",
+    "@changesets/cli": "^2.31.1",
     "@changesets/get-github-info": "^0.8.0",
     "@ls-lint/ls-lint": "^2.3.1",
     "eslint": "^10.7.0",
     "husky": "^9.1.7",
-    "lint-staged": "^17.0.5"
+    "lint-staged": "^17.0.8"
   },
   "lint-staged": {
     "*.js": "eslint --fix",
