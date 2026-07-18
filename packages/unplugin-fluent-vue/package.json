@@ -118,7 +118,7 @@
     "@vue/compiler-sfc": "catalog:vue3",
     "execa": "10.0.0",
     "memfs": "4.64.0",
-    "tsdown": "^0.22.9",
+    "tsdown": "0.22.3",
     "typescript": "6.0.3",
     "vite": "8.1.5",
     "vitest": "4.1.10",
