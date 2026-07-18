@@ -1,0 +1,52 @@
+{
+  "scopeName": "meta.embedded.ftl",
+  "injectionSelector": "L:source.vue",
+  "patterns": [
+    {
+      "begin": "(<)(fluent)\\b[^>]*(\\blocale\\s*=\\s*(['\"]?)\\w+\\b\\4)(>)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag.begin.html.vue"
+        },
+        "2": {
+          "name": "entity.name.tag.fluent.html.vue"
+        },
+        "3": {
+          "name": "meta.tag-stuff",
+          "patterns": [
+            {
+              "include": "text.html.basic#attribute"
+            }
+          ]
+        },
+        "5": {
+          "name": "punctuation.definition.tag.end.html.vue"
+        }
+      },
+      "end": "(</)((?i:fluent))(>)(?:\\s*\\n)?",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag.begin.html.vue"
+        },
+        "2": {
+          "name": "entity.name.tag.fluent.html.vue"
+        },
+        "3": {
+          "name": "punctuation.definition.tag.end.html.vue"
+        }
+      },
+      "patterns": [
+        {
+          "begin": "^",
+          "end": "(?=<\\/)",
+          "name": "meta.embedded.block.ftl",
+          "patterns": [
+            {
+              "include": "source.ftl"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
