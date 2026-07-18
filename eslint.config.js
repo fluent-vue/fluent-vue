@@ -4,6 +4,7 @@ export default antfu({
   typescript: true,
   ignores: [
     'README.md',
+    'docs/**',
   ],
   pnpm: {
     catalogs: false,
