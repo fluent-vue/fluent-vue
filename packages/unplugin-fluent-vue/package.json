@@ -116,7 +116,7 @@
     "@vitejs/plugin-vue": "6.0.7",
     "@vitest/coverage-v8": "^4.1.6",
     "@vue/compiler-sfc": "catalog:vue3",
-    "execa": "9.6.1",
+    "execa": "10.0.0",
     "memfs": "4.57.2",
     "tsdown": "^0.22.0",
     "typescript": "6.0.3",
