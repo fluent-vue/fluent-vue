@@ -22,6 +22,8 @@ catalogs:
       specifier: npm:vue@3.5.40
       version: 3.5.40
 
+packageExtensionsChecksum: sha256-5ntDVq9VLwgYpyKU88Ay9z0NlhX4o81MwgXKy+KCrjM=
+
 importers:
 
   .:
@@ -4016,8 +4018,8 @@ packages:
       jsdom:
         optional: true
 
-  vue-component-type-helpers@3.2.9:
-    resolution: {integrity: sha512-S3BiWYaLSzHxTpln665ELSrMR9UYmrIDUmhik7nVZxmJjTKL2/a+ew1hvGxksKelivm0ujjWfG1fYOiU/2e8rA==}
+  vue-component-type-helpers@3.3.7:
+    resolution: {integrity: sha512-Skkhw9agYSgsWqv7bxSOGJZa9SaiJbZVGdXuFWnrzKaQYHnw9qbjD630rw6RyMqDbp54nfLCLw5SZA55if7JLg==}
 
   vue-demi@0.14.10:
     resolution: {integrity: sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==}
@@ -5569,7 +5571,7 @@ snapshots:
 
   '@vue/compiler-sfc@2.7.16':
     dependencies:
-      '@babel/parser': 7.29.3
+      '@babel/parser': 7.29.7
       postcss: 8.5.19
       source-map: 0.6.1
     optionalDependencies:
@@ -5654,7 +5656,7 @@ snapshots:
       '@vue/compiler-dom': 3.5.40
       js-beautify: 1.15.4
       vue: 3.5.40(typescript@6.0.3)
-      vue-component-type-helpers: 3.2.9
+      vue-component-type-helpers: 3.3.7
     optionalDependencies:
       '@vue/server-renderer': 3.5.40
 
@@ -8186,7 +8188,7 @@ snapshots:
       - tsx
       - yaml
 
-  vue-component-type-helpers@3.2.9: {}
+  vue-component-type-helpers@3.3.7: {}
 
   vue-demi@0.14.10(vue@3.5.40(typescript@6.0.3)):
     dependencies:
