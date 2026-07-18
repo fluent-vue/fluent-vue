@@ -15,11 +15,11 @@
     "release": "pnpm build && changeset publish"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^9.0.0",
+    "@antfu/eslint-config": "^9.1.0",
     "@changesets/cli": "^2.31.0",
     "@changesets/get-github-info": "^0.8.0",
     "@ls-lint/ls-lint": "^2.3.1",
-    "eslint": "^10.4.0",
+    "eslint": "^10.7.0",
     "husky": "^9.1.7",
     "lint-staged": "^17.0.5"
   },
