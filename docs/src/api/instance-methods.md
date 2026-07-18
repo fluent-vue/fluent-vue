@@ -1,0 +1,62 @@
+# `$t` and `$ta` instance methods
+
+::: tip Note
+The `$t` and `$ta` function names can be customized via the `globals.functions` option in `createFluentVue` to avoid naming conflicts. See [Installation](/installation#customizing-global-names) for details.
+:::
+
+## `$t` method
+
+Formats message  with `key` identifier. `args` is used to resolve references to variables passed as arguments to the translation.
+
+* Arguments
+  * `{string} key`: required
+  * `{object} args`: optional
+
+* Returns: `{string}`
+
+Template:
+```vue-html
+<p>{{ $t('greeting', { name: 'World' }) }}</p>
+```
+
+Message:
+```ftl
+greeting = Hello, {$name}
+```
+
+Result:
+```html
+<p>Hello, World</p>
+```
+
+## `$ta` method
+
+Formats message with `key` identifier, but only returns message attributes. `args` is used to resolve references to variables passed as arguments to the translation.
+
+::: tip Note
+This method should be used mostly for passing parameters to custom components. For localization of regular html elements [v-t](/api/v-t-directive) directive is more convenient.
+:::
+
+* Arguments
+  * `{string} key`: required
+  * `{object} args`: optional
+
+* Returns: `{object}`
+
+Template:
+```vue-html
+<input v-bind="$ta('login-input')" type="email">
+```
+
+Message:
+```ftl
+login-input =
+    .placeholder = email@example.com
+    .aria-label = Login input value
+    .title = Type your login email
+```
+
+Result:
+```html
+<input placeholder="email@example.com" aria-label="Login input value" title="Type your login email" type="email">
+```

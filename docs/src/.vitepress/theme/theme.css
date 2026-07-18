@@ -1,0 +1,29 @@
+code {
+  font-size: 0.875em;
+}
+
+:root {
+  --vp-font-family-mono: "JetBrains Mono", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
+
+  --vp-c-brand: #3ab982;
+  --vp-c-accent: #34495e;
+
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(
+    120deg,
+    var(--vp-c-brand) 10%,
+    var(--vp-c-accent)
+  );
+}
+
+.VPHome .VPImage {
+  padding: 5%;
+}
+
+pre {
+  font-family: var(--vp-font-family-mono);
+}
+
+.mono {
+  font-family: var(--vp-font-family-mono)
+}
