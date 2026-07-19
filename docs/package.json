@@ -8,10 +8,10 @@
   },
   "devDependencies": {
     "fast-glob": "^3.3.3",
-    "shiki": "^3.8.1",
+    "shiki": "^3.23.0",
     "tsno": "^2.0.0",
     "unplugin-fluent-vue": "workspace:*",
-    "vitepress": "1.6.3"
+    "vitepress": "1.6.4"
   },
   "dependencies": {
     "@fluent/bundle": "^0.19.1",
