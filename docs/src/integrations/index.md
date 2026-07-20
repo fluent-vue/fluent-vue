@@ -39,4 +39,4 @@ It reports missing translations, allows to extract hardcoded strings, and much m
 
 Check their [README](https://github.com/lokalise/i18n-ally) for more information.
 
-![i18n Ally](../public/assets/i18n-ally.png)
+![i18n Ally](/assets/i18n-ally.png)

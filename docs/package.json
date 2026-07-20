@@ -7,17 +7,15 @@
     "build": "vitepress build src"
   },
   "devDependencies": {
-    "fast-glob": "^3.3.3",
-    "shiki": "^3.23.0",
-    "tsno": "^2.0.0",
+    "shiki": "4.3.1",
     "unplugin-fluent-vue": "workspace:*",
-    "vitepress": "1.6.4"
+    "vitepress": "2.0.0-alpha.18"
   },
   "dependencies": {
-    "@fluent/bundle": "^0.19.1",
-    "@vueuse/core": "^13.5.0",
-    "date-fns": "^4.1.0",
+    "@fluent/bundle": "0.19.1",
+    "@vueuse/core": "14.3.0",
+    "date-fns": "4.4.0",
     "fluent-vue": "workspace:*",
-    "vue": "^3.5.18"
+    "vue": "3.5.40"
   }
 }
