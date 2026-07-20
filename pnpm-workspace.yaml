@@ -1,44 +1,13 @@
 minimumReleaseAge: 1440 # minutes = 1 day
 
 shellEmulator: true
-strictPeerDependencies: false
 autoInstallPeers: false # Why pnpm? Why?
 
 trustPolicy: no-downgrade
-# Temporary: VitePress 1.x pins Vite 5, older than the Vite 8 used elsewhere in
-# the repo, which trips no-downgrade. Pinned to the exact resolved version so the
-# exemption doesn't cover any other vite release. Remove when the docs move off
-# VitePress/Vite 5 (planned Astro migration, tracked separately).
-trustPolicyExclude:
-  - vite@5.4.21
 
 allowBuilds:
   esbuild: true
-  vue-demi: true
 
 packages:
   - 'packages/*'
   - docs
-
-catalogs:
-  vue2:
-    '@vue/composition-api': 1.7.2
-    '@vue/test-utils': 1.3.6
-    vue: npm:vue@2.7.16
-    vue-template-compiler: 2.7.16
-  vue3:
-    '@vue/compiler-sfc': 3.5.40
-    '@vue/test-utils': 2.4.11
-    vue: npm:vue@3.5.40
-    vue-2: npm:vue@2.7.16
-    vue-3: npm:vue@3.5.40
-
-# vue-template-compiler has no `vue` of its own and resolves it via hoisting.
-# The docs workspace package pins vue@3, which can tip the hoisted `vue` to v3 and
-# trip vue-template-compiler's version guard during the Vue 2 test swap. Pin its
-# `vue` to the Vue 2 version so it resolves locally regardless of hoisting.
-# (Removable once Vue 2 support is dropped.)
-packageExtensions:
-  vue-template-compiler:
-    dependencies:
-      vue: 2.7.16

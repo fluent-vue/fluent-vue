@@ -4,12 +4,10 @@ import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-import { isVue3 } from 'vue-demi'
-
 import { createFluentVue } from '../../src'
 import { renderSSR } from '../utils/ssr'
 
-describe.skipIf(!isVue3)('ssr directive', () => {
+describe('ssr directive', () => {
   let fluent: FluentVue
   let bundle: FluentBundle
 

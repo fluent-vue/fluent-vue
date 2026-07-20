@@ -1,12 +1,12 @@
+import type { DirectiveBinding, ObjectDirective } from 'vue'
 import type { TranslationContext } from '../TranslationContext'
-import type { Vue2Directive, Vue3Directive, VueDirectiveBinding } from '../types/typesCompat'
-import { watchEffect } from 'vue-demi'
+import { watchEffect } from 'vue'
 
 import { getContext } from '../getContext'
 import { warn } from '../util/warn'
 import { isAttrNameLocalizable } from './dom'
 
-function translate(el: HTMLElement, fluent: TranslationContext, binding: VueDirectiveBinding): void {
+function translate(el: HTMLElement, fluent: TranslationContext, binding: DirectiveBinding): void {
   const key = binding.arg
 
   if (key === undefined) {
@@ -28,7 +28,7 @@ function translate(el: HTMLElement, fluent: TranslationContext, binding: VueDire
   }
 }
 
-export function createVue3Directive(rootContext: TranslationContext): Vue3Directive {
+export function createDirective(rootContext: TranslationContext): ObjectDirective {
   return {
     mounted(el, binding) {
       watchEffect(() => {
@@ -65,20 +65,6 @@ export function createVue3Directive(rootContext: TranslationContext): Vue3Direct
       }
 
       return attrs
-    },
-  }
-}
-
-export function createVue2Directive(rootContext: TranslationContext): Vue2Directive {
-  return {
-    bind(el, binding, vnode) {
-      const context = getContext(rootContext, vnode.context)
-      translate(el, context, binding)
-    },
-
-    update(el, binding, vnode) {
-      const context = getContext(rootContext, vnode.context)
-      translate(el, context, binding)
     },
   }
 }

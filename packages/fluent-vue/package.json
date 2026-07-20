@@ -57,42 +57,30 @@
     "build": "tsdown",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit -p tsconfig.json",
-    "test": "node scripts/swap-vue.mjs 3 && vitest run",
-    "test:watch": "vitest",
-    "test:2": "node scripts/swap-vue.mjs 2 && vitest run",
-    "test:3": "node scripts/swap-vue.mjs 3 && vitest run"
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "peerDependencies": {
     "@fluent/bundle": ">=0.17.0",
-    "@vue/composition-api": ">=1.0.0-rc.1",
-    "vue": "^2.6.11 || >=3.2.45"
-  },
-  "peerDependenciesMeta": {
-    "@vue/composition-api": {
-      "optional": true
-    }
+    "vue": ">=3.2.45"
   },
   "dependencies": {
     "@fluent/sequence": "^0.8.0",
     "@vue/devtools-api": "^8.0.0",
-    "cached-iterable": "^0.3.0",
-    "vue-demi": "latest"
+    "cached-iterable": "^0.3.0"
   },
   "devDependencies": {
-    "@fluent/bundle": "~0.19.1",
-    "@fluent/dedent": "~0.5.0",
-    "@types/node": "^24.13.3",
-    "@vitest/coverage-v8": "^4.1.10",
-    "@vue/compiler-sfc": "catalog:vue3",
-    "@vue/test-utils": "catalog:vue3",
-    "execa": "^10.0.0",
-    "happy-dom": "^20.11.0",
+    "@fluent/bundle": "0.19.1",
+    "@fluent/dedent": "0.5.0",
+    "@types/node": "24.13.3",
+    "@vitest/coverage-v8": "4.1.10",
+    "@vue/compiler-sfc": "3.5.40",
+    "@vue/test-utils": "2.4.11",
+    "happy-dom": "20.11.0",
     "tsdown": "0.22.9",
-    "typescript": "^6.0.3",
-    "vite": "^8.1.5",
-    "vitest": "^4.1.10",
-    "vue": "catalog:vue3",
-    "vue-2": "catalog:vue3",
-    "vue-3": "catalog:vue3"
+    "typescript": "6.0.3",
+    "vite": "8.1.5",
+    "vitest": "4.1.10",
+    "vue": "3.5.40"
   }
 }

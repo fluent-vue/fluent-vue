@@ -1,10 +1,6 @@
-import type { ComponentOptions } from 'vue-3'
+import type { ComponentOptions } from 'vue'
 import type { FluentVue } from '../../src'
 import * as TestUtils from '@vue/test-utils'
-
-import { install } from 'vue-demi'
-
-install()
 
 export function renderSSR<T extends object>(
   fluent: FluentVue | null,

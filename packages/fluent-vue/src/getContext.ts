@@ -1,6 +1,6 @@
 import type { FluentResource } from '@fluent/bundle'
 import { CachedSyncIterable } from 'cached-iterable'
-import { computed } from 'vue-demi'
+import { computed } from 'vue'
 
 import { inheritBundle } from './inheritBundle'
 import { TranslationContext } from './TranslationContext'

@@ -2,7 +2,7 @@
 
 ## Compatibility
 
-`fluent-vue` is compatible both with Vue 2 and Vue 3.
+`fluent-vue` requires Vue 3 (>= 3.2). Vue 2 is no longer supported — use `fluent-vue` v3 for the last Vue 2 compatible release.
 
 `fluent-vue` requires the following `Intl` formatters:
 
@@ -43,38 +43,7 @@ npm install fluent-vue @fluent/bundle
 </code-group-item>
 </code-group>
 
-#### Note:
-If you are using `Vue` version <2.7 you need to install `@vue/composition-api`
-
-<code-group>
-<code-group-item title="PNPM" active>
-
-```shell
-pnpm add @vue/composition-api
-```
-
-</code-group-item>
-
-<code-group-item title="YARN">
-
-```shell
-yarn add @vue/composition-api
-```
-
-</code-group-item>
-<code-group-item title="NPM">
-
-```shell
-npm install @vue/composition-api
-```
-
-</code-group-item>
-</code-group>
-
 ## Configure and install Vue plugin
-
-<code-group>
-<code-group-item title="Vue 3" active>
 
 ```js
 import { createApp } from 'vue'
@@ -102,37 +71,6 @@ createApp(App)
   // Install Vue plugin
   .use(fluent)
 ```
-</code-group-item>
-
-<code-group-item title="Vue 2">
-
-```js
-import Vue from 'vue'
-import { FluentBundle, FluentResource } from '@fluent/bundle'
-
-import { createFluentVue } from 'fluent-vue'
-
-// Create bundles for locales that will be used
-const enBundle = new FluentBundle('en')
-const ukBundle = new FluentBundle('uk')
-
-// Add global resources to the bundles
-enBundle.addResource(new FluentResource('key = World'))
-enBundle.addResource(new FluentResource('another-key = Hello, {$name}'))
-
-// Create plugin istance
-// bundles - The current negotiated fallback chain of languages
-const fluent = createFluentVue({
-  bundles: [enBundle, ukBundle]
-})
-
-// Install Vue plugin
-Vue.use(fluent)
-```
-
-</code-group-item>
-
-</code-group>
 
 ## Customizing global names
 
@@ -144,9 +82,6 @@ The `globals` option allows you to customize:
 - `functions.formatAttrs` - The global attributes function name (default: `$ta`)
 - `component` - The component name (default: `i18n`)
 - `directive` - The directive name (default: `v-t`)
-
-<code-group>
-<code-group-item title="Vue 3" active>
 
 ```js
 import { createApp } from 'vue'
@@ -175,35 +110,3 @@ const fluent = createFluentVue({
 createApp(App)
   .use(fluent)
 ```
-</code-group-item>
-
-<code-group-item title="Vue 2">
-
-```js
-import Vue from 'vue'
-import { FluentBundle, FluentResource } from '@fluent/bundle'
-
-import { createFluentVue } from 'fluent-vue'
-
-const enBundle = new FluentBundle('en')
-
-enBundle.addResource(new FluentResource('key = World'))
-
-const fluent = createFluentVue({
-  bundles: [enBundle],
-  globals: {
-    functions: {
-      format: '$t',
-      formatAttrs: '$ta'
-    },
-    component: 'i18n',
-    directive: 'v-t'
-  }
-})
-
-Vue.use(fluent)
-```
-
-</code-group-item>
-
-</code-group>

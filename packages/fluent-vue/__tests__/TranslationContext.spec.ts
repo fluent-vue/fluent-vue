@@ -1,7 +1,7 @@
 import { FluentBundle, FluentResource } from '@fluent/bundle'
 import { describe, expect, it, vi } from 'vitest'
 
-import { ref } from 'vue-demi'
+import { ref } from 'vue'
 
 import { TranslationContext } from '../src/TranslationContext'
 

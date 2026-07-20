@@ -1,17 +1,17 @@
 import type { FluentBundle, FluentResource, FluentVariable } from '@fluent/bundle'
+import type { App } from 'vue'
 import type { TranslationWithAttrs } from './TranslationContext'
+
 import type { FluentVueOptions } from './types'
-import type { InstallFunction, Vue2, Vue3 } from './types/typesCompat'
-import { getCurrentInstance, isVue3, shallowRef } from 'vue-demi'
+import { getCurrentInstance, shallowRef } from 'vue'
 
 import { registerFluentVueDevtools } from './devtools'
-
 import { getContext, getMergedContext } from './getContext'
 import { RootContextSymbol } from './symbols'
 import { TranslationContext } from './TranslationContext'
 import { resolveOptions } from './util/options'
 import { createComponent } from './vue/component'
-import { createVue2Directive, createVue3Directive } from './vue/directive'
+import { createDirective } from './vue/directive'
 import './types/volar'
 
 export { useFluent } from './composition'
@@ -46,7 +46,7 @@ export interface FluentVue {
   $t: (key: string, value?: Record<string, FluentVariable | CustomVariableTypes>) => string
   $ta: (key: string, value?: Record<string, FluentVariable | CustomVariableTypes>) => Record<string, string>
 
-  install: InstallFunction
+  install: (vue: App) => void
 }
 
 /**
@@ -81,54 +81,30 @@ export function createFluentVue(options: FluentVueOptions): FluentVue {
     $ta: rootContext.formatAttrs.bind(rootContext),
 
     install(vue) {
-      if (isVue3) {
-        const vue3 = vue as Vue3
+      // eslint-disable-next-line node/prefer-global/process
+      if (process.env.NODE_ENV !== 'production')
+        registerFluentVueDevtools(vue, resolvedOptions, this)
 
-        // eslint-disable-next-line node/prefer-global/process
-        if (process.env.NODE_ENV !== 'production')
-          registerFluentVueDevtools(vue3, resolvedOptions, this)
+      vue.provide(RootContextSymbol, rootContext)
 
-        vue3.provide(RootContextSymbol, rootContext)
-
-        vue3.config.globalProperties[resolvedOptions.globalFormatName] = function (
-          key: string,
-          value?: Record<string, FluentVariable>,
-        ) {
-          const instance = getCurrentInstance()
-          return getContext(rootContext, instance?.proxy).format(key, value)
-        }
-        vue3.config.globalProperties[resolvedOptions.globalFormatAttrsName] = function (
-          key: string,
-          value?: Record<string, FluentVariable>,
-        ) {
-          const instance = getCurrentInstance()
-          return getContext(rootContext, instance?.proxy).formatAttrs(key, value)
-        }
-
-        vue3.directive(resolvedOptions.directiveName, createVue3Directive(rootContext))
+      vue.config.globalProperties[resolvedOptions.globalFormatName] = function (
+        key: string,
+        value?: Record<string, FluentVariable>,
+      ) {
+        const instance = getCurrentInstance()
+        return getContext(rootContext, instance?.proxy).format(key, value)
       }
-      else {
-        const vue2 = vue as Vue2
-
-        vue2.mixin({
-          provide() {
-            return {
-              [RootContextSymbol as symbol]: rootContext,
-            }
-          },
-        })
-
-        vue2.prototype[resolvedOptions.globalFormatName] = function (key: string, value?: Record<string, FluentVariable>) {
-          return getContext(rootContext, this).format(key, value)
-        }
-        vue2.prototype[resolvedOptions.globalFormatAttrsName] = function (key: string, value?: Record<string, FluentVariable>) {
-          return getContext(rootContext, this).formatAttrs(key, value)
-        }
-
-        vue2.directive(resolvedOptions.directiveName, createVue2Directive(rootContext))
+      vue.config.globalProperties[resolvedOptions.globalFormatAttrsName] = function (
+        key: string,
+        value?: Record<string, FluentVariable>,
+      ) {
+        const instance = getCurrentInstance()
+        return getContext(rootContext, instance?.proxy).formatAttrs(key, value)
       }
 
-      (vue as Vue3).component(resolvedOptions.componentName, createComponent(resolvedOptions, rootContext))
+      vue.directive(resolvedOptions.directiveName, createDirective(rootContext))
+
+      vue.component(resolvedOptions.componentName, createComponent(resolvedOptions, rootContext))
     },
   }
 }
