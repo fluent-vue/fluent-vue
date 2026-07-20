@@ -136,7 +136,7 @@ export default async() => defineConfig({
     languages: [
       {
         "injectTo": [
-          "source.vue"
+          "text.html.vue"
         ],
         ...VueInjection as unknown as LanguageRegistration
       },
