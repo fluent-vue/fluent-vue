@@ -110,8 +110,8 @@
   },
   "devDependencies": {
     "@fluent/bundle": "^0.19.1",
-    "@nuxt/kit": "^4.4.8",
-    "@nuxt/schema": "^4.4.8",
+    "@nuxt/kit": "^4.5.0",
+    "@nuxt/schema": "^4.5.0",
     "@types/node": "24.13.3",
     "@vitejs/plugin-vue": "6.0.8",
     "@vitest/coverage-v8": "^4.1.10",
