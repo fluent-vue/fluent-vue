@@ -1,6 +1,6 @@
 {
   "scopeName": "meta.embedded.ftl",
-  "injectionSelector": "L:source.vue",
+  "injectionSelector": "L:text.html.vue",
   "patterns": [
     {
       "begin": "(<)(fluent)\\b[^>]*(\\blocale\\s*=\\s*(['\"]?)\\w+\\b\\4)(>)",
