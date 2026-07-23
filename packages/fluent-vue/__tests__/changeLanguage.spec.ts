@@ -4,7 +4,7 @@ import { FluentBundle, FluentResource } from '@fluent/bundle'
 import ftl from '@fluent/dedent'
 import { beforeEach, describe, expect, it } from 'vitest'
 
-import { isVue3, nextTick } from 'vue-demi'
+import { nextTick } from 'vue'
 import { createFluentVue, useFluent } from '../src'
 import { mountWithFluent } from './utils'
 
@@ -142,10 +142,7 @@ describe('language change', () => {
 
     await mounted.setData({ show: false })
 
-    if (isVue3)
-      expect(mounted.html()).toEqual('<!--v-if-->')
-    else
-      expect(mounted.html()).toEqual('')
+    expect(mounted.html()).toEqual('<!--v-if-->')
 
     fluent.bundles = [bundleEn]
 
@@ -196,10 +193,7 @@ describe('language change', () => {
 
     await mounted.setData({ show: false })
 
-    if (isVue3)
-      expect(mounted.html()).toEqual('<!--v-if-->')
-    else
-      expect(mounted.html()).toEqual('')
+    expect(mounted.html()).toEqual('<!--v-if-->')
 
     fluent.bundles = [bundleEn]
 

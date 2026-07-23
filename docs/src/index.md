@@ -17,9 +17,9 @@ features:
 - title: Asymmetric localization
   icon: 🌐
   details: Natural-sounding translations with genders and grammatical cases only when necessary.
-- title: Vue 2, 3 and Nuxt 3 compatible
+- title: Vue 3 and Nuxt 3 compatible
   icon: 🔄
-  details: By utilising vue-demi and unplugin, fluent-vue is made compatible with Vue versions 2 and 3 and Nuxt 3.
+  details: By utilising unplugin, fluent-vue works with Vue 3 and Nuxt 3.
 - title: SFC support
   icon: 📄
   details: With unplugin-fluent-vue you can include localization messages with rest of your single file component code.

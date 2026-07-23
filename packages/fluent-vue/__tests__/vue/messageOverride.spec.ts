@@ -5,7 +5,7 @@ import ftl from '@fluent/dedent'
 
 import { beforeEach, describe, expect, it } from 'vitest'
 
-import { nextTick } from 'vue-demi'
+import { nextTick } from 'vue'
 import { createFluentVue } from '../../src'
 import { mountWithFluent } from '../utils'
 

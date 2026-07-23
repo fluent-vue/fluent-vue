@@ -1,4 +1,4 @@
-import type { PropType } from 'vue-demi'
+import type { PropType } from 'vue'
 
 import type { TranslationContext } from '../TranslationContext'
 import type { ResolvedOptions, SimpleNode } from '../types'
@@ -7,8 +7,7 @@ import {
   defineComponent,
   getCurrentInstance,
   h,
-  isVue2,
-} from 'vue-demi'
+} from 'vue'
 import { getContext } from '../getContext'
 import { camelize } from '../util/camelize'
 import { warn } from '../util/warn'
@@ -33,7 +32,7 @@ export function createComponent(options: ResolvedOptions, rootContext: Translati
       const fluent = getContext(
         rootContext,
         // @ts-expect-error This is internal Vue feature added in https://github.com/vuejs/core/commit/11214eedd2699e15106c44927f4d1206b111fbd3
-        instance?.vnode?.ctx /* Vue 3 */ ?? instance?.proxy?.$vnode?.context /* Vue 2 */,
+        instance?.vnode?.ctx /* Vue 3 */,
       )
 
       const translation = computed(() => {
@@ -101,9 +100,6 @@ export function createComponent(options: ResolvedOptions, rootContext: Translati
         const nodes = fluent.options.parseMarkup(translation.value.value)
         return nodes.map(processNode)
       })
-
-      if (isVue2 && (props.tag === false || props.noTag))
-        warn('Vue 2 requires a root element when rendering components. Please, use `tag` prop to specify the root element.')
 
       return () => props.tag === false || props.noTag ? children.value : h(props.tag, { ...attrs }, children.value)
     },

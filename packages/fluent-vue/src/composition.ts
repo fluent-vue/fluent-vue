@@ -1,5 +1,5 @@
 import type { TranslationContext } from './TranslationContext'
-import { getCurrentInstance, inject } from 'vue-demi'
+import { getCurrentInstance, inject } from 'vue'
 
 import { getContext } from './getContext'
 import { RootContextSymbol } from './symbols'

@@ -1,11 +1,11 @@
 import type { FluentResource } from '@fluent/bundle'
-import type { App, ComponentInternalInstance } from 'vue-demi'
+import type { App, ComponentInternalInstance } from 'vue'
 
 import type { FluentVue } from '../'
 import type { ResolvedOptions } from '../types'
 import { FluentBundle } from '@fluent/bundle'
 import { setupDevToolsPlugin } from '@vue/devtools-api'
-import { computed, getCurrentInstance, watchEffect } from 'vue-demi'
+import { computed, getCurrentInstance, watchEffect } from 'vue'
 import pseudoLocalize from './pseudoLocalize'
 
 export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fluent: FluentVue): void {

@@ -3,7 +3,7 @@ import { defineConfig } from 'tsdown'
 
 const shared: UserConfig = {
   target: 'node22',
-  external: ['vue-demi', '@fluent/bundle', '@vue/devtools-api'],
+  external: ['vue', '@fluent/bundle', '@vue/devtools-api'],
   skipNodeModulesBundle: true,
   outDir: 'dist',
 }
@@ -37,7 +37,7 @@ export default defineConfig([
     inlineOnly: false,
     outputOptions: {
       globals: {
-        'vue-demi': 'VueDemi',
+        'vue': 'Vue',
         '@fluent/bundle': 'FluentBundle',
       },
     },

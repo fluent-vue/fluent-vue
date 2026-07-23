@@ -104,25 +104,25 @@
   "dependencies": {
     "@fluent/syntax": "^0.19.0",
     "@rollup/pluginutils": "^5.0.0",
-    "@vue/compiler-core": "^3.4.21",
+    "@vue/compiler-core": "^3.5.40",
     "magic-string": "^1.0.0",
     "unplugin": "^3.0.0"
   },
   "devDependencies": {
-    "@fluent/bundle": "^0.19.1",
-    "@nuxt/kit": "^4.5.0",
-    "@nuxt/schema": "^4.5.0",
+    "@fluent/bundle": "0.19.1",
+    "@nuxt/kit": "4.5.0",
+    "@nuxt/schema": "4.5.0",
     "@types/node": "24.13.3",
     "@vitejs/plugin-vue": "6.0.8",
-    "@vitest/coverage-v8": "^4.1.10",
-    "@vue/compiler-sfc": "catalog:vue3",
+    "@vitest/coverage-v8": "4.1.10",
+    "@vue/compiler-sfc": "3.5.40",
     "execa": "10.0.0",
     "memfs": "4.64.0",
     "tsdown": "0.22.9",
     "typescript": "6.0.3",
     "vite": "8.1.5",
     "vitest": "4.1.10",
-    "vue": "catalog:vue3",
+    "vue": "3.5.40",
     "vue-loader": "17.4.2",
     "webpack": "5.108.4"
   }
