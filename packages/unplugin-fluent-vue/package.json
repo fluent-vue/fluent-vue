@@ -118,12 +118,12 @@
     "@vue/compiler-sfc": "3.5.40",
     "execa": "10.0.0",
     "memfs": "4.64.0",
-    "tsdown": "0.22.9",
+    "tsdown": "0.22.14",
     "typescript": "6.0.3",
     "vite": "8.1.5",
     "vitest": "4.1.10",
     "vue": "3.5.40",
     "vue-loader": "17.4.2",
-    "webpack": "5.108.4"
+    "webpack": "5.109.0"
   }
 }
