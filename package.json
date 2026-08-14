@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^9.1.0",
-    "@changesets/cli": "^2.31.1",
+    "@changesets/cli": "^3.0.0",
     "@changesets/get-github-info": "^0.8.0",
     "@ls-lint/ls-lint": "^2.3.1",
     "eslint": "^10.7.0",
