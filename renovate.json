@@ -27,6 +27,10 @@
       "groupName": "eslint packages"
     },
     {
+      "matchPackageNames": ["@changesets/**"],
+      "groupName": "changesets packages"
+    },
+    {
       "description": "vue2 pnpm catalog tracks the Vue 2 line; never propose major bumps (e.g. @vue/test-utils v1 → v2 is a Vue 3 release).",
       "matchDepTypes": ["pnpm.catalog.vue2"],
       "matchUpdateTypes": ["major"],
