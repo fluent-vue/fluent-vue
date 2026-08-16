@@ -8,7 +8,11 @@
   "ignorePresets": [":ignoreModulesAndTests"],
   "semanticCommits": "disabled",
   "minimumReleaseAge": "1 day",
-  "lockFileMaintenance": { "enabled": true },
+  "lockFileMaintenance": {
+    "description": "lockFileMaintenance upgrades carry no release timestamp, so renovate/stability-days can never pass and the PR sits pending forever. The age floor is still enforced on the lockfile itself by pnpm's minimumReleaseAge (pnpm-workspace.yaml), which covers transitive deps too.",
+    "enabled": true,
+    "minimumReleaseAge": null
+  },
   "packageRules": [
     {
       "matchDepTypes": ["dependencies"],
