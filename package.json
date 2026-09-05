@@ -2,7 +2,7 @@
   "name": "fluent-vue-monorepo",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@11.21.0",
+  "packageManager": "pnpm@11.25.0",
   "scripts": {
     "build": "pnpm -r build",
     "test": "pnpm -r test",
@@ -21,7 +21,7 @@
     "@ls-lint/ls-lint": "^2.3.1",
     "eslint": "^10.8.1",
     "husky": "^9.1.7",
-    "lint-staged": "^17.3.0"
+    "lint-staged": "^17.4.1"
   },
   "lint-staged": {
     "*.js": "eslint --fix",
