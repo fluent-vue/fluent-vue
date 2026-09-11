@@ -73,7 +73,7 @@
     "@fluent/bundle": "0.19.1",
     "@fluent/dedent": "0.5.0",
     "@types/node": "24.13.3",
-    "@vitest/coverage-v8": "4.1.10",
+    "@vitest/coverage-v8": "5.0.0",
     "@vue/compiler-sfc": "3.5.41",
     "@vue/test-utils": "2.4.11",
     "happy-dom": "20.11.2",
