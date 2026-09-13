@@ -72,15 +72,15 @@
   "devDependencies": {
     "@fluent/bundle": "0.19.1",
     "@fluent/dedent": "0.5.0",
-    "@types/node": "24.13.3",
-    "@vitest/coverage-v8": "4.1.10",
-    "@vue/compiler-sfc": "3.5.41",
-    "@vue/test-utils": "2.4.11",
-    "happy-dom": "20.11.2",
-    "tsdown": "0.22.14",
+    "@types/node": "24.13.4",
+    "@vitest/coverage-v8": "4.1.11",
+    "@vue/compiler-sfc": "3.5.42",
+    "@vue/test-utils": "2.5.0",
+    "happy-dom": "20.14.5",
+    "tsdown": "0.23.0",
     "typescript": "6.0.3",
-    "vite": "8.2.1",
+    "vite": "8.3.0",
     "vitest": "4.1.10",
-    "vue": "3.5.41"
+    "vue": "3.5.42"
   }
 }
