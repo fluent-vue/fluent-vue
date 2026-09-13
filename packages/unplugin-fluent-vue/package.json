@@ -112,18 +112,18 @@
     "@fluent/bundle": "0.19.1",
     "@nuxt/kit": "4.5.2",
     "@nuxt/schema": "4.5.2",
-    "@types/node": "24.13.3",
+    "@types/node": "24.13.4",
     "@vitejs/plugin-vue": "6.0.8",
-    "@vitest/coverage-v8": "4.1.10",
-    "@vue/compiler-sfc": "3.5.41",
+    "@vitest/coverage-v8": "4.1.11",
+    "@vue/compiler-sfc": "3.5.42",
     "execa": "10.0.1",
-    "memfs": "4.68.1",
-    "tsdown": "0.22.14",
+    "memfs": "4.76.0",
+    "tsdown": "0.23.0",
     "typescript": "6.0.3",
-    "vite": "8.2.1",
+    "vite": "8.3.0",
     "vitest": "4.1.10",
-    "vue": "3.5.41",
+    "vue": "3.5.42",
     "vue-loader": "17.4.2",
-    "webpack": "5.109.2"
+    "webpack": "5.110.3"
   }
 }
