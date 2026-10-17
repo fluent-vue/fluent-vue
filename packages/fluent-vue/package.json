@@ -76,7 +76,7 @@
     "@vitest/coverage-v8": "4.1.10",
     "@vue/compiler-sfc": "3.5.41",
     "@vue/test-utils": "2.4.11",
-    "happy-dom": "20.11.2",
+    "happy-dom": "21.0.3",
     "tsdown": "0.22.14",
     "typescript": "6.0.3",
     "vite": "8.2.1",
