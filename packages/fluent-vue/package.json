@@ -73,14 +73,14 @@
     "@fluent/bundle": "0.19.1",
     "@fluent/dedent": "0.5.0",
     "@types/node": "24.19.2",
-    "@vitest/coverage-v8": "4.1.12",
+    "@vitest/coverage-v8": "5.0.5",
     "@vue/compiler-sfc": "3.5.44",
     "@vue/test-utils": "2.5.1",
     "happy-dom": "21.0.3",
     "tsdown": "0.23.1",
     "typescript": "6.0.3",
     "vite": "8.2.1",
-    "vitest": "4.1.10",
+    "vitest": "5.0.5",
     "vue": "3.5.44"
   }
 }
