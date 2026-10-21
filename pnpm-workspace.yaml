@@ -10,3 +10,6 @@ packages:
 
 allowBuilds:
   esbuild: true
+minimumReleaseAgeExclude:
+  # Renovate security update: vite@8.2.4
+  - vite@8.2.4
