@@ -247,8 +247,8 @@ importers:
         specifier: 2.5.1
         version: 2.5.1(@vue/compiler-dom@3.5.44)(@vue/server-renderer@3.5.41)(vue@3.5.44(typescript@6.0.3))
       happy-dom:
-        specifier: 20.14.6
-        version: 20.14.6
+        specifier: 21.0.3
+        version: 21.0.3
       tsdown:
         specifier: 0.23.1
         version: 0.23.1(typescript@6.0.3)
@@ -260,7 +260,7 @@ importers:
         version: 8.2.1(@types/node@24.19.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
       vitest:
         specifier: 4.1.10
-        version: 4.1.10(@types/node@24.19.2)(@vitest/coverage-v8@4.1.12)(happy-dom@20.14.6)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
+        version: 4.1.10(@types/node@24.19.2)(@vitest/coverage-v8@4.1.12)(happy-dom@21.0.3)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
       vue:
         specifier: 3.5.44
         version: 3.5.44(typescript@6.0.3)
@@ -321,7 +321,7 @@ importers:
         version: 8.2.1(@types/node@24.19.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
       vitest:
         specifier: 4.1.10
-        version: 4.1.10(@types/node@24.19.2)(@vitest/coverage-v8@4.1.12)(happy-dom@20.14.6)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
+        version: 4.1.10(@types/node@24.19.2)(@vitest/coverage-v8@4.1.12)(happy-dom@21.0.3)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
       vue:
         specifier: 3.5.44
         version: 3.5.44(typescript@6.0.3)
@@ -2284,8 +2284,8 @@ packages:
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
-  happy-dom@20.14.6:
-    resolution: {integrity: sha512-5DDsf4QmEIlRL6NkCv/fxSjYHHkZceL/IaYQdJc2h3G7DRTEai++VTjbfL0LB9geW2VrA3+vrjF3Efx+OTtX0Q==}
+  happy-dom@21.0.3:
+    resolution: {integrity: sha512-PesNgu5BnIEmAwzKGewB3K1ORFeznFZJ4JrRz89ea1wkHnxskdpzX9sN/+zb4KO6k8oSMhyJSj/cwXAFrYBBNA==}
     engines: {node: '>=20.0.0'}
 
   has-flag@4.0.0:
@@ -4498,7 +4498,7 @@ snapshots:
 
   '@types/ws@8.18.1':
     dependencies:
-      '@types/node': 24.13.3
+      '@types/node': 24.19.2
 
   '@typescript-eslint/eslint-plugin@8.72.0(@typescript-eslint/parser@8.72.0(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3))(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)':
     dependencies:
@@ -4668,7 +4668,7 @@ snapshots:
       obug: 2.1.4
       std-env: 4.3.0
       tinyrainbow: 3.1.1
-      vitest: 4.1.10(@types/node@24.19.2)(@vitest/coverage-v8@4.1.10)(happy-dom@20.14.6)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)
+      vitest: 4.1.10(@types/node@24.19.2)(@vitest/coverage-v8@4.1.10)(happy-dom@21.0.3)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)
     optional: true
 
   '@vitest/coverage-v8@4.1.12(vitest@4.1.10)':
@@ -4683,7 +4683,7 @@ snapshots:
       obug: 2.1.4
       std-env: 4.2.0
       tinyrainbow: 3.1.1
-      vitest: 4.1.10(@types/node@24.19.2)(@vitest/coverage-v8@4.1.12)(happy-dom@20.14.6)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
+      vitest: 4.1.10(@types/node@24.19.2)(@vitest/coverage-v8@4.1.12)(happy-dom@21.0.3)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
 
   '@vitest/eslint-plugin@1.6.27(@typescript-eslint/eslint-plugin@8.72.0(@typescript-eslint/parser@8.72.0(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3))(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3))(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)(vitest@4.1.10)':
     dependencies:
@@ -4693,7 +4693,7 @@ snapshots:
     optionalDependencies:
       '@typescript-eslint/eslint-plugin': 8.72.0(@typescript-eslint/parser@8.72.0(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3))(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
       typescript: 6.0.3
-      vitest: 4.1.10(@types/node@24.19.2)(@vitest/coverage-v8@4.1.10)(happy-dom@20.14.6)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)
+      vitest: 4.1.10(@types/node@24.19.2)(@vitest/coverage-v8@4.1.10)(happy-dom@21.0.3)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -5109,7 +5109,7 @@ snapshots:
 
   buffer-image-size@0.6.4:
     dependencies:
-      '@types/node': 24.13.3
+      '@types/node': 24.19.2
 
   builtin-modules@5.3.0: {}
 
@@ -5675,9 +5675,9 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
-  happy-dom@20.14.6:
+  happy-dom@21.0.3:
     dependencies:
-      '@types/node': 24.13.3
+      '@types/node': 24.19.2
       '@types/whatwg-mimetype': 3.0.2
       '@types/ws': 8.18.1
       buffer-image-size: 0.6.4
@@ -6978,7 +6978,7 @@ snapshots:
       - universal-cookie
       - yaml
 
-  vitest@4.1.10(@types/node@24.19.2)(@vitest/coverage-v8@4.1.10)(happy-dom@20.14.6)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1):
+  vitest@4.1.10(@types/node@24.19.2)(@vitest/coverage-v8@4.1.10)(happy-dom@21.0.3)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1):
     dependencies:
       '@vitest/expect': 4.1.10
       '@vitest/mocker': 4.1.10(vite@8.2.1(@types/node@24.19.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1))
@@ -7003,7 +7003,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 24.19.2
       '@vitest/coverage-v8': 4.1.10(vitest@4.1.10)
-      happy-dom: 20.14.6
+      happy-dom: 21.0.3
     transitivePeerDependencies:
       - '@vitejs/devtools'
       - esbuild
@@ -7019,7 +7019,7 @@ snapshots:
       - yaml
     optional: true
 
-  vitest@4.1.10(@types/node@24.19.2)(@vitest/coverage-v8@4.1.12)(happy-dom@20.14.6)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0):
+  vitest@4.1.10(@types/node@24.19.2)(@vitest/coverage-v8@4.1.12)(happy-dom@21.0.3)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0):
     dependencies:
       '@vitest/expect': 4.1.10
       '@vitest/mocker': 4.1.10(vite@8.2.1(@types/node@24.19.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
@@ -7044,7 +7044,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 24.19.2
       '@vitest/coverage-v8': 4.1.12(vitest@4.1.10)
-      happy-dom: 20.14.6
+      happy-dom: 21.0.3
     transitivePeerDependencies:
       - '@vitejs/devtools'
       - esbuild
