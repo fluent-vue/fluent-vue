@@ -170,7 +170,7 @@ importers:
         specifier: ^9.5.1
         version: 9.5.1(@typescript-eslint/typescript-estree@8.72.0(supports-color@8.1.1)(typescript@6.0.3))(@typescript-eslint/utils@8.72.0(eslint@10.13.0(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3))(@vue/compiler-sfc@3.5.44)(eslint@10.13.0(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)(vitest@4.1.10)
       '@changesets/cli':
-        specifier: ^3.0.2
+        specifier: ^3.0.3
         version: 3.0.3
       '@changesets/get-github-info':
         specifier: ^1.0.1
