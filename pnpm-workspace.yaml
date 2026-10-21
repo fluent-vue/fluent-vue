@@ -1,13 +1,12 @@
 minimumReleaseAge: 1440 # minutes = 1 day
-
-shellEmulator: true
-autoInstallPeers: false # Why pnpm? Why?
-
+minimumReleaseAgeExcludePrune: true
 trustPolicy: no-downgrade
-
-allowBuilds:
-  esbuild: true
+autoInstallPeers: false # Why pnpm? Why?
+shellEmulator: true
 
 packages:
   - 'packages/*'
   - docs
+
+allowBuilds:
+  esbuild: true
