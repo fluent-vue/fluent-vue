@@ -72,7 +72,7 @@
   "devDependencies": {
     "@fluent/bundle": "0.19.1",
     "@fluent/dedent": "0.5.0",
-    "@types/node": "24.19.2",
+    "@types/node": "26.6.6",
     "@vitest/coverage-v8": "5.0.5",
     "@vue/compiler-sfc": "3.5.44",
     "@vue/test-utils": "2.5.1",
