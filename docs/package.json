@@ -9,7 +9,7 @@
   "devDependencies": {
     "shiki": "4.5.0",
     "unplugin-fluent-vue": "workspace:*",
-    "vitepress": "2.0.0-alpha.20"
+    "vitepress": "2.0.0-alpha.21"
   },
   "dependencies": {
     "@fluent/bundle": "0.19.1",
