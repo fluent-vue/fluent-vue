@@ -2,10 +2,10 @@ name: Test
 on:
   push:
     branches:
-      - main
+      - v3
   pull_request:
     branches:
-      - main
+      - v3
 env:
   CI: true
 
