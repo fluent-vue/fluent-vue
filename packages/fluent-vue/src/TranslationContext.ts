@@ -43,21 +43,31 @@ export class TranslationContext {
   ): string {
     const errors: Error[] = []
 
-    const mappedValue = value
-    if (mappedValue != null && this.options.mapVariable != null) {
-      for (const [key, variable] of Object.entries(mappedValue)) {
-        const mappedVariable = this.options.mapVariable(variable)
-        if (mappedVariable != null)
-          mappedValue[key] = mappedVariable
-      }
-    }
-
-    const formatted = bundle.formatPattern(message, mappedValue, errors)
+    const args = this.mapArgs(value)
+    const formatted = bundle.formatPattern(message, args, errors)
 
     for (const error of errors)
       warn(`Error when formatting message with key [${key}]`, error)
 
     return formatted
+  }
+
+  private mapArgs(
+    value?: Record<string, FluentVariable | CustomVariableTypes>,
+  ): Record<string, FluentVariable> | undefined {
+    if (value == null)
+      return value
+
+    const mapVariable = this.options.mapVariable
+    if (mapVariable == null)
+      return value
+
+    const mappedValue: Record<string, FluentVariable> = {}
+    for (const [name, variable] of Object.entries(value)) {
+      mappedValue[name] = mapVariable(variable) ?? variable
+    }
+
+    return mappedValue
   }
 
   private _format(

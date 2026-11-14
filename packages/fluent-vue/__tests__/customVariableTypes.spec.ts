@@ -58,5 +58,60 @@ describe('customVariableTypes', () => {
 
       expect(result).toBe('Weather in Paris: 22°C and sunny')
     })
+
+    it('should not mutate the passed variables object', () => {
+      const bundle = new FluentBundle('en-US', { useIsolating: false })
+      bundle.addResource(
+        new FluentResource(ftl`
+        temp = Temperature: {$temp}
+        `),
+      )
+
+      const fluent = createFluentVue({
+        bundles: [bundle],
+        mapVariable: variable => variable instanceof Temperature
+          ? `${variable.celsius}°C`
+          : undefined,
+      })
+
+      const temp = new Temperature(22)
+      const args = { temp }
+
+      expect(fluent.format('temp', args)).toBe('Temperature: 22°C')
+      expect(args.temp).toBe(temp)
+      expect(fluent.format('temp', Object.freeze({ temp }))).toBe('Temperature: 22°C')
+    })
+
+    it('should map variables from the original values for each attribute', () => {
+      const bundle = new FluentBundle('en-US', { useIsolating: false })
+      bundle.addResource(
+        new FluentResource(ftl`
+        temp = Temperature: {$temp}
+          .title = Title: {$temp}
+          .aria-label = Label: {$temp}
+        `),
+      )
+
+      const fluent = createFluentVue({
+        bundles: [bundle],
+        mapVariable: (variable) => {
+          if (variable instanceof Temperature)
+            return variable.celsius
+          if (typeof variable === 'number')
+            return `${variable} (mapped twice)`
+        },
+      })
+
+      expect(fluent.formatWithAttrs('temp', {
+        temp: new Temperature(22),
+      })).toEqual({
+        value: 'Temperature: 22',
+        hasValue: true,
+        attributes: {
+          'title': 'Title: 22',
+          'aria-label': 'Label: 22',
+        },
+      })
+    })
   })
 })
