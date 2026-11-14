@@ -2,7 +2,7 @@ name: Size
 on:
   pull_request:
     branches:
-      - main
+      - v3
     paths:
       - packages/fluent-vue/**
       - pnpm-lock.yaml

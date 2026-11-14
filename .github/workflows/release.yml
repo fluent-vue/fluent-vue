@@ -2,7 +2,7 @@ name: Release
 on:
   push:
     branches:
-      - main
+      - v3
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -28,7 +28,7 @@ jobs:
         with:
           publish: pnpm run release
           version: pnpm run version
-          commit: Release new version
-          title: Release new version
+          commit: Release new v3 version
+          title: Release new v3 version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
