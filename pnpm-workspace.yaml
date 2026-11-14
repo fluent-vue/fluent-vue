@@ -10,3 +10,6 @@ packages:
 
 allowBuilds:
   esbuild: true
+minimumReleaseAgeExclude:
+  # Renovate security update: @nuxt/schema@4.6.4
+  - "@nuxt/schema@4.6.4"
