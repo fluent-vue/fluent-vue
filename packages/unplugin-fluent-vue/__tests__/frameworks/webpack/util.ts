@@ -1,9 +1,10 @@
+import type { OutputFileSystem } from 'webpack'
 import type { SFCPluginOptions } from '../../../src/webpack'
 import path from 'node:path'
+
 import { createFsFromVolume, Volume } from 'memfs'
 
 import { VueLoaderPlugin } from 'vue-loader'
-
 import webpack from 'webpack'
 import { SFCFluentPlugin } from '../../../src/webpack'
 
@@ -31,12 +32,15 @@ export async function compile(fixture: string, options: Partial<SFCPluginOptions
     plugins: [
       new VueLoaderPlugin(),
       SFCFluentPlugin(options),
-      ...(hot ? [new webpack.HotModuleReplacementPlugin()] : []),
+      ...(hot
+        ? [
+            new webpack.HotModuleReplacementPlugin(),
+          ]
+        : []),
     ],
   })
 
-  compilation.outputFileSystem = createFsFromVolume(new Volume())
-  compilation.outputFileSystem.join = path.join.bind(path)
+  compilation.outputFileSystem = createFsFromVolume(new Volume()) as OutputFileSystem
 
   return await new Promise((resolve, reject) => {
     compilation.run((err, stats) => {

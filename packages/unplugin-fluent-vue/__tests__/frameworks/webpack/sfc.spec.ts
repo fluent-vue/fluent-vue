@@ -1,6 +1,14 @@
-import { describe, expect, it } from 'vitest'
+import type { Stats } from 'webpack'
 
+import { describe, expect, it } from 'vitest'
 import { compile } from './util'
+
+function getFtlModules(stats: Stats) {
+  const modules = stats.toJson({ source: true }).modules
+  return modules
+    ?.filter(module => module.name?.includes('blockType=fluent') === true && module.source && !module.source.includes('unplugin-fluent-vue-sfc'))
+    .map(module => module.source)
+}
 
 describe('webpack SFC', () => {
   it('generates custom block code', async () => {
@@ -9,7 +17,7 @@ describe('webpack SFC', () => {
     const stats = await compile('fixtures/test.vue')
 
     // Assert
-    const ftlModules = stats.toJson({ source: true }).modules?.filter(module => module.name?.includes('blockType=fluent') === true && !module.source.includes('unplugin-fluent-vue-sfc')).map(module => module.source)
+    const ftlModules = getFtlModules(stats)
 
     expect(ftlModules).not.toBeUndefined()
     expect(ftlModules).toHaveLength(1)
@@ -22,7 +30,7 @@ describe('webpack SFC', () => {
     const stats = await compile('fixtures/test.vue', {}, true)
 
     // Assert
-    const ftlModules = stats.toJson({ source: true }).modules?.filter(module => module.name?.includes('blockType=fluent') === true && !module.source.includes('unplugin-fluent-vue-sfc')).map(module => module.source)
+    const ftlModules = getFtlModules(stats)
 
     expect(ftlModules).not.toBeUndefined()
     expect(ftlModules).toHaveLength(1)

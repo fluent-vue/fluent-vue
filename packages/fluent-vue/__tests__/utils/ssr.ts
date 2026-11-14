@@ -8,7 +8,9 @@ export function renderSSR<T extends object>(
 ): Promise<string> {
   const { renderToString } = TestUtils
 
-  const plugins = fluent ? [fluent] : []
+  const plugins = fluent
+    ? [fluent]
+    : []
 
   return renderToString(component, {
     global: {

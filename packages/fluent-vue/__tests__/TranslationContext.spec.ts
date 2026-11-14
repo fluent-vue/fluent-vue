@@ -10,7 +10,10 @@ describe('translationContext', () => {
     const bundle = new FluentBundle('en-US', { useIsolating: false })
     bundle.addResource(new FluentResource('hello = Hello!'))
 
-    const context = new TranslationContext(ref([bundle]), { warnMissing: vi.fn(), parseMarkup: vi.fn() })
+    const context = new TranslationContext(ref([bundle]), {
+      warnMissing: vi.fn(),
+      parseMarkup: vi.fn(),
+    })
     expect(context.format('hello')).toBe('Hello!')
   })
 
@@ -18,7 +21,10 @@ describe('translationContext', () => {
     const bundle = new FluentBundle('en-US', { useIsolating: false })
     bundle.addResource(new FluentResource('hello = Hello {$name}!'))
 
-    const context = new TranslationContext(ref([bundle]), { warnMissing: vi.fn(), parseMarkup: vi.fn() })
+    const context = new TranslationContext(ref([bundle]), {
+      warnMissing: vi.fn(),
+      parseMarkup: vi.fn(),
+    })
     expect(context.format('hello', { name: 'John' })).toBe('Hello John!')
   })
 
@@ -38,6 +44,9 @@ describe('translationContext', () => {
           return variable.count
       },
     })
-    expect(context.format('hello', { name: 'John', count: new CustomCounter(5) })).toBe('Hello John you have 5 items')
+    expect(context.format('hello', {
+      name: 'John',
+      count: new CustomCounter(5),
+    })).toBe('Hello John you have 5 items')
   })
 })

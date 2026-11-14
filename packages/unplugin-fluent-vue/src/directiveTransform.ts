@@ -13,7 +13,11 @@ export const directiveTransform: DirectiveTransform = (dir, node, context) => {
   }
 
   const paramsExpr = dir.exp
-    ? createCompoundExpression([dir.arg, createSimpleExpression(`, `, false), dir.exp])
+    ? createCompoundExpression([
+        dir.arg,
+        createSimpleExpression(`, `, false),
+        dir.exp,
+      ])
     : dir.arg
 
   node.children = [

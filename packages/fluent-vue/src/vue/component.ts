@@ -21,8 +21,14 @@ export function createComponent(options: ResolvedOptions, rootContext: Translati
     name: options.componentName,
     props: {
       path: { type: String, required: true },
-      tag: { type: [String, Boolean] as PropType<string | false>, default: options.componentTag },
-      args: { type: Object, default: () => ({}) },
+      tag: {
+        type: [String, Boolean] as PropType<string | false>,
+        default: options.componentTag,
+      },
+      args: {
+        type: Object,
+        default: () => ({}),
+      },
       html: { type: Boolean, default: false },
       noTag: { type: Boolean, default: false },
     },
@@ -49,7 +55,10 @@ export function createComponent(options: ResolvedOptions, rootContext: Translati
         const result = fluent.formatWithAttrs(props.path, fluentParams)
 
         const camelizedAttrs = Object.fromEntries(
-          Object.entries(result.attributes).map(([key, value]) => [camelize(key), value]),
+          Object.entries(result.attributes).map(([key, value]) => [
+            camelize(key),
+            value,
+          ]),
         )
 
         return {
@@ -101,7 +110,9 @@ export function createComponent(options: ResolvedOptions, rootContext: Translati
         return nodes.map(processNode)
       })
 
-      return () => props.tag === false || props.noTag ? children.value : h(props.tag, { ...attrs }, children.value)
+      return () => props.tag === false || props.noTag
+        ? children.value
+        : h(props.tag, { ...attrs }, children.value)
     },
   })
 }

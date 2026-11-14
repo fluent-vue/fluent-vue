@@ -1,4 +1,4 @@
-import type { VitePlugin } from 'unplugin'
+import type { RollupPlugin, VitePlugin, WebpackPluginInstance } from 'unplugin'
 import type { SFCPluginOptions } from '../types'
 
 import { createUnplugin } from 'unplugin'
@@ -6,7 +6,7 @@ import { createUnplugin } from 'unplugin'
 import { isCustomBlock, parseVueRequest } from '../loaderQuery'
 import { getInjectFtl } from './ftl/inject'
 
-export const unplugin = createUnplugin((options: SFCPluginOptions, meta) => {
+export const unplugin = createUnplugin<SFCPluginOptions | undefined, false>((options, meta) => {
   const resolvedOptions = {
     blockType: 'fluent',
     checkSyntax: true,
@@ -16,7 +16,9 @@ export const unplugin = createUnplugin((options: SFCPluginOptions, meta) => {
 
   return {
     name: 'unplugin-fluent-vue-sfc',
-    enforce: meta.framework === 'webpack' ? 'post' : undefined,
+    enforce: meta.framework === 'webpack'
+      ? 'post'
+      : undefined,
     transformInclude(id: string) {
       const { query } = parseVueRequest(id)
       return isCustomBlock(query, resolvedOptions)
@@ -54,6 +56,6 @@ export default function (Component) {
   }
 })
 
-export const vitePlugin = unplugin.vite as (options?: SFCPluginOptions) => VitePlugin
-export const rollupPlugin = unplugin.rollup
-export const webpackPlugin = unplugin.webpack
+export const vitePlugin: (options?: SFCPluginOptions) => VitePlugin = unplugin.vite
+export const rollupPlugin: (options?: SFCPluginOptions) => RollupPlugin = unplugin.rollup
+export const webpackPlugin: (options?: SFCPluginOptions) => WebpackPluginInstance = unplugin.webpack

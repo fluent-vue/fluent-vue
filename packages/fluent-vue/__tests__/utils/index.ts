@@ -8,7 +8,9 @@ export function mountWithFluent<T extends object>(
 ) {
   const { mount } = TestUtils
 
-  const plugins = fluent ? [fluent] : []
+  const plugins = fluent
+    ? [fluent]
+    : []
 
   return mount(component, {
     global: {

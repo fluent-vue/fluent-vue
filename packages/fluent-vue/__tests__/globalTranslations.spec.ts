@@ -25,7 +25,9 @@ describe('mergedWith', () => {
     bundleEn.addResource(new FluentResource('hello = Hello, World!'))
 
     // Act
-    const { $t } = fluent.mergedWith({ en: new FluentResource('hello-two = Hello, World!') })
+    const { $t } = fluent.mergedWith({
+      en: new FluentResource('hello-two = Hello, World!'),
+    })
     const translation = $t('hello')
 
     // Assert
@@ -37,7 +39,9 @@ describe('mergedWith', () => {
     bundleEn.addResource(new FluentResource('hello = Hello, World!'))
 
     // Act
-    const { $t } = fluent.mergedWith({ en: new FluentResource('hello-two = Hello, World merged!') })
+    const { $t } = fluent.mergedWith({
+      en: new FluentResource('hello-two = Hello, World merged!'),
+    })
     const translation = $t('hello-two')
 
     // Assert
@@ -49,7 +53,9 @@ describe('mergedWith', () => {
     bundleEn.addResource(new FluentResource('hello = Hello, World!'))
 
     // Act
-    const { $t } = fluent.mergedWith({ en: new FluentResource('hello = Hello, World overridden!') })
+    const { $t } = fluent.mergedWith({
+      en: new FluentResource('hello = Hello, World overridden!'),
+    })
     const translation = $t('hello')
 
     // Assert
@@ -61,7 +67,9 @@ describe('mergedWith', () => {
     bundleEn.addResource(new FluentResource('hello = Hello, World!'))
 
     // Act
-    const { $t } = fluent.mergedWith({ uk: new FluentResource('hello-two = Привіт, Світ!') })
+    const { $t } = fluent.mergedWith({
+      uk: new FluentResource('hello-two = Привіт, Світ!'),
+    })
     const translation = $t('hello-two')
 
     // Assert

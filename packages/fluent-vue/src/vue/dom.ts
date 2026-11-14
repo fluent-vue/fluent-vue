@@ -1,6 +1,11 @@
 // Copied from fluent-dom library
 const LOCALIZABLE_ATTRIBUTES: Record<string, string[]> = {
-  global: ['title', 'aria-label', 'aria-valuetext', 'aria-moz-hint'],
+  global: [
+    'title',
+    'aria-label',
+    'aria-valuetext',
+    'aria-moz-hint',
+  ],
   a: ['download'],
   area: ['download', 'alt'],
   // value is special-cased in isAttrNameLocalizable

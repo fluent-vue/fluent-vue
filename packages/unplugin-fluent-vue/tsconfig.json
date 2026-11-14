@@ -2,8 +2,8 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "target": "ESNext",
-    "baseUrl": ".",
-    "moduleResolution": "node"
+    "module": "esnext",
+    "moduleResolution": "bundler"
   },
   "exclude": ["node_modules"]
 }
