@@ -1,3 +1,4 @@
+import type { RollupPlugin, VitePlugin, WebpackPluginInstance } from 'unplugin'
 import type { ExternalPluginOptions } from '../types'
 import { stat as fsStat } from 'node:fs/promises'
 import { dirname, join, relative } from 'node:path'
@@ -38,7 +39,7 @@ function isFluentCustomBlock(id: string) {
   return isCustomBlock(request.query, { blockType: 'fluent' })
 }
 
-export const unplugin = createUnplugin((options: ExternalPluginOptions) => {
+export const unplugin = createUnplugin<ExternalPluginOptions, false>((options) => {
   const resolvedOptions = {
     checkSyntax: true,
     parseFtl: false,
@@ -165,6 +166,6 @@ export default function (Component) {
   }
 })
 
-export const vitePlugin = unplugin.vite
-export const rollupPlugin = unplugin.rollup
-export const webpackPlugin = unplugin.webpack
+export const vitePlugin: (options: ExternalPluginOptions) => VitePlugin = unplugin.vite
+export const rollupPlugin: (options: ExternalPluginOptions) => RollupPlugin = unplugin.rollup
+export const webpackPlugin: (options: ExternalPluginOptions) => WebpackPluginInstance = unplugin.webpack

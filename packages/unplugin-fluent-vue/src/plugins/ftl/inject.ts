@@ -32,7 +32,9 @@ export function getInjectFtl(options: { checkSyntax: boolean, parseFtl: boolean 
     }
 
     const magic = new MagicString(source)
-    const importString = options.parseFtl === true ? '' : '\nimport { FluentResource } from \'@fluent/bundle\'\n'
+    const importString = options.parseFtl === true
+      ? ''
+      : '\nimport { FluentResource } from \'@fluent/bundle\'\n'
 
     if (source.length === 0) {
       magic.append('{"body":[]}')

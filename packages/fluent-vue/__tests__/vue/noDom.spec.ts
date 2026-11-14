@@ -95,11 +95,13 @@ describe('component html support', () => {
     const fluent = createFluentVue({
       bundles: [bundle],
       parseMarkup: (markup: string) => {
-        return [{
-          nodeType: 8,
-          textContent: markup,
-          nodeValue: markup,
-        }]
+        return [
+          {
+            nodeType: 8,
+            textContent: markup,
+            nodeValue: markup,
+          },
+        ]
       },
     })
 

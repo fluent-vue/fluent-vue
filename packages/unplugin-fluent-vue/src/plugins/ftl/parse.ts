@@ -49,8 +49,12 @@ export function getSyntaxErrors(
   const errors = junks.map(x => x.annotations).flat()
   if (errors.length > 0) {
     const errorsText = errors.map((x) => {
-      const line = lineOffset(source, x.span.start) + 1
-      const column = columnOffset(source, x.span.start) + 1
+      const line = x.span
+        ? lineOffset(source, x.span.start) + 1
+        : 0
+      const column = x.span
+        ? columnOffset(source, x.span.start) + 1
+        : 0
       return `    ${x.code}: ${x.message} (${line}:${column})
 ${generateCodeFrame(source, line, column)}`
     }).join('\n')

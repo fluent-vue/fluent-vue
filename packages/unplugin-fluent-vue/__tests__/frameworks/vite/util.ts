@@ -10,21 +10,17 @@ export async function compile(options: InlineConfig, file: string): Promise<stri
     root: baseDir,
     ...options,
     plugins: [
-      ...options.plugins,
+      ...options.plugins ?? [],
       {
         name: 'externals',
-        config(config) {
-          const newAlias = [
-            ...(config?.resolve?.alias ?? []),
-            { find: /^vue$/, replacement: 'virtual:empty:vue' },
-            { find: /^@fluent\/bundle$/, replacement: 'virtual:empty:fluent-bundle' },
-          ]
-
-          config.resolve = {
-            ...(config.resolve ?? {}),
-            alias: newAlias,
-          }
-        },
+        config: () => ({
+          resolve: {
+            alias: [
+              { find: /^vue$/, replacement: 'virtual:empty:vue' },
+              { find: /^@fluent\/bundle$/, replacement: 'virtual:empty:fluent-bundle' },
+            ],
+          },
+        }),
       },
       {
         name: 'virtual:empty',
@@ -44,7 +40,12 @@ export async function compile(options: InlineConfig, file: string): Promise<stri
 
   const module = await vite.moduleGraph.getModuleByUrl(file)
 
-  const getAllModules = (module: ModuleNode): ModuleNode[] => [module].concat([...module.importedModules.values()].flatMap(getAllModules))
+  if (module == null)
+    throw new Error(`Module not found for ${file}`)
+
+  const getAllModules = (module: ModuleNode): ModuleNode[] => [module].concat([
+    ...module.importedModules.values(),
+  ].flatMap(getAllModules))
 
   const modules = await Promise.all(getAllModules(module)
     .map(async module => ({
@@ -56,7 +57,7 @@ export async function compile(options: InlineConfig, file: string): Promise<stri
     .filter(module => module.transform)
     .filter(module => !module.module.url.includes('node_modules'))
     .filter(module => !module.module.url.includes('virtual:empty:'))
-    .map(module => `=== ${module.module.url} ===\n${module.transform.code}`)
+    .map(module => `=== ${module.module.url} ===\n${module.transform!.code}`)
     .join('\n\n')
 
   // normalize paths

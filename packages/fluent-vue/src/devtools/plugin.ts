@@ -207,7 +207,9 @@ export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fl
               _custom: {
                 type: 'custom',
                 display:
-                  (message.value ? bundle.formatPattern(message.value, {}, []) : '')
+                  (message.value
+                    ? bundle.formatPattern(message.value, {}, [])
+                    : '')
                   + (overridesGlobal ? '&nbsp;<span style="color:#ffa726">Global</span>' : ''),
               },
             },
@@ -238,9 +240,13 @@ export function registerFluentVueDevtools(app: App, options: ResolvedOptions, fl
         if (payload.nodeId === 'global') {
           payload.state = {}
           for (const bundle of cleanBundles.value) {
-            payload.state[bundle.locales.join(',')] = [...bundle._messages.entries()].map(([_, message]) => ({
+            payload.state[bundle.locales.join(',')] = [
+              ...bundle._messages.entries(),
+            ].map(([_, message]) => ({
               key: message.id,
-              value: message.value ? bundle.formatPattern(message.value, {}, []) : '',
+              value: message.value
+                ? bundle.formatPattern(message.value, {}, [])
+                : '',
             }))
           }
         }
