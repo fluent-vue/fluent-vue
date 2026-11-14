@@ -1,4 +1,4 @@
-import type { InlineConfig, ModuleNode } from 'vite'
+import type { InlineConfig } from 'vite'
 
 import { resolve, sep } from 'node:path'
 import { createServer } from 'vite'
@@ -43,15 +43,13 @@ export async function compile(options: InlineConfig, file: string): Promise<stri
   if (module == null)
     throw new Error(`Module not found for ${file}`)
 
-  const getAllModules = (module: ModuleNode): ModuleNode[] => [module].concat([
-    ...module.importedModules.values(),
-  ].flatMap(getAllModules))
-
-  const modules = await Promise.all(getAllModules(module)
+  const modules = await Promise.all([module, ...module.importedModules]
     .map(async module => ({
       transform: await vite.transformRequest(module.url),
       module,
     })))
+
+  await vite.close()
 
   const code = modules
     .filter(module => module.transform)
