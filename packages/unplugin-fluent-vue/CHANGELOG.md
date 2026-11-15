@@ -9,6 +9,16 @@
 
 
 
+## 2.0.0
+
+### Major Changes
+
+- [#1094](https://github.com/fluent-vue/fluent-vue/pull/1094) Switch to ESM-only build. There should be no difference for plugin consumers. ([@Demivan](https://github.com/Demivan))
+
+### Patch Changes
+
+- [#1089](https://github.com/fluent-vue/fluent-vue/pull/1089) Type the Vite and Rollup plugin exports as `VitePlugin` and `RollupPlugin` instead of `any`. ([@Demivan](https://github.com/Demivan))
+
 ## 1.4.1 (2025-06-01)
 
 #### :star: New Features

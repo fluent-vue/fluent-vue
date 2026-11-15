@@ -1,5 +1,29 @@
 # fluent-vue
 
+## 4.0.0
+
+### Major Changes
+
+- [#1094](https://github.com/fluent-vue/fluent-vue/pull/1094) Drop CJS and production builds. There should be no difference for most consumers. ([@Demivan](https://github.com/Demivan))
+
+  CJS consumers (SSR via require, Jest in CJS mode) need Node 20.19+/22.12+ or ESM-aware tooling.
+
+- [#1059](https://github.com/fluent-vue/fluent-vue/pull/1059) Drop Vue 2 support. `fluent-vue` is now Vue 3 only and no longer depends on `vue-demi` or `@vue/composition-api`. ([@Demivan](https://github.com/Demivan))
+
+  Vue 2 reached end-of-life at the end of 2023. Most project have long migrated to Vue 3. Dropping Vue 2 also clears the way for Vue 3.6 support, which is coming in `fluent-vue` v4.
+
+  - **Vue 2** → stay on `fluent-vue` v3.
+  - **Vue 3 (including 3.6)** → upgrade to `fluent-vue` v4.
+
+  **Breaking changes:**
+
+  - Vue 2 is no longer supported. The minimum supported version is Vue 3.2.
+  - Removed the `vue-demi` dependency and the optional `@vue/composition-api` peer dependency.
+
+### Patch Changes
+
+- [#1090](https://github.com/fluent-vue/fluent-vue/pull/1090) Stop `mapVariable` from mutating the variables object passed to `format`, `$t`, `$ta` and `v-t`. Readonly, reactive and frozen objects (such as component `props`) now format correctly, and attributes are formatted from the original values instead of already-mapped ones. ([@Demivan](https://github.com/Demivan))
+
 ## 3.8.2
 
 ### Patch Changes
