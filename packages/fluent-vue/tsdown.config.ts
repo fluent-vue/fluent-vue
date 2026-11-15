@@ -3,7 +3,6 @@ import { defineConfig } from 'tsdown'
 
 const shared: UserConfig = {
   target: 'node22',
-  external: ['vue', '@fluent/bundle', '@vue/devtools-api'],
   outDir: 'dist',
 }
 
@@ -19,7 +18,10 @@ export default defineConfig([
     entry: ['src/index.ts'],
     format: ['iife'],
     globalName: 'FluentVue',
-    noExternal: ['@fluent/sequence', 'cached-iterable'],
+    deps: {
+      alwaysBundle: ['@fluent/sequence', 'cached-iterable'],
+      onlyBundle: ['@fluent/sequence', 'cached-iterable'],
+    },
     outputOptions: {
       globals: {
         'vue': 'Vue',

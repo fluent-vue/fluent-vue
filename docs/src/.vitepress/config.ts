@@ -3,8 +3,8 @@ import { defineConfig } from 'vitepress'
 import { SFCFluentPlugin } from 'unplugin-fluent-vue/vite'
 
 import { type LanguageRegistration } from 'shiki'
-import FluentLanguage from './fluent.tmLanguage.json'
-import VueInjection from './vue.injection.json'
+import FluentLanguage from './fluent.tmLanguage.json' with { type: 'json' }
+import VueInjection from './vue.injection.json' with { type: 'json' }
 
 const domain = 'https://fluent-vue.demivan.me'
 
