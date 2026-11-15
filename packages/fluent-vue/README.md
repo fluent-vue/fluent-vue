@@ -67,7 +67,7 @@ shared-photos =
 
 Documentation can be found here: [https://fluent-vue.demivan.me](https://fluent-vue.demivan.me)
 
-Examples for different Vue.js versions and build systems can be found [here](https://github.com/fluent-vue/examples).
+Examples for Vite, webpack and Nuxt can be found [here](https://github.com/fluent-vue/fluent-vue/tree/main/examples).
 
 ## 📜 Changelog
 

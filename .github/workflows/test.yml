@@ -98,11 +98,9 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
 
-      - name: Checkout examples
-        uses: actions/checkout@v7.0.1
-        with:
-          repository: fluent-vue/examples
-          path: examples
-
-      - name: Test
-        run: node packages/fluent-vue/scripts/build-examples.mjs
+      - name: Build packages
+        run: pnpm build
+      - name: Build examples
+        run: pnpm examples:build
+      - name: Type check examples
+        run: pnpm examples:typecheck

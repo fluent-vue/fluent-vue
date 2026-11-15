@@ -1,0 +1,30 @@
+{
+  "name": "fluent-vue-example-vite",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "typecheck": "vue-tsc -p tsconfig.app.json && vue-tsc -p tsconfig.node.json"
+  },
+  "dependenciesMeta": {
+    "fluent-vue": {
+      "injected": true
+    },
+    "unplugin-fluent-vue": {
+      "injected": true
+    }
+  },
+  "dependencies": {
+    "@fluent/bundle": "0.19.1",
+    "fluent-vue": "workspace:*",
+    "vue": "3.5.45"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "6.0.11",
+    "typescript": "6.0.3",
+    "unplugin-fluent-vue": "workspace:*",
+    "vite": "8.3.8",
+    "vue-tsc": "3.3.14"
+  }
+}
