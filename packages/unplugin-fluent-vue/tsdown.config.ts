@@ -9,7 +9,7 @@ export default defineConfig({
     './src/nuxt.ts',
   ],
   external: ['@nuxt/schema'],
-  format: ['esm', 'cjs'],
+  format: 'esm',
   outDir: 'dist',
   dts: true,
   clean: true,
