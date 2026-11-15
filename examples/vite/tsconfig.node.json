@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "types": [],
+    "strict": true,
+    "noEmit": true,
+    // unplugin's types import the types of every bundler it supports, most of which a Vite project doesn't install
+    "skipLibCheck": true
+  },
+  "include": ["vite.config.ts"]
+}
