@@ -8,8 +8,10 @@ export default defineConfig({
     './src/rollup.ts',
     './src/nuxt.ts',
   ],
-  external: ['@nuxt/schema'],
-  format: ['esm', 'cjs'],
+  deps: {
+    neverBundle: ['@nuxt/schema'],
+  },
+  format: 'esm',
   outDir: 'dist',
   dts: true,
   clean: true,

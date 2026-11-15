@@ -1,7 +1,7 @@
 import type { FluentBundle, FluentVariable } from '@fluent/bundle'
-import type { CustomVariableTypes } from 'src'
+import type { CustomVariableTypes } from '../index'
 
-type SimpleNode = Pick<Node, 'nodeType' | 'textContent' | 'nodeValue'>
+export type SimpleNode = Pick<Node, 'nodeType' | 'textContent' | 'nodeValue'>
 
 export interface FluentVueOptions {
   /** Current negotiated fallback chain of languages */

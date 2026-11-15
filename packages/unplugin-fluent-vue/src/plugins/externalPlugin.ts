@@ -4,7 +4,7 @@ import { stat as fsStat } from 'node:fs/promises'
 import { dirname, join, relative } from 'node:path'
 
 import { createFilter, makeLegalIdentifier } from '@rollup/pluginutils'
-import MagicString from 'magic-string'
+import { MagicString } from 'magic-string'
 
 import { createUnplugin } from 'unplugin'
 import { isCustomBlock, parseVueRequest } from '../loaderQuery'

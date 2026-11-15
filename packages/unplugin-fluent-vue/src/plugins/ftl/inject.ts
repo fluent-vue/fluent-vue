@@ -1,6 +1,6 @@
 import type { SourceMap } from 'magic-string'
 import { FluentResource } from '@fluent/bundle'
-import MagicString from 'magic-string'
+import { MagicString } from 'magic-string'
 import { getSyntaxErrors } from './parse'
 
 type InjectFtlFn = (template: TemplateStringsArray, locale?: string, source?: string) => { code?: { code: string, map: SourceMap }, error?: string }
