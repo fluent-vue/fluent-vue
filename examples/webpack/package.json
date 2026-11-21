@@ -16,13 +16,13 @@
   "dependencies": {
     "@fluent/bundle": "0.19.1",
     "fluent-vue": "workspace:*",
-    "vue": "3.5.45"
+    "vue": "3.5.46"
   },
   "devDependencies": {
     "html-webpack-plugin": "5.6.8",
     "unplugin-fluent-vue": "workspace:*",
     "vue-loader": "17.4.2",
-    "webpack": "5.112.2",
+    "webpack": "5.113.0",
     "webpack-cli": "7.3.1",
     "webpack-dev-server": "6.1.0"
   }

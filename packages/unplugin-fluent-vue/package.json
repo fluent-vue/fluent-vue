@@ -88,16 +88,16 @@
     "@nuxt/schema": "4.6.4",
     "@types/node": "26.6.6",
     "@vitejs/plugin-vue": "6.0.11",
-    "@vitest/coverage-v8": "5.1.0",
-    "@vue/compiler-sfc": "3.5.45",
+    "@vitest/coverage-v8": "5.1.1",
+    "@vue/compiler-sfc": "3.5.46",
     "execa": "10.2.1",
     "memfs": "4.80.1",
     "tsdown": "0.23.7",
     "typescript": "6.0.3",
     "vite": "8.3.8",
-    "vitest": "5.1.0",
-    "vue": "3.5.45",
+    "vitest": "5.1.1",
+    "vue": "3.5.46",
     "vue-loader": "17.4.2",
-    "webpack": "5.112.2"
+    "webpack": "5.113.0"
   }
 }
