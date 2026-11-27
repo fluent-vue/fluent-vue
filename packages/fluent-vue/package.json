@@ -63,15 +63,15 @@
   "devDependencies": {
     "@fluent/bundle": "0.19.1",
     "@fluent/dedent": "0.5.0",
-    "@types/node": "26.6.6",
-    "@vitest/coverage-v8": "5.1.0",
-    "@vue/compiler-sfc": "3.5.45",
-    "@vue/test-utils": "2.5.1",
+    "@types/node": "26.6.11",
+    "@vitest/coverage-v8": "5.1.2",
+    "@vue/compiler-sfc": "3.5.46",
+    "@vue/test-utils": "2.6.0",
     "happy-dom": "21.0.4",
     "tsdown": "0.23.7",
     "typescript": "6.0.3",
-    "vite": "8.3.8",
-    "vitest": "5.1.0",
-    "vue": "3.5.45"
+    "vite": "8.4.0",
+    "vitest": "5.1.2",
+    "vue": "3.5.46"
   }
 }

@@ -18,11 +18,11 @@
   "dependencies": {
     "@fluent/bundle": "0.19.1",
     "fluent-vue": "workspace:*",
-    "nuxt": "4.6.4",
-    "vue": "3.5.45"
+    "nuxt": "4.7.0",
+    "vue": "3.5.46"
   },
   "devDependencies": {
-    "@nuxt/kit": "4.6.4",
+    "@nuxt/kit": "4.7.0",
     "typescript": "6.0.3",
     "unplugin-fluent-vue": "workspace:*",
     "vue-tsc": "3.3.14"
